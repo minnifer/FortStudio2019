@@ -16,22 +16,14 @@ const settings = {
             [
               "Home",
               "/"
-            ],
-            // [
-            //   "Nature",
-            //   "/category/nature/"
-            // ],
-            // [
-            //   "Travel",
-            //   "/category/travel/"
-            // ],
-            // [
-            //   "Japan",
-            //   "/tag/japan/"
-            // ],
+            ],    
             [
-              "About Us",
-              "/about-us/"
+              "What We Do",
+              "/what-we-do/"
+            ],
+            [
+              "Who We Are",
+              "/who-we-are/"
             ]
           ],
           "featured": {

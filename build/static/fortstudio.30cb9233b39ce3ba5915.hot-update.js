@@ -1,0 +1,17 @@
+webpackHotUpdate("fortstudio",{
+
+/***/ "./node_modules/striptags/src/striptags.js":
+false,
+
+/***/ "./packages/mars-theme/src/components/home.js":
+/*!****************************************************!*\
+  !*** ./packages/mars-theme/src/components/home.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: /Users/minhoq/Sites/FortStudio/packages/mars-theme/src/components/home.js: Unexpected token (41:12)\\n\\n\\u001b[0m \\u001b[90m 39 | \\u001b[39m        \\u001b[33m<\\u001b[39m\\u001b[33mContainer\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 40 | \\u001b[39m             \\u001b[33m<\\u001b[39m\\u001b[33mdiv\\u001b[39m  dangerouslySetInnerHTML\\u001b[33m=\\u001b[39m{{ __html\\u001b[33m:\\u001b[39m body }}   \\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 41 | \\u001b[39m            \\u001b[33m<\\u001b[39m\\u001b[33mStyledLink\\u001b[39m link\\u001b[33m=\\u001b[39m\\u001b[32m'/what-we-do/'\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[33mLearn\\u001b[39m \\u001b[33mMore\\u001b[39m\\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mStyledLink\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m    | \\u001b[39m            \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 42 | \\u001b[39m        \\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mContainer\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 43 | \\u001b[39m      \\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mContent\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 44 | \\u001b[39m    \\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mContainer\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n    at Object.raise (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:6975:17)\\n    at Object.unexpected (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:8368:16)\\n    at Object.jsxParseIdentifier (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:3871:12)\\n    at Object.jsxParseNamespacedName (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:3881:23)\\n    at Object.jsxParseAttribute (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:3965:22)\\n    at Object.jsxParseOpeningElementAfterName (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:3986:28)\\n    at Object.jsxParseOpeningElementAt (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:3979:17)\\n    at Object.jsxParseElementAt (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:4011:33)\\n    at Object.jsxParseElementAt (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:4027:32)\\n    at Object.jsxParseElementAt (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/lib/index.js:4027:32)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3BhY2thZ2VzL21hcnMtdGhlbWUvc3JjL2NvbXBvbmVudHMvaG9tZS5qcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./packages/mars-theme/src/components/home.js\n");
+
+/***/ })
+
+})

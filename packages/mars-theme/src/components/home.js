@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import striptags from "striptags";
 
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -25,13 +26,19 @@ const Home = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
   // Load the post, but only if the data is ready.
+  var body = post.acf.body;
+  body = striptags(body, "<strong>");
   return data.isReady ? (
-    <Container>    
+    <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content>    
+      <Content>
         <VideoContainer>
-          <Video autoPlay muted loop src={post.acf.video['url']} />
+          <Video autoPlay muted loop src={post.acf.video["url"]} />
+          <TextContainer>
+            <BodyContainer dangerouslySetInnerHTML={{ __html: body }}></BodyContainer>
+            <StyledLink link="/what-we-do/">Learn More</StyledLink>
+          </TextContainer>
         </VideoContainer>
       </Content>
     </Container>
@@ -40,35 +47,43 @@ const Home = ({ state, actions, libraries }) => {
 
 export default connect(Home);
 
-const Container = styled.div` 
-  margin: 0; 
-  width:100%; 
+const Container = styled.div`
+  margin: 0;
+  width: 100%;
 `;
 
 const VideoContainer = styled.div`
-    position:relative;
-    height:100vh;
-    width:100vw;
-`;
-const Video = styled.video`
-    object-fit: cover;
-    height:100%;
-    width:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 `;
 
-const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+const TextContainer = styled.div`
+  position:relative;  
+  z-index:1;
+  max-width:1440px;
+`;
+
+const BodyContainer = styled.div`
+  margin-left:140px;
+`;
+
+const Video = styled.video`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 `;
 
 const StyledLink = styled(Link)`
   padding: 15px 0;
+  margin-left:140px;
 `;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
