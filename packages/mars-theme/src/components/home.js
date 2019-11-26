@@ -25,18 +25,16 @@ const Home = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
     List.preload();
   }, []);
-  // Load the post, but only if the data is ready.
-  var body = post.acf.body;
-  body = striptags(body, "<strong>");
+  // Load the post, but only if the data is ready.    
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <Content>
         <VideoContainer>
-          <Video autoPlay muted loop src={post.acf.video["url"]} />
+          <Video src={post.acf.video["url"]} />
           <TextContainer>
-            <BodyContainer dangerouslySetInnerHTML={{ __html: body }}></BodyContainer>
+            <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
             <StyledLink link="/what-we-do/">Learn More</StyledLink>
           </TextContainer>
         </VideoContainer>
@@ -67,7 +65,7 @@ const TextContainer = styled.div`
   max-width:1440px;
 `;
 
-const BodyContainer = styled.div`
+const BodyContainer = styled.h1`
   margin-left:140px;
 `;
 
@@ -84,6 +82,8 @@ const Video = styled.video`
 const StyledLink = styled(Link)`
   padding: 15px 0;
   margin-left:140px;
+  text-transform:uppercase;
+  text-decoration:none;
 `;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
@@ -96,8 +96,18 @@ const Content = styled.div`
     max-width: 100%;
   }
 
-  p {
-    line-height: 1.6em;
+  .p {
+    /* line-height: 1.6em; */
+    margin:0;
+    font-size:20px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing:0;
+    line-height:28px;
+    color:#1d1d1d;
+  }
+  p{
+    margin:0;
   }
 
   img {
