@@ -2,19 +2,19 @@
   "errors": [],
   "warnings": [],
   "version": "4.41.2",
-  "hash": "fb66998c7c5c833d6780",
+  "hash": "913d838efcd14378e4cf",
   "publicPath": "/static/",
   "outputPath": "/Users/minhoq/Sites/FortStudio/build/static",
   "assetsByChunkName": {
     "fortstudio": [
       "fortstudio.module.js",
-      "fortstudio.c6c4609ab60e6cf777e9.hot-update.js"
+      "fortstudio.fb66998c7c5c833d6780.hot-update.js"
     ],
     "list": "list.module.js"
   },
   "assets": [
     {
-      "name": "c6c4609ab60e6cf777e9.hot-update.json",
+      "name": "fb66998c7c5c833d6780.hot-update.json",
       "size": 52,
       "chunks": [],
       "chunkNames": [],
@@ -25,8 +25,8 @@
       "emitted": false
     },
     {
-      "name": "fortstudio.c6c4609ab60e6cf777e9.hot-update.js",
-      "size": 64969,
+      "name": "fortstudio.fb66998c7c5c833d6780.hot-update.js",
+      "size": 64970,
       "chunks": [
         "fortstudio"
       ],
@@ -41,7 +41,7 @@
     },
     {
       "name": "fortstudio.module.js",
-      "size": 10751896,
+      "size": 10751897,
       "chunks": [
         "fortstudio"
       ],
@@ -72,7 +72,7 @@
       ],
       "assets": [
         "fortstudio.module.js",
-        "fortstudio.c6c4609ab60e6cf777e9.hot-update.js"
+        "fortstudio.fb66998c7c5c833d6780.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -85,7 +85,7 @@
       ],
       "assets": [
         "fortstudio.module.js",
-        "fortstudio.c6c4609ab60e6cf777e9.hot-update.js"
+        "fortstudio.fb66998c7c5c833d6780.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
