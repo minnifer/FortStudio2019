@@ -2,12 +2,14 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 
+
 const Nav = ({ state }) => (
   <Container>
     {state.theme.menu.map(([name, link]) => (
       <Item key={name} isSelected={state.router.link === link}>
-        <Link link={link}>{name}</Link>
+        <Link link={link}>{name}</Link>         
       </Item>
+     
     ))}
   </Container>
 );
