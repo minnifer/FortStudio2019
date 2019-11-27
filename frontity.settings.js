@@ -37,7 +37,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://fortstudio2019.wpengine.com/wp-json",
+          "api": "https://fortstudio2019.wpengine.com/wp-json",
            "homepage": "/home-page",
         }
       }
