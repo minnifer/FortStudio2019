@@ -3,9 +3,8 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
-import striptags from "striptags";
 
-const Home = ({ state, actions, libraries }) => {
+const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
@@ -25,65 +24,74 @@ const Home = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
     List.preload();
   }, []);
-  // Load the post, but only if the data is ready.    
+
+  // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
+      <div>
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+        {/* Only display author and date on posts */}
+        {data.isPost && (
+          <div>
+            {author && (
+              <StyledLink link={author.link}>
+                <Author>
+                  By <b>{author.name}</b>
+                </Author>
+              </StyledLink>
+            )}
+            <Fecha>
+              {" "}
+              on <b>{date.toDateString()}</b>
+            </Fecha>
+          </div>
+        )}
+      </div>
+
+      {/* Look at the settings to see if we should include the featured image */}
+      {state.theme.featured.showOnPost && (
+        <FeaturedMedia id={post.featured_media} />
+      )}
+
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <Content>
-        <VideoContainer>
-          <Video autoPlay muted loop src={post.acf.video["url"]} />
-          <TextContainer>
-            <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
-            <StyledLink link="/what-we-do/">Learn More</StyledLink>
-          </TextContainer>
-        </VideoContainer>
+        <Html2React html={post.content.rendered} />
       </Content>
     </Container>
   ) : null;
 };
 
-export default connect(Home);
+export default connect(Post);
 
 const Container = styled.div`
+  width: 1440px;
   margin: 0;
-  width: 100%;
+  padding: 24px;
 `;
 
-const VideoContainer = styled.div`
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-`;
-
-const TextContainer = styled.div`
-  position:relative;  
-  z-index:1;
-  max-width:1440px;
-`;
-
-const BodyContainer = styled.h1`
-  margin-left:140px;
-`;
-
-const Video = styled.video`
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+const Title = styled.h1`
+  margin: 0;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: rgba(12, 17, 43);
 `;
 
 const StyledLink = styled(Link)`
   padding: 15px 0;
-  margin-left:140px;
-  text-transform:uppercase;
-  text-decoration:none;
+`;
+
+const Author = styled.p`
+  color: rgba(12, 17, 43, 0.9);
+  font-size: 0.9em;
+  display: inline;
+`;
+
+const Fecha = styled.p`
+  color: rgba(12, 17, 43, 0.9);
+  font-size: 0.9em;
+  display: inline;
 `;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
@@ -94,20 +102,10 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
-  }  
-
-  .p {
-    /* line-height: 1.6em; */
-    margin:0;
-    font-size:20px;
-    font-weight: 300;
-    font-style: normal;
-    letter-spacing:0;
-    line-height:28px;
-    color:#1d1d1d;
   }
-  p{
-    margin:0;
+
+  p {
+    line-height: 1.6em;
   }
 
   img {

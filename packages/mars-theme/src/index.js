@@ -1,6 +1,11 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
-
+// const whatWeDoHandler = {
+//   pattern: "/what-we-do/",
+//   func: ({ state }) => {
+//     state.source.data["/what-we-do/"].isWhatWeDo = true;
+//   }
+// };
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -22,7 +27,11 @@ const marsTheme = {
   // Actions are functions that modify the state or deal with other parts of
   // Frontity like libraries.
   actions: {
-    theme: {}
+    theme: {
+      init: ({ libraries }) => {
+        // libraries.source.handlers.push(whatWeDoHandler);
+      }
+    }
   },
   libraries: {
     html2react: {
