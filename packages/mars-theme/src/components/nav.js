@@ -1,16 +1,17 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-
+import { bubble as Menu } from 'react-burger-menu'
 
 const Nav = ({ state }) => (
   <Container>
-    {state.theme.menu.map(([name, link]) => (
-      <Item key={name} isSelected={state.router.link === link}>
-        <Link link={link}>{name}</Link>         
-      </Item>
-     
-    ))}
+     <Menu right>
+        {state.theme.menu.map(([name, link]) => (
+          <Item key={name} isSelected={state.router.link === link}>
+            <Link className="menu-item" link={link}>{name}</Link>         
+          </Item>        
+        ))}          
+      </Menu>
   </Container>
 );
 

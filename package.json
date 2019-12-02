@@ -21,6 +21,7 @@
     "bootstrap": "^4.4.0",
     "frontity": "^1.4.2",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-burger-menu": "^2.6.13",
     "react-spring": "^8.0.27",
     "striptags": "^3.1.1"
   }

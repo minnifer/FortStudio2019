@@ -360,7 +360,7 @@ const HeadContainer = styled.div`
   position: absolute;
   z-index: 2;
   margin: auto;
-  width: 100%;
+  width: 100%;  
 `;
 
 const Main = styled.div`
