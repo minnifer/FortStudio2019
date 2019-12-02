@@ -12,11 +12,7 @@ const settings = {
       "name": "@frontity/mars-theme",
       "state": {
         "theme": {
-          "menu": [
-            [
-              "Home",
-              "/"
-            ],    
+          "menu": [               
             [
               "What We Do",
               "/what-we-do/"

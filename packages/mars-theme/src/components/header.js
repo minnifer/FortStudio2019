@@ -7,9 +7,9 @@ import Logo from "./logo";
 const Header = ({ state }) => (
   <>
     <Container>      
-        <Logo />     
+      <Logo />
+      <Nav />
     </Container>
-    <Nav />
   </>
 );
 
@@ -20,10 +20,9 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background:green;
+  display: flex;  
+  justify-content: space-around;  
+  margin:auto;   
 `;
 
 const Title = styled.h2`

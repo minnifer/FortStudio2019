@@ -94,7 +94,7 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
-  }
+  }  
 
   .p {
     /* line-height: 1.6em; */

@@ -356,7 +356,7 @@ const globalStyles = css`
 const HeadContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   position: absolute;
   z-index: 2;
   margin: auto;
