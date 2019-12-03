@@ -1,27 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect, styled } from "frontity";
-
-const ClientGrid = props => {
-//   console.log(props.layout.client_grid);
-  return (
-    <Container>  
-    {props.layout.client_grid.map((grid, index) => (
-          renderGrid(grid, index)
-      ))}
-    </Container>
-  );
-};
-var renderGrid = (grid, index) => {
-  return(
-      <GridItem key={index}>
-      {grid.post_title}
-      </GridItem>
-  )
+class ClientGrid extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  renderGrid = (grid, index) => {
+    return <GridItem key={index}>{grid.post_title}</GridItem>;
+  };  
+  
+  render() {
+    console.log(this.state);
+    return (
+      <Container>
+        {this.props.layout.client_grid.map((grid, index) => this.renderGrid(grid, index))}
+      </Container>
+    );
+  }
 }
 
 export default connect(ClientGrid);
 
-const Container = styled.div`  
+const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
@@ -29,8 +29,7 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
-const GridItem = styled.div`  
-`;
+const GridItem = styled.div``;
 const ToutContainer = styled.div``;
 
 // const

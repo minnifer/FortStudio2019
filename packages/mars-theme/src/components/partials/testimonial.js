@@ -2,7 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 
 const ClientGrid = props => {
-  console.log(props.layout);
+  // console.log(props.layout);
   return (
     <Container>  
         <QuoteBody dangerouslySetInnerHTML={{ __html: props.layout.body }}></QuoteBody>
