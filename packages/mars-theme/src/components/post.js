@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
+import ComponentRouter from "./componentRouter"
 import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
+
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -19,9 +21,9 @@ const Post = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
     List.preload();
   }, []);  
-  // for (const [i, value] of post.acf.content_blocks.entries()) {    
-  //   var layouts[i].fill(value.acf_fc_layout);
-  // }
+  for (const [i, value] of post.acf.content_blocks.entries()) {    
+    // console.log(post.acf.content_blocks[i].acf_fc_layout);
+  }
  
   
   // Load the post, but only if the data is ready.
@@ -30,7 +32,7 @@ const Post = ({ state, actions, libraries }) => {
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <Content>
-             
+             <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
     </Container>
   ) : null;
