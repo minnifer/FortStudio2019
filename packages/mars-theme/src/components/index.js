@@ -309,6 +309,10 @@ const globalStyles = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  p{
+    margin:0;
+    line-height:inherit;
+  }
   a,
   a:visited {
     color: inherit;
@@ -350,6 +354,24 @@ const globalStyles = css`
   }
   strong{
       font-weight:400;
+  }
+  .p1 {
+    /* line-height: 1.6em; */
+    margin:0;
+    font-size:20px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing:0;
+    line-height:28px;
+    color:#1d1d1d;
+  }
+  .p2{
+    font-size:16px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing:0;
+    line-height:18px;
+    color:#1d1d1d;
   }
 `;
 

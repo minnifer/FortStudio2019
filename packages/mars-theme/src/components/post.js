@@ -40,33 +40,13 @@ const Post = ({ state, actions, libraries }) => {
 
 export default connect(Post);
 
-const Container = styled.div`
-  width: 1440px;
+const Container = styled.div`  
   margin: 0;
-  padding: 24px;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  width:100%;
 `;
 
 const StyledLink = styled(Link)`
   padding: 15px 0;
-`;
-
-const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
-
-const Fecha = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
 `;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
@@ -77,10 +57,6 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
-  }
-
-  p {
-    line-height: 1.6em;
   }
 
   img {

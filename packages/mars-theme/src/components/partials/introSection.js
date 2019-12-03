@@ -1,46 +1,103 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Image from "@frontity/components/image";
 
-const FeaturedMedia = ({ state, id }) => {
-  const media = state.source.attachment[id];
-
-  if (!media) return null;
-
-  const srcset =
-    Object.values(media.media_details.sizes)
-      // Get the url and width of each size.
-      .map(item => [item.source_url, item.width])
-      // Recude them to a string with the format required by `srcset`.
-      .reduce(
-        (final, current, index, array) =>
-          final.concat(
-            `${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`
-          ),
-        ""
-      ) || null;
-
+const IntroSection = props => {  
   return (
     <Container>
-      <StyledImage
-        alt={media.title.rendered}
-        src={media.source_url}
-        srcSet={srcset}
-      />
+      <LeftContainer>
+        <h2 dangerouslySetInnerHTML={{ __html: props.layout.headline }}></h2>
+        <BodyContainer
+          className="p1"
+          dangerouslySetInnerHTML={{ __html: props.layout.body }}
+        ></BodyContainer>
+      </LeftContainer>
+      <RightContainer>
+        <ToutContainer>
+          <h4
+            dangerouslySetInnerHTML={{
+              __html: props.layout.strategy_section.headline
+            }}
+          ></h4>
+          <BodyContainer
+            className="p2"
+            dangerouslySetInnerHTML={{
+              __html: props.layout.strategy_section.body
+            }}
+          ></BodyContainer>
+          <h5
+            dangerouslySetInnerHTML={{
+              __html: props.layout.strategy_section.hover_body
+            }}
+          ></h5>
+        </ToutContainer>
+        <ToutContainer>
+          <h4
+            dangerouslySetInnerHTML={{
+              __html: props.layout.identity_section.headline
+            }}
+          ></h4>
+          <BodyContainer
+            className="p2"
+            dangerouslySetInnerHTML={{
+              __html: props.layout.identity_section.body
+            }}
+          ></BodyContainer>
+          <h5
+            dangerouslySetInnerHTML={{
+              __html: props.layout.identity_section.hover_body
+            }}
+          ></h5>
+        </ToutContainer>
+        <ToutContainer>
+          <h4
+            dangerouslySetInnerHTML={{
+              __html: props.layout.design_section.headline
+            }}
+          ></h4>
+          <BodyContainer
+            className="p2"
+            dangerouslySetInnerHTML={{
+              __html: props.layout.design_section.body
+            }}
+          ></BodyContainer>
+          <h5
+            dangerouslySetInnerHTML={{
+              __html: props.layout.design_section.hover_body
+            }}
+          ></h5>
+        </ToutContainer>
+      </RightContainer>
     </Container>
   );
 };
 
-export default connect(FeaturedMedia);
+export default connect(IntroSection);
 
 const Container = styled.div`
-  margin-top: 16px;
-  height: 300px;
+  width: 1440px;
+  margin:auto; 
+  box-sizing: border-box;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: row;
 `;
 
-const StyledImage = styled(Image)`
-  display: block;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  margin-top: 260px;
+  width:50%;
+  bottom:0;
 `;
+
+const RightContainer = styled.div`
+  width:17%;
+  align-self:flex-end;
+  margin-top:548px;
+`;
+
+const BodyContainer = styled.div``;
+const ToutContainer = styled.div``;
+
+// const

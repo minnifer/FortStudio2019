@@ -63,10 +63,12 @@ const TextContainer = styled.div`
   position:relative;  
   z-index:1;
   max-width:1440px;
+  margin:auto;
+  width:100%;
 `;
 
 const BodyContainer = styled.h1`
-  margin-left:140px;
+  /* margin-left:140px; */
 `;
 
 const Video = styled.video`
@@ -79,9 +81,7 @@ const Video = styled.video`
   z-index: 1;
 `;
 
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-  margin-left:140px;
+const StyledLink = styled(Link)`    
   text-transform:uppercase;
   text-decoration:none;
 `;
