@@ -48,6 +48,7 @@ export default connect(Home);
 const Container = styled.div`
   margin: 0;
   width: 100%;
+  overflow:hidden;
 `;
 
 const VideoContainer = styled.div`
@@ -68,7 +69,7 @@ const TextContainer = styled.div`
 `;
 
 const BodyContainer = styled.h1`
-  /* margin-left:140px; */
+  padding-left:114px;
 `;
 
 const Video = styled.video`
@@ -84,6 +85,7 @@ const Video = styled.video`
 const StyledLink = styled(Link)`    
   text-transform:uppercase;
   text-decoration:none;
+  padding-left:114px;
 `;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested

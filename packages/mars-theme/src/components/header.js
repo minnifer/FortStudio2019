@@ -33,3 +33,4 @@ const Title = styled.h2`
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+

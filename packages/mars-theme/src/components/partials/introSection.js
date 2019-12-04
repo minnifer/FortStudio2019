@@ -77,7 +77,7 @@ const Container = styled.div`
   width: 1440px;
   margin:auto; 
   box-sizing: border-box;
-  padding: 24px 0;
+  padding: 24px 119px;
   display: flex;
   flex-direction: row;
 `;
@@ -87,12 +87,12 @@ const LeftContainer = styled.div`
   flex-direction: column;
   position: sticky;
   margin-top: 260px;
-  width:50%;
+  width:55%;
   bottom:0;
 `;
 
 const RightContainer = styled.div`
-  width:17%;
+  width:22.5%;
   align-self:flex-end;
   margin-top:548px;
 `;

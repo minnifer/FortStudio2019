@@ -26,6 +26,7 @@ const Container = styled.nav`
   overflow-x: hidden;
   justify-content:center;
   align-items:center;
+  margin-right:119px;
 `;
 
 const Item = styled.div`

@@ -5,7 +5,7 @@ import List from "./list";
 import ComponentRouter from "./componentRouter"
 import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
-
+import Footer from "./footer";
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -34,7 +34,9 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
              <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
+      <Footer />  
     </Container>
+    
   ) : null;
 };
 

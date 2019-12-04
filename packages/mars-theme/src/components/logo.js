@@ -118,4 +118,6 @@ const Container = styled.div`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  padding: 0 119px;
+  padding-right:0;
 `;

@@ -1,5 +1,19 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
+const acfOptionsHandler = {
+  pattern: "acf-options-page",
+  func: async ({ route, state, libraries }) => {
+    // 1. Get ACF option page from REST API.
+    const response = await libraries.source.api.get({
+      endpoint: `/acf/v3/options/options`
+    });
+    const option = await response.json();
+
+    // 2. Add data to `source`.
+    const data = state.source.get(route);
+    Object.assign(data, { ...option, isAcfOptionsPage: true });
+  }
+};
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -20,10 +34,13 @@ const marsTheme = {
   },
   // Actions are functions that modify the state or deal with other parts of
   // Frontity like libraries.
-  actions: {
+   actions: {
     theme: {
-      init: ({ libraries }) => {
-        // libraries.source.handlers.push(whatWeDoHandler);
+      beforeSSR: async ({ state, actions }) => {
+        // This will make Frontity wait until the ACF options
+        // page has been fetched and it is available
+        // using state.source.get("acf-options-page").
+        await actions.source.fetch("acf-options-page");
       }
     }
   },
@@ -34,7 +51,7 @@ const marsTheme = {
       processors: [image]
     },
     source:{
-      // handlers: [clientHandler]
+        handlers: [acfOptionsHandler]
     }
   }
 };
