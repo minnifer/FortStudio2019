@@ -4,11 +4,13 @@ import Link from "./link";
 import Nav from "./nav";
 import Logo from "./logo";
 
-const Header = ({ state }) => (
-  <>
+const Header = ({ state, theme }) => (
+  
+  
+  <>  
     <Container>      
-      <Logo />
-      <Nav />
+      <Logo navDark={theme}/>
+      <Nav navDark={theme}/>
     </Container>
   </>
 );

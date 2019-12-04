@@ -26,10 +26,7 @@ const marsTheme = {
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
       menu: [],
-      featured: {
-        showOnList: false,
-        showOnPost: false
-      }
+      navDark:true,
     }
   },
   // Actions are functions that modify the state or deal with other parts of

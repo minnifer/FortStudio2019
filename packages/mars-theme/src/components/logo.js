@@ -2,11 +2,11 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 
-const Logo = ({ state }) => (
+const Logo = ({ state, theme }) => (
   <>
     <Container>
       <StyledLink link="/">
-        <svg
+        <StyledSVG
           width="104.482"
           height="40.693"
           viewBox="0 0 104.482 40.693"
@@ -97,7 +97,7 @@ const Logo = ({ state }) => (
               </g>
             </g>
           </g>
-        </svg>
+        </StyledSVG>
       </StyledLink>
     </Container>    
   </>
@@ -120,4 +120,10 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   padding: 0 119px;
   padding-right:0;
+`;
+
+const StyledSVG = styled.svg`
+  g, path{
+    fill: ${theme => theme ? "black" : "white"};
+  }
 `;

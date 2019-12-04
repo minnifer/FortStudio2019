@@ -5,6 +5,7 @@ import List from "./list";
 import ComponentRouter from "./componentRouter"
 import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
+import Header from "./header";
 import Footer from "./footer";
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -31,6 +32,9 @@ const Post = ({ state, actions, libraries }) => {
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
+       <HeadContainer>
+        <Header />
+      </HeadContainer>
       <Content>
              <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
@@ -168,4 +172,14 @@ const Content = styled.div`
       margin-right: 24px;
     }
   }
+`;
+
+const HeadContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  width: 100%;  
 `;

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
+import Header from "./header";
 import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
 
@@ -26,10 +27,15 @@ const Home = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
   // Load the post, but only if the data is ready.    
+
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
+          {/* Add the header of the site. */}
+      <HeadContainer>
+        <Header theme="dark"/>
+      </HeadContainer>
       <Content>
         <VideoContainer>
           <Video autoPlay muted loop src={post.acf.video["url"]} />
@@ -51,6 +57,15 @@ const Container = styled.div`
   overflow:hidden;
 `;
 
+const HeadContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  width: 100%;  
+`;
 const VideoContainer = styled.div`
   position: relative;
   height: 100vh;
