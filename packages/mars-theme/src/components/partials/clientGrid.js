@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import { connect, styled } from "frontity";
+import Image from "@frontity/components/image";
 class ClientGrid extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
   renderGrid = (grid, index) => {
-    return <GridItem key={index}>{grid.post_title}</GridItem>;
-  };  
-  
-  render() {
-    console.log(this.state);
+    return (
+      <GridItem key={index}>
+        <Category>{grid.category.name}</Category>
+        <Logo alt={grid.logo.alt} src={grid.logo.url} />
+        <BodyContainer>{grid.body}</BodyContainer>
+      </GridItem>
+    );
+  };
+
+  render() {    
     return (
       <Container>
-        {this.props.layout.client_grid.map((grid, index) => this.renderGrid(grid, index))}
+        {this.props.layout.client_grid.map((grid, index) =>
+          this.renderGrid(grid, index)
+        )}
       </Container>
     );
   }
@@ -30,6 +37,12 @@ const Container = styled.div`
 `;
 
 const GridItem = styled.div``;
-const ToutContainer = styled.div``;
-
+const Category = styled.div``;
+const BodyContainer = styled.div``;
+const Logo = styled(Image)`
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
 // const

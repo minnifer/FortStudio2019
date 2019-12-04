@@ -1,11 +1,5 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
-// const whatWeDoHandler = {
-//   pattern: "/what-we-do/",
-//   func: ({ state }) => {
-//     state.source.data["/what-we-do/"].isWhatWeDo = true;
-//   }
-// };
 const marsTheme = {
   name: "@frontity/mars-theme",
   roots: {
@@ -38,6 +32,9 @@ const marsTheme = {
       // Add a processor to html2react so it processes the <img> tags
       // inside the content HTML. You can add your own processors too.
       processors: [image]
+    },
+    source:{
+      // handlers: [clientHandler]
     }
   }
 };

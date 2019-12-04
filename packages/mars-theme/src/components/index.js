@@ -41,7 +41,7 @@ const Theme = ({ state }) => {
           (data.isArchive && <List />) ||
           (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
-      </Main>
+      </Main>      
     </>
   );
 };

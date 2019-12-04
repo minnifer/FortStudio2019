@@ -1,8 +1,8 @@
 import React from "react";
 import { connect, styled } from "frontity";
-
+import Image from "@frontity/components/image";
+import Link from "./../link";
 const TeamMembers = props => {
-  //   console.log(props.layout.client_grid);
   return (
     <Container>
       {props.layout.team_members.map((teamMember, index) =>
@@ -11,8 +11,21 @@ const TeamMembers = props => {
     </Container>
   );
 };
-var renderTeamMember = (teamMember, index) => {
-  return <TeamMember key={index}>{teamMember.post_title}</TeamMember>;
+const renderTeamMember = (teamMember, index) => {  
+  return (
+    <TeamMember key={index}>
+      <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
+      <NameContainer>
+        {teamMember.name}
+        {teamMember.title}
+      </NameContainer>
+      <SocialContainer>
+          <Link className="menu-item" link={teamMember.dribble}>{teamMember.dribble}</Link>
+          <Link className="menu-item" link={teamMember.instagram}>{teamMember.instagram}</Link>
+          <Link className="menu-item" link={teamMember.linkedin}>{teamMember.linkedin}</Link>
+      </SocialContainer>
+    </TeamMember>
+  );
 };
 
 export default connect(TeamMembers);
@@ -26,6 +39,13 @@ const Container = styled.div`
 `;
 
 const TeamMember = styled.div``;
-const ToutContainer = styled.div``;
+const NameContainer = styled.div``;
+const SocialContainer = styled.div``;
+const StyledImage = styled(Image)`
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
 
 // const

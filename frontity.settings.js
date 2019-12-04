@@ -1,40 +1,40 @@
 const settings = {
-  "name": "fortstudio",
-  "state": {
-    "frontity": {
-      "url": "https://test.frontity.io",
-      "title": "Fort Studio",
-      "description": "Wordpress Install with React"
+  name: "fortstudio",
+  state: {
+    frontity: {
+      url: "https://test.frontity.io",
+      title: "Fort Studio",
+      description: "Wordpress Install with React"
     }
   },
-  "packages": [
+  packages: [
     {
-      "name": "@frontity/mars-theme",
-      "state": {
-        "theme": {
-          "menu": [               
-            [
-              "What We Do",
-              "/what-we-do/"
-            ],
-            [
-              "Who We Are",
-              "/who-we-are/"
-            ]
+      name: "@frontity/mars-theme",
+      state: {
+        theme: {
+          menu: [
+            ["What We Do", "/what-we-do/"],
+            ["Who We Are", "/who-we-are/"]
           ],
-          "featured": {
-            "showOnList": false,
-            "showOnPost": false
+          featured: {
+            showOnList: false,
+            showOnPost: false
           }
         }
       }
     },
     {
-      "name": "@frontity/wp-source",
-      "state": {
-        "source": {
-          "api": "https://fortstudio2019.wpengine.com/wp-json",
-           "homepage": "/home-page",
+      name: "@frontity/wp-source",
+      state: {
+        source: {
+          api: "https://fortstudio2019.wpengine.com/wp-json",
+          homepage: "/home-page",
+          postTypes: [
+            {
+              type: "clients",
+              endpoint: "clients"              
+            }
+          ]
         }
       }
     },
