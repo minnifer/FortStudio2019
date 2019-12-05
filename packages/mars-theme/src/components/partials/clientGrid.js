@@ -37,7 +37,7 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;  
   margin: auto;
-  max-width: 1440px;
+  max-width: 2000px;
 `;
 const Wrapper = styled.div`
   display: flex;

@@ -74,7 +74,7 @@ const IntroSection = props => {
 export default connect(IntroSection);
 
 const Container = styled.div`
-  width: 1440px;
+  width: 2000px;
   margin:auto; 
   box-sizing: border-box;
   padding: 0 119px;

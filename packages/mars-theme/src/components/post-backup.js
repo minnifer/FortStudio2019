@@ -66,7 +66,7 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 1440px;
+  width: 2000px;
   margin: 0;
   padding: 24px;
 `;

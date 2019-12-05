@@ -96,7 +96,7 @@ const Footer = ({ state }) => {
 export default connect(Footer);
 
 const Container = styled.div`
-  width: 1440px;
+  width: 2000px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
@@ -117,7 +117,7 @@ const StyledLink = styled(Link)`
 const FooterContainer = styled.div``;
 const TopFooter = styled.div`
   display: flex;
-  max-width: 1440px;
+  max-width: 2000px;
   width: 100%;
   margin: auto;
   padding-top: 120px;
@@ -167,7 +167,7 @@ const TopWrapper = styled.div`
   background: #1d1d1d;
 `;
 const BottomWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 2000px;
   margin: auto;
 `;
 const LeftContainer = styled.div`

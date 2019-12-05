@@ -31,7 +31,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   
-  max-width:1440px;
+  max-width:2000px;
   margin:auto;
   margin-bottom:134px;
 `;
@@ -48,7 +48,7 @@ const Headline = styled.h2`
 `;
 
 const BodyContainer = styled.div`
-  max-width: 1440px;
+  max-width: 2000px;
   margin: auto;
   column-count:2;
   width:50%;
