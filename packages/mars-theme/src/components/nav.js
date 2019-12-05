@@ -96,7 +96,7 @@ var styles = {
     background: 'rgba(0, 0, 0, 0.3)'
   },
   bmIcon: {
-    color: '#FFFFFF',
+    color: '#000',
     fontFamily: 'Calibre',
     fontWeight: '500',
     textTransform: 'uppercase',    

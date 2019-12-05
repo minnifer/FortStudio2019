@@ -34,7 +34,7 @@ const Home = ({ state, actions, libraries }) => {
        by the processors we included in the libraries.html2react.processors array. */}
           {/* Add the header of the site. */}
       <HeadContainer>
-        <Header theme="dark"/>
+        <Header />
       </HeadContainer>
       <Content>
         <VideoContainer>

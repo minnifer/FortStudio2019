@@ -23,7 +23,7 @@ const Container = styled.div`
   background-color: #ffc40a;
   max-width: 100%;
   box-sizing: border-box;
-  
+  margin-bottom:120px;
   display: flex;
   flex-direction: column;
 `;

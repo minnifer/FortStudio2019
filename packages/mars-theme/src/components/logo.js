@@ -2,14 +2,16 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 
-const Logo = ({ state, theme }) => (
-  <>
+const Logo = (props) => (
+  
+  <>  
     <Container>
-      <StyledLink link="/">
+      <StyledLink  link="/">
         <StyledSVG
           width="104.482"
           height="40.693"
           viewBox="0 0 104.482 40.693"
+          theme={props.theme}
         >
           <defs>
             <clipPath id="clip-path">
@@ -122,8 +124,8 @@ const StyledLink = styled(Link)`
   padding-right:0;
 `;
 
-const StyledSVG = styled.svg`
-  g, path{
-    fill: ${theme => theme ? "black" : "white"};
+const StyledSVG = styled.svg`  
+  g, path{    
+    fill: ${props=>props.theme};
   }
 `;

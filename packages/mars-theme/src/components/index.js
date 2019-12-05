@@ -341,11 +341,13 @@ const globalStyles = css`
       font-weight: 500;
       font-size:18px;
       letter-spacing:1.08px;
+      margin:0;
   }
   h5, a{
       font-weight: 500;
       font-size:14px;
       letter-spacing:.84px;
+      margin:0;
   }
   strong{
       font-weight:400;

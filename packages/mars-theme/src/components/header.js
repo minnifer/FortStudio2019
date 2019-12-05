@@ -9,8 +9,8 @@ const Header = ({ state, theme }) => (
   
   <>  
     <Container>      
-      <Logo navDark={theme}/>
-      <Nav navDark={theme}/>
+      <Logo theme={theme}/>
+      <Nav theme={theme}/>
     </Container>
   </>
 );
