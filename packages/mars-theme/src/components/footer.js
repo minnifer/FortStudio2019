@@ -63,7 +63,7 @@ const Footer = ({ state }) => {
               <Phone>{options.acf.social_section.phone_number}</Phone>
             </ContactContainer>
           </LeftContainer>
-          <CenterContainer>
+          <CenterContainer link="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24.463"
@@ -173,10 +173,21 @@ const BottomWrapper = styled.div`
 const LeftContainer = styled.div`
   display: flex;
 `;
-const CenterContainer = styled.div`
+const CenterContainer = styled(Link)`
 position:absolute;
 left:50%;
-
+svg{
+  path{
+    transition: fill 250ms ease-in-out;
+  }
+}
+&:hover, &:focus{
+  svg{
+    path{
+      fill: #FFC40A;
+    }
+  }
+}
 `;
 const RightContainer = styled.div`
   display: flex;
@@ -213,7 +224,7 @@ const CircleWrapper = styled.div`
   width: 130px;
   margin-right: 30px;
   background-color: #f8f8f8;
-  border-radius: 50%;
+  border-radius: 100%;
   &:last-of-type{
     margin-right:0;
   }

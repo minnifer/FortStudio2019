@@ -77,7 +77,7 @@ const Container = styled.div`
   width: 1440px;
   margin:auto; 
   box-sizing: border-box;
-  padding: 24px 119px;
+  padding: 0 119px;
   display: flex;
   flex-direction: row;
 `;
@@ -97,7 +97,14 @@ const RightContainer = styled.div`
   margin-top:548px;
 `;
 
-const BodyContainer = styled.div``;
-const ToutContainer = styled.div``;
+const BodyContainer = styled.div`
+margin-top: 15px;
+`;
+const ToutContainer = styled.div`
+margin-bottom:103px;
+&:last-of-type{
+  margin-bottom:177px;
+}
+`;
 
 // const

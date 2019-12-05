@@ -313,6 +313,9 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+  a{
+    text-decoration:none;
+  }
   h1 {
     font-size: 74px;
     letter-spacing: -0.74px;
