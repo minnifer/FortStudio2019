@@ -60,7 +60,10 @@ const Footer = ({ state }) => {
                   __html: options.acf.social_section.address
                 }}
               ></Address>
-              <Phone>{options.acf.social_section.phone_number}</Phone>
+              <Phone 
+              target="_blank"
+              link={"tel:" + options.acf.social_section.phone_number_field}
+             >{options.acf.social_section.phone_number_field}</Phone>
             </ContactContainer>
           </LeftContainer>
           <CenterContainer link="/">
@@ -96,7 +99,7 @@ const Footer = ({ state }) => {
 export default connect(Footer);
 
 const Container = styled.div`
-  width: 2000px;
+  width: 1440px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
@@ -117,7 +120,7 @@ const StyledLink = styled(Link)`
 const FooterContainer = styled.div``;
 const TopFooter = styled.div`
   display: flex;
-  max-width: 2000px;
+  max-width: 1440px;
   width: 100%;
   margin: auto;
   padding-top: 120px;
@@ -167,7 +170,7 @@ const TopWrapper = styled.div`
   background: #1d1d1d;
 `;
 const BottomWrapper = styled.div`
-  max-width: 2000px;
+  max-width: 1440px;
   margin: auto;
 `;
 const LeftContainer = styled.div`
@@ -197,7 +200,8 @@ const ContactContainer = styled.div`
   flex-direction: column;
 `;
 const Address = styled.div``;
-const Phone = styled.div``;
+const Phone = styled(Link)`
+font-weight:500;`;
 const ReelLink = styled.div`
   display: flex;
   flex-direction: column;
@@ -214,17 +218,17 @@ const ReelLink = styled.div`
   font-size:14px;
   font-weight:500;
   line-height:16px;
-  width:80%;
+ 
   margin:auto;
   text-transform:uppercase;
 `;
 const CircleWrapper = styled.div`
-  position: relative;
-  padding-bottom: 50%;
-  width: 130px;
+  position: relative;    
   margin-right: 30px;
   background-color: #f8f8f8;
   border-radius: 100%;
+   width:130px;
+    height:130px;
   &:last-of-type{
     margin-right:0;
   }

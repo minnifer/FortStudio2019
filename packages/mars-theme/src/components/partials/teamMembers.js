@@ -80,7 +80,7 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   margin: auto;
-  max-width: 2000px;
+  max-width: 1440px;
 `;
 const Wrapper = styled.div`
   padding-left: 114px;

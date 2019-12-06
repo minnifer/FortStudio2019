@@ -28,13 +28,13 @@ const Container = styled.div`
 `;
 
 const HeadlineContainer = styled.div`
-  max-width: 2000px;
+  max-width: 1440px;
   margin: auto;
   text-align:center;
 `;
 
 const BodyContainer = styled.div`
-  max-width: 2000px;
+  max-width: 1440px;
   margin: auto;
 `;
 const Eyebrow = styled.div`

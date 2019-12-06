@@ -18,7 +18,7 @@ const ClientGrid = props => {
 export default connect(ClientGrid);
 
 const Container = styled.div`
-  max-width: 2000px;
+  max-width: 1440px;
   margin: auto;
   box-sizing: border-box;  
   display: flex;

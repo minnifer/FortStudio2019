@@ -108,7 +108,7 @@ const Logo = (props) => (
 export default connect(Logo);
 
 const Container = styled.div`
-  width: 2000px;
+  width: 1440px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;

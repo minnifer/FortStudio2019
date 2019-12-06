@@ -37,12 +37,11 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;  
   margin: auto;
-  max-width: 2000px;
+  max-width: 1440px;
 `;
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  margin-right: -44px;
+  flex-direction: row;  
   align-items: center;
   padding-left:114px;
   padding-right:114px;
@@ -53,6 +52,9 @@ const GridItem = styled.div`
   position:relative;
   padding-bottom:calc(90% / 4);
   margin-right: 44px;
+  &:last-of-type{
+    margin-right:0;
+  }
 `;
 const GridWrapper = styled.div`
   flex-direction: column;

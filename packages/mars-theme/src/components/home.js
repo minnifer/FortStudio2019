@@ -78,7 +78,7 @@ const VideoContainer = styled.div`
 const TextContainer = styled.div`
   position:relative;  
   z-index:1;
-  max-width:2000px;
+  max-width:1440px;
   margin:auto;
   width:100%;
 `;
