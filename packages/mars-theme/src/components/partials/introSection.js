@@ -237,7 +237,9 @@ const LeftContainer = styled.div`
   position: sticky;
   margin-top: 260px;
   width: 55%;
-  bottom: 0;
+  top: 10%;
+  padding-bottom:177px;
+  height:fit-content;
 `;
 
 const RightContainer = styled.div`
