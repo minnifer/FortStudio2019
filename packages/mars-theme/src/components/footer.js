@@ -1,34 +1,28 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-
+import Card from "./partials/card";
 const Footer = ({ state }) => {
   const options = state.source.get("acf-options-page");
   return (
     <FooterContainer>
       <TopWrapper>
         <TopFooter>
-          <Card>
+          <Tout>
             <h4>{options.acf.footer_section.hire_headline}</h4>
             <p className="p1">{options.acf.footer_section.hire_body}</p>
-            <StyledLink link="/what-we-do">
-              {options.acf.footer_section.hire_cta_text}
-            </StyledLink>
-          </Card>
-          <Card>
+            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.hire_cta_text}></Card>
+          </Tout>
+          <Tout>
             <h4>{options.acf.footer_section.request_work_headline}</h4>
             <p className="p1">{options.acf.footer_section.request_work_body}</p>
-            <StyledLink link="/what-we-do">
-              {options.acf.footer_section.request_work_cta_text}
-            </StyledLink>
-          </Card>
-          <Card>
+            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.request_work_cta_text}></Card>
+          </Tout>
+          <Tout>
             <h4>{options.acf.footer_section.careers_headline}</h4>
             <p className="p1">{options.acf.footer_section.careers_body}</p>
-            <StyledLink link="/what-we-do">
-              {options.acf.footer_section.careers_cta_text}
-            </StyledLink>
-          </Card>
+            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.careers_cta_text}></Card>
+          </Tout>
         </TopFooter>
       </TopWrapper>
       <BottomWrapper>
@@ -60,10 +54,10 @@ const Footer = ({ state }) => {
                   __html: options.acf.social_section.address
                 }}
               ></Address>
-              <Phone 
-              target="_blank"
-              link={"tel:" + options.acf.social_section.phone_number_field}
-             >{options.acf.social_section.phone_number_field}</Phone>
+              <Phone
+                target="_blank"
+                link={"tel:" + options.acf.social_section.phone_number_field}
+              >{options.acf.social_section.phone_number_field}</Phone>
             </ContactContainer>
           </LeftContainer>
           <CenterContainer link="/">
@@ -116,6 +110,7 @@ const Title = styled.h2`
 const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
+  
 `;
 const FooterContainer = styled.div``;
 const TopFooter = styled.div`
@@ -127,7 +122,7 @@ const TopFooter = styled.div`
   padding-bottom: 120px;
   justify-content: space-between;
 `;
-const Card = styled.div`
+const Tout = styled.div`
   color: #ffffff;
   width: calc(70% / 3);
   position: relative;
@@ -155,7 +150,31 @@ const Card = styled.div`
   &:last-of-type {
     margin-right: 114px;
   }
+  &:hover{
+    a{
+      color:#1D1D1D;
+    }
+    
+  
+}
+  &:nth-of-type(1){
+    .cardWrapper{
+      transform:translateX(0%) translateY(-50%);
+    }
+  }
+  &:nth-of-type(2){
+    .cardWrapper{
+      transform:translateX(-25%) translateY(-50%);
+    }
+  }
+  &:nth-of-type(3){
+    .cardWrapper{
+      transform:translateX(-42.5%) translateY(-50%);
+    }
+  }
 `;
+
+
 const BottomFooter = styled.div`
   display: flex;
   padding-left: 114px;

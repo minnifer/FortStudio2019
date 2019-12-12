@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-
+import Card from "./card";
 const IntroSection = props => {
   return (
     <Container>
@@ -58,13 +58,8 @@ const IntroSection = props => {
                   transform="translate(629.265 392.363)"
                 />
               </g>
-            </svg>
-
-            <h5
-              dangerouslySetInnerHTML={{
-                __html: props.layout.strategy_section.hover_body
-              }}
-            ></h5>
+            </svg>            
+            <Card text={props.layout.strategy_section.hover_body}></Card>
           </HoverBody>
         </ToutContainer>
         <ToutContainer>
@@ -115,11 +110,7 @@ const IntroSection = props => {
               </g>
             </svg>
 
-            <h5
-              dangerouslySetInnerHTML={{
-                __html: props.layout.identity_section.hover_body
-              }}
-            ></h5>
+            <Card text={props.layout.identity_section.hover_body}></Card>
           </HoverBody>
         </ToutContainer>
         <ToutContainer>
@@ -170,11 +161,7 @@ const IntroSection = props => {
               </g>
             </svg>
 
-            <h5
-              dangerouslySetInnerHTML={{
-                __html: props.layout.design_section.hover_body
-              }}
-            ></h5>
+            <Card text={props.layout.design_section.hover_body}></Card>
           </HoverBody>
         </ToutContainer>
       </RightContainer>
@@ -191,40 +178,37 @@ const Container = styled.div`
   padding: 0 119px;
   display: flex;
   flex-direction: row;
+  max-width:none;
 `;
 
 const HoverBody = styled.div`
   position: absolute;
   left: -125px;
-  top: -5px;
+  top: -5px;    
+  max-width:none;
+  width:100%;
 
   h5 {
-    opacity: 0;
-    transition:none;
+    display:none;
+    transition:opacity 250ms ease-in;
     position: absolute;
     top: 0;
-    /* left: 5%; */
-    transform:translateY(55%);
     text-align: center;
     text-transform: uppercase;
+    width:50%;
+    margin:auto;
+    
   }
   svg {
-    /* transition: opacity 250ms ease-in-out; */
+    /* transform:translateX(200%); */
   }
   &:hover,
   &:focus {
-    z-index: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    background: #ffc400;
-    transform: translateX(-37.5%);
+    
     h5 {
-      opacity: 1;
-      padding: 2em;
-      transition: opacity 250ms ease-in;
+    display:block;
+    transition:none;
     }
-
     svg {
       opacity: 0;
     }
@@ -250,14 +234,15 @@ const RightContainer = styled.div`
 
 const BodyContainer = styled.div`
   margin-top: 15px;
-  z-index: 20;
+  z-index: 99;
 `;
 const HeadlineContainer = styled.h4`
-  z-index: 20;
+  z-index: 99;
 `;
 const ToutContainer = styled.div`
   margin-bottom: 103px;
   position: relative;
+  z-index: 99;
   &:last-of-type {
     margin-bottom: 177px;
   }

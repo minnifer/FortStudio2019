@@ -52,7 +52,7 @@ const GridItem = styled.div`
   position:relative;
   padding-bottom:calc(90% / 4);
   margin-right: 44px;
-  &:last-of-type{
+  &:nth-of-type(4){
     margin-right:0;
   }
 `;

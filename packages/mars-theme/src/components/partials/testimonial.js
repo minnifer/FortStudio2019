@@ -1,10 +1,11 @@
 import React from "react";
 import { connect, styled } from "frontity";
 
-const ClientGrid = props => {
+const Testimonial = props => {
   // console.log(props.layout);
   return (
     <Container>
+      
       <QuoteBody
         dangerouslySetInnerHTML={{ __html: props.layout.body }}
       ></QuoteBody>
@@ -15,7 +16,7 @@ const ClientGrid = props => {
   );
 };
 
-export default connect(ClientGrid);
+export default connect(Testimonial);
 
 const Container = styled.div`
   max-width: 1440px;
