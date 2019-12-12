@@ -67,7 +67,7 @@ const Container = styled.div`
   transform:translateX(-25%) translateY(-25%);
   width: 200px;
   height: 200px; 
-  position: absolute;
+  position: absolute;  
 }
 .card1 {
   width: 0;

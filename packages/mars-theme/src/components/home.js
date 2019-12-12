@@ -5,6 +5,7 @@ import List from "./list";
 import Header from "./header";
 import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
+import Card from "./partials/card";
 
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -32,7 +33,7 @@ const Home = ({ state, actions, libraries }) => {
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-          {/* Add the header of the site. */}
+      {/* Add the header of the site. */}
       <HeadContainer>
         <Header />
       </HeadContainer>
@@ -41,7 +42,7 @@ const Home = ({ state, actions, libraries }) => {
           <Video autoPlay muted loop src={post.acf.video["url"]} />
           <TextContainer>
             <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
-            <StyledLink link="/what-we-do/">Learn More</StyledLink>
+            <Card linkURL="/what-we-do" linkText="Learn More"></Card>
           </TextContainer>
         </VideoContainer>
       </Content>
@@ -81,10 +82,14 @@ const TextContainer = styled.div`
   max-width:1440px;
   margin:auto;
   width:100%;
+  padding-left:114px;
+  .cardWrapper{
+      transform:translateX(0%) translateY(-50%);
+    }
 `;
 
 const BodyContainer = styled.h1`
-  padding-left:114px;
+  
 `;
 
 const Video = styled.video`
@@ -97,11 +102,6 @@ const Video = styled.video`
   z-index: 1;
 `;
 
-const StyledLink = styled(Link)`    
-  text-transform:uppercase;
-  text-decoration:none;
-  padding-left:114px;
-`;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
@@ -154,11 +154,7 @@ const Content = styled.div`
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
-
-  a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
-  }
+ 
 
   /* Input fields styles */
 

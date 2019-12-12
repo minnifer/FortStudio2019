@@ -95,7 +95,7 @@ const HoverBody = styled.div`
   max-width:none;
   width:100%;
   .cardWrapper{
-      transform:translateX(25%) translateY(-50%);
+      transform:translateX(37.5%) translateY(-50%);
     }
   h5 {
     display:none;    
