@@ -89,6 +89,10 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    padding:0;
+    flex-direction:column;
+  }
 `;
 
 const TeamMember = styled.div`
@@ -108,6 +112,25 @@ const TeamMember = styled.div`
   }
   &:nth-of-type(6) {
     margin-top: -50px;
+  }
+  @media (max-width: 768px) {
+    width:90%;
+    margin:auto;
+    &:nth-of-type(2) {
+    margin-top: auto;
+  }
+  &:nth-of-type(3) {
+    margin-top: auto;
+  }
+  &:nth-of-type(4) {
+    margin-top: auto;
+  }
+  &:nth-of-type(5) {
+    margin-top: auto;
+  }
+  &:nth-of-type(6) {
+    margin-top: auto;
+  }
   }
 `;
 const NameContainer = styled.div`
