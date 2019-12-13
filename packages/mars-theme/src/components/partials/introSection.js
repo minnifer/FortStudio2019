@@ -179,6 +179,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   max-width:none;
+  @media (max-width: 768px) {
+    flex-direction:column;
+    padding:0;
+    margin-left:36px;
+    margin-right:36px;
+    width:auto;
+  }
 `;
 
 const HoverBody = styled.div`
@@ -213,6 +220,11 @@ const HoverBody = styled.div`
       opacity: 0;
     }
   }
+  @media (max-width: 768px) {
+    left:0;
+    top:-60%;
+
+  }
 `;
 
 const LeftContainer = styled.div`
@@ -224,12 +236,23 @@ const LeftContainer = styled.div`
   top: 10%;
   padding-bottom:177px;
   height:fit-content;
+  @media (max-width: 768px) {
+       position:relative;
+       margin-top:161px;
+       padding-bottom:109px;
+       width:100%;
+     }
 `;
 
 const RightContainer = styled.div`
   width: 22.5%;
   align-self: flex-end;
   margin-top: 548px;
+  @media (max-width: 768px) {
+    align-self:center;
+    width:100%;
+    margin-top:0;
+  }
 `;
 
 const BodyContainer = styled.div`
@@ -246,6 +269,15 @@ const ToutContainer = styled.div`
   &:last-of-type {
     margin-bottom: 177px;
   }
+  @media (max-width: 768px) {
+    text-align:center;
+    width:80vw;
+    margin-bottom: 137px;
+     &:last-of-type {
+    margin-bottom: 80px;
+  }
+  }
+  
 `;
 
 // const

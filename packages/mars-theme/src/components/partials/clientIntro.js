@@ -39,11 +39,20 @@ const ContentContainer = styled.div`
 const HeadlineContainer = styled.div`
   padding:0 119px;  
   padding-top:134px;
+  @media (max-width: 768px) {
+    padding:0;
+    padding-top:72px;
+    margin-left:36px;
+    margin-right:36px;
+  }
 `;
 const Headline = styled.h2`
   width:58%;
   .white{
     color:#FFFFFF;    
+  }
+  @media (max-width: 768px) {
+    width:100%;
   }
 `;
 
@@ -62,6 +71,15 @@ const BodyContainer = styled.div`
     height:100%;
     width:1px;
     background:#FFFFFF;
+  }
+  @media (max-width: 768px) {
+    width:70%;
+    column-count:1;
+    padding-left:66px;
+    padding-right:37px;
+    &:before{
+      left:33px;
+    }
   }
 `;
 

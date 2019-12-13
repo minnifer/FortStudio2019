@@ -27,7 +27,7 @@ const Form = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <PageContainer>
+    <>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <HeadContainer>
@@ -45,14 +45,14 @@ const Form = ({ state, actions, libraries }) => {
           <Html2React html={post.content.rendered} />
         </RightContainer>
       </Content>
-    </PageContainer>
+    </>
   ) : null;
 };
 
 export default connect(Form);
 
 const PageContainer = styled.div`
-  background:#FFC40A;
+  
 `;
 const RightContainer = styled.div`
   width: 22.5%;
@@ -97,15 +97,15 @@ const HeadContainer = styled.div`
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
-const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
+const Content = styled.div`  
   word-break: break-word;
-width: 1440px;
+  width: 1440px;
   margin: auto;
   box-sizing: border-box;
   padding: 0 119px;
   display: flex;
   flex-direction: row;
+  background:#FFC40A;
   * {
     max-width: 100%;
   }

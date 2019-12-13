@@ -317,7 +317,7 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
-  a{
+  a{    
     text-decoration:none;
   }
   h1 {
@@ -327,6 +327,11 @@ const globalStyles = css`
     font-weight: 100;
     font-style: normal;
     margin:0;
+     @media (max-width: 768px) {
+       font-size:56px;
+       line-height:58px;
+       letter-spacing:-.56px;
+     }
   }
   h2{
       font-size: 64px;
@@ -335,6 +340,11 @@ const globalStyles = css`
     font-weight: 100;
     font-style: normal;
     margin:0;
+    @media (max-width: 768px) {
+       font-size:44px;
+       line-height:46px;
+       letter-spacing:-.-44px;
+     }
   }
   h3{
       font-size: 38px;
@@ -348,7 +358,7 @@ const globalStyles = css`
       font-weight: 500;
       font-size:18px;
       letter-spacing:1.08px;
-      margin:0;
+      margin:0;      
   }
   h5, a{
       font-weight: 500;

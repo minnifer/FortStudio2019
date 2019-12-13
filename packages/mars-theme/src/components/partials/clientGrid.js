@@ -45,6 +45,12 @@ const Wrapper = styled.div`
   align-items: center;
   padding-left:114px;
   padding-right:114px;
+  @media (max-width: 768px) {
+    padding:0;
+    margin-left:36px;
+    margin-right:36px;
+    flex-direction:column;
+  }
 `;
 
 const GridItem = styled.div`
@@ -54,6 +60,12 @@ const GridItem = styled.div`
   margin-right: 44px;
   &:nth-of-type(4){
     margin-right:0;
+  }
+  @media (max-width: 768px) {
+    width:100%;
+    padding-bottom:100%;
+    margin-right:0;
+    margin-bottom:12px;
   }
 `;
 const GridWrapper = styled.div`

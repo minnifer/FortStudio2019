@@ -27,6 +27,13 @@ const Container = styled.div`
   width: 32%;  
   margin-top:125px;
   margin-bottom:125px;
+  @media (max-width: 768px) {
+    width:82%;
+    margin-top:38px;
+    margin-bottom:38px;
+    margin-left:36px;
+    margin-right:36px;
+  }
 `;
 
 const QuoteBody = styled.h3``;

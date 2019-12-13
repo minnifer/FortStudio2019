@@ -65,6 +65,9 @@ const Container = styled.div`
   max-width:1440px;
   margin:auto;
   margin-top: 260px;
+  @media (max-width: 768px) {
+    margin-top:162px;
+  }
 `;
 
 const HeadlineContainer = styled.div`
@@ -79,6 +82,15 @@ const BodyContainer = styled.div`
   position:absolute;
   top:110%;
   width:20%;
+  @media (max-width: 768px) {
+    width:80%;
+    position:relative;
+    padding-left:0;
+    top:auto;
+    margin:auto;
+    text-align:center;
+    margin-top:84px;
+  }
 `;
 const Eyebrow = styled.div`
     font-size:14px;
@@ -119,6 +131,10 @@ const HoverBody = styled.div`
     svg {
       opacity: 0;
     }
+  }
+  @media (max-width: 768px) {
+    top:-75px;
+    left:0;
   }
 `;
 

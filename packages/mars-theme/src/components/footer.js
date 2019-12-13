@@ -11,17 +11,26 @@ const Footer = ({ state }) => {
           <Tout>
             <h4>{options.acf.footer_section.hire_headline}</h4>
             <p className="p1">{options.acf.footer_section.hire_body}</p>
-            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.hire_cta_text}></Card>
+            <Card
+              linkURL="/what-we-do"
+              linkText={options.acf.footer_section.hire_cta_text}
+            ></Card>
           </Tout>
           <Tout>
             <h4>{options.acf.footer_section.request_work_headline}</h4>
             <p className="p1">{options.acf.footer_section.request_work_body}</p>
-            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.request_work_cta_text}></Card>
+            <Card
+              linkURL="/what-we-do"
+              linkText={options.acf.footer_section.request_work_cta_text}
+            ></Card>
           </Tout>
           <Tout>
             <h4>{options.acf.footer_section.careers_headline}</h4>
             <p className="p1">{options.acf.footer_section.careers_body}</p>
-            <Card linkURL="/what-we-do" linkText={options.acf.footer_section.careers_cta_text}></Card>
+            <Card
+              linkURL="/what-we-do"
+              linkText={options.acf.footer_section.careers_cta_text}
+            ></Card>
           </Tout>
         </TopFooter>
       </TopWrapper>
@@ -57,7 +66,9 @@ const Footer = ({ state }) => {
               <Phone
                 target="_blank"
                 link={"tel:" + options.acf.social_section.phone_number_field}
-              >{options.acf.social_section.phone_number_field}</Phone>
+              >
+                {options.acf.social_section.phone_number_field}
+              </Phone>
             </ContactContainer>
           </LeftContainer>
           <CenterContainer link="/">
@@ -100,6 +111,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   margin: auto;
+  @media (max-width: 768px) {
+    width:auto;
+  }
 `;
 
 const Title = styled.h2`
@@ -110,7 +124,6 @@ const Title = styled.h2`
 const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
-  
 `;
 const FooterContainer = styled.div``;
 const TopFooter = styled.div`
@@ -121,12 +134,16 @@ const TopFooter = styled.div`
   padding-top: 120px;
   padding-bottom: 120px;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const Tout = styled.div`
   color: #ffffff;
   width: calc(70% / 3);
   position: relative;
   padding-left: 21px;
+
   p {
     color: #ffffff;
     margin-bottom: 27px;
@@ -150,30 +167,40 @@ const Tout = styled.div`
   &:last-of-type {
     margin-right: 114px;
   }
-  &:hover{
-    a{
-      color:#1D1D1D;
-    }
-    
-  
-}
-  &:nth-of-type(1){
-    .cardWrapper{
-      transform:translateX(0%) translateY(-50%);
+  &:hover {
+    a {
+      color: #1d1d1d;
     }
   }
-  &:nth-of-type(2){
-    .cardWrapper{
-      transform:translateX(-25%) translateY(-50%);
+  &:nth-of-type(1) {
+    .cardWrapper {
+      transform: translateX(0%) translateY(-50%);
     }
   }
-  &:nth-of-type(3){
-    .cardWrapper{
-      transform:translateX(-42.5%) translateY(-50%);
+  &:nth-of-type(2) {
+    .cardWrapper {
+      transform: translateX(-25%) translateY(-50%);
+    }
+  }
+  &:nth-of-type(3) {
+    .cardWrapper {
+      transform: translateX(-42.5%) translateY(-50%);
+    }
+  }
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-bottom:60px;
+    margin-left:36px;
+    &:first-of-type {
+      margin-left: 0;
+      margin-left:36px;
+    }
+    &:last-of-type {
+      margin-right: 0;
+      margin-bottom:0;
     }
   }
 `;
-
 
 const BottomFooter = styled.div`
   display: flex;
@@ -183,7 +210,11 @@ const BottomFooter = styled.div`
   padding-top: 33px;
   padding-bottom: 33px;
   align-items: center;
-  position:relative;
+  position: relative;
+  @media (max-width: 768px) {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
 `;
 const TopWrapper = styled.div`
   background: #1d1d1d;
@@ -194,25 +225,36 @@ const BottomWrapper = styled.div`
 `;
 const LeftContainer = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    justify-content: space-around;
+    width: 100%;
+  }
 `;
 const CenterContainer = styled(Link)`
-position:absolute;
-left:50%;
-svg{
-  path{
-    transition: fill 250ms ease-in-out;
+  position: absolute;
+  left: 50%;
+  @media (max-width: 768px) {
+    display: none;
   }
-}
-&:hover, &:focus{
-  svg{
-    path{
-      fill: #FFC40A;
+  svg {
+    path {
+      transition: fill 250ms ease-in-out;
     }
   }
-}
+  &:hover,
+  &:focus {
+    svg {
+      path {
+        fill: #ffc40a;
+      }
+    }
+  }
 `;
 const RightContainer = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const ContactContainer = styled.div`
   display: flex;
@@ -220,7 +262,8 @@ const ContactContainer = styled.div`
 `;
 const Address = styled.div``;
 const Phone = styled(Link)`
-font-weight:500;`;
+  font-weight: 500;
+`;
 const ReelLink = styled.div`
   display: flex;
   flex-direction: column;
@@ -233,23 +276,23 @@ const ReelLink = styled.div`
   height: 100%;
   bottom: 0;
   right: 0;
-  text-align:center;
-  font-size:14px;
-  font-weight:500;
-  line-height:16px;
- 
-  margin:auto;
-  text-transform:uppercase;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+
+  margin: auto;
+  text-transform: uppercase;
 `;
 const CircleWrapper = styled.div`
-  position: relative;    
+  position: relative;
   margin-right: 30px;
   background-color: #f8f8f8;
   border-radius: 100%;
-   width:130px;
-    height:130px;
-  &:last-of-type{
-    margin-right:0;
+  width: 130px;
+  height: 130px;
+  &:last-of-type {
+    margin-right: 0;
   }
 `;
 const SampleLink = styled.div`
@@ -264,13 +307,13 @@ const SampleLink = styled.div`
   height: 100%;
   bottom: 0;
   right: 0;
-  text-align:center;
-  font-size:14px;
-  font-weight:500;
-  line-height:16px;
-  width:70%;
-  margin:auto;
-  text-transform:uppercase;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  width: 70%;
+  margin: auto;
+  text-transform: uppercase;
 `;
 const SocialContainer = styled.div`
   display: flex;

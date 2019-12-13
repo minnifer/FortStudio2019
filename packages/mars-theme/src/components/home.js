@@ -89,11 +89,27 @@ const TextContainer = styled.div`
     }
     a{
       padding-left:114px;
+      color:#fff;
     }
+    @media (max-width: 768px) {
+    a{
+      padding-left:0;
+      margin:auto;
+      
+    }
+  }
 `;
 
 const BodyContainer = styled.h1`
   padding-left:114px;
+  color:#fff;
+  width:28%;
+  @media (max-width: 768px) {
+    padding-left:0;
+    text-align:center;
+    width:100%;
+    margin:auto;
+  }
 `;
 
 const StyledCard = styled(Card)`
