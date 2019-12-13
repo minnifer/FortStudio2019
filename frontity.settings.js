@@ -8,13 +8,15 @@ const settings = {
     }
   },
   packages: [
+     
     {
       name: "@frontity/mars-theme",
       state: {
         theme: {
           menu: [
             ["What We Do", "/what-we-do/"],
-            ["Who We Are", "/who-we-are/"]
+            ["Who We Are", "/who-we-are/"],
+            ["Contact Form", "/form-page/"]
           ],
           featured: {
             showOnList: false,
@@ -39,7 +41,8 @@ const settings = {
       }
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    "frontity-contact-form-7",
   ]
 };
 

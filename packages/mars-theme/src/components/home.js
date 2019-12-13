@@ -42,7 +42,7 @@ const Home = ({ state, actions, libraries }) => {
           <Video autoPlay muted loop src={post.acf.video["url"]} />
           <TextContainer>
             <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
-            <Card linkURL="/what-we-do" linkText="Learn More"></Card>
+            <StyledCard linkURL="/what-we-do" linkText="Learn More"></StyledCard>
           </TextContainer>
         </VideoContainer>
       </Content>
@@ -82,14 +82,22 @@ const TextContainer = styled.div`
   max-width:1440px;
   margin:auto;
   width:100%;
-  padding-left:114px;
+  
   .cardWrapper{
       transform:translateX(0%) translateY(-50%);
+      padding-left:114px;
+    }
+    a{
+      padding-left:114px;
     }
 `;
 
 const BodyContainer = styled.h1`
-  
+  padding-left:114px;
+`;
+
+const StyledCard = styled(Card)`
+
 `;
 
 const Video = styled.video`

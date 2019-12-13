@@ -4,7 +4,7 @@ import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
 
-const Post = ({ state, actions, libraries }) => {
+const Post2 = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
@@ -63,7 +63,7 @@ const Post = ({ state, actions, libraries }) => {
   ) : null;
 };
 
-export default connect(Post);
+export default connect(Post2);
 
 const Container = styled.div`
   width: 1440px;

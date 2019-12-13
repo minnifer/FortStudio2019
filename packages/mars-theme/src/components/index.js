@@ -3,6 +3,7 @@ import { Global, css, connect, styled, Head } from "frontity";
 import Header from "./header";
 import List from "./list";
 import Post from "./post";
+import Form from "./form";
 import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
@@ -34,7 +35,8 @@ const Theme = ({ state }) => {
         {(data.isFetching && <Loading />) ||
           (data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
-          (data.isPostType && <Post />) ||
+          (data.isPostType && data.id === 133  && <Form />) ||
+          (data.isPostType && <Post />) ||          
           (data.is404 && <Page404 />)}
       </Main>          
     </>
