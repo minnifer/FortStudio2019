@@ -5,9 +5,28 @@ class ClientGrid extends Component {
   constructor(props) {
     super(props);
   }
+  isOnScreen() {
+    /* get the elements */
+    var elements = document.getElementsByClassName("spy");
+    /* iterate */
+    Array.prototype.forEach.call(elements, function(element, index) {
+      var bounds = element.getBoundingClientRect();
+
+      if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+        element.classList.add("inview");
+      } else {
+        // element.classList.remove("inview");
+      }
+    });
+
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  componentDidMount() {
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
   renderGrid = (grid, index) => {
     return (
-      <GridItem key={index}>
+      <GridItem key={index} className="spy">
         <GridWrapper>
           <Category className="category">{grid.category.name}</Category>
           <Summary className="summary">Summary of Service</Summary>
@@ -35,110 +54,126 @@ export default connect(ClientGrid);
 
 const Container = styled.div`
   max-width: 100%;
-  box-sizing: border-box;  
+  box-sizing: border-box;
   margin: auto;
   max-width: 1440px;
 `;
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   align-items: center;
-  padding-left:114px;
-  padding-right:114px;
+  padding-left: 114px;
+  padding-right: 114px;
   @media (max-width: 768px) {
-    padding:0;
-    margin-left:36px;
-    margin-right:36px;
-    flex-direction:column;
+    padding: 0;
+    margin-left: 36px;
+    margin-right: 36px;
+    flex-direction: column;
   }
 `;
 
 const GridItem = styled.div`
   width: calc(90% / 4);
-  position:relative;
-  padding-bottom:calc(90% / 4);
+  position: relative;
+  padding-bottom: calc(90% / 4);
   margin-right: 44px;
-  &:nth-of-type(4){
-    margin-right:0;
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  &:nth-of-type(4) {
+    margin-right: 0;
+  }
+  img {
+    max-width: 216px;
+    margin: auto;
   }
   @media (max-width: 768px) {
-    width:100%;
-    padding-bottom:100%;
-    margin-right:0;
-    margin-bottom:12px;
+    width: 100%;
+    padding-bottom: 100%;
+    margin-right: 0;
+    margin-bottom: 12px;
   }
 `;
 const GridWrapper = styled.div`
   flex-direction: column;
   display: flex;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   align-items: center;
-  &:before{
-    content:'';
-    position:absolute;    
-    width:100%;
-    height:2px;
-    background:#FFC40A;
-    top:0;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ffc40a;
+    top: 0;
   }
-  &:hover, &:focus {
-    .body{
-      opacity:1;      
+  &:hover,
+  &:focus {
+    .body {
+      opacity: 1;
     }
-    img{
-      opacity:0;
+    img {
+      opacity: 0;
     }
-    .category{
-      opacity:0;
+    .category {
+      opacity: 0;
     }
-    .summary{
-      opacity:1;
+    .summary {
+      opacity: 1;
     }
   }
 `;
 const Category = styled.div`
-  position:relative;
-  margin-top:24px;
-  font-weight:normal;
-  font-size:14px;
-  text-transform:uppercase;
+  position: relative;
+  margin-top: 24px;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
   color: #000000;
-  opacity:25%;
-  letter-spacing:.84px;
-  line-height:16px;
-  transition:opacity 250ms ease-in-out;
+  opacity: 25%;
+  letter-spacing: 0.84px;
+  line-height: 16px;
+  transition: opacity 250ms ease-in-out;
 `;
 const Summary = styled.div`
-  position:relative;  
-  font-weight:normal;
-  font-size:14px;
-  margin-top:-14px;
-  text-transform:uppercase;
-  color: #FFC40A;  
-  letter-spacing:.84px;
-  line-height:16px;
-  opacity:0;
-  transition:opacity 250ms ease-in-out;
+  position: relative;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: -14px;
+  text-transform: uppercase;
+  color: #ffc40a;
+  letter-spacing: 0.84px;
+  line-height: 16px;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
 `;
-const BodyContainer = styled.div`  
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  opacity:0;
-  transition:opacity 250ms ease-in-out;
-  text-align:center;
+const BodyContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+  text-align: center;
 `;
-const Logo = styled(Image)`  
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  transition:opacity 250ms ease-in-out;
-  opacity:1;
+const Logo = styled(Image)`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 250ms ease-in-out;
+  opacity: 1;
 `;
 // const

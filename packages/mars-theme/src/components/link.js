@@ -14,7 +14,7 @@ const Link = ({ actions, link, className, children, target }) => {
   };
 
   return (
-    <a target={target} href={link} onClick={onClick} className={className}>
+    <a data-stick-cursor target={target} href={link} onClick={onClick} className={className}>
       {children}
     </a>
   );

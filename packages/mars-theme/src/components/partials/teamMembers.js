@@ -114,7 +114,7 @@ const TeamMember = styled.div`
     margin-top: -50px;
   }
   @media (max-width: 768px) {
-    width:90%;
+    width:80%;
     margin:auto;
     &:nth-of-type(2) {
     margin-top: auto;

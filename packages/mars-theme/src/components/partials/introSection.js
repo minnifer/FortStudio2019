@@ -231,9 +231,9 @@ const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  margin-top: 260px;
+  
   width: 55%;
-  top: 10%;
+  top: 260px;
   padding-bottom:177px;
   height:fit-content;
   @media (max-width: 768px) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Header from "./header";
 import List from "./list";
@@ -10,8 +10,6 @@ import Loading from "./loading";
 import Title from "./title";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Theme is the root React component of our theme. The one we will export
-// in roots.
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
