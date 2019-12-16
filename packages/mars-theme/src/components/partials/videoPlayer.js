@@ -135,13 +135,13 @@ const PlayButton = styled.button`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 24px;
+  top: 68px;
   right: 114px;
   width: fit-content;
   font-weight: 500;
   line-height: 51px;
   letter-spacing: 0.84px;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   background: transparent;
   border: none;
@@ -152,6 +152,7 @@ const CloseButton = styled.button`
   -webkit-appearance: none;
   cursor: pointer;
   transition: color 250ms ease-in-out;
+  color:#ffc40a;
   &:hover {
     color: #ffc40a;
   }

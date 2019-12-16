@@ -24,7 +24,7 @@ const MenuModal = ({ state }) => {
 };
 
 const MenuOverlay = styled.div`
-  background-color: #121212;
+  
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
@@ -64,7 +64,7 @@ const MenuLink = styled(Link)`
   align-items: flex-start;
   padding-left: 18vw;
   z-index: 5;
-
+  background-color: rgba(18, 18, 18, 0.95);
   /* styles for active link */
   &[aria-current="page"] {
     color: yellow;
@@ -73,9 +73,9 @@ const MenuLink = styled(Link)`
   }
   .navHeadline {
     font-weight: 300;
-    font-size: 38px;
+    font-size: 42px;
     letter-spacing: 0;
-    line-height: 24px;
+    line-height: 16px;
     color: #ffffff;
     transition:color 250ms ease-in-out;
   }
@@ -92,7 +92,7 @@ const MenuLink = styled(Link)`
     align-items: flex-end;
     padding-left: 0;
     padding-right: 18vw;
-    background-color: rgba(29, 29, 29, 0.5);
+    background-color: rgba(29, 29, 29, 0.95);
   }
   &:hover,
   &:focus {

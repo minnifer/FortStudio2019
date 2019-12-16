@@ -46,7 +46,7 @@ const MenuToggle = styled.button`
     font-weight: 500;
     line-height: 51px;
     letter-spacing: 0.84px;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     transition:color 250ms ease-in-out;
     &.menuOpen{

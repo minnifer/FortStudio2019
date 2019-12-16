@@ -64,7 +64,7 @@ const Container = styled.div`
   position:relative;
   max-width:1440px;
   margin:auto;
-  margin-top: 260px;
+  margin-top: 250px;
   @media (max-width: 768px) {
     margin-top:162px;
   }
@@ -80,7 +80,7 @@ const BodyContainer = styled.div`
   margin:auto;
   padding-left:114px;  
   position:absolute;
-  top:110%;
+  top:116%;
   width:20%;
   @media (max-width: 768px) {
     width:80%;
@@ -96,7 +96,9 @@ const Eyebrow = styled.div`
     font-size:14px;
     font-weight: 600;
     text-transform:uppercase;
-    
+    letter-spacing:.84px;
+    line-height:16px;
+    margin-bottom:10px;
 `;
 
 const HoverBody = styled.div`

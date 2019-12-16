@@ -97,6 +97,7 @@ const BodyContainer = styled.h1`
   padding-left:114px;
   color:#fff;
   width:28%;
+  margin-bottom:45px;
   @media (max-width: 768px) {
     padding-left:0;
     text-align:center;
@@ -105,8 +106,7 @@ const BodyContainer = styled.h1`
   }
 `;
 
-const StyledCard = styled(Card)`
-
+const StyledCard = styled(Card)`  
 `;
 
 const Video = styled.video`

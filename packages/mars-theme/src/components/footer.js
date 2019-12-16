@@ -4,7 +4,7 @@ import Link from "./link";
 import Card from "./partials/card";
 const Footer = ({ state }) => {
   const options = state.source.get("acf-options-page");
-  
+
   return (
     <FooterContainer>
       <TopWrapper>
@@ -39,24 +39,24 @@ const Footer = ({ state }) => {
         <BottomFooter>
           <LeftContainer>
             <SocialContainer>
-              <Link
+              <StyledSocialLink
                 target={options.acf.social_section.instagram.target}
                 link={options.acf.social_section.instagram.url}
               >
                 {options.acf.social_section.instagram.title}
-              </Link>
-              <Link
+              </StyledSocialLink>
+              <StyledSocialLink
                 target={options.acf.social_section.dribble.target}
                 link={options.acf.social_section.dribble.url}
               >
                 {options.acf.social_section.dribble.title}
-              </Link>
-              <Link
+              </StyledSocialLink>
+              <StyledSocialLink
                 target={options.acf.social_section.linkedin.target}
                 link={options.acf.social_section.linkedin.url}
               >
                 {options.acf.social_section.linkedin.title}
-              </Link>
+              </StyledSocialLink>
             </SocialContainer>
             <ContactContainer>
               <Address
@@ -113,7 +113,7 @@ const Container = styled.div`
   justify-content: space-around;
   margin: auto;
   @media (max-width: 768px) {
-    width:auto;
+    width: auto;
   }
 `;
 
@@ -132,8 +132,8 @@ const TopFooter = styled.div`
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 125px;
+  padding-bottom: 125px;
   justify-content: space-between;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -147,17 +147,21 @@ const Tout = styled.div`
 
   p {
     color: #ffffff;
-    margin-bottom: 27px;
+    margin-bottom: 15px;
+    max-width:82%;
   }
   h4 {
     text-transform: uppercase;
     line-height: 20px;
-    margin-bottom: 22px;
+    margin-bottom: 12px;
+  }
+  a{
+    letter-spacing:.84px;
   }
   &:before {
     width: 2px;
     content: "";
-    height: 100%;
+    height: 98%;
     left: 0;
     background: #ffc40a;
     position: absolute;
@@ -190,15 +194,15 @@ const Tout = styled.div`
   }
   @media (max-width: 768px) {
     width: 80%;
-    margin-bottom:60px;
-    margin-left:36px;
+    margin-bottom: 60px;
+    margin-left: 36px;
     &:first-of-type {
       margin-left: 0;
-      margin-left:36px;
+      margin-left: 36px;
     }
     &:last-of-type {
       margin-right: 0;
-      margin-bottom:0;
+      margin-bottom: 0;
     }
   }
 `;
@@ -208,7 +212,7 @@ const BottomFooter = styled.div`
   padding-left: 114px;
   padding-right: 114px;
   justify-content: space-between;
-  padding-top: 33px;
+  padding-top: 36px;
   padding-bottom: 33px;
   align-items: center;
   position: relative;
@@ -261,9 +265,22 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Address = styled.div``;
+const Address = styled.div`
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+`;
 const Phone = styled(Link)`
   font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-size: 16px;
+  transition: color 250ms ease-in-out;
+  &:hover,
+  &:focus {
+    color: #ffc400;
+  }
 `;
 const ReelLink = styled.div`
   display: flex;
@@ -280,8 +297,8 @@ const ReelLink = styled.div`
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  line-height: 16px;
-
+  line-height: 12px;
+  letter-spacing: 0.84px;
   margin: auto;
   text-transform: uppercase;
 `;
@@ -311,7 +328,8 @@ const SampleLink = styled.div`
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 14px;
+  letter-spacing: 0.84px;
   width: 70%;
   margin: auto;
   text-transform: uppercase;
@@ -320,4 +338,16 @@ const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 48px;
+`;
+
+const StyledSocialLink = styled(Link)`
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  transition: color 250ms ease-in-out;
+  &:hover,
+  &:focus {
+    color: #ffc400;
+  }
 `;

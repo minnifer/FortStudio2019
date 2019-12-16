@@ -254,7 +254,7 @@ const LeftContainer = styled.div`
   position: sticky;
 
   width: 55%;
-  top: 260px;
+  top: 235px;
   padding-bottom: 177px;
   height: fit-content;
   @media (max-width: 768px) {
