@@ -137,6 +137,8 @@ const TopFooter = styled.div`
   justify-content: space-between;
   @media (max-width: 768px) {
     flex-direction: column;
+    padding-top:60px;
+    padding-bottom:60px;
   }
 `;
 const Tout = styled.div`

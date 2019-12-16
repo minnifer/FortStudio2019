@@ -23,7 +23,7 @@ const renderTeamMember = (teamMember, index) => {
           <Title>{teamMember.title}</Title>
         </NameContainer>
         <SocialContainer>
-        <Link className="menu-item linkedin" link={teamMember.linkedin}>
+          <Link className="menu-item linkedin" link={teamMember.linkedin}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14.379"
@@ -67,7 +67,7 @@ const renderTeamMember = (teamMember, index) => {
                 fillRule="evenodd"
               />
             </svg>
-          </Link>                    
+          </Link>
         </SocialContainer>
       </ContentContainer>
     </TeamMember>
@@ -90,8 +90,8 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   @media (max-width: 768px) {
-    padding:0;
-    flex-direction:column;
+    padding: 0;
+    flex-direction: column;
   }
 `;
 
@@ -114,76 +114,95 @@ const TeamMember = styled.div`
     margin-top: -50px;
   }
   @media (max-width: 768px) {
-    width:80%;
-    margin:auto;
+    width: 80%;
+    margin: auto;
+    margin-bottom:26px;
     &:nth-of-type(2) {
-    margin-top: auto;
-  }
-  &:nth-of-type(3) {
-    margin-top: auto;
-  }
-  &:nth-of-type(4) {
-    margin-top: auto;
-  }
-  &:nth-of-type(5) {
-    margin-top: auto;
-  }
-  &:nth-of-type(6) {
-    margin-top: auto;
-  }
+      margin-top: auto;
+    }
+    &:nth-of-type(3) {
+      margin-top: auto;
+    }
+    &:nth-of-type(4) {
+      margin-top: auto;
+    }
+    &:nth-of-type(5) {
+      margin-top: auto;
+    }
+    &:nth-of-type(6) {
+      margin-top: auto;
+    }
   }
 `;
 const NameContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left:16px;
+  margin-left: 16px;
+  @media (max-width: 768px) {
+    margin-left: 13px;
+  }
 `;
 const Name = styled.div`
   font-size: 32px;
   line-height: 34px;
   margin-top: 16px;
-  font-weight:300;
+  font-weight: 300;
+  @media (max-width: 768px) {
+    margin-top: 26px;
+  }
 `;
 const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 const Title = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  letter-spacing:.84px;
+  letter-spacing: 0.84px;
   color: #c6c6c6;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 const SocialContainer = styled.div`
   display: flex;
-  margin-right:16px;
-  margin-top:5px;
+  margin-right: 16px;
+  margin-top: 5px;
   .menu-item {
     margin-right: 12px;
 
     svg {
       width: 14px;
       height: 14px;
-      path{
+      path {
         transition: fill 250ms ease-in-out;
       }
     }
-    &:hover{
-      svg{
-        path{
-          fill:#FFC40A;
+    &:hover {
+      svg {
+        path {
+          fill: #ffc40a;
         }
       }
     }
     &:last-of-type {
       margin-right: 0;
     }
-    &.linkedin{
-      transform:scale(1.2);
+    &.linkedin {
+      transform: scale(1.2);
     }
+  }
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-left: 16px;
+    margin-top: 16px;
   }
 `;
 const StyledImage = styled(Image)`

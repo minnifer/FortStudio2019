@@ -292,6 +292,9 @@ const RightContainer = styled.div`
 
 const BodyContainer = styled.div`
   margin-top: 15px;
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
    &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),

@@ -49,7 +49,7 @@ export default connect(Post);
 const Container = styled.div`  
   margin: 0;
   width:100%;
-  border:7px solid #000;
+  /* border:7px solid #000; */
 `;
 
 const StyledLink = styled(Link)`

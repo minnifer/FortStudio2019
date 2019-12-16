@@ -41,7 +41,7 @@ const MenuToggle = styled.button`
   align-items: center;
   justify-content: center;
   outline: none;
-  
+  top:110px;
   span {
     font-weight: 500;
     line-height: 51px;
@@ -60,6 +60,7 @@ const MenuToggle = styled.button`
   }
   @media (max-width: 768px) {
     right:36px;
+    top:auto;
   }
 `;
 

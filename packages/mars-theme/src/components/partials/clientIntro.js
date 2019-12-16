@@ -26,6 +26,9 @@ const Container = styled.div`
   margin-bottom:120px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    margin-bottom:65px;
+  }
 `;
 const ContentContainer = styled.div`
   display: flex;
@@ -34,6 +37,9 @@ const ContentContainer = styled.div`
   max-width:1440px;
   margin:auto;
   margin-bottom:134px;
+  @media (max-width: 768px) {
+    margin-bottom:60px;
+  }
 `;
 
 const HeadlineContainer = styled.div`
@@ -73,6 +79,7 @@ const BodyContainer = styled.div`
     background:#FFFFFF;
   }
   @media (max-width: 768px) {
+    margin-top:40px;
     width:70%;
     column-count:1;
     padding-left:66px;

@@ -29,7 +29,9 @@ const Home = ({ state, actions, libraries }) => {
       </HeadContainer>
       <Content>
         <VideoContainer>
-          <Video autoPlay muted loop src={post.acf.video["url"]} />
+          <StyledVideoContainer>
+            <Video autoPlay muted loop src={post.acf.video["url"]} />
+          </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
             <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
@@ -103,6 +105,7 @@ const BodyContainer = styled.h1`
     text-align:center;
     width:100%;
     margin:auto;
+    margin-bottom:26px;
   }
 `;
 
@@ -117,7 +120,18 @@ const Video = styled.video`
   top: 0;
   left: 0;
   z-index: 1;
+  opacity:.6;
+  
 `;
+const StyledVideoContainer = styled.div`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color:#121212;
+`
 
 
 // This component is the parent of the `content.rendered` HTML. We can use nested

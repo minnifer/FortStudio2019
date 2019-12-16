@@ -100,6 +100,9 @@ const GridItem = styled.div`
     padding-bottom: 100%;
     margin-right: 0;
     margin-bottom: 12px;
+    img{
+      max-width:none;
+    }
   }
 `;
 const GridWrapper = styled.div`

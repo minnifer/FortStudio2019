@@ -5,7 +5,6 @@ const WhoWeAreIntro = props => {
   return (
     <Container>
       <HeadlineContainer>
-
         <h2 dangerouslySetInnerHTML={{ __html: props.layout.headline }}></h2>
       </HeadlineContainer>
       <BodyContainer>
@@ -46,8 +45,13 @@ const WhoWeAreIntro = props => {
           </svg>
           <Card text={props.layout.hover_body}></Card>
         </HoverBody>
-        <Eyebrow dangerouslySetInnerHTML={{ __html: props.layout.subhead }}></Eyebrow>
-        <div className="p1" dangerouslySetInnerHTML={{ __html: props.layout.body }}></div>
+        <Eyebrow
+          dangerouslySetInnerHTML={{ __html: props.layout.subhead }}
+        ></Eyebrow>
+        <div
+          className="p1"
+          dangerouslySetInnerHTML={{ __html: props.layout.body }}
+        ></div>
       </BodyContainer>
     </Container>
   );
@@ -55,88 +59,94 @@ const WhoWeAreIntro = props => {
 
 export default connect(WhoWeAreIntro);
 
-const Container = styled.div`  
+const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
   display: flex;
-  flex-direction: column;  
-  position:relative;
-  max-width:1440px;
-  margin:auto;
+  flex-direction: column;
+  position: relative;
+  max-width: 1440px;
+  margin: auto;
   margin-top: 250px;
   @media (max-width: 768px) {
-    margin-top:162px;
+    margin-top: 162px;
   }
 `;
 
 const HeadlineContainer = styled.div`
   max-width: 1440px;
   margin: auto;
-  text-align:center;
+  text-align: center;
 `;
 
-const BodyContainer = styled.div`  
-  margin:auto;
-  padding-left:114px;  
-  position:absolute;
-  top:116%;
-  width:20%;
+const BodyContainer = styled.div`
+  margin: auto;
+  padding-left: 114px;
+  position: absolute;
+  top: 116%;
+  width: 20%;
   @media (max-width: 768px) {
-    width:80%;
-    position:relative;
-    padding-left:0;
-    top:auto;
-    margin:auto;
-    text-align:center;
-    margin-top:84px;
+    width: 80%;
+    position: relative;
+    padding-left: 0;
+    top: auto;
+    margin: auto;
+    text-align: center;
+    margin-top: 84px;
   }
 `;
 const Eyebrow = styled.div`
-    font-size:14px;
-    font-weight: 600;
-    text-transform:uppercase;
-    letter-spacing:.84px;
-    line-height:16px;
-    margin-bottom:10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  line-height: 16px;
+  margin-bottom: 10px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 20px;
+    max-width:75%;
+    margin:auto;
+    margin-bottom: 10px;
+  }
 `;
 
 const HoverBody = styled.div`
   position: absolute;
-  
-  top: -100px;   
-  left:100px; 
-  max-width:none;
-  width:100%;
-  .cardWrapper{
-      transform:translateX(37.5%) translateY(-50%);
-    }
+
+  top: -100px;
+  left: 100px;
+  max-width: none;
+  width: 100%;
+  .cardWrapper {
+    transform: translateX(37.5%) translateY(-50%);
+  }
   h5 {
-    display:none;    
+    display: none;
     position: absolute;
-    transform:translateX(0%) translateY(-100%);
+    transform: translateX(0%) translateY(-100%);
     text-align: center;
     text-transform: uppercase;
-    width:50%;
-    margin:auto;    
+    width: 50%;
+    margin: auto;
   }
   svg {
     /* transform:translateX(200%); */
   }
   &:hover,
   &:focus {
-    
     h5 {
-    display:block;
-    transition:none;
+      display: block;
+      transition: none;
     }
     svg {
       opacity: 0;
     }
   }
   @media (max-width: 768px) {
-    top:-75px;
-    left:0;
+    top: -75px;
+    left: 0;
   }
 `;
 

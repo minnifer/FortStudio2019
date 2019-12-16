@@ -8,7 +8,7 @@ import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
 import Title from "./title";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Theme = ({ state }) => {
   // Get information about the current URL.
@@ -25,7 +25,7 @@ const Theme = ({ state }) => {
 
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles} />  
+      <Global styles={globalStyles} />
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
@@ -33,10 +33,10 @@ const Theme = ({ state }) => {
         {(data.isFetching && <Loading />) ||
           (data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
-          (data.isPostType && data.id === 133  && <Form />) ||
-          (data.isPostType && <Post />) ||          
+          (data.isPostType && data.id === 133 && <Form />) ||
+          (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
-      </Main>          
+      </Main>
     </>
   );
 };
@@ -300,23 +300,24 @@ const globalStyles = css`
     margin: 0;
     font-family: "Calibre";
     font-weight: normal;
-    color: #1D1D1D;
+    color: #1d1d1d;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%23ffc40a' opacity='0.9'/%3E %3C/svg%3E "), pointer;
-    overflow-x:hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%23ffc40a' opacity='0.9'/%3E %3C/svg%3E "),
+      pointer;
+    overflow-x: hidden;
   }
-  p{
-    margin:0;
-    line-height:inherit;
+  p {
+    margin: 0;
+    line-height: inherit;
   }
   a,
   a:visited {
     color: inherit;
     text-decoration: none;
   }
-  a{    
-    text-decoration:none;
+  a {
+    text-decoration: none;
   }
   h1 {
     font-size: 74px;
@@ -324,66 +325,72 @@ const globalStyles = css`
     line-height: 76px;
     font-weight: 100;
     font-style: normal;
-    margin:0;
-     @media (max-width: 768px) {
-       font-size:56px;
-       line-height:58px;
-       letter-spacing:-.56px;
-     }
+    margin: 0;
+    @media (max-width: 768px) {
+      font-size: 56px;
+      line-height: 58px;
+      letter-spacing: -0.56px;
+    }
   }
-  h2{
-      font-size: 64px;
+  h2 {
+    font-size: 64px;
     letter-spacing: -0.74px;
     line-height: 66px;
     font-weight: 100;
     font-style: normal;
-    margin:0;
+    margin: 0;
     @media (max-width: 768px) {
-       font-size:44px;
-       line-height:46px;
-       letter-spacing:-.-44px;
-     }
+      font-size: 44px;
+      line-height: 46px;
+      letter-spacing: -.-44px;
+    }
   }
-  h3{
-      font-size: 38px;
-    letter-spacing:0;
+  h3 {
+    font-size: 38px;
+    letter-spacing: 0;
     line-height: 42px;
     font-weight: 100;
     font-style: normal;
-    margin:0;
+    margin: 0;
   }
-  h4{
-      font-weight: 500;
-      font-size:18px;
-      letter-spacing:1.08px;
-      margin:0;      
+  h4 {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 1.08px;
+    margin: 0;
   }
-  h5, a{
-      font-weight: 500;
-      font-size:14px;
-      letter-spacing:.84px;
-      margin:0;
+  h5,
+  a {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.84px;
+    margin: 0;
   }
-  strong{
-      font-weight:400;
+  strong {
+    font-weight: 400;
   }
   .p1 {
     /* line-height: 1.6em; */
-    margin:0;
-    font-size:20px;
+    margin: 0;
+    font-size: 20px;
     font-weight: 300;
     font-style: normal;
-    letter-spacing:0;
-    line-height:28px;
-    color:#1d1d1d;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #1d1d1d;
   }
-  .p2{
-    font-size:16px;
+  .p2 {
+    font-size: 16px;
     font-weight: 300;
     font-style: normal;
-    letter-spacing:0;
-    line-height:18px;
-    color:#1d1d1d;
+    letter-spacing: 0;
+    line-height: 20px;
+    color: #1d1d1d;
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin: 0;
+      line-height: 28px;
+    }
   }
 `;
 
@@ -394,7 +401,7 @@ const HeadContainer = styled.div`
   position: absolute;
   z-index: 2;
   margin: auto;
-  width: 100%;  
+  width: 100%;
 `;
 
 const Main = styled.div`

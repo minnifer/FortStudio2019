@@ -225,7 +225,7 @@ const Container = styled.div`
   z-index: 5;
   @media (max-width: 768px) {
     padding:0;
-    padding: 24px 0;
+    padding: 36px 0;
   }
 `;
 
