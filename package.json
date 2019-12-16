@@ -21,9 +21,14 @@
     "bootstrap": "^4.4.1",
     "frontity": "^1.4.4",
     "frontity-contact-form-7": "^0.1.4",
+    "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-burger-menu": "^2.6.13",
+    "react-dom": "^16.12.0",
+    "react-modal-video": "^1.2.3",
     "react-spring": "^8.0.27",
-    "striptags": "^3.1.1"
+    "redux": "^4.0.4",
+    "striptags": "^3.1.1",
+    "video-react": "^0.14.1"
   }
 }

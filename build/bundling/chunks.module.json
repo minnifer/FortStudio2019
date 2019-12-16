@@ -1,0 +1,112 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.41.2",
+  "hash": "ee9cf0b61fcc80832428",
+  "publicPath": "/static/",
+  "outputPath": "/Users/minhoq/Sites/FortStudio/build/static",
+  "assetsByChunkName": {
+    "fortstudio": [
+      "fortstudio.module.js",
+      "fortstudio.6c6cb8bb49634b777713.hot-update.js"
+    ],
+    "list": "list.module.js"
+  },
+  "assets": [
+    {
+      "name": "6c6cb8bb49634b777713.hot-update.json",
+      "size": 52,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "fortstudio.6c6cb8bb49634b777713.hot-update.js",
+      "size": 46871,
+      "chunks": [
+        "fortstudio"
+      ],
+      "chunkNames": [
+        "fortstudio"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "fortstudio.module.js",
+      "size": 13537547,
+      "chunks": [
+        "fortstudio"
+      ],
+      "chunkNames": [
+        "fortstudio"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "list.module.js",
+      "size": 41847,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "fortstudio": {
+      "chunks": [
+        "fortstudio"
+      ],
+      "assets": [
+        "fortstudio.module.js",
+        "fortstudio.6c6cb8bb49634b777713.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "fortstudio": {
+      "chunks": [
+        "fortstudio"
+      ],
+      "assets": [
+        "fortstudio.module.js",
+        "fortstudio.6c6cb8bb49634b777713.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}

@@ -27,6 +27,7 @@ const marsTheme = {
     theme: {
       menu: [],
       isMobileMenuOpen: false,
+      isVideoOpen: false,
       navDark:true,
     }
   },
@@ -37,8 +38,14 @@ const marsTheme = {
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
+      toggleVideoModal: ({ state }) => {
+        state.theme.isVideoOpen = !state.theme.isVideoOpen;
+      },
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
+      },
+      closeVideoModal: ({ state }) => {
+        state.theme.isVideoOpen = false;
       },
       beforeSSR: async ({ state, actions }) => {
         // This will make Frontity wait until the ACF options

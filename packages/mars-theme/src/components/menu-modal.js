@@ -32,6 +32,7 @@ const MenuOverlay = styled.div`
   z-index: 2;
   top: 0;
   left: 0;
+  opacity: 0.95;
 `;
 
 const MenuContent = styled.div`
@@ -63,10 +64,7 @@ const MenuLink = styled(Link)`
   align-items: flex-start;
   padding-left: 18vw;
   z-index: 5;
-  &:hover,
-  &:focus {
-    background-color: rgba(29, 29, 29, 95);
-  }
+
   /* styles for active link */
   &[aria-current="page"] {
     color: yellow;
@@ -77,8 +75,9 @@ const MenuLink = styled(Link)`
     font-weight: 300;
     font-size: 38px;
     letter-spacing: 0;
-    line-height:24px;
+    line-height: 24px;
     color: #ffffff;
+    transition:color 250ms ease-in-out;
   }
   .navSubhead {
     font-weight: 500;
@@ -87,11 +86,22 @@ const MenuLink = styled(Link)`
     line-height: 51px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.2);
+    transition:color 250ms ease-in-out;
   }
   &:last-of-type {
     align-items: flex-end;
     padding-left: 0;
     padding-right: 18vw;
+    background-color: rgba(29, 29, 29, 0.5);
+  }
+  &:hover,
+  &:focus {
+    .navHeadline {
+      color: #ffc400;
+    }
+    .navSubhead {
+      color: #ffffff;
+    }
   }
   @media (max-width: 768px) {
     align-items: flex-start;
@@ -103,7 +113,6 @@ const MenuLink = styled(Link)`
       padding-left: 65px;
       padding-top: 0;
       padding-right: 0;
-      
     }
   }
 `;

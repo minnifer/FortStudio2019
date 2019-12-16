@@ -6,26 +6,16 @@ import Header from "./header";
 import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
 import Card from "./partials/card";
-
+import VideoPlayer from "./partials/VideoPlayer";
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
-  // Get the data of the author.
-  const author = state.source.author[post.author];
-  // Get a human readable date.
-  const date = new Date(post.date);
-
   // Get the html2react component.
-  const Html2React = libraries.html2react.Component;
-
-  // Once the post has loaded in the DOM, prefetch both the
-  // home posts and the list component so if the user visits
-  // the home page, everything is ready and it loads instantly.
+  // const Html2React = libraries.html2react.Component;
   useEffect(() => {
     actions.source.fetch("/");
-    List.preload();
   }, []);
   // Load the post, but only if the data is ready.    
 
@@ -40,6 +30,7 @@ const Home = ({ state, actions, libraries }) => {
       <Content>
         <VideoContainer>
           <Video autoPlay muted loop src={post.acf.video["url"]} />
+          <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
             <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
             <StyledCard linkURL="/what-we-do" linkText="Learn More"></StyledCard>
@@ -63,7 +54,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   margin: auto;
   width: 100%;  
 `;
@@ -75,10 +66,12 @@ const VideoContainer = styled.div`
   flex-direction:column;
   justify-content:center;
 `;
-
+const StyledVideoPlayer = styled(VideoPlayer)`
+  /* z-index:100; */
+`;
 const TextContainer = styled.div`
   position:relative;  
-  z-index:1;
+  z-index:3;
   max-width:1440px;
   margin:auto;
   width:100%;

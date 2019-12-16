@@ -48,6 +48,7 @@ const MenuToggle = styled.button`
     letter-spacing: 0.84px;
     font-size: 14px;
     text-transform: uppercase;
+    transition:color 250ms ease-in-out;
     &.menuOpen{
       color: ${props => props.menuTheme};
     }
