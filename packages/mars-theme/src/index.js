@@ -26,6 +26,7 @@ const marsTheme = {
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
       menu: [],
+      isMobileMenuOpen: false,
       navDark:true,
     }
   },
@@ -33,6 +34,12 @@ const marsTheme = {
   // Frontity like libraries.
    actions: {
     theme: {
+      toggleMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
+      },
+      closeMobileMenu: ({ state }) => {
+        state.theme.isMobileMenuOpen = false;
+      },
       beforeSSR: async ({ state, actions }) => {
         // This will make Frontity wait until the ACF options
         // page has been fetched and it is available

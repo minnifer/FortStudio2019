@@ -239,6 +239,7 @@ const LeftContainer = styled.div`
   @media (max-width: 768px) {
        position:relative;
        margin-top:161px;
+       top:auto;
        padding-bottom:109px;
        width:100%;
      }
@@ -257,15 +258,12 @@ const RightContainer = styled.div`
 
 const BodyContainer = styled.div`
   margin-top: 15px;
-  z-index: 99;
 `;
 const HeadlineContainer = styled.h4`
-  z-index: 99;
 `;
 const ToutContainer = styled.div`
   margin-bottom: 103px;
   position: relative;
-  z-index: 99;
   &:last-of-type {
     margin-bottom: 177px;
   }

@@ -1,0 +1,14 @@
+webpackHotUpdate("fortstudio",{
+
+/***/ "./packages/mars-theme/src/components/logo.js":
+/*!****************************************************!*\
+  !*** ./packages/mars-theme/src/components/logo.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: /Users/minhoq/Sites/FortStudio/packages/mars-theme/src/components/logo.js: Unexpected token, expected \\\";\\\" (209:3)\\n\\n\\u001b[0m \\u001b[90m 207 | \\u001b[39m    \\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33mContainer\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 208 | \\u001b[39m  \\u001b[33m<\\u001b[39m\\u001b[33m/\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 209 | \\u001b[39m  )l\\u001b[0m\\n\\u001b[0m \\u001b[90m     | \\u001b[39m   \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 210 | \\u001b[39m \\u001b[0m\\n\\u001b[0m \\u001b[90m 211 | \\u001b[39m}\\u001b[33m;\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 212 | \\u001b[39m\\u001b[0m\\n    at Object.raise (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/location.js:41:63)\\n    at Object.unexpected (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/util.js:160:16)\\n    at Object.semicolon (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/util.js:133:40)\\n    at Object.parseReturnStatement (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:585:12)\\n    at Object.parseStatementContent (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:194:21)\\n    at Object.parseStatement (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:141:17)\\n    at Object.parseBlockOrModuleBlockBody (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:860:25)\\n    at Object.parseBlockBody (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:836:10)\\n    at Object.parseBlock (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/statement.js:813:10)\\n    at Object.parseFunctionBody (/Users/minhoq/Sites/FortStudio/node_modules/@babel/parser/src/parser/expression.js:1996:24)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3BhY2thZ2VzL21hcnMtdGhlbWUvc3JjL2NvbXBvbmVudHMvbG9nby5qcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./packages/mars-theme/src/components/logo.js\n");
+
+/***/ })
+
+})

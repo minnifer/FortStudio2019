@@ -3,14 +3,15 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import Logo from "./logo";
+import MobileMenu from "./menu";
 
-const Header = ({ state, theme }) => (
-  
+const Header = ({ state, menuTheme }) => (
   
   <>  
     <Container>      
-      <Logo theme={theme}/>
-      <Nav theme={theme}/>
+      <Logo menuTheme={menuTheme}/>
+      {/* <Nav theme={theme}/> */}
+      <MobileMenu menuTheme={menuTheme}/>
     </Container>
   </>
 );
@@ -18,13 +19,15 @@ const Header = ({ state, theme }) => (
 export default connect(Header);
 
 const Container = styled.div`
-  width: 1440px;
-  max-width: 100%;
+  max-width: 1440px;
+  width: 100%;
   box-sizing: border-box;
-  padding: 24px 0;
   display: flex;  
   justify-content: space-around;  
+  align-items:center;
   margin:auto;   
+  position:relative;
+  
 `;
 
 const Title = styled.h2`

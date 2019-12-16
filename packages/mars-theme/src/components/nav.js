@@ -1,32 +1,46 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from "react-burger-menu";
 
-const Nav = ({ state }) => (
-  <Container>
-     <Menu noOverlay onStateChange={ isMenuOpen } customCrossIcon={ false } disableAutoFocus customBurgerIcon={ <span className="navText">Menu</span> } width={ '100%' }  styles={ styles } right>
-        {state.theme.menu.map(([name, link]) => (
-          <Item key={name} isSelected={state.router.link === link}>
-            <Link className="menu-item" link={link}>{name}</Link>         
-          </Item>        
-        ))}          
-      </Menu>
-  </Container>
-);
+const Nav = ({ state }) => {
+  const options = state.source.get("acf-options-page");
+  const navSubheads = options.acf.menu_subheads;
+
+  return (
+    <NavContainer>
+      <NavItem key="What We Do">
+        <Link
+          link="/what-we-do"
+        >
+          <span className="navHeadline">What We Do</span>
+          <span className="navSubhead">{navSubheads.what_we_do_subhead}</span>
+        </Link>
+      </NavItem>
+      <NavItem key="Who We Are">
+        <Link
+          link="/who-we-are"
+        >
+          <span className="navHeadline">Who We Are</span>
+          <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
+        </Link>
+      </NavItem>
+    </NavContainer>
+  );
+};
 
 export default connect(Nav);
 
-const Container = styled.nav`
+const NavContainer = styled.nav`
   list-style: none;
   display: flex;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  justify-content:center;
-  align-items:center;
-  margin-right:119px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 119px;
 `;
 
 const Item = styled.div`
@@ -36,7 +50,7 @@ const Item = styled.div`
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
-  
+
   & > a {
     display: inline-block;
     line-height: 2em;
@@ -59,56 +73,36 @@ const Item = styled.div`
   }
 `;
 
-var styles = {
-  bmBurgerButton: {
-      position:'relative',
-      overflow:'hidden'
-  },
-  bmCrossButton: {
-    height: '24px',
-    width: '24px'
-  },
-  bmCross: {
-    background: '#bdc3c7'
-  },
-  bmMenuWrap: {
-    position: 'fixed',
-    height: '100%',
-    zIndex: '30',
-    top: '0'
-  },
-  bmMenu: {
-    background: '#121212',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em',
-    width: '100%',
-    opacity:'95%',
-    height:'auto'
-  },
-  bmItemList: {
-    color: '#b8b7ad',
-    padding: '0.8em'
-  },
-  bmItem: {
-    display: 'inline-block'
-  },
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
-  },
-  bmIcon: {
-    color: '#000',
-    fontFamily: 'Calibre',
-    fontWeight: '500',
-    textTransform: 'uppercase',    
-  }
-}
+const NavItem = styled.div`
+  padding: 0;
+  margin: 0 16px;
+  color: #fff;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  flex-shrink: 0;
 
-var isMenuOpen = function(state) {
-  var menuText;
-    if (state.isOpen){
-      menuText = "Menu";
+  & > a {
+    display: inline-block;
+    line-height: 2em;
+    border-bottom: 2px solid;
+    border-bottom-color: transparent;
+    /* Use for semantic approach to style the current link */
+    &[aria-current="page"] {
+      border-bottom-color: #fff;
     }
-    else{
-      menuText="Close"
+  }
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 24px;
     }
-};
+  }
+`;

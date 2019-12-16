@@ -33,7 +33,7 @@ const Post = ({ state, actions, libraries }) => {
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
        <HeadContainer>
-        <Header theme="black"/>
+        <Header menuTheme="black"/>
       </HeadContainer>
       <Content>
              <ComponentRouter layouts={post.acf.content_blocks} />

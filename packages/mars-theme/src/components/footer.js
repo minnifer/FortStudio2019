@@ -4,6 +4,7 @@ import Link from "./link";
 import Card from "./partials/card";
 const Footer = ({ state }) => {
   const options = state.source.get("acf-options-page");
+  
   return (
     <FooterContainer>
       <TopWrapper>

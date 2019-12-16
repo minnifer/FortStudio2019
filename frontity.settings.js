@@ -16,7 +16,6 @@ const settings = {
           menu: [
             ["What We Do", "/what-we-do/"],
             ["Who We Are", "/who-we-are/"],
-            ["Contact Form", "/form-page/"]
           ],
           featured: {
             showOnList: false,
