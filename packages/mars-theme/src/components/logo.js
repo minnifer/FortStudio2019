@@ -223,6 +223,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   z-index: 5;
+  @media (max-width: 768px) {
+    padding:0;
+    padding: 24px 0;
+  }
 `;
 
 const StyledLink = styled(Link)`
