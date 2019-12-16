@@ -120,12 +120,12 @@ const HoverBody = styled.div`
   max-width: none;
   width: 100%;
   .cardWrapper {
-    transform: translateX(37.5%) translateY(-50%);
+    /* transform: translateX(37.5%) translateY(-50%); */
   }
   h5 {
     display: none;
     position: absolute;
-    transform: translateX(0%) translateY(-100%);
+    transform: translateX(-32.5%) translateY(-125%);
     text-align: center;
     text-transform: uppercase;
     width: 50%;

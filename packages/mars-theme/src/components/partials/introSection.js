@@ -220,14 +220,28 @@ const HoverBody = styled.div`
   width: 100%;
 
   h5 {
-    display: none;
-    transition: opacity 250ms ease-in;
+    /* opacity:0; */
+    transform:scale(0);
+    transition: scale 250ms ease-in-out;
     position: absolute;
     top: 0;
     text-align: center;
-    text-transform: uppercase;
-    width: 50%;
-    margin: auto;
+    text-transform: uppercase;    
+    width:50%;    
+    margin: auto;    
+    cursor:none;
+    &:after{
+      content:'';
+      position:absolute;
+      width:230px;
+      height:230px;
+      background:#ffc40a;
+      top:-100%;
+      left:0%;
+      transform:translate(-20%, -25%);
+      z-index:-1;
+      border-radius:50%;
+    }
   }
   svg {
     /* transform:translateX(200%); */
@@ -235,8 +249,8 @@ const HoverBody = styled.div`
   &:hover,
   &:focus {
     h5 {
-      display: block;
-      transition: none;
+      /* opacity: 1;    */
+      transform:scale(1);   
     }
     svg {
       opacity: 0;

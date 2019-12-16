@@ -1,7 +1,7 @@
 import React from "react";
 import { styled, connect } from "frontity";
 import Link from "./link";
-
+import VideoPlayer from "./partials/VideoPlayer";
 const MenuModal = ({ state }) => {
   const { menu } = state.theme;
   const options = state.source.get("acf-options-page");
@@ -14,6 +14,7 @@ const MenuModal = ({ state }) => {
           <span className="navHeadline">What We Do</span>
           <span className="navSubhead">{navSubheads.what_we_do_subhead}</span>
         </MenuLink>
+        <StyledVideoPlayer toggle={state} src={options.acf.video["url"]} />
         <MenuLink key="Who We Are" link="/who-we-are">
           <span className="navHeadline">Who We Are</span>
           <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
@@ -24,7 +25,6 @@ const MenuModal = ({ state }) => {
 };
 
 const MenuOverlay = styled.div`
-  
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
@@ -32,7 +32,35 @@ const MenuOverlay = styled.div`
   z-index: 2;
   top: 0;
   left: 0;
-  opacity: 0.95;
+  &:before {
+    content: "";
+    background-color: rgba(18, 18, 18, 0.95);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &:after {
+    content: "";
+    background-color: rgba(29, 29, 29, 0.95);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  @media (max-width: 768px) {
+    &:before,
+    &:after {
+      width: 100%;
+      height: 50%;
+    }
+    &:after {
+      bottom:0;
+      top:auto;
+    }
+  }
 `;
 
 const MenuContent = styled.div`
@@ -40,6 +68,8 @@ const MenuContent = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
+  max-width: 1440px;
+  margin: auto;
   position: fixed;
   top: 0;
   margin: auto;
@@ -62,9 +92,9 @@ const MenuLink = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 18vw;
+  padding-left: 114px;
   z-index: 5;
-  background-color: rgba(18, 18, 18, 0.95);
+  /* background-color: rgba(18, 18, 18, 0.95); */
   /* styles for active link */
   &[aria-current="page"] {
     color: yellow;
@@ -77,7 +107,7 @@ const MenuLink = styled(Link)`
     letter-spacing: 0;
     line-height: 16px;
     color: #ffffff;
-    transition:color 250ms ease-in-out;
+    transition: color 250ms ease-in-out;
   }
   .navSubhead {
     font-weight: 500;
@@ -86,13 +116,13 @@ const MenuLink = styled(Link)`
     line-height: 51px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.2);
-    transition:color 250ms ease-in-out;
+    transition: color 250ms ease-in-out;
   }
   &:last-of-type {
     align-items: flex-end;
     padding-left: 0;
-    padding-right: 18vw;
-    background-color: rgba(29, 29, 29, 0.95);
+    padding-right: 114px;
+    /* background-color: rgba(29, 29, 29, 0.95); */
   }
   &:hover,
   &:focus {
@@ -116,5 +146,6 @@ const MenuLink = styled(Link)`
     }
   }
 `;
-
+const StyledVideoPlayer = styled(VideoPlayer)`
+`;
 export default connect(MenuModal);

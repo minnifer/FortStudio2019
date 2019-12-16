@@ -180,7 +180,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: absolute;
-  z-index: 2;
+  /* z-index: 1; */
   margin: auto;
   width: 100%;  
 `;

@@ -77,12 +77,13 @@ const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   &.active {
-    z-index: 5;
+    z-index: 90;
     height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;
     transform: none;
+    position:fixed;
   }
 `;
 const Video = styled.video`
@@ -135,7 +136,7 @@ const PlayButton = styled.button`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 68px;
+  top: 108px;
   right: 114px;
   width: fit-content;
   font-weight: 500;
