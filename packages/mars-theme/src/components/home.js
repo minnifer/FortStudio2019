@@ -54,7 +54,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   margin: auto;
   width: 100%;  
 `;
