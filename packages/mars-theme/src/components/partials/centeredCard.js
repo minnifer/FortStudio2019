@@ -2,16 +2,16 @@ import React from "react";
 import { useSpring, animated } from "react-spring";
 import { connect, styled } from "frontity";
 import Link from "./../link";
-const Card = ({ linkURL, linkText, text }) => {
+const CenteredCard = ({ linkURL, linkText, text }) => {
   return (
     <Container>
-      <StyledLink link={linkURL}>{linkText}</StyledLink>
+      <StyledLink link={linkURL}><span>{linkText}</span></StyledLink>
       <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
     </Container>
   );
 };
 
-export default connect(Card);
+export default connect(CenteredCard);
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -25,6 +25,10 @@ const StyledLink = styled(Link)`
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
+  span{
+      width:80%;
+  }
   &:after{
     content: "";
     opacity:0;
@@ -40,8 +44,8 @@ const StyledLink = styled(Link)`
       height: 130px;
       background-color: #ffc40a;
       top: 0%;
-      left: 58%;
-      transform: translate(-25%, 0);
+      left: 0%;
+      transform: translate(0%, 0);
       z-index: -1;
       border-radius: 50%;
     }
@@ -59,5 +63,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: none;
+  margin-right:10px;
 `;
 // consts

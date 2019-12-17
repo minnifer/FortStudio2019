@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import Card from "./partials/card";
+import CenteredCard from "./partials/centeredCard";
 const Footer = ({ state }) => {
   const options = state.source.get("acf-options-page");
 
@@ -87,18 +88,14 @@ const Footer = ({ state }) => {
             </svg>
           </CenterContainer>
           <RightContainer>
-            <CircleWrapper>
-              <Link
-              link="/contact/"
-              >{options.acf.footer_cta_text.reel_text}</Link>
-            </CircleWrapper>
-            <CircleWrapper>
-              <Link
-              link="/contact/"
-              >
-                {options.acf.footer_cta_text.work_sample_form_text}
-              </Link>
-            </CircleWrapper>
+            <StyledCard
+              linkURL="/contact"
+              linkText={options.acf.footer_cta_text.reel_text}
+            ></StyledCard>
+            <StyledCard
+              linkURL="/contact"
+              linkText={options.acf.footer_cta_text.work_sample_form_text}
+            ></StyledCard>
           </RightContainer>
         </BottomFooter>
       </BottomWrapper>
@@ -125,6 +122,9 @@ const Title = styled.h2`
   margin: 0;
   margin-bottom: 16px;
 `;
+const StyledCard = styled(CenteredCard)`
+  margin-right: 10px;
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -141,8 +141,8 @@ const TopFooter = styled.div`
   justify-content: space-between;
   @media (max-width: 768px) {
     flex-direction: column;
-    padding-top:60px;
-    padding-bottom:60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 `;
 const Tout = styled.div`
@@ -154,15 +154,15 @@ const Tout = styled.div`
   p {
     color: #ffffff;
     margin-bottom: 15px;
-    max-width:82%;
+    max-width: 82%;
   }
   h4 {
     text-transform: uppercase;
     line-height: 20px;
     margin-bottom: 12px;
   }
-  a{
-    letter-spacing:.84px;
+  a {
+    letter-spacing: 0.84px;
   }
   &:before {
     width: 2px;
