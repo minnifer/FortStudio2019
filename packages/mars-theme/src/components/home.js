@@ -83,7 +83,7 @@ const TextContainer = styled.div`
       padding-left:114px;
     }
     a{
-      padding-left:114px;
+      padding-left:100px;
       color:#fff;
     }
     @media (max-width: 768px) {
@@ -99,7 +99,7 @@ const BodyContainer = styled.h1`
   padding-left:114px;
   color:#fff;
   width:28%;
-  margin-bottom:45px;
+  /* margin-bottom:45px; */
   @media (max-width: 768px) {
     padding-left:0;
     text-align:center;

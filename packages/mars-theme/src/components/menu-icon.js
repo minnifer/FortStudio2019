@@ -11,3 +11,9 @@ export const CloseIcon = ({ size, color }) => {
     <span className="menuClose">Close</span>
   );
 };
+
+export const BackIcon = ({ size, color }) => {
+  return (
+    <span className="menuClose">Close</span>
+  );
+};

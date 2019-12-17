@@ -88,16 +88,16 @@ const Footer = ({ state }) => {
           </CenterContainer>
           <RightContainer>
             <CircleWrapper>
-              <ReelLink
+              <Link
               link="/contact/"
-              >{options.acf.footer_cta_text.reel_text}</ReelLink>
+              >{options.acf.footer_cta_text.reel_text}</Link>
             </CircleWrapper>
             <CircleWrapper>
-              <SampleLink
+              <Link
               link="/contact/"
               >
                 {options.acf.footer_cta_text.work_sample_form_text}
-              </SampleLink>
+              </Link>
             </CircleWrapper>
           </RightContainer>
         </BottomFooter>
@@ -319,7 +319,7 @@ const CircleWrapper = styled(Link)`
     margin-right: 0;
   }
 `;
-const SampleLink = styled.div`
+const SampleLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;

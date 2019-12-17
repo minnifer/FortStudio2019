@@ -2,7 +2,7 @@ const settings = {
   name: "fortstudio",
   state: {
     frontity: {
-      url: "https://test.frontity.io",
+      url: "https://fortstudio2019.now.sh/",
       title: "Fort Studio",
       description: "Wordpress Install with React"
     }

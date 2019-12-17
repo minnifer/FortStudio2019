@@ -20,6 +20,10 @@ const StyledLink = styled(Link)`
   width: 130px;
   height: 130px;
   transition: background-color 250ms ease-in-out;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   &:after{
     content: "";
     opacity:0;
@@ -35,8 +39,8 @@ const StyledLink = styled(Link)`
       height: 130px;
       background-color: #ffc40a;
       top: 0%;
-      left: 50%;
-      transform: translate(-25%, -42.5%);
+      left: 58%;
+      transform: translate(-25%, 0);
       z-index: -1;
       border-radius: 50%;
     }
