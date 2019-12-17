@@ -7,6 +7,8 @@ import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
 import Card from "./partials/card";
 import VideoPlayer from "./partials/VideoPlayer";
+import * as magnetCurs from "./utils/magnetCurs";
+
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -15,7 +17,7 @@ const Home = ({ state, actions, libraries }) => {
   // Get the html2react component.
   // const Html2React = libraries.html2react.Component;
   useEffect(() => {
-    actions.source.fetch("/");
+    actions.source.fetch("/");    
   }, []);
   // Load the post, but only if the data is ready.    
 
@@ -30,12 +32,12 @@ const Home = ({ state, actions, libraries }) => {
       <Content>
         <VideoContainer>
           <StyledVideoContainer>
-            <Video autoPlay muted loop src={post.acf.video["url"]} />
+            <Video autoPlay muted loop src={post.acf.background_video["url"]} />
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
             <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
-            <StyledCard linkURL="/what-we-do" linkText="Learn More"></StyledCard>
+            <StyledCard data-stick-cursor linkURL="/what-we-do" linkText="Learn More"></StyledCard>
           </TextContainer>
         </VideoContainer>
       </Content>
@@ -49,6 +51,17 @@ const Container = styled.div`
   margin: 0;
   width: 100%;
   overflow:hidden;
+  #cursor{
+    border-radius: 1000px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(244, 67, 54, 1);
+    margin: -15px;
+    transition-duration: 150ms;
+    z-index: 10000;
+    padding: 0;
+    box-sizing: border-box;
+}
 `;
 
 const HeadContainer = styled.div`

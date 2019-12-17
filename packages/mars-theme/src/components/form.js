@@ -48,7 +48,7 @@ const Form = ({ state, actions, libraries }) => {
       <Content>
         <LeftContainer>
           <h2>
-            Let's create something <strong>Amazing</strong>
+            Let's create something <strong>amazing</strong>
           </h2>
         </LeftContainer>
         <RightContainer>
@@ -65,14 +65,14 @@ const PageContainer = styled.div`
   background: #ffc40a;
   width: 100%;
   height: 100%;
-  min-height:100vh;
+  min-height: 100vh;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
     pointer;
 `;
 const RightContainer = styled.div`
   width: 40%;
   @media (max-width: 768px) {
-      width:100%;
+    width: 100%;
   }
 `;
 const LeftContainer = styled.div`
@@ -91,7 +91,7 @@ const LeftContainer = styled.div`
     top: auto;
     padding-bottom: 0;
     width: 100%;
-    margin-left:0;
+    margin-left: 0;
   }
 `;
 const Title = styled.h1`
@@ -126,15 +126,15 @@ const Content = styled.div`
   word-break: break-word;
   max-width: 1440px;
   margin: auto;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   padding: 0 119px;
   display: flex;
   flex-direction: row;
   @media (max-width: 768px) {
     flex-direction: column;
-    padding:0 36px;
+    padding: 0 36px;
   }
   * {
     max-width: 100%;
@@ -200,14 +200,63 @@ const Content = styled.div`
     line-height: 28px;
     letter-spacing: 0;
   }
-
+  
   form {
     margin-top: 235px;
     > p {
       position: relative;
+       > label {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 28px;
+      position: absolute;
+      top: 62%;
+      color: #1d1d1d;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: top 0.2s;
+    }
+      &.intro{
+        width:25%;
+        min-width:184px;
+        margin-bottom:16px;
+      }
     }
     @media (max-width: 768px) {
-      margin-top:68px;
+      margin-top: 68px;
+    }
+    .form-container {
+      display: flex;
+      margin-bottom:60px;
+      /* flex-wrap:wrap; */
+      @media (max-width: 768px) {
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+      > span {
+        margin-right: 14px;
+        text-align: center;
+        @media (max-width: 768px) {
+          width:calc(90%/2);
+          min-height:94px;
+          margin-bottom:14px;
+        }
+        .wpcf7-acceptance {
+          height: 100%;
+        }
+        .wpcf7-list-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 100%;
+          label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+          }
+        }
+      }
     }
   }
   input[type="submit"] {
@@ -228,8 +277,9 @@ const Content = styled.div`
     text-transform: uppercase;
     background: transparent;
     border: none;
+    margin-bottom: 85px;
     @media (max-width: 768px) {
-      margin-bottom:85px;
+      margin-bottom: 85px;
     }
   }
   input:-webkit-autofill,
@@ -240,21 +290,58 @@ const Content = styled.div`
     -webkit-transition-delay: 9999s;
   }
 
-  label {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 28px;
-    position: absolute;
-    top: 62%;
-    color: #1d1d1d;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: top 0.2s;
+  
+    > label {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 28px;
+      position: absolute;
+      top: 62%;
+      color: #1d1d1d;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: top 0.2s;
+    }
+    label.has-value {
+      top: 20px;
+      font-size: 11px;
+    }
   }
-  label.has-value {
-    top: 20px;
-    font-size: 11px;
+  .wpcf7-acceptance {
+    display: flex;
+    flex-wrap: wrap;
+    .wpcf7-list-item {
+      /* width: 50%; */
+      input[type="checkbox"] {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        /* For mobile, it's typically better to position checkbox on top of clickable
+      area and turn opacity to 0 instead. */
+      }
+      span {
+        border: 2px solid #1d1d1d;
+        padding: 24px 15px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition:border 250ms ease-in-out;
+        font-size:12px;
+        font-weight:500;
+        letter-spacing:.84px;
+        line-height:14px;
+        text-transform:uppercase;
+        &:hover{
+          border: 2px solid #fff;
+        }
+      }
+      input[type="checkbox"]:checked ~ span {
+        border: 2px solid #fff;        
+      }
+    }
   }
+
   .wpcf7-list-item {
     label {
       position: relative;
@@ -262,14 +349,18 @@ const Content = styled.div`
       transform: none;
     }
   }
-  .text-727,
-  .email-231,
-  .text-218 {
+  .your-name,
+  .your-email,
+  .text-218,
+  .your-message {
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 75px;
+    @media (max-width: 768px) {
+      margin-bottom: 45px;
+    }
 
     &:after {
       /* border-bottom:1px solid #1D1D1D; */
