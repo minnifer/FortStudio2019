@@ -88,10 +88,14 @@ const Footer = ({ state }) => {
           </CenterContainer>
           <RightContainer>
             <CircleWrapper>
-              <ReelLink>{options.acf.footer_cta_text.reel_text}</ReelLink>
+              <ReelLink
+              link="/contact/"
+              >{options.acf.footer_cta_text.reel_text}</ReelLink>
             </CircleWrapper>
             <CircleWrapper>
-              <SampleLink>
+              <SampleLink
+              link="/contact/"
+              >
                 {options.acf.footer_cta_text.work_sample_form_text}
               </SampleLink>
             </CircleWrapper>
@@ -284,7 +288,7 @@ const Phone = styled(Link)`
     color: #ffc400;
   }
 `;
-const ReelLink = styled.div`
+const ReelLink = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -304,7 +308,7 @@ const ReelLink = styled.div`
   margin: auto;
   text-transform: uppercase;
 `;
-const CircleWrapper = styled.div`
+const CircleWrapper = styled(Link)`
   position: relative;
   margin-right: 30px;
   background-color: #f8f8f8;

@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-import List from "./list";
-import FeaturedMedia from "./featured-media";
 import Header from "./header";
+import $ from "jquery";
+import { findDOMNode } from 'react-dom';
+
 const Form = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
-  // Get the data of the author.
-  const author = state.source.author[post.author];
-  // Get a human readable date.
-  const date = new Date(post.date);
-
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
@@ -22,52 +18,62 @@ const Form = ({ state, actions, libraries }) => {
   // the home page, everything is ready and it loads instantly.
   useEffect(() => {
     actions.source.fetch("/");
-    List.preload();
+    $(".wpcf7-form input").focus(function() {
+			$(this).parent().siblings('label').addClass('has-value');
+	})
+	// blur input fields on unfocus + if has no value
+	.blur(function() {
+		var text_val = $(this).val();
+		if(text_val === "") {
+			$(this).parent().siblings('label').removeClass('has-value');
+		}
+	});
   }, []);
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <>
+    <PageContainer>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <HeadContainer>
-        <Header theme="black" />
+        <Header menuTheme="black" />
       </HeadContainer>
       <Content>
         <LeftContainer>
-          <h2>Let's create something <strong>Amazing</strong></h2>
-          {/* <BodyContainer
-          className="p1"
-          dangerouslySetInnerHTML={{ __html: props.layout.body }}
-        ></BodyContainer> */}
+          <h2>
+            Let's create something <strong>Amazing</strong>
+          </h2>
         </LeftContainer>
         <RightContainer>
           <Html2React html={post.content.rendered} />
         </RightContainer>
       </Content>
-    </>
+    </PageContainer>
   ) : null;
 };
 
 export default connect(Form);
 
 const PageContainer = styled.div`
-  
+  background: #ffc40a;
+  width: 100%;
+  height: 100vh;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
+    pointer;
 `;
 const RightContainer = styled.div`
-  width: 22.5%;
-  align-self: flex-end;
-  margin-top: 548px;
+  width: 40%;
 `;
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  margin-top: 260px;
+  margin-top: 235px;
   width: 35%;
+  margin-left: 131px;
   top: 10%;
-  padding-bottom:177px;
-  height:fit-content;
+  padding-bottom: 177px;
+  height: fit-content;
 `;
 const Title = styled.h1`
   margin: 0;
@@ -97,7 +103,7 @@ const HeadContainer = styled.div`
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
-const Content = styled.div`  
+const Content = styled.div`
   word-break: break-word;
   width: 1440px;
   margin: auto;
@@ -105,7 +111,7 @@ const Content = styled.div`
   padding: 0 119px;
   display: flex;
   flex-direction: row;
-  background:#FFC40A;
+
   * {
     max-width: 100%;
   }
@@ -149,7 +155,7 @@ const Content = styled.div`
 
   /* Input fields styles */
 
-  /* input[type="text"],
+  input[type="text"],
   input[type="email"],
   input[type="url"],
   input[type="tel"],
@@ -158,45 +164,85 @@ const Content = styled.div`
   textarea,
   select {
     display: block;
-    padding: 6px 12px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    outline-color: transparent;
-    transition: outline-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    margin: 8px 0 4px 0;
-
-    &:focus {
-      outline-color: #1f38c5;
-    }
-  } */
+    color: #1d1d1d;
+    box-shadow: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
 
   form {
-    margin-top: 260px;
+    margin-top: 235px;
+    > p {
+      position: relative;
+    }
   }
   input[type="submit"] {
     display: inline-block;
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
-    background-image: none;
-    border: 1px solid #1f38c5;
-    padding: 12px 36px;
     font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #1f38c5;
+    line-height: 16px;
+    color: #1d1d1d;
+    -webkit-appearance: none;
+    padding: 0;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+  }
+  label {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    position: absolute;
+    top: 62%;
+    color:#1D1D1D;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: top 0.2s;
+  }
+  label.has-value {
+    top: 20px;
+    font-size: 11px;
+  }
+
+  .text-727,
+  .email-231,
+  .text-218 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 75px;
+
+    &:after {
+      /* border-bottom:1px solid #1D1D1D; */
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #1d1d1d;
+    }
   }
 
   /* WordPress Core Align Classes */
