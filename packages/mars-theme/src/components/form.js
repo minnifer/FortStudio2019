@@ -12,7 +12,7 @@ const Form = ({ state, actions, libraries }) => {
   const post = state.source[data.type][data.id];
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
-
+  const options = state.source.get("acf-options-page");
   // Once the post has loaded in the DOM, prefetch both the
   // home posts and the list component so if the user visits
   // the home page, everything is ready and it loads instantly.
@@ -47,9 +47,28 @@ const Form = ({ state, actions, libraries }) => {
       </HeadContainer>
       <Content>
         <LeftContainer>
-          <h2>
-            Let's create something <strong>amazing</strong>
-          </h2>
+          <Headline
+            dangerouslySetInnerHTML={{
+              __html: options.acf.contact_headline
+            }}
+          ></Headline>
+          <SocialContainer>
+            <span>Find Us</span>
+            <Address
+              dangerouslySetInnerHTML={{
+                __html: options.acf.social_section.address
+              }}
+            ></Address>
+          </SocialContainer>
+          <SocialContainer>
+            <span>Call Us</span>
+            <Phone
+              target="_blank"
+              link={"tel:" + options.acf.social_section.phone_number_field}
+            >
+              {options.acf.social_section.phone_number_field}
+            </Phone>
+          </SocialContainer>
         </LeftContainer>
         <RightContainer>
           <Html2React html={post.content.rendered} />
@@ -73,6 +92,41 @@ const RightContainer = styled.div`
   width: 40%;
   @media (max-width: 768px) {
     width: 100%;
+  }
+`;
+
+const Headline = styled.h2`
+  margin-bottom:36px;
+`;
+const SocialContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom:25px;
+  span {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.84px;
+    line-height: 16px;
+    margin-bottom: 14px;
+  }
+`;
+const Address = styled.div`
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+`;
+const Phone = styled(Link)`
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-size: 16px;
+  transition: color 250ms ease-in-out;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: #ffc400;
   }
 `;
 const LeftContainer = styled.div`
@@ -170,11 +224,6 @@ const Content = styled.div`
     background-color: rgba(0, 0, 0, 0.1);
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
-  }
-
-  a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
   }
 
   /* Input fields styles */
@@ -320,7 +369,7 @@ const Content = styled.div`
       area and turn opacity to 0 instead. */
       }
       span {
-        border: 2px solid #1d1d1d;
+        border: 4px solid #1d1d1d;
         padding: 24px 15px;
         height: 100%;
         display: flex;
@@ -332,12 +381,21 @@ const Content = styled.div`
         letter-spacing:.84px;
         line-height:14px;
         text-transform:uppercase;
+        @media (max-width: 768px) {
+         transition:border 250ms ease-in-out, transform 250ms ease-in-out, background-color 250ms ease-in-out;
+        }    
         &:hover{
-          border: 2px solid #fff;
+          border: 4px solid #fff;
+          
         }
       }
       input[type="checkbox"]:checked ~ span {
-        border: 2px solid #fff;        
+        border: 4px solid #fff;    
+        background-color:#fff;
+        @media (max-width: 768px) {
+          transform:scale(1);
+          transform-origin: top left;
+        }    
       }
     }
   }
