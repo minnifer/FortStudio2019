@@ -29,7 +29,7 @@ export default function YourMouse() {
 
   // memoized, never changes
   const mousePos = React.useCallback(ev => {
-    currentPos.current = [ev.pageX, ev.pageY];
+    currentPos.current = [ev.pageX, ev.clientY];
   }, []);
 
   // runs once on mount
