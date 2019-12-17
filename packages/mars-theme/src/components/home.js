@@ -7,8 +7,8 @@ import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
 import Card from "./partials/card";
 import VideoPlayer from "./partials/VideoPlayer";
-import * as magnetCurs from "./utils/magnetCurs";
-
+import YourMouse from "./utils/YourMouse";
+// import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -17,15 +17,16 @@ const Home = ({ state, actions, libraries }) => {
   // Get the html2react component.
   // const Html2React = libraries.html2react.Component;
   useEffect(() => {
-    actions.source.fetch("/");    
+    actions.source.fetch("/");
   }, []);
-  // Load the post, but only if the data is ready.    
+  // Load the post, but only if the data is ready.
 
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       {/* Add the header of the site. */}
+      <YourMouse />
       <HeadContainer>
         <Header />
       </HeadContainer>
@@ -36,8 +37,15 @@ const Home = ({ state, actions, libraries }) => {
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
-            <BodyContainer dangerouslySetInnerHTML={{ __html: post.acf.body }}></BodyContainer>
-            <StyledCard data-stick-cursor linkURL="/what-we-do" linkText="Learn More"></StyledCard>
+          <Wrapper>
+            <BodyContainer
+              dangerouslySetInnerHTML={{ __html: post.acf.body }}
+            ></BodyContainer>            
+              <StyledCard
+                linkURL="/what-we-do"
+                linkText="Learn More"
+              ></StyledCard>    
+              </Wrapper>        
           </TextContainer>
         </VideoContainer>
       </Content>
@@ -50,19 +58,16 @@ export default connect(Home);
 const Container = styled.div`
   margin: 0;
   width: 100%;
-  overflow:hidden;
-  #cursor{
-    border-radius: 1000px;
-    width: 30px;
-    height: 30px;
-    border: 2px solid rgba(244, 67, 54, 1);
-    margin: -15px;
-    transition-duration: 150ms;
-    z-index: 10000;
-    padding: 0;
-    box-sizing: border-box;
-}
+  overflow: hidden;  
 `;
+const Wrapper = styled.div`
+  max-width:40%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding-left: 114px;
+`
 
 const HeadContainer = styled.div`
   display: flex;
@@ -71,15 +76,15 @@ const HeadContainer = styled.div`
   position: absolute;
   z-index: 4;
   margin: auto;
-  width: 100%;  
+  width: 100%;
 `;
 const VideoContainer = styled.div`
   position: relative;
   height: 100vh;
   width: 100vw;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 const StyledVideoPlayer = styled(VideoPlayer)`
   /* z-index:100; */
@@ -90,35 +95,20 @@ const TextContainer = styled.div`
   max-width:1440px;
   margin:auto;
   width:100%;
-  
-  .cardWrapper{
-      transform:translateX(0%) translateY(-50%);
-      padding-left:114px;
-    }
-    a{
-      padding-left:100px;
-      color:#fff;
-    }
-    @media (max-width: 768px) {
-    a{
-      padding-left:0;
-      margin:auto;
-      
-    }
   }
 `;
 
 const BodyContainer = styled.h1`
-  padding-left:114px;
-  color:#fff;
-  width:28%;
+  
+  color: #fff;
+  /* width: 28%; */
   /* margin-bottom:45px; */
   @media (max-width: 768px) {
-    padding-left:0;
-    text-align:center;
-    width:100%;
-    margin:auto;
-    margin-bottom:26px;
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 26px;
   }
 `;
 
@@ -133,8 +123,7 @@ const Video = styled.video`
   top: 0;
   left: 0;
   z-index: 1;
-  opacity:.6;
-  
+  opacity: 0.6;
 `;
 const StyledVideoContainer = styled.div`
   object-fit: cover;
@@ -143,9 +132,8 @@ const StyledVideoContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color:#121212;
-`
-
+  background-color: #121212;
+`;
 
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
@@ -155,20 +143,20 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
-  }  
+  }
 
   .p {
     /* line-height: 1.6em; */
-    margin:0;
-    font-size:20px;
+    margin: 0;
+    font-size: 20px;
     font-weight: 300;
     font-style: normal;
-    letter-spacing:0;
-    line-height:28px;
-    color:#1d1d1d;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: #1d1d1d;
   }
-  p{
-    margin:0;
+  p {
+    margin: 0;
   }
 
   img {
@@ -198,7 +186,6 @@ const Content = styled.div`
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
- 
 
   /* Input fields styles */
 

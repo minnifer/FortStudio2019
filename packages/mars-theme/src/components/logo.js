@@ -1,12 +1,12 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-
+import YourMouse from "./utils/YourMouse";
 const Logo = ({ state, actions, menuTheme }) => {
   const { isMobileMenuOpen } = state.theme;
   return (
-    <>
-      <Container>
+    <>     
+      <Container className="link" data-stick-cursor>
         <StyledLink link="/">
           {isMobileMenuOpen ? (
             <>
@@ -253,7 +253,7 @@ const StyledSVG = styled.svg`
   &:focus {
     g,
     path {
-      fill:#ffc40a;
+      fill: #ffc40a;
     }
   }
 `;

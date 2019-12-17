@@ -56,7 +56,7 @@ class VideoPlayer extends Component {
           onClick={this.pauseVideo}
           className={this.state.active ? "active" : ""}
         />
-        <div>
+        <div className="link" data-stick-cursor>
           <PlayButton onClick={this.playVideo}>Play Our Reel</PlayButton>
         </div>
       </Container>
@@ -128,10 +128,15 @@ const PlayButton = styled.button`
   -webkit-appearance: none;
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: none;
+  z-index:6;
   transition: color 250ms ease-in-out;
+  width:130px;
+  height:130px;
+  cursor: none;
+  outline:none;
   &:hover {
-    color: #ffc40a;
+    color: #fff;
   }
 `;
 const CloseButton = styled.button`

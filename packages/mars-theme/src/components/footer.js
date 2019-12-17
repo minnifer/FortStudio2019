@@ -3,11 +3,14 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Card from "./partials/card";
 import CenteredCard from "./partials/centeredCard";
+
+
 const Footer = ({ state }) => {
   const options = state.source.get("acf-options-page");
 
   return (
     <FooterContainer>
+      
       <TopWrapper>
         <TopFooter>
           <Tout>

@@ -7,6 +7,7 @@ import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
 import Header from "./header";
 import Footer from "./footer";
+import YourMouse from "./utils/YourMouse";
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -30,8 +31,9 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
+    <YourMouse />
       {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}
+       by the processors we included in the libraries.html2react.processors array. */}       
        <HeadContainer>
         <Header menuTheme="black"/>
       </HeadContainer>
@@ -59,8 +61,6 @@ const StyledLink = styled(Link)`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
-  word-break: break-word;
 
   * {
     max-width: 100%;

@@ -6,7 +6,7 @@ import MenuModal from "./menu-modal";
 function MobileMenu({ state, actions, menuTheme }) {
   const { isMobileMenuOpen } = state.theme;
   return (
-    <>
+    <Container className="link" data-stick-cursor>
       <MenuToggle
         menuTheme={menuTheme}
         onClick={actions.theme.toggleMobileMenu}
@@ -24,43 +24,51 @@ function MobileMenu({ state, actions, menuTheme }) {
       </MenuToggle>
       {/* If the menu is open, render the menu modal */}
       {isMobileMenuOpen && <MenuModal />}
-    </>
+    </Container>
   );
 }
-
-const MenuToggle = styled.button`
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: none;
+  right: 84px;
+  top: 80px;
   position: absolute;
-  padding: 0;
-  cursor: pointer;
+`;
+const MenuToggle = styled.button`
+  padding: 0;  
   background: transparent;
   border: 0;
   color: white;
   z-index: 5;
-  right: 114px;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: none;
-  top:110px;
+  width:130px;
+  height:130px;
+  cursor: none;
   span {
     font-weight: 500;
     line-height: 51px;
     letter-spacing: 0.84px;
     font-size: 12px;
     text-transform: uppercase;
-    transition:color 250ms ease-in-out;
-    &.menuOpen{
+    transition: color 250ms ease-in-out;
+    &.menuOpen {
       color: ${props => props.menuTheme};
     }
   }
   &:hover {
     span {
-      color: #ffc40a;
+      color: #1d1d1d;
     }
   }
   @media (max-width: 768px) {
-    right:36px;
-    top:auto;
+    right: 36px;
+    top: auto;
   }
 `;
 

@@ -64,7 +64,7 @@ const MenuOverlay = styled.div`
 `;
 
 const MenuContent = styled.div`
-  z-index: 3;
+  z-index: 41;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -72,6 +72,8 @@ const MenuContent = styled.div`
   margin: auto;
   position: fixed;
   top: 0;
+  left:50%;
+  transform:translateX(-50%);
   margin: auto;
   justify-content: space-between;
   align-items: center;
