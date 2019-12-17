@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Header from "./header";
 import $ from "jquery";
-import { findDOMNode } from 'react-dom';
+import { findDOMNode } from "react-dom";
 
 const Form = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -18,16 +18,23 @@ const Form = ({ state, actions, libraries }) => {
   // the home page, everything is ready and it loads instantly.
   useEffect(() => {
     actions.source.fetch("/");
-    $(".wpcf7-form input").focus(function() {
-			$(this).parent().siblings('label').addClass('has-value');
-	})
-	// blur input fields on unfocus + if has no value
-	.blur(function() {
-		var text_val = $(this).val();
-		if(text_val === "") {
-			$(this).parent().siblings('label').removeClass('has-value');
-		}
-	});
+    $(".wpcf7-form input")
+      .focus(function() {
+        $(this)
+          .parent()
+          .siblings("label")
+          .addClass("has-value");
+      })
+      // blur input fields on unfocus + if has no value
+      .blur(function() {
+        var text_val = $(this).val();
+        if (text_val === "") {
+          $(this)
+            .parent()
+            .siblings("label")
+            .removeClass("has-value");
+        }
+      });
   }, []);
 
   // Load the post, but only if the data is ready.
@@ -57,12 +64,16 @@ export default connect(Form);
 const PageContainer = styled.div`
   background: #ffc40a;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height:100vh;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
     pointer;
 `;
 const RightContainer = styled.div`
   width: 40%;
+  @media (max-width: 768px) {
+      width:100%;
+  }
 `;
 const LeftContainer = styled.div`
   display: flex;
@@ -74,6 +85,14 @@ const LeftContainer = styled.div`
   top: 10%;
   padding-bottom: 177px;
   height: fit-content;
+  @media (max-width: 768px) {
+    position: relative;
+    margin-top: 161px;
+    top: auto;
+    padding-bottom: 0;
+    width: 100%;
+    margin-left:0;
+  }
 `;
 const Title = styled.h1`
   margin: 0;
@@ -96,7 +115,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: absolute;
-  z-index: 2;
+  /* z-index: 1; */
   margin: auto;
   width: 100%;
 `;
@@ -105,13 +124,18 @@ const HeadContainer = styled.div`
 // selectors to style that HTML.
 const Content = styled.div`
   word-break: break-word;
-  width: 1440px;
+  max-width: 1440px;
   margin: auto;
+  width:100%;
+  height:100%;
   box-sizing: border-box;
   padding: 0 119px;
   display: flex;
   flex-direction: row;
-
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding:0 36px;
+  }
   * {
     max-width: 100%;
   }
@@ -182,6 +206,9 @@ const Content = styled.div`
     > p {
       position: relative;
     }
+    @media (max-width: 768px) {
+      margin-top:68px;
+    }
   }
   input[type="submit"] {
     display: inline-block;
@@ -201,6 +228,9 @@ const Content = styled.div`
     text-transform: uppercase;
     background: transparent;
     border: none;
+    @media (max-width: 768px) {
+      margin-bottom:85px;
+    }
   }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -209,13 +239,14 @@ const Content = styled.div`
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
   }
+
   label {
     font-size: 20px;
     font-weight: 300;
     line-height: 28px;
     position: absolute;
     top: 62%;
-    color:#1D1D1D;
+    color: #1d1d1d;
     transform: translateY(-50%);
     pointer-events: none;
     transition: top 0.2s;
@@ -224,7 +255,13 @@ const Content = styled.div`
     top: 20px;
     font-size: 11px;
   }
-
+  .wpcf7-list-item {
+    label {
+      position: relative;
+      top: auto;
+      transform: none;
+    }
+  }
   .text-727,
   .email-231,
   .text-218 {
