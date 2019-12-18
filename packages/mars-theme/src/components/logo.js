@@ -225,7 +225,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 3;
+  z-index: 48;
   @media (max-width: 768px) {
     padding: 0;
     padding: 36px 0;

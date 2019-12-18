@@ -47,7 +47,7 @@ const MenuToggle = styled.button`
   background: transparent;
   border: 0;
   color: white;
-  z-index: 5;
+  z-index: 48;
   display: flex;
   align-items: center;
   justify-content: center;

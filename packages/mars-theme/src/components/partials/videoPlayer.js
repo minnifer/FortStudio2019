@@ -43,7 +43,10 @@ class VideoPlayer extends Component {
   render = () => {
     return (
       <Container className={this.state.active ? "active" : ""}>
-        <ButtonContainer data-stick-cursor className={this.state.active ? "active link" : ""}>
+        <ButtonContainer
+          data-stick-cursor
+          className={this.state.active ? "active link" : ""}
+        >
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
         <Video
@@ -57,7 +60,43 @@ class VideoPlayer extends Component {
           className={this.state.active ? "active" : ""}
         />
         <div className="link" data-stick-cursor>
-          <PlayButton onClick={this.playVideo}>Play Our Reel</PlayButton>
+          <PlayButton onClick={this.playVideo}>
+            <svg
+              id="Collapse_Expand_1"
+              data-name="Collapse/Expand 1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="58.739"
+              height="58.739"
+              viewBox="0 0 58.739 58.739"
+            >
+              <g
+                id="Collapse_Expand_1-2"
+                data-name="Collapse/Expand 1"
+                transform="translate(55.36 -716.142) rotate(60)"
+              >
+                <g
+                  id="Ellipse_1"
+                  data-name="Ellipse 1"
+                  transform="translate(611.136 373.764)"
+                  fill="none"
+                  stroke="#ffc40a"
+                  strokeWidth="11"
+                >
+                  <circle cx="21.5" cy="21.5" r="21.5" stroke="none" />
+                  <circle cx="21.5" cy="21.5" r="16" fill="none" />
+                </g>
+                <circle
+                  id="Ellipse_8"
+                  data-name="Ellipse 8"
+                  cx="3"
+                  cy="3"
+                  r="3"
+                  transform="translate(629.265 392.363)"
+                />
+              </g>
+            </svg>
+            <span>Play Our Reel</span>
+          </PlayButton>
         </div>
       </Container>
     );
@@ -83,7 +122,7 @@ const Container = styled.div`
     top: 0;
     left: 0;
     transform: none;
-    position:fixed;
+    position: fixed;
   }
 `;
 const Video = styled.video`
@@ -129,14 +168,32 @@ const PlayButton = styled.button`
   background: transparent;
   border: none;
   cursor: none;
-  z-index:6;
+  z-index: 6;
   transition: color 250ms ease-in-out;
-  width:130px;
-  height:130px;
+  width: 130px;
+  height: 130px;
   cursor: none;
-  outline:none;
+  outline: none;
+  position: relative;
+  span {
+    position: absolute;
+    opacity: 0;
+    width: 130px;
+    height: 130px;
+    left:0;
+    top:25%;
+    color: #1d1d1d;
+  }
+  svg {
+  }
   &:hover {
-    color: #fff;
+    svg {
+      opacity: 0;
+    }
+    span {
+      opacity: 1;
+      
+    }
   }
 `;
 const CloseButton = styled.button`
@@ -157,7 +214,7 @@ const CloseButton = styled.button`
   justify-content: center;
   -webkit-appearance: none;
   transition: color 250ms ease-in-out;
-  color:#ffc40a;
+  color: #ffc40a;
   &:hover {
     color: #ffc40a;
   }
