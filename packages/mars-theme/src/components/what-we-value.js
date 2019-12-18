@@ -36,9 +36,9 @@ const WhatWeValue = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      <BrowserView>
+      {/* <BrowserView> */}
         <YourMouse />
-      </BrowserView>
+      {/* </BrowserView> */}
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <HeadContainer>

@@ -33,9 +33,9 @@ const Home = ({ state, actions, libraries }) => {
        by the processors we included in the libraries.html2react.processors array. */}
       {/* Add the header of the site. */}
 
-      <BrowserView>
+      {/* <BrowserView> */}
         <YourMouse />
-      </BrowserView>
+      {/* </BrowserView> */}
       <HeadContainer>
         <Header />
       </HeadContainer>
