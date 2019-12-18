@@ -47,7 +47,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.strategy_section.body
               }}
             ></BodyContainer>
-            <HoverBody>
+            <HoverBody className="link" data-stick-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -82,7 +82,7 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-              <div className="link" data-stick-cursor>{this.props.layout.strategy_section.hover_body}</div>
+              <span >{this.props.layout.strategy_section.hover_body}</span>
               {/* <Card text={this.props.layout.strategy_section.hover_body}></Card> */}
             </HoverBody>
           </ToutContainer>
@@ -98,7 +98,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.identity_section.body
               }}
             ></BodyContainer>
-            <HoverBody>
+            <HoverBody className="link" data-stick-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -133,7 +133,7 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-<div>{this.props.layout.identity_section.hover_body}</div>
+<span>{this.props.layout.identity_section.hover_body}</span>
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -148,7 +148,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.design_section.body
               }}
             ></BodyContainer>
-            <HoverBody>
+            <HoverBody className="link" data-stick-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -184,7 +184,7 @@ class IntroSection extends Component {
                 </g>
               </svg>
 
-              <div>{this.props.layout.design_section.hover_body}</div>
+              <span>{this.props.layout.design_section.hover_body}</span>
             </HoverBody>
           </ToutContainer>
         </RightContainer>
@@ -213,7 +213,53 @@ const Container = styled.div`
 `;
 
 const HoverBody = styled.div`
-  
+  position: absolute;
+  width: fit-content;
+  font-weight: 500;
+  line-height: 51px;
+  letter-spacing: 0.84px;
+  font-size: 14px;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  cursor: none;
+  z-index: 6;
+  transition: color 250ms ease-in-out;
+  width: 130px;
+  height: 130px;
+  outline: none;  
+  top:-60px;
+  left:-150px;
+  @media (max-width: 768px) {
+    top: 200px;
+  }
+  span {
+    position: absolute;
+    opacity: 0;
+    width: 130px;
+    height: 130px;
+    left: 0%;
+    top: 35%;
+    color: #1d1d1d;
+    display:flex;
+    /* transition: opacity 500ms ease-in; */
+    text-align:center;
+    line-height:16px;
+  }
+  svg {
+    margin-top:50px;
+    margin-left:25px;
+  }
+  &:hover, &:focus {
+    svg {
+      opacity: 0;
+    }
+    span {
+      opacity: 1;
+      /* transform:translate(0%, 0%); */
+    }
+  }
 `;
 
 const LeftContainer = styled.div`
@@ -251,6 +297,7 @@ const RightContainer = styled.div`
   width: 22.5%;
   align-self: flex-end;
   margin-top: 548px;
+  z-index: 6;
   @media (max-width: 768px) {
     align-self: center;
     width: 100%;

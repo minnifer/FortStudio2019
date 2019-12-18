@@ -138,9 +138,10 @@ const HoverBody = styled.div`
     position: absolute;
     opacity: 0;
     width: 130px;
+    line-height:16px;
     height: 130px;
     left: 20%;
-    top: 12.5%;
+    top: 40%;
     color: #1d1d1d;
     display:flex;
     /* transition: opacity 500ms ease-in; */

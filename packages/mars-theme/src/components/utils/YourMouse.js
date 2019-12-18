@@ -74,7 +74,7 @@ export default function YourMouse() {
 
     if (isNearOne) {
       setStuck(true) // enlarge
-      setEase(0.025) // slow a bit
+      setEase(0.0) // slow a bit
     } else {
       setStuck(false) // shrink
       setEase(DEFAULT_EASE) // back to OG speed
@@ -126,6 +126,7 @@ const Cursor = styled.div`
     background-color: #ffc400;
     opacity: 1;
     cursor: none;
+    -webkit-transition:transform 0.5s ease, opacity 0.35s ease;
     transition: transform 0.5s ease, opacity 0.35s ease;
   }
 

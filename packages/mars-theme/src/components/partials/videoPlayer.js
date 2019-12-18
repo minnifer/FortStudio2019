@@ -113,7 +113,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: none;
-  top: 60%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   &.true {
@@ -128,7 +128,7 @@ const Container = styled.div`
   &.nav{
      position:fixed;
      z-index:50;
-     top: 60%;
+     top: 55%;
      &.true {
        top: 0;
      }

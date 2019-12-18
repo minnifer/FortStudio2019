@@ -15,7 +15,7 @@ const Footer = ({ state, activeTout }) => {
             <h4>{options.acf.footer_section.hire_headline}</h4>
             <p className="p1">{options.acf.footer_section.hire_body}</p>
             <Card
-              linkURL="/what-we-do"
+              linkURL="/contact"
               linkText={options.acf.footer_section.hire_cta_text}
             ></Card>
           </Tout>
@@ -23,7 +23,7 @@ const Footer = ({ state, activeTout }) => {
             <h4>{options.acf.footer_section.request_work_headline}</h4>
             <p className="p1">{options.acf.footer_section.request_work_body}</p>
             <Card
-              linkURL="/what-we-do"
+              linkURL="/contact"
               linkText={options.acf.footer_section.request_work_cta_text}
             ></Card>
           </Tout>
@@ -31,7 +31,7 @@ const Footer = ({ state, activeTout }) => {
             <h4>{options.acf.footer_section.careers_headline}</h4>
             <p className="p1">{options.acf.footer_section.careers_body}</p>
             <Card
-              linkURL="/what-we-do"
+              linkURL="/contact"
               linkText={options.acf.footer_section.careers_cta_text}
             ></Card>
           </Tout>
@@ -196,7 +196,7 @@ const Tout = styled.div`
     background: #ffc40a;
     position: absolute;
     @media (max-width: 768px) {
-      height:90%;
+      height: 90%;
     }
   }
   &:first-of-type {
@@ -204,10 +204,10 @@ const Tout = styled.div`
     .link {
       transform: translateX(15%);
     }
-     @media (max-width: 768px) {
-     .link{
-       transform:none;
-     }
+    @media (max-width: 768px) {
+      .link {
+        transform: none;
+      }
     }
   }
   &:last-of-type {

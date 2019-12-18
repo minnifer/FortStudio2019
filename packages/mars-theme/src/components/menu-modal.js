@@ -34,7 +34,7 @@ const MenuOverlay = styled.div`
   height: 100vh;
   overflow: hidden auto;
   position: fixed;
-  z-index: 2;
+  /* z-index: 2; */
   top: 0;
   left: 0;
   &:before {
@@ -70,7 +70,7 @@ const MenuOverlay = styled.div`
 `;
 
 const MenuContent = styled.div`
-  z-index: 41;
+  /* z-index: 41; */
   display: flex;
   width: 100vw;
   height: 100vh;
