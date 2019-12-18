@@ -120,7 +120,7 @@ const Cursor = styled.div`
   pointer-events: none;
   z-index: 2;
   @media (max-width: 768px) {
-   display:none;
+   opacity:0;
   }
   div {
     z-index: 2;
