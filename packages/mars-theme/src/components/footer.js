@@ -218,21 +218,6 @@ const Tout = styled.div`
       color: #1d1d1d;
     }
   }
-  /* &:nth-of-type(1) {
-    .cardWrapper {
-      transform: translateX(0%) translateY(-50%);
-    }
-  }
-  &:nth-of-type(2) {
-    .cardWrapper {
-      transform: translateX(-25%) translateY(-50%);
-    }
-  }
-  &:nth-of-type(3) {
-    .cardWrapper {
-      transform: translateX(-42.5%) translateY(-50%);
-    }
-  } */
   @media (max-width: 768px) {
     width: 80%;
     margin-bottom: 60px;

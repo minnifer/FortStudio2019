@@ -10,7 +10,6 @@ import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
 import Title from "./title";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const Theme = ({ state }) => {
   // Get information about the current URL.

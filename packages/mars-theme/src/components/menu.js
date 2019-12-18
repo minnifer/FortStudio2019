@@ -74,6 +74,11 @@ const MenuToggle = styled.button`
   @media (max-width: 768px) {
     right: 36px;
     top: auto;
+    &:hover {
+    span {
+      color: #ffc400;
+    }
+  }
   }
 `;
 

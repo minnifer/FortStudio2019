@@ -132,7 +132,7 @@ const HoverBody = styled.div`
   top:-150px;
   left:75px;
   @media (max-width: 768px) {
-    top: 200px;
+    top: -120%;
   }
   span {
     position: absolute;

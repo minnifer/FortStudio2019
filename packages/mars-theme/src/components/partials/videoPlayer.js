@@ -42,13 +42,12 @@ class VideoPlayer extends Component {
 
   render = () => {
     return (
-      <Container 
-      className={[this.state.active, this.props.nav].join(' ')}>  
+      <Container className={[this.state.active, this.props.nav].join(" ")}>
         <ButtonContainer
           data-stick-cursor
           className={this.state.active ? "active link" : ""}
         >
-        <CloseButton onClick={this.stopVideo}>Close</CloseButton>
+          <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
         <Video
           onKeyDown={this.onKeyPressed}
@@ -61,7 +60,10 @@ class VideoPlayer extends Component {
           className={this.state.active ? "active" : ""}
         />
         <div className="link" data-stick-cursor>
-          <PlayButton  className={[this.state.active, this.props.nav].join(' ')} onClick={this.playVideo}>
+          <PlayButton
+            className={[this.state.active, this.props.nav].join(" ")}
+            onClick={this.playVideo}
+          >
             <svg
               id="Collapse_Expand_1"
               data-name="Collapse/Expand 1"
@@ -106,8 +108,8 @@ class VideoPlayer extends Component {
 
 export default VideoPlayer;
 
-const Container = styled.div`  
-  z-index:4;
+const Container = styled.div`
+  z-index: 4;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -123,15 +125,15 @@ const Container = styled.div`
     top: 0;
     left: 0;
     transform: none;
-    position: fixed;   
+    position: fixed;
   }
-  &.nav{
-     position:fixed;
-     z-index:50;
-     top: 55%;
-     &.true {
-       top: 0;
-     }
+  &.nav {
+    position: fixed;
+    z-index: 50;
+    top: 55%;
+    &.true {
+      top: 0;
+    }
   }
 `;
 const Video = styled.video`
@@ -152,7 +154,8 @@ const Video = styled.video`
   }
 `;
 const ButtonContainer = styled.div`
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   height: 47.688;
   margin: auto;
   margin-top: 0;
@@ -164,6 +167,9 @@ const ButtonContainer = styled.div`
   &.active {
     display: flex;
   }
+  @media (max-width: 768px) {
+    width: auto;
+  }
 `;
 const PlayButton = styled.button`
   width: fit-content;
@@ -171,7 +177,7 @@ const PlayButton = styled.button`
   line-height: 51px;
   letter-spacing: 0.84px;
   font-size: 14px;
-  text-transform: uppercase;  
+  text-transform: uppercase;
   -webkit-appearance: none;
   background: transparent;
   border: none;
@@ -179,19 +185,17 @@ const PlayButton = styled.button`
   z-index: 6;
   transition: color 250ms ease-in-out;
   width: 130px;
-  height: 130px;  
+  height: 130px;
   outline: none;
   position: relative;
-  @media (max-width: 768px) {
-    top:200px;
-  }
+
   span {
     position: absolute;
     opacity: 0;
     width: 130px;
     height: 130px;
-    left:0;
-    top:25%;
+    left: 0;
+    top: 25%;
     color: #1d1d1d;
     transition: opacity 500ms ease-in-out;
   }
@@ -203,21 +207,28 @@ const PlayButton = styled.button`
     }
     span {
       opacity: 1;
-      
     }
   }
-  &.true{
-    svg{
-      display:none;
+  &.true {
+    svg {
+      display: none;
     }
-    span{
-      display:none;
+    span {
+      display: none;
     }
   }
-  &.nav{
+  &.nav {
     @media (max-width: 768px) {
-    top:0;
+      top: 0;
+    }
   }
+  @media (max-width: 768px) {
+    top: 200px;
+    &:hover. &:focus {
+      span {
+        color: #ffc400;
+      }
+    }
   }
 `;
 const CloseButton = styled.button`
@@ -243,7 +254,7 @@ const CloseButton = styled.button`
     color: #ffc40a;
   }
   @media (max-width: 768px) {
-    top:40px;
-    right:40px;
+    top: 40px;
+    right: 40px;
   }
 `;

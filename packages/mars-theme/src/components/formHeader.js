@@ -5,17 +5,21 @@ import Nav from "./nav";
 import Logo from "./logo";
 import MobileMenu from "./menu";
 import GoBack from "./utils/goBack";
-const FormHeader = ({ state, menuTheme }) => (
-  <>
-    <Container>
-      <Logo menuTheme={menuTheme} />
-      <div className="link" data-stick-cursor>
-        <CloseButton onClick={() => this.props.navigation.goBack()}>Close</CloseButton>
-        {/* <GoBack /> */}
-      </div>
-    </Container>
-  </>
-);
+const FormHeader = ({ state, menuTheme }) => {
+  function goBack() {
+    window.history.back()
+  }
+  return (
+    <>
+      <Container>
+        <Logo menuTheme={menuTheme} />
+        <div className="link" data-stick-cursor>
+          <CloseButton onClick={goBack}>Close</CloseButton>          
+        </div>
+      </Container>
+    </>
+  );
+};
 
 export default connect(FormHeader);
 const CloseButton = styled.button`
@@ -23,6 +27,7 @@ const CloseButton = styled.button`
   top: 120px;
   right: 120px;
   width: fit-content;
+  z-index:49;
   font-weight: 500;
   line-height: 51px;
   letter-spacing: 0.84px;
@@ -40,6 +45,11 @@ const CloseButton = styled.button`
   &:hover {
     color: #ffc40a;
   } */
+  @media (max-width: 768px) {
+    position:relative;
+    top:auto;
+    right:36px;
+  }
 `;
 const Container = styled.div`
   max-width: 1440px;

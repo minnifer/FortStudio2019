@@ -23,13 +23,11 @@ const StyledLink = styled(Link)`
   letter-spacing: 0.84px;
   font-size: 14px;
   text-transform: uppercase;
-  transition: color 250ms ease-in-out;
   -webkit-appearance: none;
   background: transparent;
   border: none;
   cursor: none;
   color: #fff;
-  transition: color 250ms ease-in-out;
   z-index: 6;
   position: absolute;
   width: 130px;
@@ -39,8 +37,15 @@ const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #1d1d1d;
+  }
+  @media (max-width: 768px) {
+    &:hover,
+    &:focus {
+      color: #ffc400;
+    }
   }
 `;
 
@@ -51,13 +56,11 @@ const StyledText = styled.h5`
   letter-spacing: 0.84px;
   font-size: 14px;
   text-transform: uppercase;
-  transition: color 250ms ease-in-out;
   -webkit-appearance: none;
   background: transparent;
   border: none;
   cursor: none;
   color: #1d1d1d;
-  transition: color 250ms ease-in-out;
   z-index: 30;
   position: absolute;
   width: 130px;
@@ -65,8 +68,8 @@ const StyledText = styled.h5`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
-  text-align:center;
+  align-items: center;
+  text-align: center;
 `;
 const Container = styled.div`
   width: 130px;

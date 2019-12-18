@@ -28,7 +28,10 @@ class IntroSection extends Component {
     return (
       <Container>
         <LeftContainer>
-          <h2 className="spy" dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}></h2>
+          <h2
+            className="spy"
+            dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}
+          ></h2>
           <BodyContainer
             className="p1 spy"
             dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
@@ -82,7 +85,7 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-              <span >{this.props.layout.strategy_section.hover_body}</span>
+              <span>{this.props.layout.strategy_section.hover_body}</span>
               {/* <Card text={this.props.layout.strategy_section.hover_body}></Card> */}
             </HoverBody>
           </ToutContainer>
@@ -133,7 +136,7 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-<span>{this.props.layout.identity_section.hover_body}</span>
+              <span>{this.props.layout.identity_section.hover_body}</span>
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -228,11 +231,13 @@ const HoverBody = styled.div`
   transition: color 250ms ease-in-out;
   width: 130px;
   height: 130px;
-  outline: none;  
-  top:-60px;
-  left:-150px;
+  outline: none;
+  top: -60px;
+  left: -150px;
   @media (max-width: 768px) {
-    top: 200px;
+    /* top: -70%; */
+    transform:translateY(-50%);
+    left: 22.5%;
   }
   span {
     position: absolute;
@@ -242,16 +247,26 @@ const HoverBody = styled.div`
     left: 0%;
     top: 35%;
     color: #1d1d1d;
-    display:flex;
+    display: flex;
     /* transition: opacity 500ms ease-in; */
-    text-align:center;
-    line-height:16px;
+    text-align: center;
+    line-height: 16px;
+    @media (max-width: 768px) { 
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;     
+      left: 10%;
+      top:0%;
+      background-color:#ffc40a;
+      border-radius:50%;
+    }
   }
   svg {
-    margin-top:50px;
-    margin-left:25px;
+    margin-top: 50px;
+    margin-left: 25px;
   }
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     svg {
       opacity: 0;
     }
@@ -278,18 +293,18 @@ const LeftContainer = styled.div`
     padding-bottom: 109px;
     width: 100%;
   }
-  h2{
-     &.spy {
-    transform: translateY(5vw);
-    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
-      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
-    opacity: 0;
+  h2 {
+    &.spy {
+      transform: translateY(5vw);
+      transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+        opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+      opacity: 0;
 
-    &.inview {
-      transform: translateY(0);
-      opacity: 1;
+      &.inview {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
-  }
   }
 `;
 
@@ -310,7 +325,7 @@ const BodyContainer = styled.div`
   @media (max-width: 768px) {
     margin-top: 10px;
   }
-   &.spy {
+  &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
       opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
@@ -337,7 +352,7 @@ const ToutContainer = styled.div`
       margin-bottom: 80px;
     }
   }
-   &.spy {
+  &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
       opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
