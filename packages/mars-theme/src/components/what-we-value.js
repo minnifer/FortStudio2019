@@ -67,9 +67,6 @@ const StyledLink = styled(Link)`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-  * {
-    max-width: 100%;
-  }
 
   img {
     width: 100%;

@@ -3,7 +3,6 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import $ from "jquery";
-import { findDOMNode } from "react-dom";
 
 const Form = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -17,7 +16,6 @@ const Form = ({ state, actions, libraries }) => {
   // home posts and the list component so if the user visits
   // the home page, everything is ready and it loads instantly.
   useEffect(() => {
-    actions.source.fetch("/");
     $(".wpcf7-form input")
       .focus(function() {
         $(this)
@@ -35,6 +33,7 @@ const Form = ({ state, actions, libraries }) => {
             .removeClass("has-value");
         }
       });
+    actions.source.fetch("/");
   }, []);
 
   // Load the post, but only if the data is ready.

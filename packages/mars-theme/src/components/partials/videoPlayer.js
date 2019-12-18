@@ -113,7 +113,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: none;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   &.true {
@@ -128,7 +128,7 @@ const Container = styled.div`
   &.nav{
      position:fixed;
      z-index:50;
-     top: 55%;
+     top: 60%;
      &.true {
        top: 0;
      }
@@ -179,8 +179,7 @@ const PlayButton = styled.button`
   z-index: 6;
   transition: color 250ms ease-in-out;
   width: 130px;
-  height: 130px;
-  cursor: none;
+  height: 130px;  
   outline: none;
   position: relative;
   @media (max-width: 768px) {

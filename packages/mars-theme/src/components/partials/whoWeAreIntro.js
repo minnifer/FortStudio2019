@@ -8,7 +8,7 @@ const WhoWeAreIntro = props => {
         <h2 dangerouslySetInnerHTML={{ __html: props.layout.headline }}></h2>
       </HeadlineContainer>
       <BodyContainer>
-        <HoverBody>
+        <HoverBody className="link" data-stick-cursor>
           <svg
             id="Collapse_Expand_1"
             data-name="Collapse/Expand 1"
@@ -43,7 +43,7 @@ const WhoWeAreIntro = props => {
               />
             </g>
           </svg>
-          <Card text={props.layout.hover_body}></Card>
+          <span dangerouslySetInnerHTML={{ __html: props.layout.hover_body }}></span>
         </HoverBody>
         <Eyebrow
           dangerouslySetInnerHTML={{ __html: props.layout.subhead }}
@@ -106,47 +106,58 @@ const Eyebrow = styled.div`
   @media (max-width: 768px) {
     font-size: 18px;
     line-height: 20px;
-    max-width:75%;
-    margin:auto;
+    max-width: 75%;
+    margin: auto;
     margin-bottom: 10px;
   }
 `;
 
 const HoverBody = styled.div`
   position: absolute;
-
-  top: -100px;
-  left: 100px;
-  max-width: none;
-  width: 100%;
-  .cardWrapper {
-    /* transform: translateX(37.5%) translateY(-50%); */
+  width: fit-content;
+  font-weight: 500;
+  line-height: 51px;
+  letter-spacing: 0.84px;
+  font-size: 14px;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  cursor: none;
+  z-index: 6;
+  transition: color 250ms ease-in-out;
+  width: 130px;
+  height: 130px;
+  outline: none;  
+  top:-150px;
+  left:75px;
+  @media (max-width: 768px) {
+    top: 200px;
   }
-  h5 {
-    display: none;
+  span {
     position: absolute;
-    transform: translateX(-32.5%) translateY(-125%);
-    text-align: center;
-    text-transform: uppercase;
-    width: 50%;
-    margin: auto;
+    opacity: 0;
+    width: 130px;
+    height: 130px;
+    left: 20%;
+    top: 12.5%;
+    color: #1d1d1d;
+    display:flex;
+    /* transition: opacity 500ms ease-in; */
+    text-align:center;
   }
   svg {
-    /* transform:translateX(200%); */
+    margin-top:50px;
+    margin-left:25px;
   }
-  &:hover,
-  &:focus {
-    h5 {
-      display: block;
-      transition: none;
-    }
+  &:hover, &:focus {
     svg {
       opacity: 0;
     }
-  }
-  @media (max-width: 768px) {
-    top: -75px;
-    left: 0;
+    span {
+      opacity: 1;
+      /* transform:translate(0%, 0%); */
+    }
   }
 `;
 

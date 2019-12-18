@@ -4,15 +4,14 @@ import Link from "./link";
 import Nav from "./nav";
 import Logo from "./logo";
 import MobileMenu from "./menu";
-
+import GoBack from "./utils/goBack";
 const FormHeader = ({ state, menuTheme }) => (
   <>
     <Container>
       <Logo menuTheme={menuTheme} />
-      {/* <Nav theme={theme}/> */}
-      {/* <MobileMenu menuTheme={menuTheme}/> */}
       <div className="link" data-stick-cursor>
         <CloseButton onClick={() => this.props.navigation.goBack()}>Close</CloseButton>
+        {/* <GoBack /> */}
       </div>
     </Container>
   </>
