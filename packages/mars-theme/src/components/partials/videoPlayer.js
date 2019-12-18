@@ -183,7 +183,7 @@ const PlayButton = styled.button`
   border: none;
   cursor: none;
   z-index: 6;
-  transition: color 250ms ease-in-out;
+  /* transition: color 250ms ease-in-out; */
   width: 130px;
   height: 130px;
   outline: none;
@@ -197,9 +197,12 @@ const PlayButton = styled.button`
     left: 0;
     top: 25%;
     color: #1d1d1d;
-    transition: opacity 500ms ease-in-out;
+    /* transition: opacity 500ms ease-in-out; */
   }
   svg {
+    #Ellipse_8{
+      fill:#fff;
+    }
   }
   &:hover {
     svg {

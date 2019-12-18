@@ -273,6 +273,7 @@ const BottomFooter = styled.div`
   @media (max-width: 768px) {
     padding-left: 36px;
     padding-right: 36px;
+    flex-direction:column;
   }
 `;
 const TopWrapper = styled.div`
@@ -298,7 +299,7 @@ const CenterContainer = styled(Link)`
     left:auto;
     svg {
       path {
-        color: #fff;
+        fill: #fff;
       }
     }
   }

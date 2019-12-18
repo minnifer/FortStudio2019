@@ -1,13 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect, styled } from "frontity";
 import Card from "./card";
-const WhoWeAreIntro = props => {
-  return (
+class WhoWeAreIntro extends Component {
+  constructor(props) {
+    super(props);
+  }
+  isOnScreen() {
+    /* get the elements */
+    var elements = document.getElementsByClassName("spy");
+    /* iterate */
+    Array.prototype.forEach.call(elements, function(element, index) {
+      var bounds = element.getBoundingClientRect();
+
+      if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+        element.classList.add("inview");
+      } else {
+        // element.classList.remove("inview");
+      }
+    });
+
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  componentDidMount() {
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  render() {
+    return (
     <Container>
-      <HeadlineContainer>
-        <h2 dangerouslySetInnerHTML={{ __html: props.layout.headline }}></h2>
+      <HeadlineContainer className="spy">
+        <h2 dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}></h2>
       </HeadlineContainer>
-      <BodyContainer>
+      <BodyContainer >
         <HoverBody className="link" data-stick-cursor>
           <svg
             id="Collapse_Expand_1"
@@ -43,19 +66,20 @@ const WhoWeAreIntro = props => {
               />
             </g>
           </svg>
-          <span dangerouslySetInnerHTML={{ __html: props.layout.hover_body }}></span>
+          <span dangerouslySetInnerHTML={{ __html: this.props.layout.hover_body }}></span>
         </HoverBody>
         <Eyebrow
-          dangerouslySetInnerHTML={{ __html: props.layout.subhead }}
+          dangerouslySetInnerHTML={{ __html: this.props.layout.subhead }}
         ></Eyebrow>
         <div
           className="p1"
-          dangerouslySetInnerHTML={{ __html: props.layout.body }}
+          dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
         ></div>
       </BodyContainer>
     </Container>
   );
-};
+  }
+}
 
 export default connect(WhoWeAreIntro);
 
@@ -78,6 +102,17 @@ const HeadlineContainer = styled.div`
   max-width: 1440px;
   margin: auto;
   text-align: center;
+    &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 `;
 
 const BodyContainer = styled.div`
@@ -94,6 +129,17 @@ const BodyContainer = styled.div`
     margin: auto;
     text-align: center;
     margin-top: 84px;
+  }
+    &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 `;
 const Eyebrow = styled.div`
