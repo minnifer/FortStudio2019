@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import $ from "jquery";
-
+import YourMouse from "./utils/YourMouse";
 const Form = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -39,6 +39,7 @@ const Form = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <PageContainer>
+    <YourMouse />
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <HeadContainer>

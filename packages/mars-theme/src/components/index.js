@@ -31,8 +31,7 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-        {
-          (data.isHome && <Home />) ||
+        {(data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && data.id === 133 && <Form />) ||
           (data.isPostType && data.id === 12 && <WhatWeValue />) ||
@@ -298,6 +297,9 @@ const globalStyles = css`
     font-weight: normal;
     font-style: normal;
   }
+  * {
+    cursor: none !important;
+  }
 
   body {
     margin: 0;
@@ -308,6 +310,11 @@ const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
     cursor: none;
     overflow-x: hidden;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
   }
   p {
     margin: 0;
@@ -380,6 +387,10 @@ const globalStyles = css`
     letter-spacing: 0;
     line-height: 28px;
     color: #1d1d1d;
+  }
+  svg {
+    &#Collapse_Expand_1 {
+    }
   }
   .p2 {
     font-size: 16px;

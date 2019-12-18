@@ -226,8 +226,7 @@ const HoverBody = styled.div`
   -webkit-appearance: none;
   background: transparent;
   border: none;
-  cursor: none;
-  z-index: 6;
+  cursor: none;  
   transition: color 250ms ease-in-out;
   width: 130px;
   height: 130px;
@@ -312,7 +311,7 @@ const RightContainer = styled.div`
   width: 22.5%;
   align-self: flex-end;
   margin-top: 548px;
-  z-index: 6;
+  
   @media (max-width: 768px) {
     align-self: center;
     width: 100%;
@@ -322,6 +321,7 @@ const RightContainer = styled.div`
 
 const BodyContainer = styled.div`
   margin-top: 15px;
+ 
   @media (max-width: 768px) {
     margin-top: 10px;
   }

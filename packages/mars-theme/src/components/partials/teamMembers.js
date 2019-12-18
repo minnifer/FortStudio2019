@@ -52,7 +52,7 @@ const renderTeamMember = (teamMember, index) => {
         </NameContainer>
         <SocialContainer>
           {teamMember.linkedin ? (
-            <Link className="menu-item linkedin" link={teamMember.linkedin}>
+            <Link target="_blank" className="menu-item linkedin" link={teamMember.linkedin}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14.379"
@@ -69,7 +69,7 @@ const renderTeamMember = (teamMember, index) => {
             </Link>
           ) : null}
           {teamMember.instagram ? (
-            <Link className="menu-item" link={teamMember.instagram}>
+            <Link target="_blank" className="menu-item" link={teamMember.instagram}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="11.144"
@@ -86,7 +86,7 @@ const renderTeamMember = (teamMember, index) => {
             </Link>
           ) : null}
           {teamMember.dribble ? (
-            <Link className="menu-item dribble" link={teamMember.dribble}>
+            <Link target="_blank" className="menu-item dribble" link={teamMember.dribble}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="11.993"
@@ -291,8 +291,23 @@ const ImageContainer = styled(Link)`
     border-radius: 50%;
     vertical-align: center;
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    &:before{
+      content:'';
+      background-color:#fff;
+      position:absolute;
+      left:0;
+      right:0;
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      transition:transform 250ms ease-in-out;
+      z-index:-1;
+    }
     &:hover {
-      transform: scale(1.2) translate(-37.5%);
+      &:before{
+        transform: scale(1.2);
+      }
+      
     }
     @media (max-width: 768px) {
       top: 30%;
