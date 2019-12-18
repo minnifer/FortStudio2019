@@ -6,9 +6,8 @@ import CenteredCard from "./partials/centeredCard";
 class Footer extends Component {
   constructor(props) {
     super(props);
-    
   }
-  
+
   isOnScreen() {
     /* get the elements */
     var elements = document.getElementsByClassName("spy");
@@ -32,100 +31,105 @@ class Footer extends Component {
     const options = this.props.state.source.get("acf-options-page");
     return (
       <FooterContainer>
-      <TopWrapper>
-        <TopFooter>
-          <Tout className="spy">
-            <h4>{options.acf.footer_section.hire_headline}</h4>
-            <p className="p1">{options.acf.footer_section.hire_body}</p>
-            <Card
-              linkURL="/contact"
-              linkText={options.acf.footer_section.hire_cta_text}
-            ></Card>
-          </Tout>
-          <Tout className="spy">
-            <h4>{options.acf.footer_section.request_work_headline}</h4>
-            <p className="p1">{options.acf.footer_section.request_work_body}</p>
-            <Card
-              linkURL="/contact"
-              linkText={options.acf.footer_section.request_work_cta_text}
-            ></Card>
-          </Tout>
-          <Tout className="spy">
-            <h4>{options.acf.footer_section.careers_headline}</h4>
-            <p className="p1">{options.acf.footer_section.careers_body}</p>
-            <Card
-              linkURL="/contact"
-              linkText={options.acf.footer_section.careers_cta_text}
-            ></Card>
-          </Tout>
-        </TopFooter>
-      </TopWrapper>
-      <BottomWrapper>
-        <BottomFooter>
-          <LeftContainer>
-            <SocialContainer>
-              <StyledSocialLink
-                target={options.acf.social_section.instagram.target}
-                link={options.acf.social_section.instagram.url}
-              >
-                {options.acf.social_section.instagram.title}
-              </StyledSocialLink>
-              <StyledSocialLink
-                target={options.acf.social_section.dribble.target}
-                link={options.acf.social_section.dribble.url}
-              >
-                {options.acf.social_section.dribble.title}
-              </StyledSocialLink>
-              <StyledSocialLink
-                target={options.acf.social_section.linkedin.target}
-                link={options.acf.social_section.linkedin.url}
-              >
-                {options.acf.social_section.linkedin.title}
-              </StyledSocialLink>
-            </SocialContainer>
-            <ContactContainer>
-              <Address href="https://www.google.com/maps/dir/39.9854812,-83.0039066/fort+agency/@39.9806004,-83.0072205,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88388ed7ebd473a7:0xf77541e546d4eb8c!2m2!1d-83.0026902!2d39.9761894" target="_blank"
-                dangerouslySetInnerHTML={{
-                  __html: options.acf.social_section.address
-                }}
-              ></Address>
-              <Phone
-                target="_blank"
-                link={"tel:" + options.acf.social_section.phone_number_field}
-              >
-                {options.acf.social_section.phone_number_field}
-              </Phone>
-            </ContactContainer>
-          </LeftContainer>
+        <TopWrapper>
+          <TopFooter>
+            <Tout className="spy">
+              <h4>{options.acf.footer_section.hire_headline}</h4>
+              <p className="p1">{options.acf.footer_section.hire_body}</p>
+              <Card
+                linkURL="/contact"
+                linkText={options.acf.footer_section.hire_cta_text}
+              ></Card>
+            </Tout>
+            <Tout className="spy">
+              <h4>{options.acf.footer_section.request_work_headline}</h4>
+              <p className="p1">
+                {options.acf.footer_section.request_work_body}
+              </p>
+              <Card
+                linkURL="/contact"
+                linkText={options.acf.footer_section.request_work_cta_text}
+              ></Card>
+            </Tout>
+            <Tout className="spy">
+              <h4>{options.acf.footer_section.careers_headline}</h4>
+              <p className="p1">{options.acf.footer_section.careers_body}</p>
+              <Card
+                linkURL="/contact"
+                linkText={options.acf.footer_section.careers_cta_text}
+              ></Card>
+            </Tout>
+          </TopFooter>
+        </TopWrapper>
+        <BottomWrapper>
+          <BottomFooter>
           <CenterContainer link="/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24.463"
-              height="52.227"
-              viewBox="0 0 24.463 52.227"
-            >
-              <path
-                id="logo-f_short"
-                d="M23.169,43.011H0v9.216H23.169Zm-12.8-33.8H24.463V0H0V33.8H10.369V23.812h12.8V14.593h-12.8Z"
-                fill="#1d1d1d"
-              />
-            </svg>
-          </CenterContainer>
-          <RightContainer className={this.props.activeTout}>
-            <StyledCard
-              linkURL="/contact"
-              activeTout={this.props.activeTout}
-              linkText={options.acf.footer_cta_text.reel_text}
-            ></StyledCard>
-            <StyledCard
-              linkURL="/contact"
-              activeTout={this.props.activeTout}
-              linkText={options.acf.footer_cta_text.work_sample_form_text}
-            ></StyledCard>
-          </RightContainer>
-        </BottomFooter>
-      </BottomWrapper>
-    </FooterContainer>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24.463"
+                height="52.227"
+                viewBox="0 0 24.463 52.227"
+              >
+                <path
+                  id="logo-f_short"
+                  d="M23.169,43.011H0v9.216H23.169Zm-12.8-33.8H24.463V0H0V33.8H10.369V23.812h12.8V14.593h-12.8Z"
+                  fill="#1d1d1d"
+                />
+              </svg>
+            </CenterContainer>
+            <LeftContainer>
+              <SocialContainer>
+                <StyledSocialLink
+                  target={options.acf.social_section.instagram.target}
+                  link={options.acf.social_section.instagram.url}
+                >
+                  {options.acf.social_section.instagram.title}
+                </StyledSocialLink>
+                <StyledSocialLink
+                  target={options.acf.social_section.dribble.target}
+                  link={options.acf.social_section.dribble.url}
+                >
+                  {options.acf.social_section.dribble.title}
+                </StyledSocialLink>
+                <StyledSocialLink
+                  target={options.acf.social_section.linkedin.target}
+                  link={options.acf.social_section.linkedin.url}
+                >
+                  {options.acf.social_section.linkedin.title}
+                </StyledSocialLink>
+              </SocialContainer>
+              <ContactContainer>
+                <Address
+                  href="https://www.google.com/maps/dir/39.9854812,-83.0039066/fort+agency/@39.9806004,-83.0072205,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88388ed7ebd473a7:0xf77541e546d4eb8c!2m2!1d-83.0026902!2d39.9761894"
+                  target="_blank"
+                  dangerouslySetInnerHTML={{
+                    __html: options.acf.social_section.address
+                  }}
+                ></Address>
+                <Phone
+                  target="_blank"
+                  link={"tel:" + options.acf.social_section.phone_number_field}
+                >
+                  {options.acf.social_section.phone_number_field}
+                </Phone>
+              </ContactContainer>
+            </LeftContainer>
+            
+            <RightContainer className={this.props.activeTout}>
+              <StyledCard
+                linkURL="/contact"
+                activeTout={this.props.activeTout}
+                linkText={options.acf.footer_cta_text.reel_text}
+              ></StyledCard>
+              <StyledCard
+                linkURL="/contact"
+                activeTout={this.props.activeTout}
+                linkText={options.acf.footer_cta_text.work_sample_form_text}
+              ></StyledCard>
+            </RightContainer>
+          </BottomFooter>
+        </BottomWrapper>
+      </FooterContainer>
     );
   }
 }
@@ -182,7 +186,7 @@ const Tout = styled.div`
   .link {
     z-index: 6;
     position: absolute;
-    bottom: -75%;
+    bottom: -75px;
     left: 0%;
     transform: translateX(5%);
     @media (max-width: 768px) {
@@ -255,7 +259,6 @@ const Tout = styled.div`
       margin-bottom: 0;
     }
   }
-  
 `;
 
 const BottomFooter = styled.div`
@@ -290,7 +293,14 @@ const CenterContainer = styled(Link)`
   position: absolute;
   left: 50%;
   @media (max-width: 768px) {
-    display: none;
+    position:relative;
+    background: #000;
+    left:auto;
+    svg {
+      path {
+        color: #fff;
+      }
+    }
   }
   svg {
     path {
@@ -322,7 +332,7 @@ const Address = styled.a`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0;
-  cursor:none;
+  cursor: none;
   transition: color 250ms ease-in-out;
   &:hover,
   &:focus {
@@ -335,7 +345,7 @@ const Phone = styled(Link)`
   letter-spacing: 0;
   font-size: 16px;
   transition: color 250ms ease-in-out;
-  cursor:none;
+  cursor: none;
   &:hover,
   &:focus {
     color: #ffc400;

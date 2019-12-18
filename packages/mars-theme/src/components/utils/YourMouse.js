@@ -119,7 +119,7 @@ const Cursor = styled.div`
   left: -0.5rem;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10000;
   @media (max-width: 768px) {
     opacity: 0;
   }
@@ -138,6 +138,7 @@ const Cursor = styled.div`
   }
 
   &.is-active {
+    z-index:2;
     div {
       background-color: #ffc400;
       width: 10rem;

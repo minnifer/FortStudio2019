@@ -300,7 +300,12 @@ const globalStyles = css`
   * {
     cursor: none !important;
   }
-
+::selection {
+  background: #f1f1f1; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #f1f1f1; /* Gecko Browsers */
+}
   body {
     margin: 0;
     font-family: "Calibre";

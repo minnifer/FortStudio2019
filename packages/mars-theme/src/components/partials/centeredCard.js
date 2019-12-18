@@ -56,22 +56,30 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: none;
-  margin-right:10px;
+  margin-right:60px;
   z-index:99;
-  &.first{
+  /* &.first{
     &:first-of-type{
       position:fixed;
       bottom:2vw;
       right:26vw;
       a{
         background-color:#FFC40A;
+        transition:transform 250ms ease-in-out;
+        span{
+          transition:transform 250ms ease-in-out;
+        }
         &:hover{
-          background-color:transparent;
+          /* background-color:transparent; */         
+          transform:scale(1.2);
+          span{
+            transform:scale(.825);
+          }
         }
       }
     }
   }
-  &.last{
+  /* &.last{
     &:first-of-type{
       transform:translateX(-125%);
     }
@@ -84,6 +92,9 @@ const Container = styled.div`
         
       }
     }
+  } */
+  &:last-of-type{
+    margin-right:0;
   }
 `;
 // consts
