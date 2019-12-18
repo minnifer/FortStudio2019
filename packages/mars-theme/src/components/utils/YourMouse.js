@@ -48,7 +48,7 @@ export default function YourMouse() {
 
     // mouse follower and cleanup
     window.addEventListener("mousemove", mousePos, { passive: true });
-    
+
     return () =>
       window.removeEventListener("mousemove", mousePos, { passive: true });
   }, []);
@@ -119,7 +119,9 @@ const Cursor = styled.div`
   border-radius: 50%;
   pointer-events: none;
   z-index: 2;
-
+  @media (max-width: 768px) {
+   display:none;
+  }
   div {
     z-index: 2;
     border-radius: 50%;
