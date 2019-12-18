@@ -1,26 +1,48 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect, styled } from "frontity";
+class ClientIntro extends Component {
+  constructor(props) {
+    super(props);
+  }
+  isOnScreen() {
+    /* get the elements */
+    var elements = document.getElementsByClassName("spy");
+    /* iterate */
+    Array.prototype.forEach.call(elements, function(element, index) {
+      var bounds = element.getBoundingClientRect();
 
-const ClientIntro = props => {
-  //   console.log(props.layout);
-  return (
-    <Container>
+      if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+        element.classList.add("inview");
+      } else {
+        // element.classList.remove("inview");
+      }
+    });
+
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  componentDidMount() {
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  render() {
+    return (
+      <Container>
       <ContentContainer>
         <HeadlineContainer>
-          <Headline
-            dangerouslySetInnerHTML={{ __html: props.layout.headline }}
+          <Headline className="spy"
+            dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}
           ></Headline>
         </HeadlineContainer>
-        <BodyContainer>
+        <BodyContainer className="spy">
           <div
             className="p1"
-            dangerouslySetInnerHTML={{ __html: props.layout.body }}
+            dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
           ></div>
         </BodyContainer>
       </ContentContainer>
     </Container>
-  );
-};
+    );
+  }
+}
 
 export default connect(ClientIntro);
 
@@ -59,6 +81,17 @@ const HeadlineContainer = styled.div`
 `;
 const Headline = styled.h2`
   width: 58%;
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   .white {
     color: #ffffff;
   }
@@ -75,6 +108,17 @@ const BodyContainer = styled.div`
   column-gap: 75px;
   position: relative;
   margin-top: 80px;
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   &:before {
     content: "";
     position: absolute;

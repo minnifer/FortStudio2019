@@ -8,13 +8,18 @@ const MenuModal = ({ state }) => {
   const navSubheads = options.acf.menu_subheads;
   return (
     <>
+      <StyledVideoPlayer
+        nav="nav"
+        toggle={state}
+        src={options.acf.video["url"]}
+      />
       <MenuOverlay />
       <MenuContent as="nav">
         <MenuLink key="What We Do" link="/what-we-do">
           <span className="navHeadline">What We Do</span>
           <span className="navSubhead">{navSubheads.what_we_do_subhead}</span>
         </MenuLink>
-        <StyledVideoPlayer toggle={state} src={options.acf.video["url"]} />
+
         <MenuLink key="Who We Are" link="/who-we-are">
           <span className="navHeadline">Who We Are</span>
           <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
@@ -34,7 +39,7 @@ const MenuOverlay = styled.div`
   left: 0;
   &:before {
     content: "";
-    background-color: rgba(18, 18, 18, 0.95);
+    background-color: rgba(18, 18, 18, 0.98);
     width: 50%;
     height: 100%;
     position: absolute;
@@ -43,7 +48,7 @@ const MenuOverlay = styled.div`
   }
   &:after {
     content: "";
-    background-color: rgba(29, 29, 29, 0.95);
+    background-color: rgba(29, 29, 29, 0.98);
     width: 50%;
     height: 100%;
     position: absolute;
@@ -51,14 +56,15 @@ const MenuOverlay = styled.div`
     top: 0;
   }
   @media (max-width: 768px) {
+    padding-top:50px;
     &:before,
     &:after {
       width: 100%;
       height: 50%;
     }
     &:after {
-      bottom:0;
-      top:auto;
+      bottom: 0;
+      top: auto;
     }
   }
 `;
@@ -72,8 +78,8 @@ const MenuContent = styled.div`
   margin: auto;
   position: fixed;
   top: 0;
-  left:50%;
-  transform:translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
   margin: auto;
   justify-content: space-between;
   align-items: center;
@@ -95,7 +101,7 @@ const MenuLink = styled(Link)`
   justify-content: center;
   align-items: flex-start;
   padding-left: 114px;
-  margin-top:185px;
+  margin-top: 185px;
   z-index: 5;
   /* background-color: rgba(18, 18, 18, 0.95); */
   /* styles for active link */
@@ -141,7 +147,7 @@ const MenuLink = styled(Link)`
     padding-left: 65px;
     padding-right: 0;
     /* padding-top: 100px; */
-    margin-top:65px;
+    margin-top: 65px;
     &:last-of-type {
       align-items: flex-start;
       padding-left: 65px;
@@ -151,5 +157,8 @@ const MenuLink = styled(Link)`
   }
 `;
 const StyledVideoPlayer = styled(VideoPlayer)`
+  &.active {
+    left: 25%;
+  }
 `;
 export default connect(MenuModal);

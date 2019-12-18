@@ -42,12 +42,13 @@ class VideoPlayer extends Component {
 
   render = () => {
     return (
-      <Container className={this.state.active ? "active" : ""}>
+      <Container 
+      className={[this.state.active, this.props.nav].join(' ')}>  
         <ButtonContainer
           data-stick-cursor
           className={this.state.active ? "active link" : ""}
         >
-          <CloseButton onClick={this.stopVideo}>Close</CloseButton>
+        <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
         <Video
           onKeyDown={this.onKeyPressed}
@@ -60,7 +61,7 @@ class VideoPlayer extends Component {
           className={this.state.active ? "active" : ""}
         />
         <div className="link" data-stick-cursor>
-          <PlayButton onClick={this.playVideo}>
+          <PlayButton  className={[this.state.active, this.props.nav].join(' ')} onClick={this.playVideo}>
             <svg
               id="Collapse_Expand_1"
               data-name="Collapse/Expand 1"
@@ -105,24 +106,32 @@ class VideoPlayer extends Component {
 
 export default VideoPlayer;
 
-const Container = styled.div`
-  z-index: 5;
+const Container = styled.div`  
+  z-index:4;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: none;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  &.active {
+  &.true {
     z-index: 90;
     height: 100vh;
     width: 100vw;
     top: 0;
     left: 0;
     transform: none;
-    position: fixed;
+    position: fixed;   
+  }
+  &.nav{
+     position:fixed;
+     z-index:50;
+     top: 55%;
+     &.true {
+       top: 0;
+     }
   }
 `;
 const Video = styled.video`
@@ -162,8 +171,7 @@ const PlayButton = styled.button`
   line-height: 51px;
   letter-spacing: 0.84px;
   font-size: 14px;
-  text-transform: uppercase;
-  transition: color 250ms ease-in-out;
+  text-transform: uppercase;  
   -webkit-appearance: none;
   background: transparent;
   border: none;
@@ -186,6 +194,7 @@ const PlayButton = styled.button`
     left:0;
     top:25%;
     color: #1d1d1d;
+    transition: opacity 500ms ease-in-out;
   }
   svg {
   }
@@ -197,6 +206,19 @@ const PlayButton = styled.button`
       opacity: 1;
       
     }
+  }
+  &.true{
+    svg{
+      display:none;
+    }
+    span{
+      display:none;
+    }
+  }
+  &.nav{
+    @media (max-width: 768px) {
+    top:0;
+  }
   }
 `;
 const CloseButton = styled.button`

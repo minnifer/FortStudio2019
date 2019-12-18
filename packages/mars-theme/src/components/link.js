@@ -11,7 +11,7 @@ const Link = ({
 }) => {
   const onClick = event => {
     // Do nothing if it's an external link
-    if (link.startsWith("http")  || link.startsWith("tel") ) return;
+    if (link.startsWith("http")  || link.startsWith("tel") || link.startsWith("mailto") ) return;
 
     event.preventDefault();
     // Set the router to the new url.

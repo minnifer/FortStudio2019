@@ -115,8 +115,9 @@ const TextContainer = styled.div`
   max-width:1440px;
   margin:auto;
   width:100%;
+  padding-top:185px;
   @media (max-width: 768px) {
-    padding-top:130px;
+    padding-top:130px;    
   }
   }
 `;
@@ -134,7 +135,8 @@ const BodyContainer = styled.h1`
   }
 `;
 
-const StyledCard = styled(Card)``;
+const StyledCard = styled(Card)`
+z-index:10`;
 
 const Video = styled.video`
   object-fit: cover;
@@ -159,7 +161,7 @@ const StyledVideoContainer = styled.div`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
+  
   word-break: break-word;
 
   * {

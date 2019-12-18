@@ -102,11 +102,6 @@ const Content = styled.div`
     padding: 4px 16px;
   }
 
-  a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
-  }
-
   /* Input fields styles */
 
   input[type="text"],

@@ -1,23 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
 import Link from "./../link";
-const TeamMembers = props => {
-  return (
-    <Container>
-      <Wrapper>
-        {props.layout.team_members.map((teamMember, index) =>
-          renderTeamMember(teamMember, index)
-        )}
-      </Wrapper>
-    </Container>
-  );
-};
+import Card from "./card";
+class TeamMembers extends Component {
+  constructor(props) {
+    super(props);
+  }
+  isOnScreen() {
+    /* get the elements */
+    var elements = document.getElementsByClassName("spy");
+    /* iterate */
+    Array.prototype.forEach.call(elements, function(element, index) {
+      var bounds = element.getBoundingClientRect();
+
+      if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+        element.classList.add("inview");
+      } else {
+        // element.classList.remove("inview");
+      }
+    });
+
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  componentDidMount() {
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  render() {
+    return (
+      <Container>
+        <Wrapper>
+          {this.props.layout.team_members.map((teamMember, index) =>
+            renderTeamMember(teamMember, index)
+          )}
+        </Wrapper>
+      </Container>
+    );
+  }
+}
 const renderTeamMember = (teamMember, index) => {
   return (
     <TeamMember key={index}>
-      <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
-      <ContentContainer>
+      <ImageContainer className="spy" link={"mailto:" + teamMember.email}>
+        <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
+        <span>Contact</span>
+      </ImageContainer>
+      <ContentContainer className="spy">
         <NameContainer>
           <Name>{teamMember.name}</Name>
           <Title>{teamMember.title}</Title>
@@ -87,6 +115,9 @@ const Container = styled.div`
   box-sizing: border-box;
   margin: auto;
   max-width: 1440px;
+`;
+const StyledCard = styled(Card)`
+  position: absolute;
 `;
 const Wrapper = styled.div`
   padding-left: 114px;
@@ -165,6 +196,17 @@ const ContentContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 `;
 const Title = styled.div`
   font-weight: 500;
@@ -183,7 +225,7 @@ const SocialContainer = styled.div`
   margin-top: 5px;
   .menu-item {
     margin-right: 12px;
-    cursor:none;
+    cursor: none;
     svg {
       width: 14px;
       height: 14px;
@@ -214,5 +256,66 @@ const SocialContainer = styled.div`
 const StyledImage = styled(Image)`
   display: block;
 `;
+const ImageContainer = styled(Link)`
+  display: block;
+  position: relative;
+  cursor: none;
+  &:before {
+    content: "";
+    opacity: 0;
+    background-color: #ffc40a;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 250ms ease-in-out;
+  }
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.84px;
+    line-height: 51px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 900;
+    transform: translate(-50%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    vertical-align: center;
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    &:hover {
+      transform: scale(1.2) translate(-37.5%);
+    }
+    @media (max-width: 768px) {
+      top: 30%;
+    }
+  }
+  &:hover,
+  &:focus {
+    &:before {
+      opacity: 0.9;
+    }
+    span {
+      opacity: 1;
+    }
+  }
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
 
-// const
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+`;

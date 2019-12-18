@@ -32,7 +32,7 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-        {(data.isFetching && <Loading />) ||
+        {
           (data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && data.id === 133 && <Form />) ||
