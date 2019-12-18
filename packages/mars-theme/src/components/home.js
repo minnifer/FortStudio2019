@@ -84,7 +84,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     .link {
-      transform: none;
+      transform: translateY(-50%);
     }
   }
 `;

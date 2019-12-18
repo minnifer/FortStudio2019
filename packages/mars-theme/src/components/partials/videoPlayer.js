@@ -175,6 +175,9 @@ const PlayButton = styled.button`
   cursor: none;
   outline: none;
   position: relative;
+  @media (max-width: 768px) {
+    top:200px;
+  }
   span {
     position: absolute;
     opacity: 0;
@@ -217,5 +220,9 @@ const CloseButton = styled.button`
   color: #ffc40a;
   &:hover {
     color: #ffc40a;
+  }
+  @media (max-width: 768px) {
+    top:40px;
+    right:40px;
   }
 `;
