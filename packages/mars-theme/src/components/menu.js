@@ -36,6 +36,11 @@ const Container = styled.div`
   right: 84px;
   top: 80px;
   position: absolute;
+  @media (max-width: 768px) {
+    position:relative;
+    right: auto;
+    top: auto;
+  }
 `;
 const MenuToggle = styled.button`
   padding: 0;  

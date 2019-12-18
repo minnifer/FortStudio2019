@@ -8,6 +8,12 @@ import striptags from "striptags";
 import Card from "./partials/card";
 import VideoPlayer from "./partials/VideoPlayer";
 import YourMouse from "./utils/YourMouse";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -26,7 +32,10 @@ const Home = ({ state, actions, libraries }) => {
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       {/* Add the header of the site. */}
-      <YourMouse />
+
+      <BrowserView>
+        <YourMouse />
+      </BrowserView>
       <HeadContainer>
         <Header />
       </HeadContainer>
@@ -37,15 +46,15 @@ const Home = ({ state, actions, libraries }) => {
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
-          <Wrapper>
-            <BodyContainer
-              dangerouslySetInnerHTML={{ __html: post.acf.body }}
-            ></BodyContainer>            
+            <Wrapper>
+              <BodyContainer
+                dangerouslySetInnerHTML={{ __html: post.acf.body }}
+              ></BodyContainer>
               <StyledCard
                 linkURL="/what-we-do"
                 linkText="Learn More"
-              ></StyledCard>    
-              </Wrapper>        
+              ></StyledCard>
+            </Wrapper>
           </TextContainer>
         </VideoContainer>
       </Content>
@@ -58,16 +67,27 @@ export default connect(Home);
 const Container = styled.div`
   margin: 0;
   width: 100%;
-  overflow: hidden;  
+  overflow: hidden;
 `;
 const Wrapper = styled.div`
-  max-width:40%;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:flex-start;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-left: 114px;
-`
+  @media (max-width: 768px) {
+    max-width: none;
+    padding-left: 0;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    .link {
+      transform: none;
+    }
+  }
+`;
 
 const HeadContainer = styled.div`
   display: flex;
@@ -95,11 +115,13 @@ const TextContainer = styled.div`
   max-width:1440px;
   margin:auto;
   width:100%;
+  @media (max-width: 768px) {
+    padding-top:130px;
+  }
   }
 `;
 
 const BodyContainer = styled.h1`
-  
   color: #fff;
   /* width: 28%; */
   /* margin-bottom:45px; */
@@ -112,8 +134,7 @@ const BodyContainer = styled.h1`
   }
 `;
 
-const StyledCard = styled(Card)`  
-`;
+const StyledCard = styled(Card)``;
 
 const Video = styled.video`
   object-fit: cover;

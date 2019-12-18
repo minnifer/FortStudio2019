@@ -43,7 +43,7 @@ class VideoPlayer extends Component {
   render = () => {
     return (
       <Container className={this.state.active ? "active" : ""}>
-        <ButtonContainer className={this.state.active ? "active" : ""}>
+        <ButtonContainer data-stick-cursor className={this.state.active ? "active link" : ""}>
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
         <Video
@@ -141,8 +141,8 @@ const PlayButton = styled.button`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 108px;
-  right: 114px;
+  top: 120px;
+  right: 120px;
   width: fit-content;
   font-weight: 500;
   line-height: 51px;
@@ -156,7 +156,6 @@ const CloseButton = styled.button`
   align-items: center;
   justify-content: center;
   -webkit-appearance: none;
-  cursor: pointer;
   transition: color 250ms ease-in-out;
   color:#ffc40a;
   &:hover {

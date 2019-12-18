@@ -8,7 +8,7 @@ const math = {
   }
 };
 
-const DEFAULT_EASE = 0.10;
+const DEFAULT_EASE = 1;
 const DIST = 100;
 
 export default function YourMouse() {
@@ -28,8 +28,8 @@ export default function YourMouse() {
   const lastPos = React.useRef([0, 0]);
 
   // memoized, never changes
-  const mousePos = React.useCallback(ev => {
-    currentPos.current = [ev.pageX, ev.clientY];
+  var mousePos = React.useCallback(ev => {
+    currentPos.current = [ev.clientX, ev.clientY];
   }, []);
 
   // runs once on mount
@@ -48,6 +48,7 @@ export default function YourMouse() {
 
     // mouse follower and cleanup
     window.addEventListener("mousemove", mousePos, { passive: true });
+    
     return () =>
       window.removeEventListener("mousemove", mousePos, { passive: true });
   }, []);
@@ -113,8 +114,8 @@ export default function YourMouse() {
 
 const Cursor = styled.div`
   position: fixed;
-  top: -.5rem;
-  left: -.5rem;
+  top: -0.5rem;
+  left: -0.5rem;
   border-radius: 50%;
   pointer-events: none;
   z-index: 2;
@@ -126,7 +127,7 @@ const Cursor = styled.div`
     height: 1rem;
     border: 1px solid #ffc400;
     background-color: #ffc400;
-    opacity:1;
+    opacity: 1;
     cursor: none;
     transition: transform 0.5s ease, opacity 0.35s ease;
   }

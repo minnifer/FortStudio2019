@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-import Header from "./header";
+import FormHeader from "./FormHeader";
 import $ from "jquery";
 import { findDOMNode } from "react-dom";
 
@@ -43,7 +43,7 @@ const Form = ({ state, actions, libraries }) => {
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <HeadContainer>
-        <Header menuTheme="black" />
+        <FormHeader menuTheme="black" />
       </HeadContainer>
       <Content>
         <LeftContainer>
@@ -96,12 +96,12 @@ const RightContainer = styled.div`
 `;
 
 const Headline = styled.h2`
-  margin-bottom:36px;
+  margin-bottom: 36px;
 `;
 const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom:25px;
+  margin-bottom: 25px;
   span {
     font-weight: 600;
     font-size: 14px;
@@ -133,7 +133,7 @@ const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  margin-top: 235px;
+  margin-top: 240px;
   width: 35%;
   margin-left: 131px;
   top: 10%;
@@ -269,6 +269,7 @@ const Content = styled.div`
         width:25%;
         min-width:184px;
         margin-bottom:16px;
+        line-height:24px;
       }
     }
     @media (max-width: 768px) {
@@ -311,7 +312,7 @@ const Content = styled.div`
   input[type="submit"] {
     display: inline-block;
     margin-bottom: 0;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -320,6 +321,8 @@ const Content = styled.div`
     cursor: pointer;
     font-size: 14px;
     line-height: 16px;
+    letter-spacing:.84px;
+    font-weight:500;
     color: #1d1d1d;
     -webkit-appearance: none;
     padding: 0;
@@ -407,8 +410,7 @@ const Content = styled.div`
       transform: none;
     }
   }
-  .your-name,
-  .your-email,
+  .your-name,  
   .text-218,
   .your-message {
     position: relative;
@@ -416,6 +418,27 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 75px;
+    @media (max-width: 768px) {
+      margin-bottom: 45px;
+    }
+
+    &:after {
+      /* border-bottom:1px solid #1D1D1D; */
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #1d1d1d;
+    }
+    
+    }
+    .your-email{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90px;
     @media (max-width: 768px) {
       margin-bottom: 45px;
     }

@@ -4,13 +4,11 @@ import Link from "./link";
 import Card from "./partials/card";
 import CenteredCard from "./partials/centeredCard";
 
-
-const Footer = ({ state }) => {
+const Footer = ({ state, activeTout }) => {
   const options = state.source.get("acf-options-page");
 
   return (
     <FooterContainer>
-      
       <TopWrapper>
         <TopFooter>
           <Tout>
@@ -90,13 +88,15 @@ const Footer = ({ state }) => {
               />
             </svg>
           </CenterContainer>
-          <RightContainer>
+          <RightContainer className={activeTout}>
             <StyledCard
               linkURL="/contact"
+              activeTout={activeTout}
               linkText={options.acf.footer_cta_text.reel_text}
             ></StyledCard>
             <StyledCard
               linkURL="/contact"
+              activeTout={activeTout}
               linkText={options.acf.footer_cta_text.work_sample_form_text}
             ></StyledCard>
           </RightContainer>
@@ -154,6 +154,27 @@ const Tout = styled.div`
   position: relative;
   padding-left: 21px;
 
+  position: relative;
+  .link {
+    z-index: 6;
+    position: absolute;
+    bottom: -75%;
+    left: 0%;
+    transform: translateX(5%);
+    @media (max-width: 768px) {
+      a {
+        height: auto;
+        width: auto;
+      }
+      position: relative;
+      transform: none;
+      bottom: auto;
+      height: 51px;
+      width: auto;
+    }
+    &.first {
+    }
+  }
   p {
     color: #ffffff;
     margin-bottom: 15px;
@@ -170,13 +191,24 @@ const Tout = styled.div`
   &:before {
     width: 2px;
     content: "";
-    height: 98%;
+    height: 115%;
     left: 0;
     background: #ffc40a;
     position: absolute;
+    @media (max-width: 768px) {
+      height:90%;
+    }
   }
   &:first-of-type {
     margin-left: 114px;
+    .link {
+      transform: translateX(15%);
+    }
+     @media (max-width: 768px) {
+     .link{
+       transform:none;
+     }
+    }
   }
   &:last-of-type {
     margin-right: 114px;
@@ -266,6 +298,7 @@ const CenterContainer = styled(Link)`
 `;
 const RightContainer = styled.div`
   display: flex;
+
   @media (max-width: 768px) {
     display: none;
   }

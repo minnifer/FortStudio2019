@@ -95,6 +95,7 @@ const MenuLink = styled(Link)`
   justify-content: center;
   align-items: flex-start;
   padding-left: 114px;
+  margin-top:185px;
   z-index: 5;
   /* background-color: rgba(18, 18, 18, 0.95); */
   /* styles for active link */
@@ -105,7 +106,7 @@ const MenuLink = styled(Link)`
   }
   .navHeadline {
     font-weight: 300;
-    font-size: 42px;
+    font-size: 48px;
     letter-spacing: 0;
     line-height: 16px;
     color: #ffffff;
@@ -139,7 +140,7 @@ const MenuLink = styled(Link)`
     align-items: flex-start;
     padding-left: 65px;
     padding-right: 0;
-    padding-top: 100px;
+    /* padding-top: 100px; */
     &:last-of-type {
       align-items: flex-start;
       padding-left: 65px;

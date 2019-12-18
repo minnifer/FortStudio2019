@@ -249,11 +249,11 @@ const StyledSVG = styled.svg`
     fill: ${props => props.menuTheme};
     transition: fill 250ms ease-in-out;
   }
-  &:hover,
+  /* &:hover,
   &:focus {
     g,
     path {
       fill: #ffc40a;
     }
-  }
+  } */
 `;

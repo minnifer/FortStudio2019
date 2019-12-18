@@ -2,11 +2,14 @@ import React from "react";
 import { useSpring, animated } from "react-spring";
 import { connect, styled } from "frontity";
 import Link from "./../link";
-const CenteredCard = ({ linkURL, linkText, text }) => {
+const CenteredCard = ({ linkURL, linkText, text, activeTout }) => {
   return (
-    <Container>
-      <StyledLink link={linkURL}><span>{linkText}</span></StyledLink>
-      <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
+    <Container className={[activeTout, "link"].join(' ')} data-stick-cursor>
+      {linkURL ? (
+        <StyledLink link={linkURL}><span>{linkText}</span></StyledLink>
+      ) : (
+        <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
+      )}
     </Container>
   );
 };
@@ -16,39 +19,29 @@ export default connect(CenteredCard);
 const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
-  z-index: 2;
+  z-index: 10;
   position: relative;
   width: 130px;
   height: 130px;
-  transition: background-color 250ms ease-in-out;
+  /* transition: background-color 250ms ease-in-out; */
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
+  background-color:#F8F8F8;
+  border-radius:50%;
   span{
       width:80%;
+      z-index: 10;
+  }
+  &:hover{
+    background-color:transparent;
   }
   &:after{
     content: "";
     opacity:0;
     transition: opacity 250ms ease-in-out;
-  }
-  &:hover {
-    color: #1d1d1d;
-    cursor: none;
-    &:after {
-      opacity:1;
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      background-color: #ffc40a;
-      top: 0%;
-      left: 0%;
-      transform: translate(0%, 0);
-      z-index: -1;
-      border-radius: 50%;
-    }
   }
 `;
 
@@ -64,5 +57,33 @@ const Container = styled.div`
   flex-direction: column;
   max-width: none;
   margin-right:10px;
+  z-index:99;
+  &.first{
+    &:first-of-type{
+      position:fixed;
+      bottom:2vw;
+      right:26vw;
+      a{
+        background-color:#FFC40A;
+        &:hover{
+          background-color:transparent;
+        }
+      }
+    }
+  }
+  &.last{
+    &:first-of-type{
+      transform:translateX(-125%);
+    }
+    &:last-of-type{
+      position:fixed;
+      bottom:2vw;
+      right:19vw;
+      a{
+        background-color:#FFC40A;
+        
+      }
+    }
+  }
 `;
 // consts

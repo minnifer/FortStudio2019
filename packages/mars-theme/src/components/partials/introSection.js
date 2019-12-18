@@ -82,7 +82,8 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-              <Card text={this.props.layout.strategy_section.hover_body}></Card>
+              <div className="link" data-stick-cursor>{this.props.layout.strategy_section.hover_body}</div>
+              {/* <Card text={this.props.layout.strategy_section.hover_body}></Card> */}
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -132,8 +133,7 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-
-              <Card text={this.props.layout.identity_section.hover_body}></Card>
+<div>{this.props.layout.identity_section.hover_body}</div>
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -184,7 +184,7 @@ class IntroSection extends Component {
                 </g>
               </svg>
 
-              <Card text={this.props.layout.design_section.hover_body}></Card>
+              <div>{this.props.layout.design_section.hover_body}</div>
             </HoverBody>
           </ToutContainer>
         </RightContainer>
@@ -213,53 +213,7 @@ const Container = styled.div`
 `;
 
 const HoverBody = styled.div`
-  position: absolute;
-  left: -125px;
-  top: -5px;
-  max-width: none;
-  width: 100%;
-
-  h5 {
-    /* opacity:0; */
-    transform:scale(0);
-    transition: scale 250ms ease-in-out;
-    position: absolute;
-    top: 0;
-    text-align: center;
-    text-transform: uppercase;    
-    width:50%;    
-    margin: auto;    
-    cursor:none;
-    &:after{
-      content:'';
-      position:absolute;
-      width:230px;
-      height:230px;
-      background:#ffc40a;
-      top:-100%;
-      left:0%;
-      transform:translate(-20%, -25%);
-      z-index:-1;
-      border-radius:50%;
-    }
-  }
-  svg {
-    /* transform:translateX(200%); */
-  }
-  &:hover,
-  &:focus {
-    h5 {
-      /* opacity: 1;    */
-      transform:scale(1);   
-    }
-    svg {
-      opacity: 0;
-    }
-  }
-  @media (max-width: 768px) {
-    left: 0;
-    top: -60%;
-  }
+  
 `;
 
 const LeftContainer = styled.div`

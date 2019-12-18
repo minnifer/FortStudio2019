@@ -5,8 +5,11 @@ import Link from "./../link";
 const Card = ({ linkURL, linkText, text }) => {
   return (
     <Container className="link" data-stick-cursor>
-      <StyledLink link={linkURL}>{linkText}</StyledLink>
-      <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
+      {linkURL ? (
+        <StyledLink link={linkURL}>{linkText}</StyledLink>
+      ) : (
+        <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
+      )}
     </Container>
   );
 };
@@ -35,20 +38,39 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   &:hover {
     color: #1d1d1d;
   }
 `;
 
 const StyledText = styled.h5`
-  z-index: 2;
+  width: fit-content;
+  font-weight: 500;
+  line-height: 51px;
+  letter-spacing: 0.84px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: color 250ms ease-in-out;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  cursor: none;
+  color: #1d1d1d;
+  transition: color 250ms ease-in-out;
+  z-index: 30;
   position: absolute;
-  transform: translateX(-25%);
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  text-align:center;
 `;
 const Container = styled.div`
   width: 130px;
   height: 130px;
-  transform:translateX(-15%);
+  transform: translateX(-15%);
 `;
 // consts

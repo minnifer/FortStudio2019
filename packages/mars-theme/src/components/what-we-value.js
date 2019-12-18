@@ -2,13 +2,19 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
-import ComponentRouter from "./componentRouter"
+import ComponentRouter from "./componentRouter";
 import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
 import Header from "./header";
 import Footer from "./footer";
 import YourMouse from "./utils/YourMouse";
-const Post = ({ state, actions, libraries }) => {
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
+const WhatWeValue = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
@@ -22,35 +28,35 @@ const Post = ({ state, actions, libraries }) => {
   useEffect(() => {
     actions.source.fetch("/");
     List.preload();
-  }, []);  
-  for (const [i, value] of post.acf.content_blocks.entries()) {    
+  }, []);
+  for (const [i, value] of post.acf.content_blocks.entries()) {
     // console.log(post.acf.content_blocks[i].acf_fc_layout);
   }
- 
-  
+
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-    <YourMouse />
+      <BrowserView>
+        <YourMouse />
+      </BrowserView>
       {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}       
-       <HeadContainer>
-        <Header menuTheme="black"/>
+       by the processors we included in the libraries.html2react.processors array. */}
+      <HeadContainer>
+        <Header menuTheme="black" />
       </HeadContainer>
       <Content>
-             <ComponentRouter layouts={post.acf.content_blocks} />
+        <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
-      <Footer />  
+      <Footer activeTout="first" />
     </Container>
-    
   ) : null;
 };
 
-export default connect(Post);
+export default connect(WhatWeValue);
 
-const Container = styled.div`  
+const Container = styled.div`
   margin: 0;
-  width:100%;
+  width: 100%;
   /* border:7px solid #000; */
 `;
 
@@ -61,7 +67,6 @@ const StyledLink = styled(Link)`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-
   * {
     max-width: 100%;
   }
@@ -182,5 +187,5 @@ const HeadContainer = styled.div`
   position: absolute;
   /* z-index: 1; */
   margin: auto;
-  width: 100%;  
+  width: 100%;
 `;

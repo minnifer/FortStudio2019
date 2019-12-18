@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Header from "./header";
 import List from "./list";
-import Post from "./post";
+// import Post from "./post";
 import Form from "./form";
+import WhoWeAre from "./who-we-are";
+import WhatWeValue from "./what-we-value";
 import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
@@ -34,7 +36,9 @@ const Theme = ({ state }) => {
           (data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
           (data.isPostType && data.id === 133 && <Form />) ||
-          (data.isPostType && <Post />) ||
+          (data.isPostType && data.id === 12 && <WhatWeValue />) ||
+          (data.isPostType && data.id === 77 && <WhoWeAre />) ||
+          // (data.isPostType && <Post />) ||
           (data.is404 && <Page404 />)}
       </Main>
     </>
