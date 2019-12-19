@@ -37,7 +37,7 @@ const WhatWeValue = ({ state, actions, libraries }) => {
   return data.isReady ? (
     <Container>
       {/* <BrowserView> */}
-        <YourMouse />
+      <YourMouse />
       {/* </BrowserView> */}
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
@@ -48,6 +48,10 @@ const WhatWeValue = ({ state, actions, libraries }) => {
         <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
       <Footer state={state} activeTout="first" />
+      <div id="left"></div>
+      <div id="right"></div>
+      <div id="top"></div>
+      <div id="bottom"></div>
     </Container>
   ) : null;
 };
@@ -58,6 +62,38 @@ const Container = styled.div`
   margin: 0;
   width: 100%;
   /* border:7px solid #000; */
+  #top,
+  #bottom,
+  #left,
+  #right {
+    background: #000;
+    position: fixed;
+  }
+  #left,
+  #right {
+    top: 0;
+    bottom: 0;
+    width: 7px;
+  }
+  #left {
+    left: 0;
+  }
+  #right {
+    right: 0;
+  }
+
+  #top,
+  #bottom {
+    left: 0;
+    right: 0;
+    height: 7px;
+  }
+  #top {
+    top: 0;
+  }
+  #bottom {
+    bottom: 0;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -67,7 +103,6 @@ const StyledLink = styled(Link)`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-
   img {
     width: 100%;
     object-fit: cover;

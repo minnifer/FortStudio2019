@@ -1,33 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import { styled, connect } from "frontity";
 import Link from "./link";
 import VideoPlayer from "./partials/VideoPlayer";
-const MenuModal = ({ state }) => {
-  const { menu } = state.theme;
-  const options = state.source.get("acf-options-page");
-  const navSubheads = options.acf.menu_subheads;
-  return (
-    <>
-      <StyledVideoPlayer
-        nav="nav"
-        toggle={state}
-        src={options.acf.video["url"]}
-      />
-      <MenuOverlay />
-      <MenuContent as="nav">
-        <MenuLink key="What We Do" link="/what-we-do">
-          <span className="navHeadline">What We Do</span>
-          <span className="navSubhead">{navSubheads.what_we_do_subhead}</span>
-        </MenuLink>
-
-        <MenuLink key="Who We Are" link="/who-we-are">
-          <span className="navHeadline">Who We Are</span>
-          <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
-        </MenuLink>
-      </MenuContent>
-    </>
-  );
-};
+class MenuModal extends Component {
+  constructor(props) {
+    super(props);
+  }
+  mouseEnter() {    
+    document.querySelector("#cursor").classList.add("is-menu");
+    console.log("cursor");
+  }
+  mouseLeave() {
+    document.querySelector("#cursor").classList.remove("is-menu");
+  }
+  render() {
+    const { menu } = this.props.state.theme;
+    const options = this.props.state.source.get("acf-options-page");
+    const navSubheads = options.acf.menu_subheads;
+    return (
+      <>
+        <StyledVideoPlayer
+          nav="nav"
+          toggle={this.props.state}
+          src={options.acf.video["url"]}
+          onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}
+        />
+        <MenuOverlay />
+        <MenuContent as="nav">
+          <MenuLink key="What We Do" link="/what-we-do">
+            <span className="navHeadline">What We Do</span>
+            <span className="navSubhead">{navSubheads.what_we_do_subhead}</span>
+          </MenuLink>
+          <MenuLink key="Who We Are" link="/who-we-are">
+            <span className="navHeadline">Who We Are</span>
+            <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
+          </MenuLink>
+        </MenuContent>
+      </>
+    );
+  }
+}
 
 const MenuOverlay = styled.div`
   width: 100vw;
@@ -56,7 +68,7 @@ const MenuOverlay = styled.div`
     top: 0;
   }
   @media (max-width: 768px) {
-    padding-top:50px;
+    padding-top: 50px;
     &:before,
     &:after {
       width: 100%;

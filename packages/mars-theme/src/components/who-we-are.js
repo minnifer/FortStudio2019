@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
-import ComponentRouter from "./componentRouter"
+import ComponentRouter from "./componentRouter";
 import FeaturedMedia from "./featured-media";
 import IntroSection from "./partials/introSection";
 import Header from "./header";
@@ -28,38 +28,72 @@ const WhoWeAre = ({ state, actions, libraries }) => {
   useEffect(() => {
     actions.source.fetch("/");
     List.preload();
-  }, []);  
-  for (const [i, value] of post.acf.content_blocks.entries()) {    
+  }, []);
+  for (const [i, value] of post.acf.content_blocks.entries()) {
     // console.log(post.acf.content_blocks[i].acf_fc_layout);
   }
- 
-  
+
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-    {/* <BrowserView> */}
-        <YourMouse />
+      {/* <BrowserView> */}
+      <YourMouse />
       {/* </BrowserView> */}
       {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}       
-       <HeadContainer>
-        <Header menuTheme="black"/>
+       by the processors we included in the libraries.html2react.processors array. */}
+      <HeadContainer>
+        <Header menuTheme="black" />
       </HeadContainer>
       <Content>
-             <ComponentRouter layouts={post.acf.content_blocks} />
+        <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
-      <Footer activeTout="last"/>  
+      <Footer activeTout="last" />
+      <div id="left"></div>
+      <div id="right"></div>
+      <div id="top"></div>
+      <div id="bottom"></div>
     </Container>
-    
   ) : null;
 };
 
 export default connect(WhoWeAre);
 
-const Container = styled.div`  
+const Container = styled.div`
   margin: 0;
-  width:100%;
+  width: 100%;
   /* border:7px solid #000; */
+  #top,
+  #bottom,
+  #left,
+  #right {
+    background: #000;
+    position: fixed;
+  }
+  #left,
+  #right {
+    top: 0;
+    bottom: 0;
+    width: 7px;
+  }
+  #left {
+    left: 0;
+  }
+  #right {
+    right: 0;
+  }
+
+  #top,
+  #bottom {
+    left: 0;
+    right: 0;
+    height: 7px;
+  }
+  #top {
+    top: 0;
+  }
+  #bottom {
+    bottom: 0;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -69,7 +103,6 @@ const StyledLink = styled(Link)`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-
   img {
     width: 100%;
     object-fit: cover;
@@ -181,5 +214,5 @@ const HeadContainer = styled.div`
   position: absolute;
   /* z-index: 1; */
   margin: auto;
-  width: 100%;  
+  width: 100%;
 `;

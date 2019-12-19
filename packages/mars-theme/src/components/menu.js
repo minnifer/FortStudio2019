@@ -23,7 +23,7 @@ function MobileMenu({ state, actions, menuTheme }) {
         )}
       </MenuToggle>
       {/* If the menu is open, render the menu modal */}
-      {isMobileMenuOpen && <MenuModal />}
+      {isMobileMenuOpen && <MenuModal state={state} />}
     </Container>
   );
 }
@@ -37,13 +37,13 @@ const Container = styled.div`
   top: 80px;
   position: absolute;
   @media (max-width: 768px) {
-    position:relative;
+    position: relative;
     right: auto;
     top: auto;
   }
 `;
 const MenuToggle = styled.button`
-  padding: 0;  
+  padding: 0;
   background: transparent;
   border: 0;
   color: white;
@@ -52,8 +52,8 @@ const MenuToggle = styled.button`
   align-items: center;
   justify-content: center;
   outline: none;
-  width:130px;
-  height:130px;
+  width: 130px;
+  height: 130px;
   cursor: none;
   span {
     font-weight: 500;
@@ -75,10 +75,10 @@ const MenuToggle = styled.button`
     right: 36px;
     top: auto;
     &:hover {
-    span {
-      color: #ffc400;
+      span {
+        color: #ffc400;
+      }
     }
-  }
   }
 `;
 

@@ -11,7 +11,7 @@ import Page404 from "./page404.js";
 import Loading from "./loading";
 import Title from "./title";
 
-const Theme = ({ state }) => {
+const Theme = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
@@ -33,7 +33,7 @@ const Theme = ({ state }) => {
       <Main>
         {(data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
-          (data.isPostType && data.id === 133 && <Form />) ||
+          (data.isPostType && data.id === 133 && <Form  state={state} libraries={libraries} actions={actions} />) ||
           (data.isPostType && data.id === 12 && <WhatWeValue />) ||
           (data.isPostType && data.id === 77 && <WhoWeAre />) ||
           // (data.isPostType && <Post />) ||

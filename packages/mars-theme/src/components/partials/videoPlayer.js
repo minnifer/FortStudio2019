@@ -105,18 +105,18 @@ class VideoPlayer extends Component {
     );
   };
 }
-
 export default VideoPlayer;
 
 const Container = styled.div`
-  z-index: 4;
+  /* z-index: 4; */
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: none;
-  top: 55%;
+  top: 57%;
   left: 50%;
+  z-index: 5;
   transform: translate(-50%, -50%);
   &.true {
     z-index: 90;
@@ -129,8 +129,9 @@ const Container = styled.div`
   }
   &.nav {
     position: fixed;
-    z-index: 50;
-    top: 55%;
+    z-index: 900;
+    top: 50%;
+    transform:translate(-50%, 0);
     &.true {
       top: 0;
     }
@@ -160,7 +161,7 @@ const ButtonContainer = styled.div`
   margin: auto;
   margin-top: 0;
   display: none;
-  z-index: 900;
+  /* z-index: 900; */
   position: relative;
   padding: 24px 0;
   align-items: center;
@@ -182,7 +183,7 @@ const PlayButton = styled.button`
   background: transparent;
   border: none;
   cursor: none;
-  z-index: 6;
+  /* z-index: 6; */
   /* transition: color 250ms ease-in-out; */
   width: 130px;
   height: 130px;

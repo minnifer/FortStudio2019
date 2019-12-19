@@ -20,26 +20,33 @@ class ClientIntro extends Component {
 
     window.setTimeout(this.isOnScreen.bind(this), 250);
   }
+  mouseEnter() {    
+    document.querySelector('#cursor').classList.add('is-swapped'); 
+  }
+  mouseLeave(){
+     document.querySelector('#cursor').classList.remove('is-swapped'); 
+  }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
   }
   render() {
     return (
-      <Container>
-      <ContentContainer>
-        <HeadlineContainer>
-          <Headline className="spy"
-            dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}
-          ></Headline>
-        </HeadlineContainer>
-        <BodyContainer className="spy">
-          <div
-            className="p1"
-            dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
-          ></div>
-        </BodyContainer>
-      </ContentContainer>
-    </Container>
+      <Container onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+        <ContentContainer>
+          <HeadlineContainer>
+            <Headline
+              className="spy"
+              dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}
+            ></Headline>
+          </HeadlineContainer>
+          <BodyContainer className="spy">
+            <div
+              className="p1"
+              dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
+            ></div>
+          </BodyContainer>
+        </ContentContainer>
+      </Container>
     );
   }
 }
@@ -52,7 +59,7 @@ const Container = styled.div`
   box-sizing: border-box;
   margin-bottom: 120px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   @media (max-width: 768px) {
     margin-bottom: 65px;
   }

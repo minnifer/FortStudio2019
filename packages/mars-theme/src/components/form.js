@@ -1,21 +1,32 @@
-import React, { useEffect, useCallback } from "react";
+import React, { Component, useEffect, useCallback } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import $ from "jquery";
 // import YourMouse from "./utils/YourMouse";
-const Form = ({ state, actions, libraries }) => {
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
-  // Get the data of the post.
-  const post = state.source[data.type][data.id];
-  // Get the html2react component.
-  const Html2React = libraries.html2react.Component;
-  const options = state.source.get("acf-options-page");
-  // Once the post has loaded in the DOM, prefetch both the
-  // home posts and the list component so if the user visits
-  // the home page, everything is ready and it loads instantly.
-  useEffect(() => {
+class Form extends Component {
+  constructor(props) {
+    super(props);
+  }
+  isOnScreen() {
+    /* get the elements */
+    var elements = document.getElementsByClassName("spy");
+    /* iterate */
+    Array.prototype.forEach.call(elements, function(element, index) {
+      var bounds = element.getBoundingClientRect();
+
+      if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+        element.classList.add("inview");
+      } else {
+        // element.classList.remove("inview");
+      }
+    });
+
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+  }
+  componentDidMount() {
+    window.setTimeout(this.isOnScreen.bind(this), 250);
+    this.props.actions.source.fetch("/");
     $(".wpcf7-form input")
       .focus(function() {
         $(this)
@@ -33,50 +44,59 @@ const Form = ({ state, actions, libraries }) => {
             .removeClass("has-value");
         }
       });
-    actions.source.fetch("/");
-  }, []);
-
-  // Load the post, but only if the data is ready.
-  return data.isReady ? (
-    <PageContainer>
-    {/* <YourMouse /> */}
-      {/* Render the content using the Html2React component so the HTML is processed
+  }
+  render() {
+    const data = this.props.state.source.get(this.props.state.router.link);
+    const post = this.props.state.source[data.type][data.id];
+    const Html2React = this.props.libraries.html2react.Component;
+    const options = this.props.state.source.get("acf-options-page");
+    return (
+      <PageContainer>
+        {/* <YourMouse /> */}
+        {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <HeadContainer>
-        <FormHeader menuTheme="black" />
-      </HeadContainer>
-      <Content>
-        <LeftContainer>
-          <Headline
-            dangerouslySetInnerHTML={{
-              __html: options.acf.contact_headline
-            }}
-          ></Headline>
-          <SocialContainer>
-            <span>Find Us</span>
-            <Address
+        <HeadContainer>
+          <FormHeader menuTheme="black" />
+        </HeadContainer>
+        <Content>
+          <LeftContainer>
+            <Headline
               dangerouslySetInnerHTML={{
-                __html: options.acf.social_section.address
+                __html: options.acf.contact_headline
               }}
-            ></Address>
-          </SocialContainer>
-          <SocialContainer>
-            <span>Call Us</span>
-            <Phone
-              target="_blank"
-              link={"tel:" + options.acf.social_section.phone_number_field}
-            >
-              {options.acf.social_section.phone_number_field}
-            </Phone>
-          </SocialContainer>
-        </LeftContainer>
-        <RightContainer>
-          <Html2React html={post.content.rendered} />
-        </RightContainer>
-      </Content>
-    </PageContainer>
-  ) : null;
-};
+            ></Headline>
+            <SocialContainer>
+              <span>Find Us</span>
+              <Address
+                href="https://www.google.com/maps/dir/39.9854812,-83.0039066/fort+agency/@39.9806004,-83.0072205,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88388ed7ebd473a7:0xf77541e546d4eb8c!2m2!1d-83.0026902!2d39.9761894"
+                target="_blank"
+                dangerouslySetInnerHTML={{
+                  __html: options.acf.social_section.address
+                }}
+              ></Address>
+            </SocialContainer>
+            <SocialContainer>
+              <span>Call Us</span>
+              <Phone
+                target="_blank"
+                link={"tel:" + options.acf.social_section.phone_number_field}
+              >
+                {options.acf.social_section.phone_number_field}
+              </Phone>
+            </SocialContainer>
+          </LeftContainer>
+          <RightContainer>
+            <Html2React html={post.content.rendered} />
+          </RightContainer>
+        </Content>
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+      </PageContainer>
+    );
+  }
+}
 
 export default connect(Form);
 
@@ -86,11 +106,43 @@ const PageContainer = styled.div`
   height: 100%;
   min-height: 100vh;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
-    pointer !important; 
-    *{
-       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
-    pointer !important; 
-    }
+    pointer !important;
+  * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
+      pointer !important;
+  }
+  #top,
+  #bottom,
+  #left,
+  #right {
+    background: #000;
+    position: fixed;
+  }
+  #left,
+  #right {
+    top: 0;
+    bottom: 0;
+    width: 7px;
+  }
+  #left {
+    left: 0;
+  }
+  #right {
+    right: 0;
+  }
+
+  #top,
+  #bottom {
+    left: 0;
+    right: 0;
+    height: 7px;
+  }
+  #top {
+    top: 0;
+  }
+  #bottom {
+    bottom: 0;
+  }
 `;
 const RightContainer = styled.div`
   width: 40%;
@@ -115,7 +167,7 @@ const SocialContainer = styled.div`
     margin-bottom: 14px;
   }
 `;
-const Address = styled.div`
+const Address = styled.a`
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
@@ -268,6 +320,8 @@ const Content = styled.div`
       transform: translateY(-50%);
       pointer-events: none;
       transition: top 0.2s;
+      
+      }
     }
       &.intro{
         width:25%;
@@ -422,17 +476,24 @@ const Content = styled.div`
     margin-bottom: 75px;
     @media (max-width: 768px) {
       margin-bottom: 45px;
-    }
+    }    
+               
 
-    &:after {
-      /* border-bottom:1px solid #1D1D1D; */
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #1d1d1d;
-    }
+      &:after {
+        /* border-bottom:1px solid #1D1D1D; */
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #1d1d1d;
+      }
+    &:focus{
+        ~ label{
+            top: 20px;
+            font-size: 11px;
+        }
+      } 
     
     }
     .your-email{

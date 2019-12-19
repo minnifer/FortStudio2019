@@ -220,7 +220,7 @@ const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 24px 0;
-  padding-top: 114px;
+  margin-top: 114px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -229,6 +229,7 @@ const Container = styled.div`
   @media (max-width: 768px) {
     padding: 0;
     padding: 36px 0;
+    margin-top:0;
   }
 `;
 
