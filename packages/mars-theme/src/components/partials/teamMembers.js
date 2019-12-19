@@ -40,12 +40,12 @@ class TeamMembers extends Component {
 }
 const renderTeamMember = (teamMember, index) => {
   return (
-    <TeamMember key={index}>
-      <ImageContainer className="spy" link={"mailto:" + teamMember.email}>
+    <TeamMember className="spy" key={index}>
+      <ImageContainer link={"mailto:" + teamMember.email}>
         <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
         <span>Contact</span>
       </ImageContainer>
-      <ContentContainer className="spy">
+      <ContentContainer >
         <NameContainer>
           <Name>{teamMember.name}</Name>
           <Title>{teamMember.title}</Title>
@@ -170,6 +170,18 @@ const TeamMember = styled.div`
       margin-top: auto;
     }
   }
+
+  &.spy {
+    transform: translateY(5vw);
+    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
+      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
+    opacity: 0;
+
+    &.inview {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 `;
 const NameContainer = styled.div`
   display: flex;
@@ -196,17 +208,7 @@ const ContentContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
-  &.spy {
-    transform: translateY(5vw);
-    transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
-      opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
-    opacity: 0;
-
-    &.inview {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+  
 `;
 const Title = styled.div`
   font-weight: 500;

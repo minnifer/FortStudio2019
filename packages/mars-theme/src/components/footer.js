@@ -266,13 +266,12 @@ const BottomFooter = styled.div`
   padding-left: 114px;
   padding-right: 114px;
   justify-content: space-between;
-  padding-top: 36px;
+  padding-top: 36px; 
   padding-bottom: 33px;
   align-items: center;
   position: relative;
   @media (max-width: 768px) {
-    padding-left: 36px;
-    padding-right: 36px;
+    padding:0;
     flex-direction:column;
   }
 `;
@@ -297,6 +296,9 @@ const CenterContainer = styled(Link)`
     position:relative;
     background: #000;
     left:auto;
+    width:100%;
+    margin-left:-36px;
+    margin-right:-36px;
     svg {
       path {
         fill: #fff;
