@@ -61,6 +61,7 @@ export default connect(WhatWeValue);
 const Container = styled.div`
   margin: 0;
   width: 100%;
+  
   /* border:7px solid #000; */
   #top,
   #bottom,
@@ -68,6 +69,7 @@ const Container = styled.div`
   #right {
     background: #000;
     position: fixed;
+    z-index:900;
   }
   #left,
   #right {

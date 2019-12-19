@@ -9,7 +9,7 @@ const math = {
 };
 
 const DEFAULT_EASE = 1;
-const DIST = 100;
+const DIST = 130;
 export default function YourMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
   // These two are state since their changes need to rerender the div
@@ -71,8 +71,8 @@ export default function YourMouse() {
         if (h < DIST && !stuck) {
           isNearOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 5;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 5;
         }
       });
 
@@ -103,56 +103,6 @@ export default function YourMouse() {
     // force rerender to update transform CSS
     setTransform(transform);
   });
-  useAnimationFrame(deltaTime => {
-    // check collisions
-    let isNearColorSwap = false;
-    const swaps = [...document.querySelectorAll("[data-white-cursor]")];
-    swaps
-      .map(ele => {
-        const bounds = ele.getBoundingClientRect();
-
-        return {
-          el: ele,
-          x: window.scrollX + bounds.left + bounds.width / 2,
-          y: window.scrollY + bounds.top + bounds.height / 2
-        };
-      })
-      .forEach(target => {
-        const d = {
-          x: target.x - mouseHitPos.current[0],
-          y: target.y - mouseHitPos.current[1]
-        };
-
-        const a = Math.atan2(d.x, d.y);
-        const h = Math.sqrt(d.x * d.x + d.y * d.y);
-
-        if (d.x < target.width && d.y > target.height && !swap) {
-          isNearColorSwap = true;
-        }
-      });
-
-    if (isNearColorSwap) {
-      setSwap(true);
-    } else {
-      setSwap(false);
-    }
-    // const [currentX, currentY] = mouseHitPos.current;
-    // const [lastPosX, lastPosY] = lastPos.current;
-    // const lastX = math.lerp(lastPosX, currentX, ease);
-    // const lastY = math.lerp(lastPosY, currentY, ease);
-
-    // const fxDiff = currentX - lastX;
-    // const fxAcc = fxDiff / window.innerWidth;
-    // const fxVelo = +fxAcc;
-    // const fxScale = 1 - Math.abs(fxVelo * 5);
-
-    // const transform = `translate3d(${lastX - window.scrollX}px, ${lastY -
-    //   window.scrollY}px, 0) scale(${fxScale})`;
-
-    // // update lastpos without rerendering
-    // lastPos.current = [lastX, lastY];
-  });
-
   return (
     <Cursor
       id="cursor"

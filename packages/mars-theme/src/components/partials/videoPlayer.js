@@ -114,10 +114,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: none;
-  top: 57%;
+  top: 50%;
   left: 50%;
   z-index: 5;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   &.true {
     z-index: 90;
     height: 100vh;
@@ -223,11 +223,11 @@ const PlayButton = styled.button`
   }
   &.nav {
     @media (max-width: 768px) {
-      top: 0;
+      top: -25px;
     }
   }
   @media (max-width: 768px) {
-    top: 200px;
+    top: 125px;
     &:hover. &:focus {
       span {
         color: #ffc400;

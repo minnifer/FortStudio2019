@@ -61,11 +61,13 @@ export default connect(WhoWeAre);
 const Container = styled.div`
   margin: 0;
   width: 100%;
+  
   /* border:7px solid #000; */
   #top,
   #bottom,
   #left,
   #right {
+    z-index:900;
     background: #000;
     position: fixed;
   }

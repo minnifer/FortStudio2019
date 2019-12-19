@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import $ from "jquery";
-// import YourMouse from "./utils/YourMouse";
+import YourMouse from "./utils/YourMouse";
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +45,12 @@ class Form extends Component {
         }
       });
   }
+  mouseEnter() {    
+    document.querySelector('#cursor').classList.add('is-swapped'); 
+  }
+  mouseLeave(){
+     document.querySelector('#cursor').classList.remove('is-swapped'); 
+  }
   render() {
     const data = this.props.state.source.get(this.props.state.router.link);
     const post = this.props.state.source[data.type][data.id];
@@ -52,13 +58,13 @@ class Form extends Component {
     const options = this.props.state.source.get("acf-options-page");
     return (
       <PageContainer>
-        {/* <YourMouse /> */}
+        <YourMouse />
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
         <HeadContainer>
           <FormHeader menuTheme="black" />
         </HeadContainer>
-        <Content>
+        <Content onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
           <LeftContainer>
             <Headline
               dangerouslySetInnerHTML={{
@@ -105,16 +111,17 @@ const PageContainer = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
+  /* cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
     pointer !important;
   * {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
       pointer !important;
-  }
+  } */
   #top,
   #bottom,
   #left,
   #right {
+    z-index:900;
     background: #000;
     position: fixed;
   }
