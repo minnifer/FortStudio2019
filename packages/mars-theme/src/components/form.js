@@ -86,7 +86,7 @@ const PageContainer = styled.div`
   height: 100%;
   min-height: 100vh;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%231D1D1D' opacity='0.9'/%3E %3C/svg%3E "),
-    pointer;
+    pointer !important; 
 `;
 const RightContainer = styled.div`
   width: 40%;
@@ -364,10 +364,8 @@ const Content = styled.div`
     flex-wrap: wrap;
     .wpcf7-list-item {
       /* width: 50%; */
-      input[type="checkbox"] {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+      input[type="checkbox"] {       
+        opacity:0;
         /* For mobile, it's typically better to position checkbox on top of clickable
       area and turn opacity to 0 instead. */
       }
