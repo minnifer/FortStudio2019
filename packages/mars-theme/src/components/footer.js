@@ -230,7 +230,7 @@ const Tout = styled.div`
   &:first-of-type {
     margin-left: 114px;
     .link {
-      transform: translateX(15%);
+      /* transform: translateX(15%); */
     }
     @media (max-width: 768px) {
       .link {
@@ -240,6 +240,9 @@ const Tout = styled.div`
   }
   &:last-of-type {
     margin-right: 114px;
+    .link{
+      transform: translateX(-5%);
+    }
   }
   &:hover {
     a {

@@ -311,7 +311,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   width: 22.5%;
   align-self: flex-end;
-  margin-top: 548px;
+  margin-top: 450px;
   z-index: 6;
   @media (max-width: 768px) {
     align-self: center;

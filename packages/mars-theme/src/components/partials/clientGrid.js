@@ -28,7 +28,9 @@ class ClientGrid extends Component {
     return (
       <GridItem key={index} className="spy">
         <GridWrapper>
-          <Category className="category">{grid.category.name}</Category>
+          <Category className="category" dangerouslySetInnerHTML={{
+                    __html: grid.category.name
+                  }}></Category>
           <Summary className="summary">Summary of Service</Summary>
           <Logo alt={grid.logo.alt} src={grid.logo.url} />
           <BodyContainer className="body p2">{grid.body}</BodyContainer>
