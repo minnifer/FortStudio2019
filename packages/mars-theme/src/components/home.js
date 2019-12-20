@@ -42,7 +42,18 @@ const Home = ({ state, actions, libraries }) => {
       <Content>
         <VideoContainer>
           <StyledVideoContainer>
-            <Video autoPlay muted loop src={post.acf.background_video["url"]} />
+          <BrowserView>
+        <Video playsinline autoPlay muted loop src={post.acf.background_video["url"]} />
+      </BrowserView>
+            <MobileView>
+            <Video
+              playsinline
+              autoPlay
+              muted
+              loop
+              src={post.acf.mobile_background_video["url"]}
+            />
+            </MobileView>
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>

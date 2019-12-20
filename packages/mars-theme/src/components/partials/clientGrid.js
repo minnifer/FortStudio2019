@@ -33,7 +33,11 @@ class ClientGrid extends Component {
                   }}></Category>
           <Summary className="summary">Summary of Service</Summary>
           <Logo alt={grid.logo.alt} src={grid.logo.url} />
-          <BodyContainer className="body p2">{grid.body}</BodyContainer>
+          <BodyContainer className="body p2" 
+            dangerouslySetInnerHTML={{
+                    __html: grid.body
+                  }}
+          ></BodyContainer>
         </GridWrapper>
       </GridItem>
     );
@@ -174,8 +178,8 @@ const BodyContainer = styled.div`
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 250ms ease-in-out;
-  text-align: center;
-  visibility:hidden;
+  text-align: center;  
+  padding: 0 20px;
 `;
 const Logo = styled(Image)`
   position: absolute;
