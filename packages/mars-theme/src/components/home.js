@@ -105,6 +105,10 @@ const VideoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 768px) {
+      height:100%;
+      position:fixed;
+  }
 `;
 const StyledVideoPlayer = styled(VideoPlayer)`
   /* z-index:100; */

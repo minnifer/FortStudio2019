@@ -315,6 +315,9 @@ const Content = styled.div`
   
   form {
     margin-top: 235px;
+    @media (max-width: 768px) {
+      margin-top: 48px;
+    }
     > p {
       position: relative;
        > label {
@@ -337,9 +340,7 @@ const Content = styled.div`
         line-height:24px;
       }
     }
-    @media (max-width: 768px) {
-      margin-top: 68px;
-    }
+    
     .form-container {
       display: flex;
       margin-bottom:60px;

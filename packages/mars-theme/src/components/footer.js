@@ -260,6 +260,9 @@ const Tout = styled.div`
     &:last-of-type {
       margin-right: 0;
       margin-bottom: 0;
+      .link{
+        transform:none;
+      }
     }
   }
 `;
@@ -290,6 +293,11 @@ const LeftContainer = styled.div`
   @media (max-width: 768px) {
     justify-content: space-around;
     width: 100%;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-top:40px;
+    margin-bottom:40px;
   }
 `;
 const CenterContainer = styled(Link)`
@@ -300,8 +308,10 @@ const CenterContainer = styled(Link)`
     background: #000;
     left:auto;
     width:100%;
-    margin-left:-36px;
-    margin-right:-36px;
+    display:flex;
+    justify-content:center;
+    padding-top:40px;
+    padding-bottom:40px;
     svg {
       path {
         fill: #fff;
@@ -332,6 +342,10 @@ const RightContainer = styled.div`
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    align-items:center;
+    
+  }
 `;
 const Address = styled.a`
   font-weight: 300;
@@ -343,6 +357,9 @@ const Address = styled.a`
   &:hover,
   &:focus {
     color: #ffc400;
+  }
+  @media (max-width: 768px) {
+    margin-bottom:20px;
   }
 `;
 const Phone = styled(Link)`
@@ -413,6 +430,11 @@ const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 48px;
+  @media (max-width: 768px) {
+    align-items:center;
+    margin-right:0;
+    
+  }
 `;
 
 const StyledSocialLink = styled(Link)`
@@ -424,5 +446,8 @@ const StyledSocialLink = styled(Link)`
   &:hover,
   &:focus {
     color: #ffc400;
+  }
+  @media (max-width: 768px) {
+    margin-bottom:20px;
   }
 `;
