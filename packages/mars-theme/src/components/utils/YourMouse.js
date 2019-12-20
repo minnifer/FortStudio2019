@@ -8,7 +8,7 @@ const math = {
   }
 };
 
-const DEFAULT_EASE = .975;
+const DEFAULT_EASE = 0.975;
 const DIST = 100;
 export default function YourMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
@@ -159,11 +159,19 @@ const Cursor = styled.div`
       border: 1px solid #fff;
       background-color: #fff;
     }
+    &.is-active {
+      z-index: 2;
+      div {
+        background-color: #fff;
+        width: 10rem;
+        height: 10rem;
+        opacity: 1;
+        cursor: none;
+      }
+    }
   }
   &.is-menu {
-    
     div {
-      
     }
   }
 `;

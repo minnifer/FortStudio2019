@@ -85,9 +85,11 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-              <span dangerouslySetInnerHTML={{
-                __html: this.props.layout.strategy_section.hover_body
-              }}></span>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.strategy_section.hover_body
+                }}
+              ></span>
               {/* <Card text={this.props.layout.strategy_section.hover_body}></Card> */}
             </HoverBody>
           </ToutContainer>
@@ -137,10 +139,12 @@ class IntroSection extends Component {
                     transform="translate(629.265 392.363)"
                   />
                 </g>
-              </svg>              
-<span dangerouslySetInnerHTML={{
-                __html: this.props.layout.identity_section.hover_body
-              }}></span>
+              </svg>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.identity_section.hover_body
+                }}
+              ></span>
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -190,9 +194,11 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-<span dangerouslySetInnerHTML={{
-                __html: this.props.layout.design_section.hover_body
-              }}></span>              
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.design_section.hover_body
+                }}
+              ></span>
             </HoverBody>
           </ToutContainer>
         </RightContainer>
@@ -242,8 +248,8 @@ const HoverBody = styled.div`
   top: -60px;
   left: -200px;
   @media (max-width: 768px) {
-    /* top: -70%; */
-    transform:translate(-50%, -50%);
+    top: -25%;
+    transform: translate(-50%, -50%);
     left: 50%;
   }
   span {
@@ -255,38 +261,38 @@ const HoverBody = styled.div`
     left: 0%;
     top: 0%;
     color: #1d1d1d;
-    display: flex;    
+    display: flex;
     text-align: center;
     line-height: 16px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    @media (max-width: 768px) { 
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;     
-      left: -62.5%;
-      top:-75%;
-      background-color:#ffc40a;
-      border-radius:50%;
-      width:300px;
-      height:300px;      
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      left: -25%;
+      top: -25%; 
+      background-color: #ffc40a;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
     }
   }
   svg {
     margin-top: 50px;
     margin-left: 62.5px;
-    @media (max-width: 768px) { 
-      margin-left:0;
+    @media (max-width: 768px) {
+      margin-left: 0;
     }
-    
   }
   &:hover,
-  &:focus, &:active {
+  &:focus,
+  &:active {
     svg {
       opacity: 0;
-      display:none;
+      display: none;
     }
     span {
       opacity: 1;

@@ -5,6 +5,7 @@ import Nav from "./nav";
 import Logo from "./logo";
 import MobileMenu from "./menu";
 import GoBack from "./utils/goBack";
+
 const FormHeader = ({ state, menuTheme }) => {
   function goBack() {
     window.history.back()

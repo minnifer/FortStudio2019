@@ -189,8 +189,7 @@ const Tout = styled.div`
     bottom: -110px;
     left: 0%;
     transform: translateX(-15%);
-    border-radius: 50%;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    border-radius: 50%;    
     @media (max-width: 768px) {
       a {
         height: auto;

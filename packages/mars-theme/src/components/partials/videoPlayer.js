@@ -13,19 +13,23 @@ class VideoPlayer extends Component {
   componentWillUnmount = () => {
     this.stopVideo();
   };
-
   playVideo = () => {
     // You can use the play method as normal on your video ref
     this.refs.vidRef.play();
-    this.setState({ active: true });    
-    document.querySelector('#checkIfOpen').classList.add('is-open'); 
+    this.setState({ active: true });
+
+    if (document.querySelector("#checkIfOpen")) {
+      document.querySelector("#checkIfOpen").classList.add("is-open");
+    }
   };
 
   stopVideo = () => {
     this.refs.vidRef.pause();
     this.refs.vidRef.currentTime = 0;
-    this.setState({ active: false });  
-    document.querySelector('#checkIfOpen').classList.remove('is-open');   
+    this.setState({ active: false });
+    if (document.querySelector("#checkIfOpen")) {
+      document.querySelector("#checkIfOpen").classList.remove("is-open");
+    }
   };
   pauseVideo = () => {
     if (this.refs.vidRef.paused) {
@@ -59,6 +63,7 @@ class VideoPlayer extends Component {
           src={this.props.src}
           type="video/mp4"
           onClick={this.pauseVideo}
+          onEnded={() => this.stopVideo()}
           className={this.state.active ? "active" : ""}
           className={`${this.state.active ? "active" : ""} videoOpen`}
         />
@@ -159,7 +164,7 @@ const Video = styled.video`
     pointer;
   &.active {
     display: flex;
-    z-index:10;
+    z-index: 10;
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42'%3E %3Cg id='Group_687' data-name='Group 687' transform='translate(-889 -514)'%3E %3Ccircle id='Ellipse_11' data-name='Ellipse 11' cx='21' cy='21' r='21' transform='translate(889 514)' fill='%23ffc40a'/%3E %3Cg id='icon_-_pause' data-name='icon - pause' transform='translate(-29.5 -0.5)'%3E %3Cline id='Line_112' data-name='Line 112' y2='8' transform='translate(937.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3Cline id='Line_113' data-name='Line 113' y2='8' transform='translate(941.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E "),
       pointer !important;
   }
@@ -226,7 +231,7 @@ const PlayButton = styled.button`
     border-radius: 50%;
     #Ellipse_8 {
       fill: #fff;
-    }   
+    }
   }
   @keyframes dots-spin {
     from {
@@ -238,7 +243,8 @@ const PlayButton = styled.button`
     }
   }
   &:hover,
-  &:focus, &:active {
+  &:focus,
+  &:active {
     svg {
       opacity: 0;
     }
@@ -248,15 +254,15 @@ const PlayButton = styled.button`
     @media (max-width: 768px) {
       span {
         /* color: #ffc400 !important; */
-        background-color:#ffc400;
-        width:130px;
-        height:130px;
-        max-width:none;
-        justify-content:center;
-        align-items:center;
-        display:flex;
-        flex-direction:column;
-        left:-37.5%;
+        background-color: #ffc400;
+        width: 130px;
+        height: 130px;
+        max-width: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        left: -37.5%;
       }
     }
   }
@@ -269,17 +275,17 @@ const PlayButton = styled.button`
     }
   }
   &.nav {
-    svg{
-      animation:none;
+    svg {
+      animation: none;
     }
     @media (max-width: 768px) {
-      top: -25px;
+      /* top: -25px; */
     }
   }
   @media (max-width: 768px) {
     height: auto;
     width: auto;
-    span{
+    span {
       height: auto;
       width: auto;
     }
@@ -289,9 +295,9 @@ const CloseButton = styled.button`
   position: absolute;
   top: 100px;
   right: 100px;
-  width:200px;
-  height:200px;
-  border-radius:50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   width: fit-content;
   font-weight: 500;
   line-height: 51px;
@@ -306,19 +312,18 @@ const CloseButton = styled.button`
   justify-content: center;
   -webkit-appearance: none;
   transition: color 250ms ease-in-out;
-  z-index:40;
+  z-index: 40;
   color: #ffc40a;
-  max-width:none;
-  &:hover {      
-    
+  max-width: none;
+  &:hover {
   }
   @media (max-width: 768px) {
     top: 33px;
-    right:8px;
-    display:flex;
-    width:100px;
-    z-index:999;
-    height:auto;
-    position:fixed;
+    right: 8px;
+    display: flex;
+    width: 100px;
+    z-index: 999;
+    height: auto;
+    position: fixed;
   }
 `;

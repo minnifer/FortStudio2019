@@ -37,15 +37,23 @@ class WhoWeAreIntro extends Component {
           <h2>
             <strong>
               <span>Endlessly </span>
-              <ReactRotatingText deletingInterval="35" typingInterval="50" pause="2500"
+              <ReactRotatingText emptyPause="0" deletingInterval="15" typingInterval="50" pause="2000"
                 items={[
-                  "charming.",
-                  "working.",
-                  "efficient.",
+                  "creative.",
+                  "fine-tuning.",
+                  "passionate.",
                   "strategizing.",
-                  "thinking.",
+                  "poppin'.",
+                  "charming.",
                   "curious.",
-                  "creative."
+                  "caffeinating.",
+                  "efficient.",
+                  "simplifying.",
+                  "innovative.",
+                  "cranking.",
+                  "quirky.",
+                  "learning.",
+                  "endless."
                 ]}
               />
             </strong>
@@ -88,7 +96,7 @@ class WhoWeAreIntro extends Component {
                 />
               </g>
             </svg>
-            <TextLoop>
+            <TextLoop fade="false" interval="2000">
               <span
                 id="content-1"
                 dangerouslySetInnerHTML={{
@@ -161,6 +169,14 @@ const HeadlineContainer = styled.div`
   @media (max-width: 768px) {
     margin-left:12px;
     margin-right:12px;
+    h2{
+      &:last-of-type{
+        strong{
+          display:flex;
+          flex-direction:column;
+        }
+      }
+    }
   }
   &.spy {
     transform: translateY(5vw);
@@ -286,6 +302,7 @@ const HoverBody = styled.div`
   &:hover,
   &:focus,
   &:active {
+    left: 40px;
     svg {
       opacity: 0;
     }
