@@ -54,6 +54,7 @@ const MenuToggle = styled.button`
   outline: none;
   width: 130px;
   height: 130px;
+  border-radius: 100%;
   cursor: none;
   span {
     font-weight: 500;

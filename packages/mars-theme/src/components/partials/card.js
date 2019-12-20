@@ -32,6 +32,7 @@ const StyledLink = styled(Link)`
   position: absolute;
   width: 130px;
   height: 130px;
+  border-radius: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,6 +66,7 @@ const StyledText = styled.h5`
   position: absolute;
   width: 130px;
   height: 130px;
+  border-radius: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,6 +76,7 @@ const StyledText = styled.h5`
 const Container = styled.div`
   width: 130px;
   height: 130px;
+  border-radius: 100%;
   transform: translateX(-15%);
 `;
 // consts

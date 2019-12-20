@@ -150,7 +150,7 @@ const Video = styled.video`
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.6;
+  opacity: 0.5;
 `;
 const StyledVideoContainer = styled.div`
   object-fit: cover;

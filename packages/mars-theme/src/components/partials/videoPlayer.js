@@ -189,12 +189,15 @@ const PlayButton = styled.button`
   height: 130px;
   outline: none;
   position: relative;
+  border-radius: 100%;
 
   span {
     position: absolute;
     opacity: 0;
     width: 130px;
     height: 130px;
+  border-radius: 100%;
+
     left: 0;
     top: 25%;
     color: #1d1d1d;

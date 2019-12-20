@@ -175,6 +175,8 @@ const HoverBody = styled.div`
   width: 130px;
   height: 130px;
   outline: none;  
+  border-radius: 100%;
+
   top:-150px;
   left:75px;
   @media (max-width: 768px) {
@@ -186,6 +188,8 @@ const HoverBody = styled.div`
     width: 130px;
     line-height:16px;
     height: 130px;
+  border-radius: 100%;
+
     left: 20%;
     top: 40%;
     color: #1d1d1d;

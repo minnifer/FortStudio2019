@@ -9,7 +9,7 @@ const math = {
 };
 
 const DEFAULT_EASE = 1;
-const DIST = 130;
+const DIST = 100;
 export default function YourMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
   // These two are state since their changes need to rerender the div
@@ -71,8 +71,8 @@ export default function YourMouse() {
         if (h < DIST && !stuck) {
           isNearOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 5;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 5;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 20;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 20;
         }
       });
 

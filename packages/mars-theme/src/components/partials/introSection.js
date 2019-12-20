@@ -231,6 +231,8 @@ const HoverBody = styled.div`
   transition: color 250ms ease-in-out;
   width: 130px;
   height: 130px;
+  border-radius: 100%;
+
   outline: none;
   top: -60px;
   left: -150px;
@@ -244,6 +246,8 @@ const HoverBody = styled.div`
     opacity: 0;
     width: 130px;
     height: 130px;
+  border-radius: 100%;
+
     left: 0%;
     top: 35%;
     color: #1d1d1d;

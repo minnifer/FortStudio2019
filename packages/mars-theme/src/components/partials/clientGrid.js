@@ -127,12 +127,14 @@ const GridWrapper = styled.div`
     top: 0;
   }
   &:hover,
-  &:focus {
+  &:focus, &:active {
     .body {
       opacity: 1;
+      visibility:visible;
     }
     img {
       opacity: 0;
+      visibility:hidden;
     }
     .category {
       opacity: 0;
@@ -173,6 +175,7 @@ const BodyContainer = styled.div`
   opacity: 0;
   transition: opacity 250ms ease-in-out;
   text-align: center;
+  visibility:hidden;
 `;
 const Logo = styled(Image)`
   position: absolute;
@@ -180,5 +183,6 @@ const Logo = styled(Image)`
   transform: translateY(-50%);
   transition: opacity 250ms ease-in-out;
   opacity: 1;
+  visibility:visible;
 `;
 // const
