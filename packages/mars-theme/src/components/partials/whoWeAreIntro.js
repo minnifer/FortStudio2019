@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect, styled } from "frontity";
 import Card from "./card";
+import $ from "jquery";
+import TextLoop from "react-text-loop";
+import ReactRotatingText from "react-rotating-text";
 class WhoWeAreIntro extends Component {
   constructor(props) {
     super(props);
@@ -26,58 +29,108 @@ class WhoWeAreIntro extends Component {
   }
   render() {
     return (
-    <Container>
-      <HeadlineContainer className="spy">
-        <h2 dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}></h2>
-      </HeadlineContainer>
-      <BodyContainer >
-        <HoverBody className="link" data-stick-cursor>
-          <svg
-            id="Collapse_Expand_1"
-            data-name="Collapse/Expand 1"
-            xmlns="http://www.w3.org/2000/svg"
-            width="58.739"
-            height="58.739"
-            viewBox="0 0 58.739 58.739"
-          >
-            <g
-              id="Collapse_Expand_1-2"
+      <Container>
+        <HeadlineContainer className="spy">
+          <h2
+            dangerouslySetInnerHTML={{ __html: this.props.layout.headline }}
+          ></h2>
+          <h2>
+            <strong>
+              <span>Endlessly </span>
+              <ReactRotatingText deletingInterval="35" typingInterval="50" pause="2500"
+                items={[
+                  "charming.",
+                  "working.",
+                  "efficient.",
+                  "strategizing.",
+                  "thinking.",
+                  "curious.",
+                  "creative."
+                ]}
+              />
+            </strong>
+          </h2>
+        </HeadlineContainer>
+
+        <BodyContainer>
+          <HoverBody className="link" data-stick-cursor>
+            <svg
+              id="Collapse_Expand_1"
               data-name="Collapse/Expand 1"
-              transform="translate(55.36 -716.142) rotate(60)"
+              xmlns="http://www.w3.org/2000/svg"
+              width="58.739"
+              height="58.739"
+              viewBox="0 0 58.739 58.739"
             >
               <g
-                id="Ellipse_1"
-                data-name="Ellipse 1"
-                transform="translate(611.136 373.764)"
-                fill="none"
-                stroke="#ffc40a"
-                strokeWidth="11"
+                id="Collapse_Expand_1-2"
+                data-name="Collapse/Expand 1"
+                transform="translate(55.36 -716.142) rotate(60)"
               >
-                <circle cx="21.5" cy="21.5" r="21.5" stroke="none" />
-                <circle cx="21.5" cy="21.5" r="16" fill="none" />
+                <g
+                  id="Ellipse_1"
+                  data-name="Ellipse 1"
+                  transform="translate(611.136 373.764)"
+                  fill="none"
+                  stroke="#ffc40a"
+                  strokeWidth="11"
+                >
+                  <circle cx="21.5" cy="21.5" r="21.5" stroke="none" />
+                  <circle cx="21.5" cy="21.5" r="16" fill="none" />
+                </g>
+                <circle
+                  id="Ellipse_8"
+                  data-name="Ellipse 8"
+                  cx="3"
+                  cy="3"
+                  r="3"
+                  transform="translate(629.265 392.363)"
+                />
               </g>
-              <circle
-                id="Ellipse_8"
-                data-name="Ellipse 8"
-                cx="3"
-                cy="3"
-                r="3"
-                transform="translate(629.265 392.363)"
-              />
-            </g>
-          </svg>
-          <span dangerouslySetInnerHTML={{ __html: this.props.layout.hover_body }}></span>
-        </HoverBody>
-        <Eyebrow
-          dangerouslySetInnerHTML={{ __html: this.props.layout.subhead }}
-        ></Eyebrow>
-        <div
-          className="p1"
-          dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
-        ></div>
-      </BodyContainer>
-    </Container>
-  );
+            </svg>
+            <TextLoop>
+              <span
+                id="content-1"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.credos.credo_1
+                }}
+              ></span>
+              <span
+                id="content-2"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.credos.credo_2
+                }}
+              ></span>
+              <span
+                id="content-3"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.credos.credo_3
+                }}
+              ></span>
+              <span
+                id="content-4"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.credos.credo_4
+                }}
+              ></span>
+              <span
+                id="content-5"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.layout.credos.credo_5
+                }}
+              ></span>
+            </TextLoop>
+          </HoverBody>
+          <Eyebrow
+            dangerouslySetInnerHTML={{ __html: this.props.layout.subhead }}
+          ></Eyebrow>
+          <div
+            className="p1"
+            dangerouslySetInnerHTML={{ __html: this.props.layout.body }}
+          ></div>
+        </BodyContainer>
+      </Container>
+    );
   }
 }
 
@@ -96,13 +149,20 @@ const Container = styled.div`
   @media (max-width: 768px) {
     margin-top: 162px;
   }
+  .react-rotating-text-cursor {
+   display:none;
+  }  
 `;
 
 const HeadlineContainer = styled.div`
   max-width: 1440px;
   margin: auto;
   text-align: center;
-    &.spy {
+  @media (max-width: 768px) {
+    margin-left:12px;
+    margin-right:12px;
+  }
+  &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
       opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
@@ -130,7 +190,7 @@ const BodyContainer = styled.div`
     text-align: center;
     margin-top: 84px;
   }
-    &.spy {
+  &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),
       opacity 1s cubic-bezier(0.5, 0, 0.2, 1);
@@ -174,34 +234,55 @@ const HoverBody = styled.div`
   transition: color 250ms ease-in-out;
   width: 130px;
   height: 130px;
-  outline: none;  
   border-radius: 100%;
 
-  top:-150px;
-  left:75px;
+  outline: none;
+  top: -130px;
+  left: 80px;
   @media (max-width: 768px) {
-    top: -120%;
+    top: -70%;
+    transform: translate(-50%, -50%);
+    left: 50%;
   }
   span {
     position: absolute;
-    opacity: 0;
-    width: 130px;
-    line-height:16px;
-    height: 130px;
-  border-radius: 100%;
-
-    left: 20%;
-    top: 40%;
+    opacity: 0;   
+    border-radius: 100%;
+    left:0%;
+    top: 0%;    
     color: #1d1d1d;
-    display:flex;
-    /* transition: opacity 500ms ease-in; */
-    text-align:center;
+    display: flex;
+    text-align: center;   
+    line-height: 16px;  
+    /* width:130px; */
+    width:130px;
+    transform: translate(-50%, 25%);    
+    height:130px;  
+    vertical-align:center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-60%, 0%);    
+      left:-25%;
+      top: -75%;
+      background-color: #ffc40a;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;    
+    }
   }
   svg {
-    margin-top:50px;
-    margin-left:25px;
+    margin-top: 50px;
+    margin-left: 25px;
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
   }
-  &:hover, &:focus {
+  &:hover,
+  &:focus,
+  &:active {
     svg {
       opacity: 0;
     }

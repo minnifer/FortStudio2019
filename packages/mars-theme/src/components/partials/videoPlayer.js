@@ -131,10 +131,13 @@ const Container = styled.div`
     position: fixed;
     z-index: 900;
     top: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0%);
     &.true {
       top: 0;
     }
+    @media (max-width: 768px) {
+    transform: translate(-50%,30%);
+  }
   }
   .link {
    
