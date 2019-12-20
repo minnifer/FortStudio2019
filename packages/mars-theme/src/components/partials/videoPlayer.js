@@ -17,13 +17,15 @@ class VideoPlayer extends Component {
   playVideo = () => {
     // You can use the play method as normal on your video ref
     this.refs.vidRef.play();
-    this.setState({ active: true });
+    this.setState({ active: true });    
+    document.querySelector('#checkIfOpen').classList.add('is-open'); 
   };
 
   stopVideo = () => {
     this.refs.vidRef.pause();
     this.refs.vidRef.currentTime = 0;
-    this.setState({ active: false });
+    this.setState({ active: false });  
+    document.querySelector('#checkIfOpen').classList.remove('is-open');   
   };
   pauseVideo = () => {
     if (this.refs.vidRef.paused) {
@@ -58,6 +60,7 @@ class VideoPlayer extends Component {
           type="video/mp4"
           onClick={this.pauseVideo}
           className={this.state.active ? "active" : ""}
+          className={`${this.state.active ? "active" : ""} videoOpen`}
         />
         <div className="link" data-stick-cursor>
           <PlayButton
@@ -136,11 +139,11 @@ const Container = styled.div`
       top: 0;
     }
     @media (max-width: 768px) {
-    transform: translate(-50%,30%);
+      transform: translate(-50%, 0%);
+    }
   }
-  }
-  .link {
-   
+  @media (max-width: 768px) {
+    top: 75%;
   }
 `;
 const Video = styled.video`
@@ -156,6 +159,7 @@ const Video = styled.video`
     pointer;
   &.active {
     display: flex;
+    z-index:10;
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42'%3E %3Cg id='Group_687' data-name='Group 687' transform='translate(-889 -514)'%3E %3Ccircle id='Ellipse_11' data-name='Ellipse 11' cx='21' cy='21' r='21' transform='translate(889 514)' fill='%23ffc40a'/%3E %3Cg id='icon_-_pause' data-name='icon - pause' transform='translate(-29.5 -0.5)'%3E %3Cline id='Line_112' data-name='Line 112' y2='8' transform='translate(937.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3Cline id='Line_113' data-name='Line 113' y2='8' transform='translate(941.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E "),
       pointer !important;
   }
@@ -191,8 +195,8 @@ const PlayButton = styled.button`
   cursor: none;
   /* z-index: 6; */
   /* transition: color 250ms ease-in-out; */
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   outline: none;
   position: relative;
   border-radius: 100%;
@@ -200,28 +204,60 @@ const PlayButton = styled.button`
   span {
     position: absolute;
     opacity: 0;
-    width: 130px;
-    height: 130px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.84px;
     left: 0;
-    top: 25%;
+    top: 37.5%;
     color: #1d1d1d;
     /* transition: opacity 500ms ease-in-out; */
   }
   svg {
+    animation-name: dots-spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    border-radius: 50%;
     #Ellipse_8 {
       fill: #fff;
+    }   
+  }
+  @keyframes dots-spin {
+    from {
+      box-shadow: 0 0 0 10px rgba(255, 196, 0, 0.301);
+    }
+
+    to {
+      box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
     }
   }
-  &:hover {
+  &:hover,
+  &:focus, &:active {
     svg {
       opacity: 0;
     }
     span {
       opacity: 1;
+    }
+    @media (max-width: 768px) {
+      span {
+        /* color: #ffc400 !important; */
+        background-color:#ffc400;
+        width:130px;
+        height:130px;
+        max-width:none;
+        justify-content:center;
+        align-items:center;
+        display:flex;
+        flex-direction:column;
+        left:-37.5%;
+      }
     }
   }
   &.true {
@@ -233,23 +269,29 @@ const PlayButton = styled.button`
     }
   }
   &.nav {
+    svg{
+      animation:none;
+    }
     @media (max-width: 768px) {
       top: -25px;
     }
   }
   @media (max-width: 768px) {
-    top: 125px;
-    &:hover. &:focus {
-      span {
-        color: #ffc400;
-      }
+    height: auto;
+    width: auto;
+    span{
+      height: auto;
+      width: auto;
     }
   }
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 120px;
-  right: 120px;
+  top: 100px;
+  right: 100px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
   width: fit-content;
   font-weight: 500;
   line-height: 51px;
@@ -264,12 +306,19 @@ const CloseButton = styled.button`
   justify-content: center;
   -webkit-appearance: none;
   transition: color 250ms ease-in-out;
+  z-index:40;
   color: #ffc40a;
-  &:hover {
-    color: #ffc40a;
+  max-width:none;
+  &:hover {      
+    
   }
   @media (max-width: 768px) {
-    top: 40px;
-    right: 40px;
+    top: 33px;
+    right:8px;
+    display:flex;
+    width:100px;
+    z-index:999;
+    height:auto;
+    position:fixed;
   }
 `;

@@ -52,8 +52,8 @@ const MenuToggle = styled.button`
   align-items: center;
   justify-content: center;
   outline: none;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   cursor: none;
   span {
@@ -75,6 +75,9 @@ const MenuToggle = styled.button`
   @media (max-width: 768px) {
     right: 36px;
     top: auto;
+    width:auto;
+    height:auto;
+    position:absolute;
     &:hover {
       span {
         color: #ffc400;

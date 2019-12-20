@@ -8,7 +8,7 @@ const math = {
   }
 };
 
-const DEFAULT_EASE = 1;
+const DEFAULT_EASE = .975;
 const DIST = 100;
 export default function YourMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
@@ -71,14 +71,14 @@ export default function YourMouse() {
         if (h < DIST && !stuck) {
           isNearOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 20;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 20;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 50;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 50;
         }
       });
 
     if (isNearOne) {
       setStuck(true); // enlarge
-      setEase(0.0); // slow a bit
+      setEase(0.00125); // slow a bit
     } else {
       setStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed

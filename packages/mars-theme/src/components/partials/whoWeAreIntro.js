@@ -232,15 +232,15 @@ const HoverBody = styled.div`
   cursor: none;
   z-index: 6;
   transition: color 250ms ease-in-out;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
 
   outline: none;
   top: -130px;
   left: 80px;
   @media (max-width: 768px) {
-    top: -70%;
+    top: -30%;
     transform: translate(-50%, -50%);
     left: 50%;
   }
@@ -252,12 +252,15 @@ const HoverBody = styled.div`
     top: 0%;    
     color: #1d1d1d;
     display: flex;
-    text-align: center;   
+    text-align: center;  
+    flex-direction:column;
+    justify-content:center;
+    align-items:center; 
     line-height: 16px;  
     /* width:130px; */
-    width:130px;
-    transform: translate(-50%, 25%);    
-    height:130px;  
+    width:200px;
+    transform: translate(-42.5%, 0%);    
+    height:200px;  
     vertical-align:center;
 
     @media (max-width: 768px) {

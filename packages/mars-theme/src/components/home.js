@@ -34,25 +34,32 @@ const Home = ({ state, actions, libraries }) => {
       {/* Add the header of the site. */}
 
       {/* <BrowserView> */}
-        <YourMouse />
+      <YourMouse />
       {/* </BrowserView> */}
       <HeadContainer>
         <Header />
       </HeadContainer>
       <Content>
-        <VideoContainer>
+        <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
-          <BrowserView>
-        <Video playsinline autoPlay muted loop webkit-playsinline src={post.acf.background_video["url"]} />
-      </BrowserView>
+            <BrowserView>
+              <Video
+                playsinline
+                autoPlay
+                muted
+                loop
+                webkit-playsinline
+                src={post.acf.background_video["url"]}
+              />
+            </BrowserView>
             <MobileView>
-            <Video
-              playsinline
-              autoPlay
-              muted
-              loop
-              src={post.acf.mobile_background_video["url"]}
-            />
+              <Video
+                playsinline
+                autoPlay
+                muted
+                loop
+                src={post.acf.mobile_background_video["url"]}
+              />
             </MobileView>
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
@@ -116,9 +123,14 @@ const VideoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  &.is-open{
+      z-index:5;
+    }
   @media (max-width: 768px) {
-      height:100%;
-      position:fixed;
+    height: 100%;
+    position: fixed;
+    /* z-index: 5; */
+    
   }
 `;
 const StyledVideoPlayer = styled(VideoPlayer)`
@@ -151,7 +163,8 @@ const BodyContainer = styled.h1`
 `;
 
 const StyledCard = styled(Card)`
-z-index:10`;
+  z-index: 10;
+`;
 
 const Video = styled.video`
   object-fit: cover;
@@ -176,7 +189,6 @@ const StyledVideoContainer = styled.div`
 // This component is the parent of the `content.rendered` HTML. We can use nested
 // selectors to style that HTML.
 const Content = styled.div`
-  
   word-break: break-word;
 
   * {

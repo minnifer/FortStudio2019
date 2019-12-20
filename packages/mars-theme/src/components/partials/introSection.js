@@ -85,7 +85,9 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-              <span>{this.props.layout.strategy_section.hover_body}</span>
+              <span dangerouslySetInnerHTML={{
+                __html: this.props.layout.strategy_section.hover_body
+              }}></span>
               {/* <Card text={this.props.layout.strategy_section.hover_body}></Card> */}
             </HoverBody>
           </ToutContainer>
@@ -135,8 +137,10 @@ class IntroSection extends Component {
                     transform="translate(629.265 392.363)"
                   />
                 </g>
-              </svg>
-              <span>{this.props.layout.identity_section.hover_body}</span>
+              </svg>              
+<span dangerouslySetInnerHTML={{
+                __html: this.props.layout.identity_section.hover_body
+              }}></span>
             </HoverBody>
           </ToutContainer>
           <ToutContainer className="spy">
@@ -186,8 +190,9 @@ class IntroSection extends Component {
                   />
                 </g>
               </svg>
-
-              <span>{this.props.layout.design_section.hover_body}</span>
+<span dangerouslySetInnerHTML={{
+                __html: this.props.layout.design_section.hover_body
+              }}></span>              
             </HoverBody>
           </ToutContainer>
         </RightContainer>
@@ -229,13 +234,13 @@ const HoverBody = styled.div`
   cursor: none;
   z-index: 6;
   transition: color 250ms ease-in-out;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
 
   outline: none;
   top: -60px;
-  left: -150px;
+  left: -200px;
   @media (max-width: 768px) {
     /* top: -70%; */
     transform:translate(-50%, -50%);
@@ -244,15 +249,19 @@ const HoverBody = styled.div`
   span {
     position: absolute;
     opacity: 0;
-    width: 130px;
-    height: 130px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
     left: 0%;
-    top: 35%;
+    top: 0%;
     color: #1d1d1d;
     display: flex;    
     text-align: center;
     line-height: 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     @media (max-width: 768px) { 
       flex-direction:column;
       justify-content:center;
@@ -267,7 +276,7 @@ const HoverBody = styled.div`
   }
   svg {
     margin-top: 50px;
-    margin-left: 25px;
+    margin-left: 62.5px;
     @media (max-width: 768px) { 
       margin-left:0;
     }
@@ -277,6 +286,7 @@ const HoverBody = styled.div`
   &:focus, &:active {
     svg {
       opacity: 0;
+      display:none;
     }
     span {
       opacity: 1;

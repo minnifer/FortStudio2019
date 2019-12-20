@@ -45,11 +45,11 @@ class Form extends Component {
         }
       });
   }
-  mouseEnter() {    
-    document.querySelector('#cursor').classList.add('is-swapped'); 
+  mouseEnter() {
+    document.querySelector("#cursor").classList.add("is-swapped");
   }
-  mouseLeave(){
-     document.querySelector('#cursor').classList.remove('is-swapped'); 
+  mouseLeave() {
+    document.querySelector("#cursor").classList.remove("is-swapped");
   }
   render() {
     const data = this.props.state.source.get(this.props.state.router.link);
@@ -121,7 +121,7 @@ const PageContainer = styled.div`
   #bottom,
   #left,
   #right {
-    z-index:900;
+    z-index: 900;
     background: #000;
     position: fixed;
   }
@@ -260,6 +260,11 @@ const Content = styled.div`
   p {
     line-height: 1.6em;
   }
+  a{
+    &:hover{
+      color:#1d1d1d;
+    }
+  }
 
   img {
     width: 100%;
@@ -346,16 +351,16 @@ const Content = styled.div`
       margin-bottom:60px;
       /* flex-wrap:wrap; */
       @media (max-width: 768px) {
-    flex-wrap:wrap;
-    margin-bottom:40px;
-  }
+        flex-wrap:wrap;
+        margin-bottom:40px;
+      }
       > span {
         margin-right: 14px;
         text-align: center;
         @media (max-width: 768px) {
-          width:calc(90%/2);
+          width:calc(100%);
           min-height:94px;
-          margin-bottom:14px;
+          /* margin-bottom:14px; */
         }
         .wpcf7-acceptance {
           height: 100%;
@@ -365,11 +370,17 @@ const Content = styled.div`
           flex-direction: column;
           align-items: center;
           height: 100%;
+          @media (max-width: 768px) {
+         width:100%;
+        }
           label {
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 100%;
+            @media (max-width: 768px) {
+         width:100%;
+        }
           }
         }
       }

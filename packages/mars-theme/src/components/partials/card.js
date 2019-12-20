@@ -30,8 +30,8 @@ const StyledLink = styled(Link)`
   color: #fff;
   z-index: 6;
   position: absolute;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
   }
   @media (max-width: 768px) {
     &:hover,
-    &:focus {
+    &:focus, &:active {
       color: #ffc400;
     }
   }
@@ -64,8 +64,8 @@ const StyledText = styled.h5`
   color: #1d1d1d;
   z-index: 30;
   position: absolute;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   display: flex;
   flex-direction: column;
@@ -74,9 +74,9 @@ const StyledText = styled.h5`
   text-align: center;
 `;
 const Container = styled.div`
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
-  transform: translateX(-15%);
+  transform: translate(-25%, -25%);
 `;
 // consts

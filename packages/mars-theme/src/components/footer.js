@@ -186,9 +186,11 @@ const Tout = styled.div`
   .link {
     z-index: 6;
     position: absolute;
-    bottom: -75px;
+    bottom: -110px;
     left: 0%;
-    transform: translateX(5%);
+    transform: translateX(-15%);
+    border-radius: 50%;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     @media (max-width: 768px) {
       a {
         height: auto;
@@ -206,7 +208,7 @@ const Tout = styled.div`
   p {
     color: #ffffff;
     margin-bottom: 15px;
-    max-width: 82%;
+    max-width: 95%;
   }
   h4 {
     text-transform: uppercase;
@@ -241,14 +243,14 @@ const Tout = styled.div`
   &:last-of-type {
     margin-right: 114px;
     .link{
-      transform: translateX(-5%);
+      transform: translateX(-21%);
     }
   }
-  &:hover {
+  /* &:hover {
     a {
       color: #1d1d1d;
     }
-  }
+  } */
   @media (max-width: 768px) {
     width: 80%;
     margin-bottom: 60px;
