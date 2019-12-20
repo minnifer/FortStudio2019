@@ -179,11 +179,10 @@ const BodyContainer = styled.div`
   opacity: 0;
   transition: opacity 250ms ease-in-out;
   text-align: center;
-  visibility:hidden;
-  padding: 0 20px;
+  visibility:hidden;  
 `;
 const Logo = styled(Image)`
-  position: absolute;
+  position: absolute; pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 250ms ease-in-out;
