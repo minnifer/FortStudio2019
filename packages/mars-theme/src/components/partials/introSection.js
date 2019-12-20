@@ -238,39 +238,43 @@ const HoverBody = styled.div`
   left: -150px;
   @media (max-width: 768px) {
     /* top: -70%; */
-    transform:translateY(-50%);
-    left: 22.5%;
+    transform:translate(-50%, -50%);
+    left: 50%;
   }
   span {
     position: absolute;
     opacity: 0;
     width: 130px;
     height: 130px;
-  border-radius: 100%;
-
+    border-radius: 100%;
     left: 0%;
     top: 35%;
     color: #1d1d1d;
-    display: flex;
-    /* transition: opacity 500ms ease-in; */
+    display: flex;    
     text-align: center;
     line-height: 16px;
     @media (max-width: 768px) { 
       flex-direction:column;
       justify-content:center;
       align-items:center;     
-      left: 10%;
-      top:0%;
+      left: -62.5%;
+      top:-75%;
       background-color:#ffc40a;
       border-radius:50%;
+      width:300px;
+      height:300px;      
     }
   }
   svg {
     margin-top: 50px;
     margin-left: 25px;
+    @media (max-width: 768px) { 
+      margin-left:0;
+    }
+    
   }
   &:hover,
-  &:focus {
+  &:focus, &:active {
     svg {
       opacity: 0;
     }

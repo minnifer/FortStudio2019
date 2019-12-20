@@ -178,7 +178,8 @@ const BodyContainer = styled.div`
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 250ms ease-in-out;
-  text-align: center;  
+  text-align: center;
+  visibility:hidden;
   padding: 0 20px;
 `;
 const Logo = styled(Image)`

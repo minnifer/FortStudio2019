@@ -131,10 +131,13 @@ const Container = styled.div`
     position: fixed;
     z-index: 900;
     top: 50%;
-    transform:translate(-50%, 0);
+    transform: translate(-50%, 0);
     &.true {
       top: 0;
     }
+  }
+  .link {
+   
   }
 `;
 const Video = styled.video`
@@ -196,16 +199,18 @@ const PlayButton = styled.button`
     opacity: 0;
     width: 130px;
     height: 130px;
-  border-radius: 100%;
-
+    border-radius: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.84px;
     left: 0;
     top: 25%;
     color: #1d1d1d;
     /* transition: opacity 500ms ease-in-out; */
   }
   svg {
-    #Ellipse_8{
-      fill:#fff;
+    #Ellipse_8 {
+      fill: #fff;
     }
   }
   &:hover {
