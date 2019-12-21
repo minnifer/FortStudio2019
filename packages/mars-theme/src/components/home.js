@@ -103,6 +103,13 @@ const Wrapper = styled.div`
     align-items: center;
     .link {
       transform: translateY(-50%);
+      width:100px;
+      height:auto;
+      a{
+        position:relative;
+        width:auto;
+        height:auto;
+      }
     }
   }
 `;
@@ -144,7 +151,7 @@ const TextContainer = styled.div`
   width:100%;
   padding-top:185px;
   @media (max-width: 768px) {
-    padding-top:130px;    
+    padding-top:0;    
   }
   }
 `;

@@ -210,13 +210,12 @@ class IntroSection extends Component {
 export default connect(IntroSection);
 
 const Container = styled.div`
-  width: 1440px;
+  max-width: 1440px;
   margin: auto;
   box-sizing: border-box;
   padding: 0 119px;
   display: flex;
   flex-direction: row;
-  max-width: none;
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 0;

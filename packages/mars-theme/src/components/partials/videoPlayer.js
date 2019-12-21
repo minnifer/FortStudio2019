@@ -262,7 +262,8 @@ const PlayButton = styled.button`
         align-items: center;
         display: flex;
         flex-direction: column;
-        left: -37.5%;
+        left: -50%;
+        top:-50%;
       }
     }
   }
@@ -285,9 +286,13 @@ const PlayButton = styled.button`
   @media (max-width: 768px) {
     height: auto;
     width: auto;
+    height: 58.73px;
+    padding:0;
     span {
       height: auto;
       width: auto;
+      display:none;
+
     }
   }
 `;
