@@ -68,7 +68,7 @@ const MenuOverlay = styled.div`
     top: 0;
   }
   @media (max-width: 768px) {
-    padding-top: 50px;
+    /* padding-top: 50px; */
     &:before,
     &:after {
       width: 100%;

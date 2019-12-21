@@ -285,8 +285,8 @@ const HoverBody = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transform: translate(-60%, 0%);    
-      left:-25%;
+      transform: translate(-18%, 0%);    
+      left:-50%;
       top: -75%;
       background-color: #ffc40a;
       border-radius: 50%;
