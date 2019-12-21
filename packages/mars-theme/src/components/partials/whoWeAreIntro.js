@@ -36,7 +36,8 @@ class WhoWeAreIntro extends Component {
           ></h2>
           <h2>
             <strong>
-              <span>Endlessly </span>
+              <span>Endlessly</span>
+              <span>&nbsp;
               <ReactRotatingText emptyPause="0" deletingInterval="15" typingInterval="50" pause="2000"
                 items={[
                   "creative.",
@@ -56,6 +57,7 @@ class WhoWeAreIntro extends Component {
                   "endless."
                 ]}
               />
+              </span>
             </strong>
           </h2>
         </HeadlineContainer>
