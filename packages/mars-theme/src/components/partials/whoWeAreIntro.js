@@ -44,7 +44,7 @@ class WhoWeAreIntro extends Component {
                   "fine-tuning.",
                   "passionate.",
                   "strategizing.",
-                  "'poppin'.",
+                  "poppin’.",
                   "charming.",
                   "curious.",
                   "caffeinating.",
