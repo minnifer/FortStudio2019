@@ -71,14 +71,14 @@ export default function YourMouse() {
         if (h < DIST && !stuck) {
           isNearOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 50;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 50;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
         }
       });
 
     if (isNearOne) {
       setStuck(true); // enlarge
-      setEase(0.00125); // slow a bit
+      setEase(0.0); // slow a bit
     } else {
       setStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
@@ -148,8 +148,8 @@ const Cursor = styled.div`
     z-index: 2;
     div {
       background-color: #ffc400;
-      width: 230px;
-      height: 230px;
+      width: 10rem;
+      height: 10rem;
       opacity: 1;
       cursor: none;
     }

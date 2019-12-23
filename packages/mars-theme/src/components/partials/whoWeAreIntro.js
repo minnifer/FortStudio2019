@@ -271,8 +271,8 @@ const HoverBody = styled.div`
   }
   .circleWrapper {
     position: absolute;
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
     opacity: 0;
     top: 0;
     transform:scale(0);

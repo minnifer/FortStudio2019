@@ -100,7 +100,7 @@ class Footer extends Component {
               </SocialContainer>
               <ContactContainer>
                 <Address
-                  href="https://www.google.com/maps/dir/39.9854812,-83.0039066/fort+agency/@39.9806004,-83.0072205,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88388ed7ebd473a7:0xf77541e546d4eb8c!2m2!1d-83.0026902!2d39.9761894"
+                  href="https://goo.gl/maps/k2qMiBH8gafxj47c7"
                   target="_blank"
                   dangerouslySetInnerHTML={{
                     __html: options.acf.social_section.address

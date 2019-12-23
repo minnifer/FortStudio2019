@@ -156,6 +156,7 @@ const Category = styled.div`
   text-transform: uppercase;
   color: #BFBFBF;
   opacity: 1;
+  font-weight:500;
   letter-spacing: 0.84px;
   line-height: 16px;
   transition: opacity 250ms ease-in-out;

@@ -282,7 +282,7 @@ const ImageContainer = styled(Link)`
     line-height: 51px;
     text-transform: uppercase;
     position: absolute;
-    top: 40%;
+    top: 37%;
     left: 50%;
     z-index: 900;
     transform: translate(-50%);
