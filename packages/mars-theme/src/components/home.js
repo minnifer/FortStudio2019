@@ -44,7 +44,7 @@ const Home = ({ state, actions, libraries }) => {
           <StyledVideoContainer>
             <BrowserView>
               <Video
-                playsinline
+                playsinline="true" disablePictureInPicture="true"
                 autoPlay
                 muted
                 loop
