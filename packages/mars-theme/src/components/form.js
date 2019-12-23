@@ -409,6 +409,7 @@ const Content = styled.div`
     margin-bottom: 85px;
     @media (max-width: 768px) {
       margin-bottom: 85px;
+      font-size: 12px;
     }
   }
   input:-webkit-autofill,

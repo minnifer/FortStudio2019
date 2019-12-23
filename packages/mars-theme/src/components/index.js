@@ -366,6 +366,11 @@ const globalStyles = css`
     font-weight: 100;
     font-style: normal;
     margin: 0;
+    @media (max-width: 768px) {
+      font-size: 36px;
+      line-height: 44px;
+      letter-spacing: 0;
+    }
   }
   h4 {
     font-weight: 500;

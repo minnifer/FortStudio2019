@@ -37,26 +37,31 @@ class WhoWeAreIntro extends Component {
           <h2>
             <strong>
               <span>Endlessly</span>
-              <span>&nbsp;
-              <ReactRotatingText emptyPause="0" deletingInterval="15" typingInterval="50" pause="2000"
-                items={[
-                  "creative.",
-                  "fine-tuning.",
-                  "passionate.",
-                  "strategizing.",
-                  "poppin’.",
-                  "charming.",
-                  "curious.",
-                  "caffeinating.",
-                  "efficient.",
-                  "simplifying.",
-                  "innovative.",
-                  "cranking.",
-                  "quirky.",
-                  "learning.",
-                  "endless."
-                ]}
-              />
+              <span>
+                &nbsp;
+                <ReactRotatingText
+                  emptyPause="0"
+                  deletingInterval="15"
+                  typingInterval="50"
+                  pause="2000"
+                  items={[
+                    "creative.",
+                    "fine-tuning.",
+                    "passionate.",
+                    "strategizing.",
+                    "poppin’.",
+                    "charming.",
+                    "curious.",
+                    "caffeinating.",
+                    "efficient.",
+                    "simplifying.",
+                    "innovative.",
+                    "cranking.",
+                    "quirky.",
+                    "learning.",
+                    "endless."
+                  ]}
+                />
               </span>
             </strong>
           </h2>
@@ -98,38 +103,40 @@ class WhoWeAreIntro extends Component {
                 />
               </g>
             </svg>
-            <TextLoop fade="false" interval="2000">
-              <span
-                id="content-1"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.layout.credos.credo_1
-                }}
-              ></span>
-              <span
-                id="content-2"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.layout.credos.credo_2
-                }}
-              ></span>
-              <span
-                id="content-3"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.layout.credos.credo_3
-                }}
-              ></span>
-              <span
-                id="content-4"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.layout.credos.credo_4
-                }}
-              ></span>
-              <span
-                id="content-5"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.layout.credos.credo_5
-                }}
-              ></span>
-            </TextLoop>
+            <div className="circleWrapper">
+              <TextLoop fade="false" interval="2000">
+                <span
+                  id="content-1"
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.layout.credos.credo_1
+                  }}
+                ></span>
+                <span
+                  id="content-2"
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.layout.credos.credo_2
+                  }}
+                ></span>
+                <span
+                  id="content-3"
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.layout.credos.credo_3
+                  }}
+                ></span>
+                <span
+                  id="content-4"
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.layout.credos.credo_4
+                  }}
+                ></span>
+                <span
+                  id="content-5"
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.layout.credos.credo_5
+                  }}
+                ></span>
+              </TextLoop>
+            </div>
           </HoverBody>
           <Eyebrow
             dangerouslySetInnerHTML={{ __html: this.props.layout.subhead }}
@@ -160,8 +167,8 @@ const Container = styled.div`
     margin-top: 162px;
   }
   .react-rotating-text-cursor {
-   display:none;
-  }  
+    display: none;
+  }
 `;
 
 const HeadlineContainer = styled.div`
@@ -169,13 +176,13 @@ const HeadlineContainer = styled.div`
   margin: auto;
   text-align: center;
   @media (max-width: 768px) {
-    margin-left:12px;
-    margin-right:12px;
-    h2{
-      &:last-of-type{
-        strong{
-          display:flex;
-          flex-direction:column;
+    margin-left: 12px;
+    margin-right: 12px;
+    h2 {
+      &:last-of-type {
+        strong {
+          display: flex;
+          flex-direction: column;
         }
       }
     }
@@ -262,36 +269,51 @@ const HoverBody = styled.div`
     transform: translate(-50%, -50%);
     left: 50%;
   }
+  .circleWrapper {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    opacity: 0;
+    top: 0;
+    transform:scale(0);
+    @media (max-width: 768px) {
+      background-color: #ffc40a;
+      border-radius: 50%;
+      width: 230px;
+      height: 230px;
+      top: 0;
+      left: 45%;
+      transform:scale(0);
+      transition:transform 250ms ease-in-out;
+      /* transform:translate(18%, 0); */
+    }
+  }
   span {
     position: absolute;
-    opacity: 0;   
+    opacity: 0;
     border-radius: 100%;
-    left:0%;
-    top: 0%;    
+    left: 0%;
+    top: 0%;
     color: #1d1d1d;
     display: flex;
-    text-align: center;  
-    flex-direction:column;
-    justify-content:center;
-    align-items:center; 
-    line-height: 16px;  
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 16px;
     /* width:130px; */
-    width:200px;
-    transform: translate(-42.5%, 0%);    
-    height:200px;  
-    vertical-align:center;
+    width: 200px;
+    /* transform: translate(-42.5%, 0%); */
+    height: 200px;
+    vertical-align: center;
 
     @media (max-width: 768px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transform: translate(-18%, 0%);    
-      left:-50%;
-      top: -75%;
-      background-color: #ffc40a;
-      border-radius: 50%;
-      width: 300px;
-      height: 300px;    
+      transform: translate(-50%, 10%);
+      /* left: -50%; */
+      top: 0%;
     }
   }
   svg {
@@ -311,6 +333,11 @@ const HoverBody = styled.div`
     span {
       opacity: 1;
       /* transform:translate(0%, 0%); */
+    }
+
+    .circleWrapper {
+      opacity: 1;
+      transform:scale(1);
     }
   }
 `;

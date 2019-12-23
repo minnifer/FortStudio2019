@@ -61,7 +61,7 @@ export default connect(WhoWeAre);
 const Container = styled.div`
   margin: 0;
   width: 100%;
-  
+  overflow-x:hidden;
   /* border:7px solid #000; */
   #top,
   #bottom,

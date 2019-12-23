@@ -247,7 +247,7 @@ const HoverBody = styled.div`
   top: -60px;
   left: -200px;
   @media (max-width: 768px) {
-    top: -25%;
+    top: -15%;
     transform: translate(-50%, -50%);
     left: 50%;
   }
@@ -257,7 +257,7 @@ const HoverBody = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    left: 0%;
+    left: 1%;
     top: 0%;
     color: #1d1d1d;
     display: flex;
@@ -271,12 +271,14 @@ const HoverBody = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      left: -25%;
+      left: -6.5%;
       top: -25%; 
       background-color: #ffc40a;
       border-radius: 50%;
-      width: 300px;
-      height: 300px;
+      width: 230px;
+      height: 230px;
+      transform:scale(0);
+      transition:transform 250ms ease-in-out;
     }
   }
   svg {
@@ -295,6 +297,7 @@ const HoverBody = styled.div`
     }
     span {
       opacity: 1;
+      transform:scale(1);
       /* transform:translate(0%, 0%); */
     }
   }

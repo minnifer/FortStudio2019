@@ -148,8 +148,8 @@ const Cursor = styled.div`
     z-index: 2;
     div {
       background-color: #ffc400;
-      width: 10rem;
-      height: 10rem;
+      width: 230px;
+      height: 230px;
       opacity: 1;
       cursor: none;
     }
