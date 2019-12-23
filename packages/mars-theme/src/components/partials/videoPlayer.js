@@ -198,7 +198,7 @@ const PlayButton = styled.button`
   background: transparent;
   border: none;
   cursor: none;
-  /* z-index: 6; */
+  z-index: 6;
   /* transition: color 250ms ease-in-out; */
   width: 200px;
   height: 200px;

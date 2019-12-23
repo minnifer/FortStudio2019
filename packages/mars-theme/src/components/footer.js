@@ -191,6 +191,9 @@ const NotFixedContainer = styled.div`
       }
     }
   }
+  @media (max-width: 768px) {
+    display:none;
+  }
 `;
 const TopFooter = styled.div`
   display: flex;
@@ -374,7 +377,7 @@ const RightContainer = styled.div`
   right: 0;
   justify-content: flex-end;
   @media (max-width: 768px) {
-    display: none;
+    /* display: none; */
   }
 `;
 const RightWrapper = styled.div`
@@ -382,9 +385,7 @@ const RightWrapper = styled.div`
   position: fixed;
   bottom: 36px;
   z-index: 90;
-  @media (max-width: 768px) {
-    display: none;
-  }
+
   .link {
     &.first {
       &:last-of-type {
@@ -405,6 +406,21 @@ const RightWrapper = styled.div`
         a {
           background-color: #ffc400;
           /* border:1px solid #fff; */
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .link {
+      margin-right:0;
+      &.first {
+        &:last-of-type {
+          display:none;
+        }
+      }
+       &.last {
+        &:first-of-type {
+          display:none;
         }
       }
     }

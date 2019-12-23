@@ -27,7 +27,7 @@ const Container = styled.div`
   align-items:center;
   margin:auto;   
   position:relative;
-  /* z-index:900; */
+  z-index:900;
 `;
 
 const Title = styled.h2`
