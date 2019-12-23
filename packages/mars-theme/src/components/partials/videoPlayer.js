@@ -274,6 +274,7 @@ const PlayButton = styled.button`
         flex-direction: column;
         left: -50%;
         top: -50%;
+        transform:translate(-50%, 0);
       }
     }
   }

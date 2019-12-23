@@ -320,11 +320,6 @@ const globalStyles = css`
     margin: 0;
     line-height: inherit;
   }
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
   a {
     text-decoration: none;
   }
@@ -379,6 +374,7 @@ const globalStyles = css`
     font-size: 14px;
     letter-spacing: 0.84px;
     margin: 0;
+    color: #1d1d1d;
   }
   strong {
     font-weight: 400;

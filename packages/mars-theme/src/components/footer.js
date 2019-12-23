@@ -138,7 +138,7 @@ class Footer extends Component {
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
-                
+
                 <StyledCard
                   linkURL="/contact"
                   activeTout={this.props.activeTout}
@@ -233,7 +233,7 @@ const Tout = styled.div`
     transform: translateX(-15%);
     border-radius: 50%;
     @media (max-width: 768px) {
-      a { 
+      a {
         height: auto;
         width: auto;
       }
@@ -258,7 +258,7 @@ const Tout = styled.div`
   }
   a {
     letter-spacing: 0.84px;
-    padding-top:5px;
+    padding-top: 5px;
   }
   &:before {
     width: 2px;
@@ -400,10 +400,10 @@ const RightWrapper = styled.div`
     &.first {
       &:last-of-type {
         opacity: 0;
-        display:none;
+        display: none;
       }
       &:first-of-type {
-        margin-right:180px;
+        margin-right: 180px;
         a {
           background-color: #ffc400;
           /* border:1px solid #fff; */
@@ -413,7 +413,7 @@ const RightWrapper = styled.div`
     &.last {
       &:first-of-type {
         opacity: 0;
-        display:none;
+        display: none;
       }
       &:last-of-type {
         a {
@@ -427,6 +427,9 @@ const RightWrapper = styled.div`
     .link {
       margin-right: 0;
       &.first {
+        &:first-of-type {
+          margin-right: 0;
+        }
         &:last-of-type {
           display: none;
         }

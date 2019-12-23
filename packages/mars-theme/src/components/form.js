@@ -26,6 +26,10 @@ class Form extends Component {
   }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
+    if (document.querySelector("#successMessage")) {
+      document.querySelector("#successMessage").remove();
+    }
+
     this.props.actions.source.fetch("/");
     $(".wpcf7-form input")
       .focus(function() {
@@ -45,13 +49,18 @@ class Form extends Component {
         }
       });
   }
+  removeModal = () => {
+    if (document.querySelector("#successMessage")) {
+      document.querySelector("#successMessage").remove();
+    }
+  };
   render() {
     const data = this.props.state.source.get(this.props.state.router.link);
     const post = this.props.state.source[data.type][data.id];
     const Html2React = this.props.libraries.html2react.Component;
     const options = this.props.state.source.get("acf-options-page");
     return (
-      <PageContainer>
+      <PageContainer onClick={this.removeModal}>
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
         <HeadContainer>
@@ -174,6 +183,7 @@ const Address = styled.a`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0;
+  transition: color 250ms ease-in-out;
   &:hover,
   &:focus,
   &:active {
@@ -481,7 +491,7 @@ const Content = styled.div`
         flex-direction: column;
         justify-content: center;
         transition:border 250ms ease-in-out;
-        font-size:12px;
+        font-size:14px;
         font-weight:500;
         letter-spacing:.84px;
         line-height:14px;
