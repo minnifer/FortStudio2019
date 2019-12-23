@@ -1,0 +1,85 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.41.2",
+  "hash": "c08c7b401f3de0552d38",
+  "publicPath": "/static/",
+  "outputPath": "/Users/minhoq/Sites/FortStudio/build/static",
+  "assetsByChunkName": {
+    "fortstudio": "fortstudio.module.4c2405fcb6ab37c31959.js",
+    "list": "list.module.25ff24e3285768a1de77.js"
+  },
+  "assets": [
+    {
+      "name": "fortstudio.module.4c2405fcb6ab37c31959.js",
+      "size": 1469700,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "fortstudio"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "list.module.25ff24e3285768a1de77.js",
+      "size": 2725,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "fortstudio": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "fortstudio.module.4c2405fcb6ab37c31959.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "fortstudio": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "fortstudio.module.4c2405fcb6ab37c31959.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "list.module.25ff24e3285768a1de77.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}

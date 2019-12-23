@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import $ from "jquery";
-import YourMouse from "./utils/YourMouse";
+import FormMouse from "./utils/FormMouse";
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -45,12 +45,6 @@ class Form extends Component {
         }
       });
   }
-  mouseEnter() {
-    document.querySelector("#cursor").classList.add("is-swapped");
-  }
-  mouseLeave() {
-    document.querySelector("#cursor").classList.remove("is-swapped");
-  }
   render() {
     const data = this.props.state.source.get(this.props.state.router.link);
     const post = this.props.state.source[data.type][data.id];
@@ -58,13 +52,13 @@ class Form extends Component {
     const options = this.props.state.source.get("acf-options-page");
     return (
       <PageContainer>
-        <YourMouse />
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
         <HeadContainer>
           <FormHeader menuTheme="black" />
         </HeadContainer>
-        <Content onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+        <Content>
+          <FormMouse />
           <LeftContainer>
             <Headline
               dangerouslySetInnerHTML={{
@@ -152,7 +146,8 @@ const PageContainer = styled.div`
   }
 `;
 const RightContainer = styled.div`
-  width: 40%;
+  width: 45%;
+  margin-bottom: 85px;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -179,6 +174,11 @@ const Address = styled.a`
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+  }
 `;
 const Phone = styled(Link)`
   font-weight: 300;
@@ -188,8 +188,9 @@ const Phone = styled(Link)`
   transition: color 250ms ease-in-out;
   text-decoration: none;
   &:hover,
-  &:focus, &:active {
-    color: #000000;
+  &:focus,
+  &:active {
+    color: #fff;
   }
 `;
 const LeftContainer = styled.div`
@@ -259,6 +260,15 @@ const Content = styled.div`
 
   p {
     line-height: 1.6em;
+    &.submit{
+      width:fit-content;
+      z-index:6;
+      margin-left:-10px;
+      @media (max-width: 768px) {
+    margin-left:0;
+    margin-top:48px;
+  }
+    }
   }
   a{
     &:hover{
@@ -357,19 +367,26 @@ const Content = styled.div`
       > span {
         margin-right: 14px;
         text-align: center;
+        width:calc(100%/3);
+        &:last-of-type{
+          margin-right:0;
+        }
         @media (max-width: 768px) {
           width:calc(100%);
           min-height:94px;
+          margin-right:0;
           /* margin-bottom:14px; */
         }
         .wpcf7-acceptance {
           height: 100%;
+          width:100%;
         }
         .wpcf7-list-item {
           display: flex;
           flex-direction: column;
           align-items: center;
           height: 100%;
+          width:100%;
           @media (max-width: 768px) {
          width:100%;
         }
@@ -378,6 +395,7 @@ const Content = styled.div`
             flex-direction: column;
             justify-content: center;
             height: 100%;
+            width:100%;
             @media (max-width: 768px) {
          width:100%;
         }
@@ -396,7 +414,7 @@ const Content = styled.div`
     -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 16px;
     letter-spacing:.84px;
     font-weight:500;
@@ -406,10 +424,16 @@ const Content = styled.div`
     text-transform: uppercase;
     background: transparent;
     border: none;
-    margin-bottom: 85px;
+    margin-bottom: 0;
+    width:130px;
+    height:130px;
+    border-radius:100%;
+    outline:none;
     @media (max-width: 768px) {
-      margin-bottom: 85px;
+      width:auto;
+      height:auto;
       font-size: 12px;
+      border-radius:0;
     }
   }
   input:-webkit-autofill,
@@ -494,6 +518,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 75px;
+    
     @media (max-width: 768px) {
       margin-bottom: 45px;
     }    
@@ -513,8 +538,11 @@ const Content = styled.div`
             top: 20px;
             font-size: 11px;
         }
-      } 
+    } 
     
+  }
+  .your-message{
+      margin-bottom:0;
     }
     .your-email{
     position: relative;
@@ -525,6 +553,7 @@ const Content = styled.div`
     @media (max-width: 768px) {
       margin-bottom: 45px;
     }
+    
 
     &:after {
       /* border-bottom:1px solid #1D1D1D; */

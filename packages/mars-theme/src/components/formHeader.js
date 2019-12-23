@@ -8,14 +8,14 @@ import GoBack from "./utils/goBack";
 
 const FormHeader = ({ state, menuTheme }) => {
   function goBack() {
-    window.history.back()
+    window.history.back();
   }
   return (
     <>
       <Container>
         <Logo menuTheme={menuTheme} />
         <div className="link" data-stick-cursor>
-          <CloseButton onClick={goBack}>Close</CloseButton>          
+          <CloseButton onClick={goBack}>Close</CloseButton>
         </div>
       </Container>
     </>
@@ -24,11 +24,8 @@ const FormHeader = ({ state, menuTheme }) => {
 
 export default connect(FormHeader);
 const CloseButton = styled.button`
-  position: absolute;
-  top: 120px;
-  right: 120px;
   width: fit-content;
-  z-index:49;
+  z-index: 49;
   font-weight: 500;
   line-height: 51px;
   letter-spacing: 0.84px;
@@ -38,19 +35,23 @@ const CloseButton = styled.button`
   border: none;
   padding: 0;
   display: flex;
+  width:130px;
+  height:130px;
   align-items: center;
   justify-content: center;
   -webkit-appearance: none;
   transition: color 250ms ease-in-out;
-  outline:none;
+  outline: none;
   /* color: #ffc40a;
   &:hover {
     color: #ffc40a;
   } */
   @media (max-width: 768px) {
-    position:relative;
-    top:auto;
-    right:36px;
+    position: relative;
+    top: auto;
+    right: 36px;
+    width:auto;
+    height:auto;
   }
 `;
 const Container = styled.div`
@@ -62,6 +63,22 @@ const Container = styled.div`
   align-items: center;
   margin: auto;
   position: relative;
+  .link {
+    top: 120px;
+    right: 120px;
+    width:130px;
+    height:130px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+      top:36px;
+      right:0;
+      height:auto;
+      width:auto;
+    }
+  }
 `;
 
 const Title = styled.h2`
