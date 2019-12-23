@@ -19,6 +19,7 @@ export default function YourMouse() {
   const [stuck, setStuck] = React.useState(false);
   const [largeStuck, setLargeStuck] = React.useState(false);
   const [smallStuck, setSmallStuck] = React.useState(false);
+  const [grow, setGrow] = React.useState(false);
   const [swap, setSwap] = React.useState(false);
   // These are all just collections of data which don't necessary need a new
   // render from React (i.e. our little div) so we jsut keep them updated and
@@ -40,6 +41,7 @@ export default function YourMouse() {
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     const smallStickies = [...document.querySelectorAll("[data-small-cursor]")];
+    const growStickies = [...document.querySelectorAll("[data-grow-cursor]")];
     targets.current =
       // mouse follower and cleanup
       window.addEventListener("mousemove", mousePos, { passive: true });
@@ -52,9 +54,11 @@ export default function YourMouse() {
     let isNearOne = false;
     let isNearLargeOne = false;
     let isNearSmallOne = false;
+    let isNearGrowOne = false;
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     const smallStickies = [...document.querySelectorAll("[data-small-cursor]")];
+    const growStickies = [...document.querySelectorAll("[data-grow-cursor]")];
     stickies
       .map(ele => {
         const bounds = ele.getBoundingClientRect();
@@ -129,14 +133,40 @@ export default function YourMouse() {
         const a = Math.atan2(d.x, d.y);
         const h = Math.sqrt(d.x * d.x + d.y * d.y);
 
-        if (h < DIST && !largeStuck) {
+        if (h < DIST && !smallStuck) {
           isNearSmallOne = true;
           // pull towards this target
           mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
         }
       });
+    growStickies
+      .map(ele => {
+        const bounds = ele.getBoundingClientRect();
+        const objectWidth = ele.offsetWidth;
+        const height = ele.offsetHeight;
+        return {
+          el: ele,
+          x: window.scrollX + bounds.left + bounds.width / 2,
+          y: window.scrollY + bounds.top + bounds.height / 2
+        };
+      })
+      .forEach(target => {
+        const d = {
+          x: target.x - mouseHitPos.current[0],
+          y: target.y - mouseHitPos.current[1]
+        };
 
+        const a = Math.atan2(d.x, d.y);
+        const h = Math.sqrt(d.x * d.x + d.y * d.y);
+
+        if (h < DIST && !grow) {
+          isNearGrowOne = true;
+          // pull towards this target
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+        }
+      });
     if (isNearOne) {
       setStuck(true); // enlarge
       setEase(0.0); // slow a bit
@@ -156,6 +186,13 @@ export default function YourMouse() {
       setEase(0.0); // slow a bit
     } else {
       setSmallStuck(false); // shrink
+      setEase(DEFAULT_EASE); // back to OG speed
+    }
+    if (isNearGrowOne) {
+      setGrow(true); // enlarge
+      setEase(0.0); // slow a bit
+    } else {
+      setGrow(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
 
@@ -185,7 +222,9 @@ export default function YourMouse() {
       className={`cursor ${stuck ? "is-active" : ""} ${
         largeStuck ? "is-large" : ""
       }
-      ${smallStuck ? "is-small" : ""}`}
+      ${smallStuck ? "is-small" : ""}
+      ${grow ? "is-grow" : ""}
+      `}
       data-cursor
       style={{ transform }}
     >
@@ -248,6 +287,17 @@ const Cursor = styled.div`
       height: 100px;
       opacity: 1;
       cursor: none;
+    }
+  }
+  &.is-grow {
+    z-index: 90;
+    div {
+      background-color: #ffc400;
+      width: 180px;
+      height: 180px;
+      opacity: 1;
+      cursor: none;
+      transform: translate(-45%, -45%);
     }
   }
   &.is-swapped {

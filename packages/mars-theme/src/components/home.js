@@ -120,7 +120,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: row;
   position: absolute;
-  z-index: 4;
+  /* z-index: 4; */
   margin: auto;
   width: 100%;
 `;
@@ -132,7 +132,7 @@ const VideoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   &.is-open{
-      z-index:5;
+      z-index:900;
     }
   @media (max-width: 768px) {
     height: 100%;

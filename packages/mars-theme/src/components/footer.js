@@ -122,10 +122,10 @@ class Footer extends Component {
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
-                <StyledVideoPlayer
+                {/* <StyledVideoPlayer
                   toggle={this.props.state}
                   src={options.acf.video["url"]}
-                />
+                /> */}
                 <StyledCard
                   linkURL="/contact"
                   activeTout={this.props.activeTout}
@@ -400,8 +400,10 @@ const RightWrapper = styled.div`
     &.first {
       &:last-of-type {
         opacity: 0;
+        display:none;
       }
       &:first-of-type {
+        margin-right:180px;
         a {
           background-color: #ffc400;
           /* border:1px solid #fff; */
@@ -411,6 +413,7 @@ const RightWrapper = styled.div`
     &.last {
       &:first-of-type {
         opacity: 0;
+        display:none;
       }
       &:last-of-type {
         a {

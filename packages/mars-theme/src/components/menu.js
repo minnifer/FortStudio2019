@@ -35,6 +35,7 @@ const Container = styled.div`
   cursor: none;
   right: 30px;
   top: 80px;
+  z-index: 900;
   position: absolute;
   @media (max-width: 768px) {
     position: relative;
@@ -47,7 +48,7 @@ const MenuToggle = styled.button`
   background: transparent;
   border: 0;
   color: white;
-  z-index: 48;
+  z-index: 900;
   display: flex;
   align-items: center;
   justify-content: center;

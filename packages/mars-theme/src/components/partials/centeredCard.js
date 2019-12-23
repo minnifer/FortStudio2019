@@ -4,7 +4,7 @@ import { connect, styled } from "frontity";
 import Link from "./../link";
 const CenteredCard = ({ linkURL, linkText, text, activeTout }) => {
   return (
-    <Container className={[activeTout, "link"].join(' ')} >
+    <Container data-grow-cursor className={[activeTout, "link"].join(' ')} >
       {linkURL ? (
         <StyledLink link={linkURL}><span>{linkText}</span></StyledLink>
       ) : (
@@ -34,6 +34,10 @@ const StyledLink = styled(Link)`
   span{
       width:80%;
       z-index: 10;
+  }
+  @media (max-width: 768px) {
+    width:108.4px;
+    height:108.4px;
   }
   &:hover{
     background-color:transparent;
