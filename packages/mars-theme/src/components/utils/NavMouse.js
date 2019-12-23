@@ -10,7 +10,7 @@ const math = {
 
 const DEFAULT_EASE = 0.975;
 const DIST = 100;
-export default function YourMouse() {
+export default function NavMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
   // These two are state since their changes need to rerender the div
   // because they affect its characteristics, which means React will ERASE them
@@ -179,7 +179,7 @@ export default function YourMouse() {
     setTransform(transform);
   });
   return (
-    <Cursor
+    <NavCursor
       id="cursor"
       ref={cursorRef}
       className={`cursor ${stuck ? "is-active" : ""} ${
@@ -190,11 +190,11 @@ export default function YourMouse() {
       style={{ transform }}
     >
       <div />
-    </Cursor>
+    </NavCursor>
   );
 }
 
-const Cursor = styled.div`
+const NavCursor = styled.div`
   position: fixed;
   top: -0.5rem;
   left: -0.5rem;
@@ -221,7 +221,7 @@ const Cursor = styled.div`
   }
 
   &.is-active {
-    z-index: 2;
+    z-index: 90;
     div {
       background-color: #ffc400;
       width: 150px;

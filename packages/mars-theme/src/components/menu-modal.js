@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { styled, connect } from "frontity";
 import Link from "./link";
 import VideoPlayer from "./partials/VideoPlayer";
+import NavMouse from "./utils/NavMouse";
+
+
 class MenuModal extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +22,7 @@ class MenuModal extends Component {
     const navSubheads = options.acf.menu_subheads;
     return (
       <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+      <NavMouse />
         <StyledVideoPlayer
           nav="nav"
           toggle={this.props.state}

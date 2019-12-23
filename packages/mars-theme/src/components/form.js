@@ -341,7 +341,7 @@ const Content = styled.div`
       font-weight: 300;
       line-height: 28px;
       position: absolute;
-      top: 62%;
+      top: 71%;
       color: #1d1d1d;
       transform: translateY(-50%);
       pointer-events: none;
@@ -363,7 +363,7 @@ const Content = styled.div`
       /* flex-wrap:wrap; */
       @media (max-width: 768px) {
         flex-wrap:wrap;
-        margin-bottom:40px;
+        margin-bottom:5px;
       }
       > span {
         margin-right: 14px;
@@ -469,11 +469,12 @@ const Content = styled.div`
       /* width: 50%; */
       input[type="checkbox"] {       
         opacity:0;
+
         /* For mobile, it's typically better to position checkbox on top of clickable
       area and turn opacity to 0 instead. */
       }
       span {
-        border: 4px solid #1d1d1d;
+        border: 2px solid #1d1d1d;
         padding: 24px 15px;
         height: 100%;
         display: flex;
@@ -486,15 +487,16 @@ const Content = styled.div`
         line-height:14px;
         text-transform:uppercase;
         @media (max-width: 768px) {
+          padding: 30px 0;
          transition:border 250ms ease-in-out, transform 250ms ease-in-out, background-color 250ms ease-in-out;
         }    
         &:hover{
-          border: 4px solid #fff;
+          border: 2px solid #fff;
           
         }
       }
       input[type="checkbox"]:checked ~ span {
-        border: 4px solid #fff;    
+        border: 2px solid #fff;    
         background-color:#fff;
         @media (max-width: 768px) {
           transform:scale(1);

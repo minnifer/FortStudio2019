@@ -164,7 +164,8 @@ const Container = styled.div`
   margin: auto;
   margin-top: 250px;
   @media (max-width: 768px) {
-    margin-top: 162px;
+    margin-top: 161px;
+    padding:0;
   }
   .react-rotating-text-cursor {
     display: none;

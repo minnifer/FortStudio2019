@@ -14,10 +14,9 @@ class VideoPlayer extends Component {
     this.stopVideo();
   };
   playVideo = () => {
-    // You can use the play method as normal on your video ref
     this.refs.vidRef.play();
     this.setState({ active: true });
-
+    document.querySelector('#cursor').classList.add('is-playing'); 
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.add("is-open");
     }
@@ -27,6 +26,7 @@ class VideoPlayer extends Component {
     this.refs.vidRef.pause();
     this.refs.vidRef.currentTime = 0;
     this.setState({ active: false });
+    document.querySelector('#cursor').classList.remove('is-playing'); 
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.remove("is-open");
     }
@@ -44,8 +44,8 @@ class VideoPlayer extends Component {
       this.refs.vidRef.currentTime = 0;
       this.setState({ active: false });
       if (document.querySelector("#checkIfOpen")) {
-      document.querySelector("#checkIfOpen").classList.remove("is-open");
-    }
+        document.querySelector("#checkIfOpen").classList.remove("is-open");
+      }
     }
   };
 
@@ -186,6 +186,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   &.active {
     display: flex;
+     max-width: 1440px;
   }
   @media (max-width: 768px) {
     width: auto;
@@ -233,6 +234,7 @@ const PlayButton = styled.button`
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     border-radius: 50%;
+    
     #Ellipse_8 {
       fill: #fff;
     }
@@ -251,6 +253,10 @@ const PlayButton = styled.button`
   &:active {
     svg {
       opacity: 0;
+      display: none;
+      #Ellipse_8 {
+        fill: transparent;
+      }
     }
     span {
       opacity: 1;
@@ -267,7 +273,7 @@ const PlayButton = styled.button`
         display: flex;
         flex-direction: column;
         left: -50%;
-        top:-50%;
+        top: -50%;
       }
     }
   }
@@ -281,7 +287,12 @@ const PlayButton = styled.button`
   }
   &.nav {
     svg {
-      animation: none;
+      /* animation: none; */
+    }
+    &:hover{
+      svg{
+        display:none;
+      }
     }
     @media (max-width: 768px) {
       /* top: -25px; */
@@ -291,12 +302,11 @@ const PlayButton = styled.button`
     height: auto;
     width: auto;
     height: 58.73px;
-    padding:0;
+    padding: 0;
     span {
       height: auto;
       width: auto;
-      display:none;
-
+      display: none;
     }
   }
 `;

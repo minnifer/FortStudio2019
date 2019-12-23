@@ -258,6 +258,7 @@ const Tout = styled.div`
   }
   a {
     letter-spacing: 0.84px;
+    padding-top:5px;
   }
   &:before {
     width: 2px;
