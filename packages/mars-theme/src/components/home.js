@@ -54,7 +54,7 @@ const Home = ({ state, actions, libraries }) => {
             </BrowserView>
             <MobileView>
               <Video
-                playsinline="true" disablePictureInPicture="true"
+                autoplay="" loop="" playsinline="true" muted=""
                 autoPlay
                 muted
                 loop
