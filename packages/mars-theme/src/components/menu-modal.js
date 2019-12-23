@@ -18,12 +18,12 @@ class MenuModal extends Component {
     const options = this.props.state.source.get("acf-options-page");
     const navSubheads = options.acf.menu_subheads;
     return (
-      <>
+      <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         <StyledVideoPlayer
           nav="nav"
           toggle={this.props.state}
           src={options.acf.video["url"]}
-          onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}
+          
         />
         <MenuOverlay />
         <MenuContent as="nav">
@@ -36,7 +36,7 @@ class MenuModal extends Component {
             <span className="navSubhead">{navSubheads.who_we_are_subhead}</span>
           </MenuLink>
         </MenuContent>
-      </>
+      </div>
     );
   }
 }

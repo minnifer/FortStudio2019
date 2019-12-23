@@ -188,8 +188,8 @@ const Phone = styled(Link)`
   transition: color 250ms ease-in-out;
   text-decoration: none;
   &:hover,
-  &:focus {
-    color: #ffc400;
+  &:focus, &:active {
+    color: #000000;
   }
 `;
 const LeftContainer = styled.div`

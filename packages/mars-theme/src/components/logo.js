@@ -6,7 +6,7 @@ const Logo = ({ state, actions, menuTheme }) => {
   const { isMobileMenuOpen } = state.theme;
   return (
     <>     
-      <Container className="link" data-stick-cursor>
+      <Container>
         <StyledLink link="/">
           {isMobileMenuOpen ? (
             <>

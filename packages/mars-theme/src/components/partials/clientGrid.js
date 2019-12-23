@@ -170,6 +170,7 @@ const Summary = styled.div`
   color: #ffc40a;
   letter-spacing: 0.84px;
   line-height: 16px;
+  font-weight:500;
   opacity: 0;
   transition: opacity 250ms ease-in-out;
 `;

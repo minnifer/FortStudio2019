@@ -63,7 +63,7 @@ class Footer extends Component {
         </TopWrapper>
         <BottomWrapper>
           <BottomFooter>
-          <CenterContainer link="/">
+            <CenterContainer link="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24.463"
@@ -114,18 +114,31 @@ class Footer extends Component {
                 </Phone>
               </ContactContainer>
             </LeftContainer>
-            
-            <RightContainer className={this.props.activeTout}>
-              <StyledCard
-                linkURL="/contact"
-                activeTout={this.props.activeTout}
-                linkText={options.acf.footer_cta_text.reel_text}
-              ></StyledCard>
-              <StyledCard
-                linkURL="/contact"
-                activeTout={this.props.activeTout}
-                linkText={options.acf.footer_cta_text.work_sample_form_text}
-              ></StyledCard>
+            <RightContainer>
+              <RightWrapper className={this.props.activeTout}>
+                <StyledCard
+                  linkURL="/contact"
+                  activeTout={this.props.activeTout}
+                  linkText={options.acf.footer_cta_text.reel_text}
+                ></StyledCard>
+                <StyledCard
+                  linkURL="/contact"
+                  activeTout={this.props.activeTout}
+                  linkText={options.acf.footer_cta_text.work_sample_form_text}
+                ></StyledCard>
+              </RightWrapper>
+              <NotFixedContainer className={this.props.activeTout}>
+                <StyledCard
+                  linkURL="/contact"
+                  activeTout={this.props.activeTout}
+                  linkText={options.acf.footer_cta_text.reel_text}
+                ></StyledCard>
+                <StyledCard
+                  linkURL="/contact"
+                  activeTout={this.props.activeTout}
+                  linkText={options.acf.footer_cta_text.work_sample_form_text}
+                ></StyledCard>
+              </NotFixedContainer>
             </RightContainer>
           </BottomFooter>
         </BottomWrapper>
@@ -162,6 +175,23 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
 `;
 const FooterContainer = styled.div``;
+const NotFixedContainer = styled.div`
+  display: flex;
+  .link {
+    &.first {
+      &:first-of-type {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    &.last {
+      &:last-of-type {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+`;
 const TopFooter = styled.div`
   display: flex;
   max-width: 1440px;
@@ -189,7 +219,7 @@ const Tout = styled.div`
     bottom: -110px;
     left: 0%;
     transform: translateX(-15%);
-    border-radius: 50%;    
+    border-radius: 50%;
     @media (max-width: 768px) {
       a {
         height: auto;
@@ -241,7 +271,7 @@ const Tout = styled.div`
   }
   &:last-of-type {
     margin-right: 114px;
-    .link{
+    .link {
       transform: translateX(-21%);
     }
   }
@@ -261,8 +291,8 @@ const Tout = styled.div`
     &:last-of-type {
       margin-right: 0;
       margin-bottom: 0;
-      .link{
-        transform:none;
+      .link {
+        transform: none;
       }
     }
   }
@@ -273,13 +303,13 @@ const BottomFooter = styled.div`
   padding-left: 114px;
   padding-right: 114px;
   justify-content: space-between;
-  padding-top: 36px; 
+  padding-top: 36px;
   padding-bottom: 33px;
   align-items: center;
   position: relative;
   @media (max-width: 768px) {
-    padding:0;
-    flex-direction:column;
+    padding: 0;
+    flex-direction: column;
   }
 `;
 const TopWrapper = styled.div`
@@ -294,25 +324,25 @@ const LeftContainer = styled.div`
   @media (max-width: 768px) {
     justify-content: space-around;
     width: 100%;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    margin-top:40px;
-    margin-bottom:40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 `;
 const CenterContainer = styled(Link)`
   position: absolute;
   left: 50%;
   @media (max-width: 768px) {
-    position:relative;
+    position: relative;
     background: #000;
-    left:auto;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    padding-top:40px;
-    padding-bottom:40px;
+    left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
     svg {
       path {
         fill: #fff;
@@ -336,16 +366,55 @@ const CenterContainer = styled(Link)`
 const RightContainer = styled.div`
   display: flex;
 
+  max-width: 1440px;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  right: 0;
+  justify-content: flex-end;
   @media (max-width: 768px) {
     display: none;
+  }
+`;
+const RightWrapper = styled.div`
+  display: flex;
+  position: fixed;
+  bottom: 36px;
+  z-index: 90;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  .link {
+    &.first {
+      &:last-of-type {
+        opacity: 0;
+      }
+      &:first-of-type {
+        a {
+          background-color: #ffc400;
+          /* border:1px solid #fff; */
+        }
+      }
+    }
+    &.last {
+      &:first-of-type {
+        opacity: 0;
+      }
+      &:last-of-type {
+        a {
+          background-color: #ffc400;
+          /* border:1px solid #fff; */
+        }
+      }
+    }
   }
 `;
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   @media (max-width: 768px) {
-    align-items:center;
-    
+    align-items: center;
   }
 `;
 const Address = styled.a`
@@ -360,7 +429,7 @@ const Address = styled.a`
     color: #ffc400;
   }
   @media (max-width: 768px) {
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 `;
 const Phone = styled(Link)`
@@ -432,9 +501,8 @@ const SocialContainer = styled.div`
   flex-direction: column;
   margin-right: 48px;
   @media (max-width: 768px) {
-    align-items:center;
-    margin-right:0;
-    
+    align-items: center;
+    margin-right: 0;
   }
 `;
 
@@ -449,6 +517,6 @@ const StyledSocialLink = styled(Link)`
     color: #ffc400;
   }
   @media (max-width: 768px) {
-    margin-bottom:20px;
+    margin-bottom: 20px;
   }
 `;

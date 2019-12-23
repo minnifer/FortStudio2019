@@ -4,7 +4,7 @@ import { connect, styled } from "frontity";
 import Link from "./../link";
 const CenteredCard = ({ linkURL, linkText, text, activeTout }) => {
   return (
-    <Container className={[activeTout, "link"].join(' ')} data-stick-cursor>
+    <Container className={[activeTout, "link"].join(' ')} >
       {linkURL ? (
         <StyledLink link={linkURL}><span>{linkText}</span></StyledLink>
       ) : (
