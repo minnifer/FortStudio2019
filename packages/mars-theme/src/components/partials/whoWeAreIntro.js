@@ -68,7 +68,7 @@ class WhoWeAreIntro extends Component {
         </HeadlineContainer>
 
         <BodyContainer>
-          <HoverBody className="link" data-stick-cursor>
+          <HoverBody className="link" data-large-cursor>
             <svg
               id="Collapse_Expand_1"
               data-name="Collapse/Expand 1"
@@ -303,7 +303,7 @@ const HoverBody = styled.div`
     line-height: 16px;
     /* width:130px; */
     width: 200px;
-    /* transform: translate(-42.5%, 0%); */
+    transform: translate(5%, 5%);
     height: 200px;
     vertical-align: center;
 

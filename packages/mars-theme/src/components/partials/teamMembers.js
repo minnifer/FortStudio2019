@@ -292,7 +292,7 @@ const ImageContainer = styled(Link)`
     justify-content: center;
     align-items: center;
     width: 100px;
-    height: 100px;
+    height: 95px;
     background-color: #fff;
     border-radius: 50%;
     vertical-align: center;
@@ -303,8 +303,9 @@ const ImageContainer = styled(Link)`
       position:absolute;
       left:0;
       right:0;
+      top:-5%;
       width:100%;
-      height:100%;
+      height:95px;
       border-radius:50%;
       transition:transform 250ms ease-in-out;
       z-index:-1;

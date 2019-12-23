@@ -50,7 +50,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.strategy_section.body
               }}
             ></BodyContainer>
-            <HoverBody className="link" data-stick-cursor>
+            <HoverBody className="link" data-large-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -105,7 +105,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.identity_section.body
               }}
             ></BodyContainer>
-            <HoverBody className="link" data-stick-cursor>
+            <HoverBody className="link" data-large-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -159,7 +159,7 @@ class IntroSection extends Component {
                 __html: this.props.layout.design_section.body
               }}
             ></BodyContainer>
-            <HoverBody className="link" data-stick-cursor>
+            <HoverBody className="link" data-large-cursor>
               <svg
                 id="Collapse_Expand_1"
                 data-name="Collapse/Expand 1"
@@ -257,8 +257,8 @@ const HoverBody = styled.div`
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    left: 1%;
-    top: 0%;
+    left: 5%;
+    top: 5%;
     color: #1d1d1d;
     display: flex;
     text-align: center;

@@ -17,6 +17,7 @@ export default function YourMouse() {
   // from the DOM if we don't persist them
   const [transform, setTransform] = React.useState("");
   const [stuck, setStuck] = React.useState(false);
+  const [largeStuck, setLargeStuck] = React.useState(false);
   const [swap, setSwap] = React.useState(false);
   // These are all just collections of data which don't necessary need a new
   // render from React (i.e. our little div) so we jsut keep them updated and
@@ -36,7 +37,7 @@ export default function YourMouse() {
   React.useEffect(() => {
     // setup targets once
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
-    const swaps = [...document.querySelectorAll("[data-white-cursor]")];
+    const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     targets.current =
       // mouse follower and cleanup
       window.addEventListener("mousemove", mousePos, { passive: true });
@@ -47,7 +48,9 @@ export default function YourMouse() {
   useAnimationFrame(deltaTime => {
     // check collisions
     let isNearOne = false;
+    let isNearLargeOne = false;
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
+    const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     stickies
       .map(ele => {
         const bounds = ele.getBoundingClientRect();
@@ -75,12 +78,46 @@ export default function YourMouse() {
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
         }
       });
+    largeStickies
+      .map(ele => {
+        const bounds = ele.getBoundingClientRect();
+        const objectWidth = ele.offsetWidth;
+        const height = ele.offsetHeight;
+        return {
+          el: ele,
+          x: window.scrollX + bounds.left + bounds.width / 2,
+          y: window.scrollY + bounds.top + bounds.height / 2
+        };
+      })
+      .forEach(target => {
+        const d = {
+          x: target.x - mouseHitPos.current[0],
+          y: target.y - mouseHitPos.current[1]
+        };
+
+        const a = Math.atan2(d.x, d.y);
+        const h = Math.sqrt(d.x * d.x + d.y * d.y);
+
+        if (h < DIST && !largeStuck) {
+          isNearLargeOne = true;
+          // pull towards this target
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+        }
+      });
 
     if (isNearOne) {
       setStuck(true); // enlarge
       setEase(0.0); // slow a bit
     } else {
       setStuck(false); // shrink
+      setEase(DEFAULT_EASE); // back to OG speed
+    }
+    if (isNearLargeOne) {
+      setLargeStuck(true); // enlarge
+      setEase(0.0); // slow a bit
+    } else {
+      setLargeStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
 
@@ -108,7 +145,7 @@ export default function YourMouse() {
       id="cursor"
       ref={cursorRef}
       className={`cursor ${stuck ? "is-active" : ""} ${
-        swap ? "is-swapped" : ""
+        largeStuck ? "is-large" : ""
       }`}
       data-cursor
       style={{ transform }}
@@ -137,7 +174,7 @@ const Cursor = styled.div`
     background-color: rgba(255, 196, 0, 100);
     opacity: 1;
     cursor: none;
-    transform: translate(-45%, -45%);
+    transform: translate(-42.5%, -42.5%);
     -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
       transform 0.25s ease-in-out, opacity 0.35s ease;
     transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
@@ -148,8 +185,18 @@ const Cursor = styled.div`
     z-index: 2;
     div {
       background-color: #ffc400;
-      width: 10rem;
-      height: 10rem;
+      width: 150px;
+      height: 150px;
+      opacity: 1;
+      cursor: none;
+    }
+  }
+   &.is-large {
+    z-index: 2;
+    div {
+      background-color: #ffc400;
+      width: 230px;
+      height: 230px;
       opacity: 1;
       cursor: none;
     }
