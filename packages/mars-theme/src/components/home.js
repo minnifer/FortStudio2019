@@ -54,7 +54,11 @@ const Home = ({ state, actions, libraries }) => {
             </BrowserView>
             <MobileView>
               <Video
-                playsinline
+                playsinline="true" disablePictureInPicture="true"
+                autoPlay
+                muted
+                loop
+                webkit-playsinline
                 autoPlay
                 muted
                 loop
