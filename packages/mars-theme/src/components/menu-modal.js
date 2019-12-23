@@ -8,7 +8,7 @@ class MenuModal extends Component {
   }
   mouseEnter() {    
     document.querySelector("#cursor").classList.add("is-menu");
-    console.log("cursor");
+    // console.log("cursor");
   }
   mouseLeave() {
     document.querySelector("#cursor").classList.remove("is-menu");
@@ -23,7 +23,6 @@ class MenuModal extends Component {
           nav="nav"
           toggle={this.props.state}
           src={options.acf.video["url"]}
-          
         />
         <MenuOverlay />
         <MenuContent as="nav">

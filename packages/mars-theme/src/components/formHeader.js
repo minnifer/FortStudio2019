@@ -14,7 +14,7 @@ const FormHeader = ({ state, menuTheme }) => {
     <>
       <Container>
         <Logo menuTheme={menuTheme} />
-        <div className="link" data-stick-cursor>
+        <div className="link" data-small-cursor>
           <CloseButton onClick={goBack}>Close</CloseButton>
         </div>
       </Container>
@@ -35,8 +35,8 @@ const CloseButton = styled.button`
   border: none;
   padding: 0;
   display: flex;
-  width:130px;
-  height:130px;
+  width:100px;
+  height:100px;
   align-items: center;
   justify-content: center;
   -webkit-appearance: none;
@@ -64,10 +64,10 @@ const Container = styled.div`
   margin: auto;
   position: relative;
   .link {
-    top: 120px;
-    right: 120px;
-    width:130px;
-    height:130px;
+    top: 130px;
+    right: 80px;
+    width:100px;
+    height:100px;
     position: absolute;
     display: flex;
     align-items: center;

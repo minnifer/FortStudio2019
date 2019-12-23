@@ -271,8 +271,9 @@ const Content = styled.div`
     }
   }
   a{
+    width:fit-content;
     &:hover{
-      color:#1d1d1d;
+      color:#fff;
     }
   }
 
@@ -542,7 +543,10 @@ const Content = styled.div`
     
   }
   .your-message{
-      margin-bottom:0;
+      margin-bottom:45px;
+      @media (max-width: 768px) {
+      margin-bottom: 45px;
+    }
     }
     .your-email{
     position: relative;

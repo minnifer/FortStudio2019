@@ -315,11 +315,6 @@ const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
     cursor: none;
     overflow-x: hidden;
-    image-rendering: crisp-edges;
-    image-rendering: -moz-crisp-edges; /* Firefox */
-    image-rendering: -o-crisp-edges; /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/
-    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
   }
   p {
     margin: 0;

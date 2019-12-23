@@ -9,7 +9,7 @@ const math = {
 };
 
 const DEFAULT_EASE = 0.975;
-const DIST = 100;
+const DIST = 75;
 export default function FormMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
   // These two are state since their changes need to rerender the div
@@ -18,6 +18,7 @@ export default function FormMouse() {
   const [transform, setTransform] = React.useState("");
   const [stuck, setStuck] = React.useState(false);
   const [largeStuck, setLargeStuck] = React.useState(false);
+  const [smallStuck, setSmallStuck] = React.useState(false);
   const [swap, setSwap] = React.useState(false);
   // These are all just collections of data which don't necessary need a new
   // render from React (i.e. our little div) so we jsut keep them updated and
@@ -49,8 +50,10 @@ export default function FormMouse() {
     // check collisions
     let isNearOne = false;
     let isNearLargeOne = false;
+    let isNearSmallOne = false;
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
+    const smallStickies = [...document.querySelectorAll("[data-small-cursor]")];
     stickies
       .map(ele => {
         const bounds = ele.getBoundingClientRect();
@@ -105,6 +108,33 @@ export default function FormMouse() {
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
         }
       });
+    smallStickies
+      .map(ele => {
+        const bounds = ele.getBoundingClientRect();
+        const objectWidth = ele.offsetWidth;
+        const height = ele.offsetHeight;
+        return {
+          el: ele,
+          x: window.scrollX + bounds.left + bounds.width / 2,
+          y: window.scrollY + bounds.top + bounds.height / 2
+        };
+      })
+      .forEach(target => {
+        const d = {
+          x: target.x - mouseHitPos.current[0],
+          y: target.y - mouseHitPos.current[1]
+        };
+
+        const a = Math.atan2(d.x, d.y);
+        const h = Math.sqrt(d.x * d.x + d.y * d.y);
+
+        if (h < DIST && !largeStuck) {
+          isNearSmallOne = true;
+          // pull towards this target
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+        }
+      });
 
     if (isNearOne) {
       setStuck(true); // enlarge
@@ -118,6 +148,13 @@ export default function FormMouse() {
       setEase(0.0); // slow a bit
     } else {
       setLargeStuck(false); // shrink
+      setEase(DEFAULT_EASE); // back to OG speed
+    }
+    if (isNearSmallOne) {
+      setSmallStuck(true); // enlarge
+      setEase(0.0); // slow a bit
+    } else {
+      setSmallStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
 
@@ -146,7 +183,8 @@ export default function FormMouse() {
       ref={cursorRef}
       className={`cursor ${stuck ? "is-active" : ""} ${
         largeStuck ? "is-large" : ""
-      }`}
+      }
+      ${smallStuck ? "is-small" : ""}`}
       data-cursor
       style={{ transform }}
     >
@@ -168,8 +206,8 @@ const FormCursor = styled.div`
   div {
     z-index: 2;
     border-radius: 50%;
-    width: 1rem;
-    height: 1rem;
+    width: .75rem;
+    height: .75rem;
     border: 1px solid #fff;
     background-color: #fff;
     opacity: 1;
@@ -197,6 +235,16 @@ const FormCursor = styled.div`
       background-color: #fff;
       width: 230px;
       height: 230px;
+      opacity: 1;
+      cursor: none;
+    }
+  }
+  &.is-small {
+    z-index: 2;
+    div {
+      background-color: #fff;
+      width: 100px;
+      height: 100px;
       opacity: 1;
       cursor: none;
     }

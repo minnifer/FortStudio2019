@@ -47,7 +47,7 @@ const WhatWeValue = ({ state, actions, libraries }) => {
       <Content>
         <ComponentRouter layouts={post.acf.content_blocks} />
       </Content>
-      <Footer state={state} activeTout="first" />
+      <Footer state={state} activeTout="last" />
       <div id="left"></div>
       <div id="right"></div>
       <div id="top"></div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect, styled } from "frontity";
 
-class VideoPlayer extends Component {
+class FooterVideoPlayer extends Component {
   constructor(props) {
     super(props);
 
@@ -43,9 +43,6 @@ class VideoPlayer extends Component {
       this.refs.vidRef.pause();
       this.refs.vidRef.currentTime = 0;
       this.setState({ active: false });
-      if (document.querySelector("#checkIfOpen")) {
-      document.querySelector("#checkIfOpen").classList.remove("is-open");
-    }
     }
   };
 
@@ -67,7 +64,7 @@ class VideoPlayer extends Component {
           type="video/mp4"
           onClick={this.pauseVideo}
           onEnded={() => this.stopVideo()}
-          className={this.state.active ? "active" : ""}
+          // className={this.state.active ? "active" : ""}
           className={`${this.state.active ? "active" : ""} videoOpen`}
         />
         <div className="link" data-stick-cursor>
@@ -75,40 +72,6 @@ class VideoPlayer extends Component {
             className={[this.state.active, this.props.nav].join(" ")}
             onClick={this.playVideo}
           >
-            <svg
-              id="Collapse_Expand_1"
-              data-name="Collapse/Expand 1"
-              xmlns="http://www.w3.org/2000/svg"
-              width="58.739"
-              height="58.739"
-              viewBox="0 0 58.739 58.739"
-            >
-              <g
-                id="Collapse_Expand_1-2"
-                data-name="Collapse/Expand 1"
-                transform="translate(55.36 -716.142) rotate(60)"
-              >
-                <g
-                  id="Ellipse_1"
-                  data-name="Ellipse 1"
-                  transform="translate(611.136 373.764)"
-                  fill="none"
-                  stroke="#ffc40a"
-                  strokeWidth="11"
-                >
-                  <circle cx="21.5" cy="21.5" r="21.5" stroke="none" />
-                  <circle cx="21.5" cy="21.5" r="16" fill="none" />
-                </g>
-                <circle
-                  id="Ellipse_8"
-                  data-name="Ellipse 8"
-                  cx="3"
-                  cy="3"
-                  r="3"
-                  transform="translate(629.265 392.363)"
-                />
-              </g>
-            </svg>
             <span>Play Our Reel</span>
           </PlayButton>
         </div>
@@ -116,7 +79,7 @@ class VideoPlayer extends Component {
     );
   };
 }
-export default VideoPlayer;
+export default FooterVideoPlayer;
 
 const Container = styled.div`
   /* z-index: 4; */

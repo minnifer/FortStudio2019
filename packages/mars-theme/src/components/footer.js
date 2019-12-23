@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import Card from "./partials/card";
+import FooterVideoPlayer from "./partials/FooterVideoPlayer";
 import CenteredCard from "./partials/centeredCard";
 class Footer extends Component {
   constructor(props) {
@@ -121,6 +122,10 @@ class Footer extends Component {
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
+                <StyledVideoPlayer
+                  toggle={this.props.state}
+                  src={options.acf.video["url"]}
+                />
                 <StyledCard
                   linkURL="/contact"
                   activeTout={this.props.activeTout}
@@ -133,6 +138,7 @@ class Footer extends Component {
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
+                
                 <StyledCard
                   linkURL="/contact"
                   activeTout={this.props.activeTout}
@@ -192,7 +198,7 @@ const NotFixedContainer = styled.div`
     }
   }
   @media (max-width: 768px) {
-    display:none;
+    display: none;
   }
 `;
 const TopFooter = styled.div`
@@ -209,6 +215,9 @@ const TopFooter = styled.div`
     padding-bottom: 60px;
   }
 `;
+const StyledVideoPlayer = styled(FooterVideoPlayer)`
+  /* z-index:100; */
+`;
 const Tout = styled.div`
   color: #ffffff;
   width: calc(70% / 3);
@@ -224,7 +233,7 @@ const Tout = styled.div`
     transform: translateX(-15%);
     border-radius: 50%;
     @media (max-width: 768px) {
-      a {
+      a { 
         height: auto;
         width: auto;
       }
@@ -412,15 +421,15 @@ const RightWrapper = styled.div`
   }
   @media (max-width: 768px) {
     .link {
-      margin-right:0;
+      margin-right: 0;
       &.first {
         &:last-of-type {
-          display:none;
+          display: none;
         }
       }
-       &.last {
+      &.last {
         &:first-of-type {
-          display:none;
+          display: none;
         }
       }
     }

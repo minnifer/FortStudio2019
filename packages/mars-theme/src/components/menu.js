@@ -6,7 +6,7 @@ import MenuModal from "./menu-modal";
 function MobileMenu({ state, actions, menuTheme }) {
   const { isMobileMenuOpen } = state.theme;
   return (
-    <Container className="link" data-stick-cursor>
+    <Container className="link" data-small-cursor>
       <MenuToggle
         menuTheme={menuTheme}
         onClick={actions.theme.toggleMobileMenu}
@@ -33,7 +33,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   cursor: none;
-  right: 84px;
+  right: 30px;
   top: 80px;
   position: absolute;
   @media (max-width: 768px) {
