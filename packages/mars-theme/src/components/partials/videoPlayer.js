@@ -210,7 +210,28 @@ const PlayButton = styled.button`
   outline: none;
   position: relative;
   border-radius: 100%;
-
+  &:before{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -85%);
+    content:'';
+    animation-name: dots-spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    height:30px;
+    width:30px;
+    border-radius:100%;
+  }
+   @media (max-width: 768px) {
+     &:before{
+       transform:translate(-50%, -50%);
+     }
+   }
   span {
     position: absolute;
     opacity: 0;
@@ -226,13 +247,7 @@ const PlayButton = styled.button`
     /* transition: opacity 500ms ease-in-out; */
   }
   svg {
-    animation-name: dots-spin;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+    
     border-radius: 50%;
     
     #Ellipse_8 {
@@ -240,6 +255,15 @@ const PlayButton = styled.button`
     }
   }
   @keyframes dots-spin {
+    from {
+      box-shadow: 0 0 0 10px rgba(255, 196, 0, 0.301);
+    }
+
+    to {
+      box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
+    }
+  }
+  @-webkit-keyframes dots-spin {
     from {
       box-shadow: 0 0 0 10px rgba(255, 196, 0, 0.301);
     }
