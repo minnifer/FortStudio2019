@@ -3,26 +3,30 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import FormHeader from "./FormHeader";
 import AutoVideoPLayer from "./partials/autoPlayVideo";
+import YourMouse from "./utils/YourMouse";
 class Reel extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
     const data = this.props.state.source.get(this.props.state.router.link);
     const post = this.props.state.source[data.type][data.id];
     const Html2React = this.props.libraries.html2react.Component;
     const options = this.props.state.source.get("acf-options-page");
     return (
-      <PageContainer onClick={this.removeModal}>
+      <PageContainer>
+        <YourMouse />
         {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
         <HeadContainer>
           <FormHeader menuTheme="white" />
         </HeadContainer>
         <Content>
-          <StyledVideoPlayer toggle={this.props.state} src={options.acf.video["url"]} />
+          <StyledVideoPlayer
+            toggle={this.props.state}
+            src={options.acf.video["url"]}
+          />
         </Content>
       </PageContainer>
     );
