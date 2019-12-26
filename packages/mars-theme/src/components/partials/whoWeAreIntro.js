@@ -219,7 +219,6 @@ const BodyContainer = styled.div`
   }
   @media (max-width: 480px) {
     width: 80%;
-    margin-bottom:auto;
   }
   &.spy {
     transform: translateY(5vw);

@@ -74,7 +74,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding-left: 114px;
   padding-right: 114px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     margin-left: 80px;
     margin-right: 80px;
@@ -125,7 +125,7 @@ const GridItem = styled.div`
       margin-right: 0;
     }
   }
-  @media (max-width: 720px) {
+  @media (max-width: 768) {
     width: 100%;
     padding-bottom: 100%;
     margin-right: 0;

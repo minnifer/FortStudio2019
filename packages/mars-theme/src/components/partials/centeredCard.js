@@ -47,9 +47,12 @@ const StyledLink = styled(Link)`
     left:50%;
     transform:translate(-50%, -50%);
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width:108.4px;
     height:108.4px;
+    span{
+      width:100%;
+    }
   }
   &:hover{
     background-color:transparent;
