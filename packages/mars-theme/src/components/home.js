@@ -50,11 +50,13 @@ const Home = ({ state, actions, libraries }) => {
                 autoPlay
                 muted
                 loop
+                playsInline
+                allowsInlineMediaPlayback={true}
                 src={post.acf.background_video["url"]}
               />
             </BrowserView>
             <MobileView>
-              <Video autoPlay muted loop>
+              <Video autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>
                 <source
                   src={post.acf.mobile_background_video_mp4["url"]}
                   type="video/mp4"
