@@ -12,7 +12,9 @@ import {
   BrowserView,
   MobileView,
   isBrowser,
-  isMobile
+  isMobile,
+  isMobileSafari,
+  browserName, CustomView
 } from "react-device-detect";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
@@ -59,8 +61,10 @@ const Home = ({ state, actions, libraries }) => {
                 muted
                 loop
               >
-              <source src={post.acf.mobile_background_video_mp4["url"]} type="video/mp4" />
-              <source src={post.acf.mobile_background_video_webm["url"]} type="video/webm" />
+               <source src={post.acf.mobile_background_video_mp4["url"]} type="video/mp4" />
+              <CustomView condition={isMobileSafari === "true"}>
+                <source src={post.acf.mobile_background_video_webm["url"]} type="video/webm" />
+              </CustomView>
               </Video>
             </MobileView>
           </StyledVideoContainer>
