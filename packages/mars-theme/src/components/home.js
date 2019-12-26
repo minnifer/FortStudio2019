@@ -59,7 +59,7 @@ const Home = ({ state, actions, libraries }) => {
                 muted
                 loop
               >
-              <source src={post.acf.mobile_background_video["url"]} type="video/mp4" />
+              <source src={post.acf.mobile_background_video_mp4["url"]} type="video/mp4" />
               </Video>
             </MobileView>
           </StyledVideoContainer>
