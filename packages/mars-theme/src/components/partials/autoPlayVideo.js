@@ -117,14 +117,10 @@ const Video = styled.video`
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E %3Ccircle id='Cursor' cx='6' cy='6' r='6' fill='%23ffc40a' opacity='0.9'/%3E %3C/svg%3E "),
-    pointer;
+  display: none;;
   &.active {
     display: flex;
     z-index: 10;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42'%3E %3Cg id='Group_687' data-name='Group 687' transform='translate(-889 -514)'%3E %3Ccircle id='Ellipse_11' data-name='Ellipse 11' cx='21' cy='21' r='21' transform='translate(889 514)' fill='%23ffc40a'/%3E %3Cg id='icon_-_pause' data-name='icon - pause' transform='translate(-29.5 -0.5)'%3E %3Cline id='Line_112' data-name='Line 112' y2='8' transform='translate(937.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3Cline id='Line_113' data-name='Line 113' y2='8' transform='translate(941.5 531.5)' fill='none' stroke='%23fff' stroke-width='2'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E "),
-      pointer !important;
   }
 `;
 const ButtonContainer = styled.div`
@@ -267,8 +263,8 @@ const PlayButton = styled.button`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 105px;
-  right: 55px;
+  top: 115px;
+  right: 65px;
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -289,6 +285,7 @@ const CloseButton = styled.button`
   z-index: 900;
   color: #ffc40a;
   max-width: none;
+  outline:none;
   &:hover {
   }
   @media (max-width: 768px) {

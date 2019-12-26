@@ -342,7 +342,7 @@ const RightContainer = styled.div`
   @media (max-width: 1024px) {
     align-self: center;
     width: 100%;
-    margin-top: 0;
+    margin-top: 15px;
   }
 `;
 
@@ -370,7 +370,7 @@ const ToutContainer = styled.div`
   &:last-of-type {
     margin-bottom: 177px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     text-align: center;
     width: auto;
     margin-bottom: 137px;
