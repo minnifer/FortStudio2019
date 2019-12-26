@@ -295,7 +295,6 @@ const Cursor = styled.div`
       background-color: #ffc400;
       width: 180px;
       height: 180px;
-      border:1px solid #fff;
       opacity: 1;
       cursor: none;
       transform: translate(-45%, -45%);
@@ -303,7 +302,6 @@ const Cursor = styled.div`
   }
   &.is-swapped {
     div {
-      border: 1px solid #fff;
       background-color: #fff;
     }
     &.is-active {

@@ -43,6 +43,7 @@ const CloseButton = styled.button`
   justify-content: center;
   -webkit-appearance: none;
   transition: color 250ms ease-in-out;
+  cursor:pointer !important;
   outline: none;
   /* color: #ffc40a;
   &:hover {

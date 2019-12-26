@@ -354,7 +354,10 @@ const Content = styled.div`
       transform: translateY(-50%);
       pointer-events: none;
       transition: top 0.2s;
-      
+      &.error{
+              color: red;
+              /* font-weight:; */
+            }
       }
       &.intro{
         width:25%;
@@ -413,6 +416,7 @@ const Content = styled.div`
             justify-content: center;
             height: 100%;
             width:100%;
+            
             @media (max-width: 768px) {
          width:100%;
         }

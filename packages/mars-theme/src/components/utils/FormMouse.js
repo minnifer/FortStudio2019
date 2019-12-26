@@ -251,7 +251,6 @@ const FormCursor = styled.div`
   }
   &.is-swapped {
     div {
-      border: 1px solid #fff;
       background-color: #fff;
     }
     &.is-active {
