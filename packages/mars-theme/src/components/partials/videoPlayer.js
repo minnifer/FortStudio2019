@@ -272,6 +272,15 @@ const PlayButton = styled.button`
       box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
     }
   }
+  @-moz-keyframes dots-spin {
+    from {
+      box-shadow: 0 0 0 10px rgba(255, 196, 0, 0.301);
+    }
+
+    to {
+      box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
+    }
+  }
   &:hover,
   &:focus,
   &:active {
