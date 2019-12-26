@@ -14,7 +14,8 @@ import {
   isBrowser,
   isMobile,
   isMobileSafari,
-  browserName, CustomView
+  browserName,
+  CustomView
 } from "react-device-detect";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
@@ -46,25 +47,24 @@ const Home = ({ state, actions, libraries }) => {
           <StyledVideoContainer>
             <BrowserView>
               <Video
-                playsinline="true" disablePictureInPicture="true"
                 autoPlay
                 muted
                 loop
-                webkit-playsinline
                 src={post.acf.background_video["url"]}
               />
             </BrowserView>
             <MobileView>
-              <Video
-                playsinline
-                autoPlay
-                muted
-                loop
-              >
-               <source src={post.acf.mobile_background_video_mp4["url"]} type="video/mp4" />
-              <CustomView condition={isMobileSafari === "true"}>
-                <source src={post.acf.mobile_background_video_webm["url"]} type="video/webm" />
-              </CustomView>
+              <Video autoPlay muted loop>
+                <source
+                  src={post.acf.mobile_background_video_mp4["url"]}
+                  type="video/mp4"
+                />
+                <CustomView condition={isMobileSafari === "true"}>
+                  <source
+                    src={post.acf.mobile_background_video_webm["url"]}
+                    type="video/webm"
+                  />
+                </CustomView>
               </Video>
             </MobileView>
           </StyledVideoContainer>
@@ -109,12 +109,12 @@ const Wrapper = styled.div`
     align-items: center;
     .link {
       transform: translateY(-50%);
-      width:100px;
-      height:auto;
-      a{
-        position:relative;
-        width:auto;
-        height:auto;
+      width: 100px;
+      height: auto;
+      a {
+        position: relative;
+        width: auto;
+        height: auto;
       }
     }
   }
@@ -136,14 +136,13 @@ const VideoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  &.is-open{
-      z-index:900;
-    }
+  &.is-open {
+    z-index: 900;
+  }
   @media (max-width: 768px) {
     height: 100%;
     position: fixed;
     /* z-index: 5; */
-    
   }
 `;
 const StyledVideoPlayer = styled(VideoPlayer)`
