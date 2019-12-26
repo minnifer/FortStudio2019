@@ -38,7 +38,8 @@ class Footer extends Component {
               <h4>{options.acf.footer_section.hire_headline}</h4>
               <p className="p1">{options.acf.footer_section.hire_body}</p>
               <Card
-                linkURL="/contact"
+                target="_blank"
+                linkURL="mailto:projects@fortyeah.com"
                 linkText={options.acf.footer_section.hire_cta_text}
               ></Card>
             </Tout>
@@ -118,7 +119,7 @@ class Footer extends Component {
             <RightContainer>
               <RightWrapper className={this.props.activeTout}>
                 <StyledCard
-                  linkURL="/contact"
+                  linkURL="/reel"
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
@@ -134,7 +135,7 @@ class Footer extends Component {
               </RightWrapper>
               <NotFixedContainer className={this.props.activeTout}>
                 <StyledCard
-                  linkURL="/contact"
+                  linkURL="/reel"
                   activeTout={this.props.activeTout}
                   linkText={options.acf.footer_cta_text.reel_text}
                 ></StyledCard>
@@ -163,7 +164,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   margin: auto;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: auto;
   }
 `;
@@ -197,7 +198,7 @@ const NotFixedContainer = styled.div`
       }
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -209,7 +210,7 @@ const TopFooter = styled.div`
   padding-top: 125px;
   padding-bottom: 125px;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -232,7 +233,7 @@ const Tout = styled.div`
     left: 0%;
     transform: translateX(-15%);
     border-radius: 50%;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       a {
         height: auto;
         width: auto;
@@ -267,7 +268,7 @@ const Tout = styled.div`
     left: 0;
     background: #ffc40a;
     position: absolute;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       height: 90%;
     }
   }
@@ -276,7 +277,7 @@ const Tout = styled.div`
     .link {
       /* transform: translateX(15%); */
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .link {
         transform: none;
       }
@@ -293,7 +294,7 @@ const Tout = styled.div`
       color: #1d1d1d;
     }
   } */
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 80%;
     margin-bottom: 60px;
     margin-left: 36px;
@@ -320,7 +321,7 @@ const BottomFooter = styled.div`
   padding-bottom: 33px;
   align-items: center;
   position: relative;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     flex-direction: column;
   }
@@ -334,7 +335,7 @@ const BottomWrapper = styled.div`
 `;
 const LeftContainer = styled.div`
   display: flex;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     justify-content: space-around;
     width: 100%;
     flex-direction: column;
@@ -347,7 +348,7 @@ const LeftContainer = styled.div`
 const CenterContainer = styled(Link)`
   position: absolute;
   left: 50%;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: relative;
     background: #000;
     left: auto;
@@ -383,10 +384,10 @@ const RightContainer = styled.div`
   margin: auto;
   bottom: 0;
   left: 0;
-  width: 80%;
+  width: 72%;
   right: 0;
   justify-content: flex-end;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     /* display: none; */
   }
 `;
@@ -423,7 +424,7 @@ const RightWrapper = styled.div`
       }
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .link {
       margin-right: 0;
       &.first {
@@ -445,7 +446,7 @@ const RightWrapper = styled.div`
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     align-items: center;
   }
 `;
@@ -460,7 +461,7 @@ const Address = styled.a`
   &:focus {
     color: #ffc400;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-bottom: 20px;
   }
 `;
@@ -532,7 +533,7 @@ const SocialContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 48px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     align-items: center;
     margin-right: 0;
   }
@@ -548,7 +549,7 @@ const StyledSocialLink = styled(Link)`
   &:focus {
     color: #ffc400;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-bottom: 20px;
   }
 `;

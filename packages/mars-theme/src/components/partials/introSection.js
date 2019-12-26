@@ -216,7 +216,7 @@ const Container = styled.div`
   padding: 0 119px;
   display: flex;
   flex-direction: row;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     padding: 0;
     margin-left: 36px;
@@ -246,7 +246,7 @@ const HoverBody = styled.div`
   outline: none;
   top: -60px;
   left: -200px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     top: -15%;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -267,24 +267,24 @@ const HoverBody = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
       left: -6.5%;
-      top: -25%; 
+      top: -25%;
       background-color: #ffc40a;
       border-radius: 50%;
       width: 230px;
       height: 230px;
-      transform:scale(0);
-      transition:transform 250ms ease-in-out;
+      transform: scale(0);
+      transition: transform 250ms ease-in-out;
     }
   }
   svg {
     margin-top: 50px;
     margin-left: 62.5px;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       margin-left: 0;
     }
   }
@@ -297,7 +297,7 @@ const HoverBody = styled.div`
     }
     span {
       opacity: 1;
-      transform:scale(1);
+      transform: scale(1);
       /* transform:translate(0%, 0%); */
     }
   }
@@ -312,7 +312,7 @@ const LeftContainer = styled.div`
   top: 235px;
   padding-bottom: 177px;
   height: fit-content;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: relative;
     margin-top: 161px;
     top: auto;
@@ -339,7 +339,7 @@ const RightContainer = styled.div`
   align-self: flex-end;
   margin-top: 450px;
   z-index: 6;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     align-self: center;
     width: 100%;
     margin-top: 0;
@@ -370,14 +370,18 @@ const ToutContainer = styled.div`
   &:last-of-type {
     margin-bottom: 177px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     text-align: center;
-    width: 80vw;
+    width: auto;
     margin-bottom: 137px;
     &:last-of-type {
       margin-bottom: 80px;
     }
   }
+  @media (max-width: 480px) {
+    width: 80vw;
+  }
+
   &.spy {
     transform: translateY(5vw);
     transition: transform 1s cubic-bezier(0, 0.7, 0.1, 1),

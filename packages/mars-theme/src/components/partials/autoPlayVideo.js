@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { connect, styled } from "frontity";
 
-class FooterVideoPlayer extends Component {
+class AutoVideoPLayer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      active: false
+      active: true
     };
   }
-
+ 
   componentWillUnmount = () => {
     this.stopVideo();
   };
+
   playVideo = () => {
-    // You can use the play method as normal on your video ref
     this.refs.vidRef.play();
     this.setState({ active: true });
-
+    document.querySelector("#cursor").classList.add("is-playing");
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.add("is-open");
     }
@@ -27,6 +27,7 @@ class FooterVideoPlayer extends Component {
     this.refs.vidRef.pause();
     this.refs.vidRef.currentTime = 0;
     this.setState({ active: false });
+    document.querySelector("#cursor").classList.remove("is-playing");
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.remove("is-open");
     }
@@ -43,46 +44,36 @@ class FooterVideoPlayer extends Component {
       this.refs.vidRef.pause();
       this.refs.vidRef.currentTime = 0;
       this.setState({ active: false });
+      if (document.querySelector("#checkIfOpen")) {
+        document.querySelector("#checkIfOpen").classList.remove("is-open");
+      }
     }
   };
 
   render = () => {
     return (
       <Container className={[this.state.active, this.props.nav].join(" ")}>
-        <ButtonContainer
-          data-stick-cursor
-          className={this.state.active ? "active link" : ""}
-        >
-          <CloseButton onClick={this.stopVideo}>Close</CloseButton>
-        </ButtonContainer>
         <Video
           onKeyDown={this.onKeyPressed}
           tabIndex="0"
-          preload="none"
+          // preload="none"
           ref="vidRef"
           src={this.props.src}
           type="video/mp4"
           onClick={this.pauseVideo}
           onEnded={() => this.stopVideo()}
-          // className={this.state.active ? "active" : ""}
+          autoPlay
+          className={this.state.active ? "active" : ""}
           className={`${this.state.active ? "active" : ""} videoOpen`}
         />
-        <div className="link" data-stick-cursor>
-          <PlayButton
-            className={[this.state.active, this.props.nav].join(" ")}
-            onClick={this.playVideo}
-          >
-            <span>Play Our Reel</span>
-          </PlayButton>
-        </div>
       </Container>
     );
   };
 }
-export default FooterVideoPlayer;
+export default AutoVideoPLayer;
 
 const Container = styled.div`
-  /* z-index: 4; */
+  z-index: 4;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -90,7 +81,7 @@ const Container = styled.div`
   max-width: none;
   top: 50%;
   left: 50%;
-  z-index: 5;
+  /* z-index: 5; */
   transform: translate(-50%, 0%);
   &.true {
     z-index: 90;
@@ -149,6 +140,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   &.active {
     display: flex;
+    max-width: 1440px;
   }
   @media (max-width: 768px) {
     width: auto;
@@ -196,6 +188,7 @@ const PlayButton = styled.button`
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     border-radius: 50%;
+
     #Ellipse_8 {
       fill: #fff;
     }
@@ -209,20 +202,15 @@ const PlayButton = styled.button`
       box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
     }
   }
-  @-webkit-keyframes dots-spin {
-    from {
-      box-shadow: 0 0 0 10px rgba(255, 196, 0, 0.301);
-    }
-
-    to {
-      box-shadow: 0 0 0 30px rgba(255, 196, 0, 0);
-    }
-  }
   &:hover,
   &:focus,
   &:active {
     svg {
       opacity: 0;
+      display: none;
+      #Ellipse_8 {
+        fill: transparent;
+      }
     }
     span {
       opacity: 1;
@@ -239,7 +227,8 @@ const PlayButton = styled.button`
         display: flex;
         flex-direction: column;
         left: -50%;
-        top:-50%;
+        top: -50%;
+        transform: translate(-50%, 0);
       }
     }
   }
@@ -253,7 +242,12 @@ const PlayButton = styled.button`
   }
   &.nav {
     svg {
-      animation: none;
+      /* animation: none; */
+    }
+    &:hover {
+      svg {
+        display: none;
+      }
     }
     @media (max-width: 768px) {
       /* top: -25px; */
@@ -263,12 +257,11 @@ const PlayButton = styled.button`
     height: auto;
     width: auto;
     height: 58.73px;
-    padding:0;
+    padding: 0;
     span {
       height: auto;
       width: auto;
-      display:none;
-
+      display: none;
     }
   }
 `;

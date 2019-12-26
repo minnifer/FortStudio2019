@@ -70,7 +70,7 @@ const MenuOverlay = styled.div`
     right: 0;
     top: 0;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     /* padding-top: 50px; */
     &:before,
     &:after {
@@ -98,7 +98,7 @@ const MenuContent = styled.div`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
@@ -157,7 +157,7 @@ const MenuLink = styled(Link)`
       color: #ffffff;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     align-items: flex-start;
     padding-left: 65px;
     padding-right: 0;

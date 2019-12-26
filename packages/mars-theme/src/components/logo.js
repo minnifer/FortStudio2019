@@ -226,7 +226,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   z-index: 48;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     padding: 36px 0;
     margin-top:0;
@@ -238,7 +238,7 @@ const StyledLink = styled(Link)`
   padding: 0 119px;
   padding-right: 0;
   width: fit-content;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     padding-left: 36px;
   }

@@ -240,7 +240,7 @@ const Cursor = styled.div`
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     opacity: 0;
   }
   div {

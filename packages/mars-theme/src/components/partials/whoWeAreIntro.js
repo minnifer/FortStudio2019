@@ -163,7 +163,7 @@ const Container = styled.div`
   max-width: 1440px;
   margin: auto;
   margin-top: 250px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-top: 161px;
     padding:0;
   }
@@ -176,7 +176,7 @@ const HeadlineContainer = styled.div`
   max-width: 1440px;
   margin: auto;
   text-align: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-left: 12px;
     margin-right: 12px;
     h2 {
@@ -206,8 +206,8 @@ const BodyContainer = styled.div`
   padding-left: 114px;
   position: absolute;
   top: 116%;
-  width: 20%;
-  @media (max-width: 768px) {
+  width: 288px;
+  @media (max-width: 1024px) {
     width: 80%;
     position: relative;
     padding-left: 0;
@@ -235,7 +235,7 @@ const Eyebrow = styled.div`
   letter-spacing: 0.84px;
   line-height: 16px;
   margin-bottom: 10px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 18px;
     line-height: 20px;
     max-width: 75%;
@@ -265,7 +265,7 @@ const HoverBody = styled.div`
   outline: none;
   top: -130px;
   left: 80px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     top: -30%;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -277,7 +277,7 @@ const HoverBody = styled.div`
     opacity: 0;
     top: 0;
     transform:scale(0);
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       background-color: #ffc40a;
       border-radius: 50%;
       width: 230px;
@@ -308,7 +308,7 @@ const HoverBody = styled.div`
     height: 200px;
     vertical-align: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -320,7 +320,7 @@ const HoverBody = styled.div`
   svg {
     margin-top: 50px;
     margin-left: 25px;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       margin-left: 0;
     }
   }
@@ -328,6 +328,12 @@ const HoverBody = styled.div`
   &:focus,
   &:active {
     left: 40px;
+    @media (max-width: 1024px) {
+      left:32.5%;
+    }
+    @media (max-width: 480px) {
+      left:15%;
+    }
     svg {
       opacity: 0;
     }

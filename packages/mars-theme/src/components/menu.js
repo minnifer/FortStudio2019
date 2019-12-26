@@ -37,7 +37,7 @@ const Container = styled.div`
   top: 80px;
   z-index: 900;
   position: absolute;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: relative;
     right: auto;
     top: auto;
@@ -73,7 +73,7 @@ const MenuToggle = styled.button`
       color: #1d1d1d;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     right: 36px;
     top: auto;
     width:auto;

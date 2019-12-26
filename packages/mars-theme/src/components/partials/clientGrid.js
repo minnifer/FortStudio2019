@@ -28,15 +28,19 @@ class ClientGrid extends Component {
     return (
       <GridItem key={index} className="spy">
         <GridWrapper>
-          <Category className="category" dangerouslySetInnerHTML={{
-                    __html: grid.category.name
-                  }}></Category>
+          <Category
+            className="category"
+            dangerouslySetInnerHTML={{
+              __html: grid.category.name
+            }}
+          ></Category>
           <Summary className="summary">Summary of Service</Summary>
           <Logo alt={grid.logo.alt} src={grid.logo.url} />
-          <BodyContainer className="body p2" 
+          <BodyContainer
+            className="body p2"
             dangerouslySetInnerHTML={{
-                    __html: grid.body
-                  }}
+              __html: grid.body
+            }}
           ></BodyContainer>
         </GridWrapper>
       </GridItem>
@@ -76,6 +80,10 @@ const Wrapper = styled.div`
     margin-right: 36px;
     flex-direction: column;
   }
+  @media (max-width: 1200px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 const GridItem = styled.div`
@@ -101,15 +109,26 @@ const GridItem = styled.div`
     max-width: 216px;
     margin: auto;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
+    width: calc(90% / 2);
+    position: relative;
+    padding-bottom: calc(90% / 2);
+    margin-right: 44px;
+    &:nth-of-type(2),
+    &:nth-of-type(4) {
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 480px) {
     width: 100%;
     padding-bottom: 100%;
     margin-right: 0;
     margin-bottom: 12px;
-    img{
-      max-width:none;
+    img {
+      max-width: none;
     }
   }
+  
 `;
 const GridWrapper = styled.div`
   flex-direction: column;
@@ -131,14 +150,15 @@ const GridWrapper = styled.div`
     top: 0;
   }
   &:hover,
-  &:focus, &:active {
+  &:focus,
+  &:active {
     .body {
       opacity: 1;
-      visibility:visible;
+      visibility: visible;
     }
     img {
       opacity: 0;
-      visibility:hidden;
+      visibility: hidden;
     }
     .category {
       opacity: 0;
@@ -154,9 +174,9 @@ const Category = styled.div`
   font-weight: normal;
   font-size: 14px;
   text-transform: uppercase;
-  color: #BFBFBF;
+  color: #bfbfbf;
   opacity: 1;
-  font-weight:500;
+  font-weight: 500;
   letter-spacing: 0.84px;
   line-height: 16px;
   transition: opacity 250ms ease-in-out;
@@ -170,7 +190,7 @@ const Summary = styled.div`
   color: #ffc40a;
   letter-spacing: 0.84px;
   line-height: 16px;
-  font-weight:500;
+  font-weight: 500;
   opacity: 0;
   transition: opacity 250ms ease-in-out;
 `;
@@ -181,14 +201,15 @@ const BodyContainer = styled.div`
   opacity: 0;
   transition: opacity 250ms ease-in-out;
   text-align: center;
-  visibility:hidden;  
+  visibility: hidden;
 `;
 const Logo = styled(Image)`
-  position: absolute; pointer-events: none;
+  position: absolute;
+  pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 250ms ease-in-out;
   opacity: 1;
-  visibility:visible;
+  visibility: visible;
 `;
 // const

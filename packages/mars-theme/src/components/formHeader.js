@@ -14,8 +14,10 @@ const FormHeader = ({ state, menuTheme }) => {
     <>
       <Container>
         <Logo menuTheme={menuTheme} />
-        <div className="link" data-small-cursor>
-          <CloseButton onClick={goBack}>Close</CloseButton>
+        <div data-small-cursor
+        className='link'
+        >
+          <CloseButton className={`${menuTheme}`} onClick={goBack}>Close</CloseButton>
         </div>
       </Container>
     </>
@@ -52,6 +54,9 @@ const CloseButton = styled.button`
     right: 36px;
     width:auto;
     height:auto;
+  }
+  &.white{
+    color: #fff;
   }
 `;
 const Container = styled.div`

@@ -2,11 +2,11 @@ import React from "react";
 import { useSpring, animated } from "react-spring";
 import { connect, styled } from "frontity";
 import Link from "./../link";
-const Card = ({ linkURL, linkText, text }) => {
+const Card = ({ target, linkURL, linkText, text }) => {
   return (
     <Container className="link" data-stick-cursor>
       {linkURL ? (
-        <StyledLink link={linkURL}>{linkText}</StyledLink>
+        <StyledLink target={target} link={linkURL}>{linkText}</StyledLink>
       ) : (
         <StyledText dangerouslySetInnerHTML={{ __html: text }}></StyledText>
       )}
