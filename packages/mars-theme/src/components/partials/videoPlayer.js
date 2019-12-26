@@ -217,8 +217,11 @@ const PlayButton = styled.button`
     transform:translate(-50%, -85%);
     content:'';
     animation-name: dots-spin;
+    -webkit-animation-name: dots-spin;
     animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
     animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
     -webkit-animation-fill-mode: both;
