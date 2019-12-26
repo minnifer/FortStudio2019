@@ -341,9 +341,7 @@ const Content = styled.div`
   
   form {
     margin-top: 235px;
-    @media (max-width: 768px) {
-      margin-top: 48px;
-    }
+    
     > p {
       position: relative;
        > label {
@@ -358,13 +356,21 @@ const Content = styled.div`
       transition: top 0.2s;
       
       }
-    }
       &.intro{
         width:25%;
         min-width:184px;
-        margin-bottom:16px;
         line-height:24px;
       }
+    }
+    @media (max-width: 768px) {
+      margin-top: 0;
+      >p{
+        &.intro{
+          margin-top:70px;
+        }
+      }
+    }
+      
     }
     
     .form-container {
@@ -373,7 +379,7 @@ const Content = styled.div`
       /* flex-wrap:wrap; */
       @media (max-width: 768px) {
         flex-wrap:wrap;
-        margin-bottom:5px;
+        margin-bottom:45px;
       }
       > span {
         margin-right: 14px;

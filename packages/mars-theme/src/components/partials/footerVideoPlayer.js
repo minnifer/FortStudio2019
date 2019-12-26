@@ -263,6 +263,7 @@ const CloseButton = styled.button`
   position: absolute;
  top: 115px;
   right: 65px;
+  cursor:pointer !important;
   outline:none;
   width: 130px;
   height: 130px;

@@ -21,19 +21,31 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
   z-index: 10;
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
   /* transition: background-color 250ms ease-in-out; */
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  background-color:#F8F8F8;
   border-radius:50%;
+  margin-top:-20px;
+  margin-bottom:-20px;
   span{
       width:80%;
       z-index: 10;
+  }
+  &:before{
+    content: '';
+    width: 130px;
+    height: 130px;
+    background-color: #F8F8F8;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
   }
   @media (max-width: 768px) {
     width:108.4px;
@@ -41,6 +53,9 @@ const StyledLink = styled(Link)`
   }
   &:hover{
     background-color:transparent;
+    &:before{
+      content:none;
+    }
   }
   &:after{
     content: "";
@@ -60,7 +75,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: none;
-  margin-right:60px;
+  margin-right:10px;
   z-index:99;
   /* &.first{
     &:first-of-type{

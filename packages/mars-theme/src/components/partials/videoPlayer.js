@@ -346,6 +346,7 @@ const PlayButton = styled.button`
 const CloseButton = styled.button`
   position: absolute;
   top: 115px;
+  cursor:pointer !important;
   right: 65px;
   outline:none;
   width: 130px;

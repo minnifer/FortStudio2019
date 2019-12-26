@@ -82,33 +82,6 @@ export default function NavMouse() {
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
         }
       });
-    largeStickies
-      .map(ele => {
-        const bounds = ele.getBoundingClientRect();
-        const objectWidth = ele.offsetWidth;
-        const height = ele.offsetHeight;
-        return {
-          el: ele,
-          x: window.scrollX + bounds.left + bounds.width / 2,
-          y: window.scrollY + bounds.top + bounds.height / 2
-        };
-      })
-      .forEach(target => {
-        const d = {
-          x: target.x - mouseHitPos.current[0],
-          y: target.y - mouseHitPos.current[1]
-        };
-
-        const a = Math.atan2(d.x, d.y);
-        const h = Math.sqrt(d.x * d.x + d.y * d.y);
-
-        if (h < DIST && !largeStuck) {
-          isNearLargeOne = true;
-          // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
-        }
-      });
     smallStickies
       .map(ele => {
         const bounds = ele.getBoundingClientRect();

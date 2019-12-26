@@ -406,7 +406,11 @@ const RightWrapper = styled.div`
       &:first-of-type {
         margin-right: 180px;
         a {
-          background-color: #ffc400;
+          background-color: transparent;
+          &:before{
+            background-color: #ffc400;
+          }
+
           /* border:1px solid #fff; */
         }
       }
@@ -418,8 +422,10 @@ const RightWrapper = styled.div`
       }
       &:last-of-type {
         a {
-          background-color: #ffc400;
-          /* border:1px solid #fff; */
+          background-color: transparent;
+          &:before{
+            background-color: #ffc400;
+          }
         }
       }
     }
