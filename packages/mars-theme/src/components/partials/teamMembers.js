@@ -116,7 +116,7 @@ const Container = styled.div`
   margin: auto;
   max-width: 1440px;
   padding-bottom: 100px;
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     padding-bottom:0px;
   }
 `;
@@ -130,6 +130,10 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    padding: 0 60px;
+    flex-direction: row;
+  }
   @media (max-width: 480px) {
     padding: 0;
     flex-direction: column;
@@ -155,6 +159,26 @@ const TeamMember = styled.div`
     margin-top: -50px;
   }
   @media (max-width: 1024px) {
+    width: calc(86% / 2);
+    margin: auto;
+    margin-bottom: 26px;
+    &:nth-of-type(2) {
+      margin-top: auto;
+    }
+    &:nth-of-type(3) {
+      margin-top: auto;
+    }
+    &:nth-of-type(4) {
+      margin-top: auto;
+    }
+    &:nth-of-type(5) {
+      margin-top: auto;
+    }
+    &:nth-of-type(6) {
+      margin-top: auto;
+    }
+  }
+   @media (max-width: 480px) {
     width: 80%;
     margin: auto;
     margin-bottom: 26px;
@@ -192,7 +216,7 @@ const NameContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 16px;
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     margin-left: 13px;
   }
 `;
@@ -201,7 +225,7 @@ const Name = styled.div`
   line-height: 34px;
   margin-top: 16px;
   font-weight: 300;
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     margin-top: 26px;
   }
 `;
@@ -209,7 +233,7 @@ const ContentContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -222,7 +246,7 @@ const Title = styled.div`
   letter-spacing: 0.84px;
   color: #c6c6c6;
   text-transform: uppercase;
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     font-size: 15px;
   }
 `;
@@ -254,7 +278,7 @@ const SocialContainer = styled.div`
       transform: scale(1.2);
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     margin-right: 0;
     margin-left: 16px;
     margin-top: 16px;
@@ -317,7 +341,7 @@ const ImageContainer = styled(Link)`
       }
       
     }
-    @media (max-width: 480px) {
+    @media (max-width: 1024px) {
       top: 30%;
     }
   }

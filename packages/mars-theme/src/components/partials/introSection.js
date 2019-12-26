@@ -219,6 +219,13 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
     padding: 0;
+    margin-left: 90px;
+    margin-right: 90px;
+    width: auto;
+  }
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 0;
     margin-left: 36px;
     margin-right: 36px;
     width: auto;
@@ -348,8 +355,19 @@ const RightContainer = styled.div`
 
 const BodyContainer = styled.div`
   margin-top: 15px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    &.p2{
+      width:68%;
+      margin:auto;
+      margin-top: 10px;
+    }
+  }
+  @media (max-width: 480px) {
     margin-top: 10px;
+    &.p2{
+      width:100%;
+      margin-top: 10px;
+    }
   }
   &.spy {
     transform: translateY(5vw);

@@ -76,13 +76,19 @@ const Wrapper = styled.div`
   padding-right: 114px;
   @media (max-width: 768px) {
     padding: 0;
-    margin-left: 36px;
-    margin-right: 36px;
+    margin-left: 80px;
+    margin-right: 80px;
     flex-direction: column;
   }
   @media (max-width: 1200px) {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  @media (max-width: 480px) {
+    padding: 0;
+    margin-left: 36px;
+    margin-right: 36px;
+    flex-direction: column;
   }
 `;
 
@@ -110,16 +116,16 @@ const GridItem = styled.div`
     margin: auto;
   }
   @media (max-width: 1200px) {
-    width: calc(90% / 2);
+    width: calc(85% / 2);
     position: relative;
-    padding-bottom: calc(90% / 2);
-    margin-right: 44px;
+    padding-bottom: calc(85% / 2);
+    margin-right: 87px;
     &:nth-of-type(2),
     &:nth-of-type(4) {
       margin-right: 0;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 720px) {
     width: 100%;
     padding-bottom: 100%;
     margin-right: 0;

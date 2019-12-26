@@ -208,13 +208,18 @@ const BodyContainer = styled.div`
   top: 116%;
   width: 288px;
   @media (max-width: 1024px) {
-    width: 80%;
+   
     position: relative;
     padding-left: 0;
     top: auto;
     margin: auto;
     text-align: center;
     margin-top: 84px;
+    margin-bottom:24px;
+  }
+  @media (max-width: 480px) {
+    width: 80%;
+    margin-bottom:auto;
   }
   &.spy {
     transform: translateY(5vw);

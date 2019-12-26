@@ -71,7 +71,7 @@ const ContentContainer = styled.div`
   max-width: 1440px;
   margin: auto;
   margin-bottom: 134px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-bottom: 60px;
   }
 `;
@@ -79,9 +79,13 @@ const ContentContainer = styled.div`
 const HeadlineContainer = styled.div`
   padding: 0 119px;
   padding-top: 134px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     padding-top: 72px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  @media (max-width: 480px) {
     margin-left: 36px;
     margin-right: 36px;
   }
@@ -102,7 +106,7 @@ const Headline = styled.h2`
   .white {
     color: #ffffff;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -134,7 +138,7 @@ const BodyContainer = styled.div`
     width: 1px;
     background: #ffffff;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     margin-top: 40px;
     width: 70%;
     column-count: 1;

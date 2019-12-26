@@ -36,7 +36,11 @@ class Footer extends Component {
           <TopFooter>
             <Tout className="spy">
               <h4>{options.acf.footer_section.hire_headline}</h4>
-              <p className="p1">{options.acf.footer_section.hire_body}</p>
+              <p className="p1"
+              dangerouslySetInnerHTML={{
+                    __html: options.acf.footer_section.hire_body
+                  }}
+              ></p>
               <Card
                 target="_blank"
                 linkURL="mailto:projects@fortyeah.com"
@@ -45,8 +49,10 @@ class Footer extends Component {
             </Tout>
             <Tout className="spy">
               <h4>{options.acf.footer_section.request_work_headline}</h4>
-              <p className="p1">
-                {options.acf.footer_section.request_work_body}
+              <p className="p1"
+                dangerouslySetInnerHTML={{
+                    __html: options.acf.footer_section.request_work_body
+                  }}>
               </p>
               <Card
                 linkURL="/contact"
@@ -55,7 +61,11 @@ class Footer extends Component {
             </Tout>
             <Tout className="spy">
               <h4>{options.acf.footer_section.careers_headline}</h4>
-              <p className="p1">{options.acf.footer_section.careers_body}</p>
+              <p className="p1"
+              dangerouslySetInnerHTML={{
+                    __html: options.acf.footer_section.careers_body
+                  }}
+              ></p>
               <Card
                 linkURL="/contact"
                 linkText={options.acf.footer_section.careers_cta_text}
@@ -211,9 +221,18 @@ const TopFooter = styled.div`
   padding-bottom: 125px;
   justify-content: space-between;
   @media (max-width: 1024px) {
+    flex-wrap:wrap;
+    padding-left:60px;
+    padding-right:60px;
+    width:auto;
+  }
+  @media (max-width: 480px) {
     flex-direction: column;
+    padding:0;
     padding-top: 60px;
     padding-bottom: 60px;
+    width: 100%;
+    
   }
 `;
 const StyledVideoPlayer = styled(FooterVideoPlayer)`
@@ -295,6 +314,22 @@ const Tout = styled.div`
     }
   } */
   @media (max-width: 1024px) {
+    width: calc(90% / 2);
+    margin-bottom: 60px;
+    margin-left: 0;
+    &:first-of-type {
+      margin-left: 0;
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+      margin-bottom: 0;
+      .link {
+        transform: none;
+      }
+    }
+  }
+  @media (max-width: 480px) {
     width: 80%;
     margin-bottom: 60px;
     margin-left: 36px;
@@ -431,6 +466,7 @@ const RightWrapper = styled.div`
     }
   }
   @media (max-width: 1024px) {
+    bottom:75px;
     .link {
       margin-right: 0;
       &.first {
