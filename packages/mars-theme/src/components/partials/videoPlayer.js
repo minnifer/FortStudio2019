@@ -16,7 +16,7 @@ class VideoPlayer extends Component {
   playVideo = () => {
     this.refs.vidRef.play();
     this.setState({ active: true });
-    document.querySelector('#cursor').classList.add('is-playing'); 
+    document.querySelector("#cursor").classList.add("is-playing");
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.add("is-open");
     }
@@ -26,7 +26,7 @@ class VideoPlayer extends Component {
     this.refs.vidRef.pause();
     this.refs.vidRef.currentTime = 0;
     this.setState({ active: false });
-    document.querySelector('#cursor').classList.remove('is-playing'); 
+    document.querySelector("#cursor").classList.remove("is-playing");
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.remove("is-open");
     }
@@ -58,18 +58,22 @@ class VideoPlayer extends Component {
         >
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
-        <Video
-          onKeyDown={this.onKeyPressed}
-          tabIndex="0"
-          preload="none"
-          ref="vidRef"
-          src={this.props.src}
-          type="video/mp4"
-          onClick={this.pauseVideo}
-          onEnded={() => this.stopVideo()}
-          className={this.state.active ? "active" : ""}
+        <VideoContainer
           className={`${this.state.active ? "active" : ""} videoOpen`}
-        />
+        >
+          <Video
+            onKeyDown={this.onKeyPressed}
+            tabIndex="0"
+            preload="none"
+            ref="vidRef"
+            src={this.props.src}
+            type="video/mp4"
+            onClick={this.pauseVideo}
+            onEnded={() => this.stopVideo()}
+            className={this.state.active ? "active" : ""}
+            className={`${this.state.active ? "active" : ""} videoOpen`}
+          />
+        </VideoContainer>
         <div className="link" data-stick-cursor>
           <PlayButton
             className={[this.state.active, this.props.nav].join(" ")}
@@ -155,6 +159,26 @@ const Container = styled.div`
     top: 75%;
   }
 `;
+const VideoContainer = styled.div`
+  @media (max-width: 1600px) {
+    position: fixed;
+    padding-bottom: 56.25%;
+    top:0;
+    &.active {
+      width: 100vw;
+      &:before {
+        content: "";
+        height: 100vh;
+        width: 100vw;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+`;
+
 const Video = styled.video`
   object-fit: cover;
   height: 100%;
@@ -167,6 +191,11 @@ const Video = styled.video`
   &.active {
     display: flex;
     z-index: 10;
+  }
+  @media (max-width: 1600px) {
+    object-fit: contain;
+    top:50vh;
+    transform:translate(0, -50%);
   }
 `;
 const ButtonContainer = styled.div`
@@ -182,7 +211,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   &.active {
     display: flex;
-     max-width: 1440px;
+    max-width: 1440px;
   }
   @media (max-width: 768px) {
     width: auto;
@@ -206,12 +235,12 @@ const PlayButton = styled.button`
   outline: none;
   position: relative;
   border-radius: 100%;
-  &:before{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -85%);
-    content:'';
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    content: "";
     animation-name: dots-spin;
     -webkit-animation-name: dots-spin;
     animation-iteration-count: infinite;
@@ -222,15 +251,15 @@ const PlayButton = styled.button`
     animation-duration: 2s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    height:30px;
-    width:30px;
-    border-radius:100%;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
   }
-   @media (max-width: 768px) {
-     &:before{
-       transform:translate(-50%, -50%);
-     }
-   }
+  @media (max-width: 768px) {
+    &:before {
+      transform: translate(-50%, -50%);
+    }
+  }
   span {
     position: absolute;
     opacity: 0;
@@ -246,9 +275,8 @@ const PlayButton = styled.button`
     /* transition: opacity 500ms ease-in-out; */
   }
   svg {
-    
     border-radius: 50%;
-    
+
     #Ellipse_8 {
       fill: #fff;
     }
@@ -306,7 +334,7 @@ const PlayButton = styled.button`
         flex-direction: column;
         left: -50%;
         top: -50%;
-        transform:translate(-50%, 0);
+        transform: translate(-50%, 0);
       }
     }
   }
@@ -317,14 +345,17 @@ const PlayButton = styled.button`
     span {
       display: none;
     }
+    &:before{
+      content:none;
+    }
   }
   &.nav {
     svg {
       /* animation: none; */
     }
-    &:hover{
-      svg{
-        display:none;
+    &:hover {
+      svg {
+        display: none;
       }
     }
     @media (max-width: 768px) {
@@ -346,9 +377,9 @@ const PlayButton = styled.button`
 const CloseButton = styled.button`
   position: absolute;
   top: 115px;
-  cursor:pointer !important;
+  cursor: pointer !important;
   right: 65px;
-  outline:none;
+  outline: none;
   width: 130px;
   height: 130px;
   border-radius: 50%;

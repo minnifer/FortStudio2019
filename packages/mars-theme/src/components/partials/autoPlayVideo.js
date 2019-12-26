@@ -9,7 +9,7 @@ class AutoVideoPLayer extends Component {
       active: true
     };
   }
- 
+
   componentWillUnmount = () => {
     this.stopVideo();
   };
@@ -105,6 +105,20 @@ const Container = styled.div`
       transform: translate(-50%, 0%);
     }
   }
+  @media (max-width: 1600px) {
+    position: fixed;
+    padding-bottom: 56.25%;
+    top: 0;
+    &:before {
+      content: "";
+      height: 100vh;
+      width: 100vw;
+      background-color: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
   @media (max-width: 768px) {
     top: 75%;
   }
@@ -117,10 +131,15 @@ const Video = styled.video`
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;;
+  display: none;
   &.active {
     display: flex;
     z-index: 10;
+  }
+  @media (max-width: 1600px) {
+    object-fit: contain;
+    top: 50vh;
+    transform: translate(0, -50%);
   }
 `;
 const ButtonContainer = styled.div`
@@ -268,7 +287,7 @@ const CloseButton = styled.button`
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  cursor:pointer !important;
+  cursor: pointer !important;
   /* width: fit-content; */
   font-weight: 500;
   line-height: 51px;
@@ -286,7 +305,7 @@ const CloseButton = styled.button`
   z-index: 900;
   color: #ffc40a;
   max-width: none;
-  outline:none;
+  outline: none;
   &:hover {
   }
   @media (max-width: 768px) {
