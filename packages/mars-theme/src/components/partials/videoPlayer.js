@@ -258,10 +258,17 @@ const Video = styled.video`
     top: 50vh;
     transform: translate(0, -50%);
   }
-  @media (max-width: 1024px) {
+  /* @media (max-width: 1024px) {
     &.landscape {
       transform: rotate(90deg);
       top:30vh;
+    }
+  } */
+  @supports (-webkit-overflow-scrolling: touch) {
+    &.landscape {
+      transform: rotate(90deg);
+      top: 0;
+      position: relative;
     }
   }
 `;

@@ -15,17 +15,15 @@ class AutoVideoPLayer extends Component {
     var mql = window.matchMedia("(orientation: landscape)");
     if (mql.matches) {
       videoRef.play();
-      console.log("landscape");
     } else {
-      videoRef.pause();
-      console.log("portrait");
+      videoRef.play();
     }
     mql.addListener(function(m) {
       if (m.matches) {
         videoRef.play();
+        document.querySelector("#video").classList.remove("landscape");
       } else {
-        videoRef.pause();
-        videoRef.currentTime = 0;
+        document.querySelector("#video").classList.add("landscape");
       }
     });
   };
@@ -34,9 +32,6 @@ class AutoVideoPLayer extends Component {
   };
 
   playVideo = () => {
-    
-
-    // this.refs.vidRef.play();
     this.setState({ active: true });
     document.querySelector("#cursor").classList.add("is-playing");
     if (document.querySelector("#checkIfOpen")) {
@@ -74,9 +69,6 @@ class AutoVideoPLayer extends Component {
   render = () => {
     return (
       <Container className={[this.state.active, this.props.nav].join(" ")}>
-        <RotateScreenText className={this.state.active ? "active link" : ""}>
-          Please Rotate Your Screen
-        </RotateScreenText>
         <Video
           onKeyDown={this.onKeyPressed}
           tabIndex="0"
@@ -85,10 +77,10 @@ class AutoVideoPLayer extends Component {
           src={this.props.src}
           type="video/mp4"
           onClick={this.pauseVideo}
-          onEnded={() => this.stopVideo()}
+          onEnded={() => this.pauseVideo()}
           autoPlay
           className={this.state.active ? "active" : ""}
-          className={`${this.state.active ? "active" : ""} videoOpen`}
+          className={`${this.state.active ? "active" : ""} videoOpen landscape`}
         />
       </Container>
     );
@@ -183,6 +175,15 @@ const Video = styled.video`
     top: 50vh;
     transform: translate(0, -50%);
   }
+  
+  @supports (-webkit-overflow-scrolling: touch) {
+    &.landscape {
+      transform: rotate(90deg);
+      top: 0;
+      position: relative;
+    }
+  }
+  
 `;
 const ButtonContainer = styled.div`
   max-width: 1440px;
