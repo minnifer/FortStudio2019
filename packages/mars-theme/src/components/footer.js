@@ -27,11 +27,30 @@ class Footer extends Component {
   }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
-    window.onscroll = function(ev) {
+    // window.onscroll = function(ev) {
+    //   var stickyfooter = document.querySelector("#stuck");
+    //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    //     stickyfooter.classList.add("at-bottom");
+    //   } else {
+    //     stickyfooter.classList.remove("at-bottom");
+    //   }
+    // };
+    window.onscroll = function() {
       var stickyfooter = document.querySelector("#stuck");
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        stickyfooter.classList.add("at-bottom");
-      } else {
+      var pageHeight = document.documentElement.offsetHeight,
+        windowHeight = window.innerHeight,
+        scrollPosition =
+          window.scrollY ||
+          window.pageYOffset ||
+          document.body.scrollTop +
+            ((document.documentElement && document.documentElement.scrollTop) ||
+              0);
+
+
+      if (pageHeight <= windowHeight + scrollPosition) {
+         stickyfooter.classList.add("at-bottom");
+      }
+      else {
         stickyfooter.classList.remove("at-bottom");
       }
     };
@@ -441,7 +460,7 @@ const RightWrapper = styled.div`
   position: fixed;
   bottom: 36px;
   z-index: 90;
-  transition:opacity 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
   .link {
     &.first {
       &:last-of-type {
@@ -493,11 +512,10 @@ const RightWrapper = styled.div`
         }
       }
     }
-    &.at-bottom{
-      opacity:0;
+    &.at-bottom {
+      opacity: 0;
     }
   }
-
 `;
 const ContactContainer = styled.div`
   display: flex;
