@@ -78,7 +78,7 @@ class Footer extends Component {
                 }}
               ></p>
               <Card
-                linkURL="/contact"
+                linkURL="mailto:careers@fortyeah.com"
                 linkText={options.acf.footer_section.careers_cta_text}
               ></Card>
             </Tout>

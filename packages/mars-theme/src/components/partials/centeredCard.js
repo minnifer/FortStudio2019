@@ -32,6 +32,7 @@ const StyledLink = styled(Link)`
   border-radius:50%;
   margin-top:-20px;
   margin-bottom:-20px;
+  
   span{
       width:80%;
       z-index: 10;
@@ -46,6 +47,7 @@ const StyledLink = styled(Link)`
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
+    border:1px solid #fff;
   }
   @media (max-width: 1024px) {
     width:108.4px;

@@ -32,22 +32,21 @@ class TeamMembers extends Component {
     var hoverButtons = document.querySelectorAll(".teamLink");
     Array.prototype.forEach.call(hoverButtons, function(element, index) {
       element.addEventListener(
-      "touchstart",
-      ev => {
-        if (thisProxy.state.hover) {
-          ev.preventDefault();
-          ev.stopImmediatePropagation();
-          thisProxy.setState({ hover: false });
-          element.classList.add('hovering');
-        } else {
-          element.classList.remove('hovering');
-        }
-      },
-      { passive: false }
-    );
+        "touchstart",
+        ev => {
+          if (thisProxy.state.hover) {
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+            thisProxy.setState({ hover: false });
+            element.classList.add("hovering");
+          } else {
+            element.classList.remove("hovering");
+          }
+        },
+        { passive: false }
+      );
     });
-   
-  };
+  }
   render() {
     return (
       <Container>
@@ -67,14 +66,18 @@ const renderTeamMember = (teamMember, index) => {
         <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
         <span>Contact</span>
       </ImageContainer>
-      <ContentContainer >
+      <ContentContainer>
         <NameContainer>
           <Name>{teamMember.name}</Name>
           <Title>{teamMember.title}</Title>
         </NameContainer>
         <SocialContainer>
           {teamMember.linkedin ? (
-            <Link target="_blank" className="menu-item linkedin" link={teamMember.linkedin}>
+            <Link
+              target="_blank"
+              className="menu-item linkedin"
+              link={teamMember.linkedin}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14.379"
@@ -91,7 +94,11 @@ const renderTeamMember = (teamMember, index) => {
             </Link>
           ) : null}
           {teamMember.instagram ? (
-            <Link target="_blank" className="menu-item" link={teamMember.instagram}>
+            <Link
+              target="_blank"
+              className="menu-item"
+              link={teamMember.instagram}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="11.144"
@@ -108,7 +115,11 @@ const renderTeamMember = (teamMember, index) => {
             </Link>
           ) : null}
           {teamMember.dribble ? (
-            <Link target="_blank" className="menu-item dribble" link={teamMember.dribble}>
+            <Link
+              target="_blank"
+              className="menu-item dribble"
+              link={teamMember.dribble}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="11.993"
@@ -139,10 +150,10 @@ const Container = styled.div`
   max-width: 1440px;
   padding-bottom: 100px;
   @media (max-width: 1024px) {
-    padding-bottom:80px;
+    padding-bottom: 80px;
   }
   @media (max-width: 480px) {
-    padding-bottom:0px;
+    padding-bottom: 0px;
   }
 `;
 const StyledCard = styled(Card)`
@@ -203,7 +214,7 @@ const TeamMember = styled.div`
       margin-top: auto;
     }
   }
-   @media (max-width: 480px) {
+  @media (max-width: 480px) {
     width: 80%;
     margin: auto;
     margin-bottom: 26px;
@@ -223,7 +234,6 @@ const TeamMember = styled.div`
       margin-top: auto;
     }
   }
-  
 
   &.spy {
     transform: translateY(5vw);
@@ -262,7 +272,6 @@ const ContentContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
-  
 `;
 const Title = styled.div`
   font-weight: 500;
@@ -289,7 +298,8 @@ const SocialContainer = styled.div`
         transition: fill 250ms ease-in-out;
       }
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       svg {
         path {
           fill: #ffc40a;
@@ -347,31 +357,32 @@ const ImageContainer = styled(Link)`
     border-radius: 50%;
     vertical-align: center;
     transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
-    &:before{
-      content:'';
-      background-color:#fff;
-      position:absolute;
-      left:0;
-      right:0;
-      top:-5%;
-      width:100%;
-      height:95px;
-      border-radius:50%;
-      transition:transform 250ms ease-in-out;
-      z-index:-1;
+    &:before {
+      content: "";
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -5%;
+      width: 100%;
+      height: 95px;
+      border-radius: 50%;
+      transition: transform 250ms ease-in-out;
+      z-index: -1;
     }
     &:hover {
-      &:before{
+      &:before {
         transform: scale(1.2);
       }
-      
     }
     @media (max-width: 1024px) {
-      top: 30%;
+      top: 35%;
     }
   }
   &:hover,
-  &:focus, &:active, &.hovering {
+  &:focus,
+  &:active,
+  &.hovering {
     &:before {
       opacity: 0.9;
     }
