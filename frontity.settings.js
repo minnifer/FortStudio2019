@@ -4,7 +4,7 @@ const settings = {
     frontity: {
       url: "https://fortstudio.com/",
       title: "Fort Studio",
-      description: "Website for Fort Studio"
+      description: "Fort Studio"
     }
   },
   packages: [

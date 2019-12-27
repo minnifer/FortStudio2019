@@ -21,7 +21,7 @@ const Theme = ({ state, actions, libraries }) => {
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
-        <meta name="description" content={state.frontity.description} />
+        <meta name="description" content="Fort Studio" />
         <html lang="en" />
       </Head>
 
