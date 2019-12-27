@@ -6,15 +6,38 @@ class VideoPlayer extends Component {
     super(props);
 
     this.state = {
-      active: false
+      active: false,
+      rotated: false
     };
   }
-
+  componentDidMount = () => {};
   componentWillUnmount = () => {
     this.stopVideo();
   };
   playVideo = () => {
     this.refs.vidRef.play();
+    var videoRef = this.refs.vidRef;
+    var thisProxy = this;
+    var mql = window.matchMedia("(orientation: landscape)");
+    if (mql.matches) {
+      videoRef.play();
+    } else {
+      videoRef.pause();
+    }
+    mql.addListener(function(m) {
+      if (m.matches) {
+        videoRef.play();
+      } else {
+        videoRef.pause();
+        thisProxy.setState({ active: false });
+        videoRef.currentTime = 0;
+        document.querySelector("#cursor").classList.remove("is-playing");
+        if (document.querySelector("#checkIfOpen")) {
+          document.querySelector("#checkIfOpen").classList.remove("is-open");
+        }
+      }
+    });
+
     this.setState({ active: true });
     document.querySelector("#cursor").classList.add("is-playing");
     if (document.querySelector("#checkIfOpen")) {
@@ -58,6 +81,9 @@ class VideoPlayer extends Component {
         >
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
+        <RotateScreenText className={this.state.active ? "active link" : ""}>
+          Please Rotate Your Screen
+        </RotateScreenText>
         <VideoContainer
           className={`${this.state.active ? "active" : ""} videoOpen`}
         >
@@ -163,7 +189,7 @@ const VideoContainer = styled.div`
   @media (max-width: 1600px) {
     position: fixed;
     padding-bottom: 56.25%;
-    top:0;
+    top: 0;
     &.active {
       width: 100vw;
       &:before {
@@ -194,8 +220,27 @@ const Video = styled.video`
   }
   @media (max-width: 1600px) {
     object-fit: contain;
-    top:50vh;
-    transform:translate(0, -50%);
+    top: 50vh;
+    transform: translate(0, -50%);
+  }
+`;
+const RotateScreenText = styled.h3`
+  display: none;
+  @media all and (orientation: portrait) {
+    &.active {
+      display: block;
+      color: #fff;
+      z-index: 9000;
+      position: absolute;
+      padding-left: 36px;
+      padding-right: 36px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: auto;
+      position:absolute;
+      left:0;
+      right:0;
+    }
   }
 `;
 const ButtonContainer = styled.div`
@@ -345,8 +390,8 @@ const PlayButton = styled.button`
     span {
       display: none;
     }
-    &:before{
-      content:none;
+    &:before {
+      content: none;
     }
   }
   &.nav {
