@@ -139,6 +139,9 @@ const Container = styled.div`
   max-width: 1440px;
   padding-bottom: 100px;
   @media (max-width: 1024px) {
+    padding-bottom:80px;
+  }
+  @media (max-width: 480px) {
     padding-bottom:0px;
   }
 `;

@@ -151,7 +151,7 @@ const GridItem = styled.div`
       margin-right: 0;
     }
   }
-  @media (max-width: 768) {
+  @media (max-width: 768px) {
     width: 100%;
     padding-bottom: 100%;
     margin-right: 0;

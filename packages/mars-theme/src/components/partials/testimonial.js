@@ -25,7 +25,10 @@ class Testimonial extends Component {
   }
   render() {
     return (
-      <Wrapper style={{ backgroundColor: this.props.layout.background_color}}>
+      <Wrapper
+        className={this.props.layout.near_grid}
+        style={{ backgroundColor: this.props.layout.background_color }}
+      >
         <Container>
           <QuoteBody
             className="spy"
@@ -41,7 +44,17 @@ class Testimonial extends Component {
   }
 }
 export default connect(Testimonial);
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  &.true {
+    margin-top: -100px;
+    @media (max-width: 1024px) {
+      margin-top: -150px;
+    }
+    @media (max-width: 480px) {
+      margin-top: -75px;
+    }
+  }
+`;
 const Container = styled.div`
   max-width: 1440px;
   margin: auto;
@@ -56,7 +69,7 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     width: 100%;
     padding-top: 125px;
-  padding-bottom: 120px;
+    padding-bottom: 120px;
     padding-left: 80px;
     padding-right: 80px;
     min-width: auto;

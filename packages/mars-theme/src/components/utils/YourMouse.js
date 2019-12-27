@@ -243,6 +243,13 @@ const Cursor = styled.div`
   @media (max-width: 1024px) {
     opacity: 0;
   }
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) 
+  and (orientation: landscape){
+    opacity: 0;
+  }
   div {
     z-index: 2;
     border-radius: 50%;
