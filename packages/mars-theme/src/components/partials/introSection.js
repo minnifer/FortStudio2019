@@ -358,6 +358,7 @@ const BodyContainer = styled.div`
   @media (max-width: 1024px) {
     &.p2{
       width:68%;
+      max-width:500px;
       margin:auto;
       margin-top: 10px;
     }
@@ -366,6 +367,7 @@ const BodyContainer = styled.div`
     margin-top: 10px;
     &.p2{
       width:100%;
+      max-width:auto;
       margin-top: 10px;
     }
   }
