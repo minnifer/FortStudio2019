@@ -55,8 +55,8 @@ const Container = styled.div`
   padding-bottom: 120px;
   @media (max-width: 1024px) {
     width: 100%;
-    padding-top: 38px;
-    padding-bottom: 38px;
+    padding-top: 125px;
+  padding-bottom: 120px;
     padding-left: 80px;
     padding-right: 80px;
     min-width: auto;

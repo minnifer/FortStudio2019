@@ -157,7 +157,7 @@ const PageContainer = styled.div`
 const RightContainer = styled.div`
   width: 45%;
   margin-bottom: 85px;
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;
@@ -215,6 +215,12 @@ const LeftContainer = styled.div`
   height: fit-content;
   @media (max-width: 1024px) {
     position: relative;
+    padding-bottom: 0;
+    width: 45%;
+    margin-left: 0;
+  }
+  @media (max-width: 768px) {
+    position: relative;
     margin-top: 161px;
     top: auto;
     padding-bottom: 0;
@@ -260,7 +266,7 @@ const Content = styled.div`
   padding: 0 119px;
   display: flex;
   flex-direction: row;
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     padding: 0 36px;
   }
@@ -274,7 +280,7 @@ const Content = styled.div`
       width:fit-content;
       z-index:6;
       margin-left:-10px;
-      @media (max-width: 1024px) {
+      @media (max-width: 768px) {
     margin-left:0;
     margin-top:48px;
   }
@@ -365,7 +371,7 @@ const Content = styled.div`
         line-height:24px;
       }
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       margin-top: 0;
       >p{
         &.intro{
@@ -380,6 +386,7 @@ const Content = styled.div`
       display: flex;
       margin-bottom:60px;
       /* flex-wrap:wrap; */
+      
       @media (max-width: 1024px) {
         flex-wrap:wrap;
         margin-bottom:45px;
@@ -391,6 +398,7 @@ const Content = styled.div`
         &:last-of-type{
           margin-right:0;
         }
+        
         @media (max-width: 1024px) {
           width:calc(100%);
           min-height:94px;
@@ -407,7 +415,7 @@ const Content = styled.div`
           align-items: center;
           height: 100%;
           width:100%;
-          @media (max-width: 1024px) {
+          @media (max-width: 768px) {
          width:100%;
         }
           label {
@@ -417,7 +425,7 @@ const Content = styled.div`
             height: 100%;
             width:100%;
             
-            @media (max-width: 1024px) {
+            @media (max-width: 768px) {
          width:100%;
         }
           }
@@ -450,7 +458,7 @@ const Content = styled.div`
     height:130px;
     border-radius:100%;
     outline:none;
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       width:auto;
       height:auto;
       font-size: 12px;
@@ -506,7 +514,7 @@ const Content = styled.div`
         letter-spacing:.84px;
         line-height:14px;
         text-transform:uppercase;
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
           padding: 30px 0;
          transition:border 250ms ease-in-out, transform 250ms ease-in-out, background-color 250ms ease-in-out;
         }    
@@ -518,7 +526,7 @@ const Content = styled.div`
       input[type="checkbox"]:checked ~ span {
         border: 2px solid #fff;    
         background-color:#fff;
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
           transform:scale(1);
           transform-origin: top left;
         }    
@@ -542,7 +550,7 @@ const Content = styled.div`
     flex-direction: column;
     margin-bottom: 75px;
     
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       margin-bottom: 45px;
     }    
                
@@ -566,7 +574,7 @@ const Content = styled.div`
   }
   .your-message{
       margin-bottom:45px;
-      @media (max-width: 1024px) {
+      @media (max-width: 768px) {
       margin-bottom: 45px;
     }
     }
@@ -576,7 +584,7 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 90px;
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       margin-bottom: 45px;
     }
     

@@ -8,10 +8,32 @@ class VideoPlayer extends Component {
     this.state = {
       active: false,
       rotated: false,
-      hover: false,
+      hover: true
     };
   }
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    var thisProxy = this;
+     var mql = window.matchMedia("(orientation: portrait)");
+    var hoverButton = document.querySelector("#hoverButton");
+    if (mql.matches) {
+        document.querySelector(".videoOpen").classList.add("landscape");  
+    }
+    hoverButton.addEventListener(
+      "touchstart",
+      ev => {
+        if (thisProxy.state.hover) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
+          thisProxy.setState({ hover: false });
+          hoverButton.classList.add("hovering");
+        } else {
+          hoverButton.classList.remove("hovering");
+          thisProxy.setState({ hover: true });
+        }
+      },
+      { passive: false }
+    );
+  };
   componentWillUnmount = () => {
     this.stopVideo();
   };
@@ -19,22 +41,29 @@ class VideoPlayer extends Component {
     this.refs.vidRef.play();
     var videoRef = this.refs.vidRef;
     var thisProxy = this;
+    
+
     var mql = window.matchMedia("(orientation: landscape)");
     if (mql.matches) {
       videoRef.play();
     } else {
-      videoRef.pause();
+      videoRef.play();
     }
     mql.addListener(function(m) {
       if (m.matches) {
         videoRef.play();
-      } else {
-        videoRef.pause();
-        thisProxy.setState({ active: false });
-        videoRef.currentTime = 0;
-        document.querySelector("#cursor").classList.remove("is-playing");
+        this.setState({ active: true });
+        document.querySelector("#video").classList.remove("landscape");
+        document.querySelector("#cursor").classList.add("is-playing");
         if (document.querySelector("#checkIfOpen")) {
-          document.querySelector("#checkIfOpen").classList.remove("is-open");
+          document.querySelector("#checkIfOpen").classList.add("is-open");
+        }
+      } else {
+        videoRef.play();
+        document.querySelector("#video").classList.add("landscape");
+        document.querySelector("#cursor").classList.add("is-playing");
+        if (document.querySelector("#checkIfOpen")) {
+          document.querySelector("#checkIfOpen").classList.add("is-open");
         }
       }
     });
@@ -85,13 +114,11 @@ class VideoPlayer extends Component {
         >
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
         </ButtonContainer>
-        <RotateScreenText className={this.state.active ? "active link" : ""}>
-          Please Rotate Your Screen
-        </RotateScreenText>
         <VideoContainer
           className={`${this.state.active ? "active" : ""} videoOpen`}
         >
           <Video
+            id="video"
             onKeyDown={this.onKeyPressed}
             tabIndex="0"
             preload="none"
@@ -101,15 +128,16 @@ class VideoPlayer extends Component {
             onClick={this.pauseVideo}
             onEnded={() => this.stopVideo()}
             className={this.state.active ? "active" : ""}
-            className={`${this.state.active ? "active" : ""} videoOpen`}
+            className={`${
+              this.state.active ? "active" : ""
+            } videoOpen landscape`}
           />
         </VideoContainer>
         <div className="link" data-stick-cursor>
           <PlayButton
+            id="hoverButton"
             className={[this.state.active, this.props.nav].join(" ")}
-            // onTouchStart={this.touchNow}
             onClick={this.playVideo}
-            
           >
             <svg
               id="Collapse_Expand_1"
@@ -224,10 +252,17 @@ const Video = styled.video`
     display: flex;
     z-index: 10;
   }
+
   @media (max-width: 1600px) {
     object-fit: contain;
     top: 50vh;
     transform: translate(0, -50%);
+  }
+  @media (max-width: 1024px) {
+    &.landscape {
+      transform: rotate(90deg);
+      top:30vh;
+    }
   }
 `;
 const RotateScreenText = styled.h3`
@@ -361,7 +396,8 @@ const PlayButton = styled.button`
   }
   &:hover,
   &:focus,
-  &:active {
+  &:active,
+  &.hovering {
     svg {
       opacity: 0;
       display: none;

@@ -6,6 +6,9 @@ import Card from "./card";
 class TeamMembers extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hover: true
+    };
   }
   isOnScreen() {
     /* get the elements */
@@ -25,7 +28,26 @@ class TeamMembers extends Component {
   }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
-  }
+    var thisProxy = this;
+    var hoverButtons = document.querySelectorAll(".teamLink");
+    Array.prototype.forEach.call(hoverButtons, function(element, index) {
+      element.addEventListener(
+      "touchstart",
+      ev => {
+        if (thisProxy.state.hover) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
+          thisProxy.setState({ hover: false });
+          element.classList.add('hovering');
+        } else {
+          element.classList.remove('hovering');
+        }
+      },
+      { passive: false }
+    );
+    });
+   
+  };
   render() {
     return (
       <Container>
@@ -41,7 +63,7 @@ class TeamMembers extends Component {
 const renderTeamMember = (teamMember, index) => {
   return (
     <TeamMember className="spy" key={index}>
-      <ImageContainer link={"mailto:" + teamMember.email}>
+      <ImageContainer className="teamLink" link={"mailto:" + teamMember.email}>
         <StyledImage alt={teamMember.image.alt} src={teamMember.image.url} />
         <span>Contact</span>
       </ImageContainer>
@@ -264,7 +286,7 @@ const SocialContainer = styled.div`
         transition: fill 250ms ease-in-out;
       }
     }
-    &:hover {
+    &:hover, &:focus {
       svg {
         path {
           fill: #ffc40a;
@@ -346,7 +368,7 @@ const ImageContainer = styled(Link)`
     }
   }
   &:hover,
-  &:focus {
+  &:focus, &:active, &.hovering {
     &:before {
       opacity: 0.9;
     }
