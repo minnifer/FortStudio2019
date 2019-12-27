@@ -2,9 +2,9 @@ const settings = {
   name: "fortstudio",
   state: {
     frontity: {
-      url: "https://fortstudio2019.now.sh/",
+      url: "https://fortstudio.com/",
       title: "Fort Studio",
-      description: "Wordpress Install with React"
+      description: "Website for Fort Studio"
     }
   },
   packages: [
