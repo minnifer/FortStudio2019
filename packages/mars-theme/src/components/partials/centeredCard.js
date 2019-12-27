@@ -47,13 +47,16 @@ const StyledLink = styled(Link)`
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
-    border:1px solid #fff;
   }
   @media (max-width: 1024px) {
     width:108.4px;
     height:108.4px;
     span{
       width:100%;
+    }
+    &:before{
+      width:110px;
+      height:110px;
     }
   }
   &:hover{

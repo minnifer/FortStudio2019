@@ -4,6 +4,7 @@ import Image from "@frontity/components/image";
 class ClientGrid extends Component {
   constructor(props) {
     super(props);
+    this.handleTouch = this.handleTouch.bind(this);
     this.state = {
       hover: true
     };
@@ -24,36 +25,25 @@ class ClientGrid extends Component {
 
     window.setTimeout(this.isOnScreen.bind(this), 250);
   }
+  handleTouch(e) {
+    var element = event.target;
+    element.classList.toggle("hovering");
+  }
+  enter(e) {
+    var element = event.target;
+    element.classList.add("hovering");
+  }
+  leave(e) {
+    var element = event.target;
+    element.classList.remove("hovering");
+  }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
-    var thisProxy = this;
-    var hoverButtons = document.querySelectorAll(".gridItem");
-    Array.prototype.forEach.call(hoverButtons, function(element, index) {
-      element.addEventListener(
-        "touchstart",
-        ev => {
-          if (thisProxy.state.hover) {
-            ev.preventDefault();
-            ev.stopImmediatePropagation();
-            element.classList.add("hovering");
-            thisProxy.setState({ hover: false });
-            
-          } else {
-            element.classList.remove("hovering");
-          }
-          if (element.classList.find(".hovering")){
-            element.classList.remove("hovering");
-            element.blur();
-          }
-        },
-        { passive: false }
-      );
-    });
   }
   renderGrid = (grid, index) => {
     return (
       <GridItem key={index} className="spy">
-        <GridWrapper className="gridItem">
+        <GridWrapper onTouchStart={this.handleTouch} className="gridItem">
           <Category
             className="category"
             dangerouslySetInnerHTML={{
@@ -180,10 +170,6 @@ const GridWrapper = styled.div`
     background: #ffc40a;
     top: 0;
   }
-  
-  &:hover,
-  &:focus,
-  &:active,
   &.hovering {
     .body {
       opacity: 1;
@@ -200,26 +186,26 @@ const GridWrapper = styled.div`
       opacity: 1;
     }
   }
-  @media (max-width: 1024) {
-  &:hover,
-  &:focus,
-  &:active,
-  &.hovering {
-    .body {
-      opacity: 0;
-      visibility: hidden;
+
+  @media (min-width: 1024px) {
+    &:hover,
+    &:focus,
+    &:active {
+      .body {
+        opacity: 1;
+        visibility: visible;
+      }
+      img {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .category {
+        opacity: 0;
+      }
+      .summary {
+        opacity: 1;
+      }
     }
-    img {
-      opacity: 1;
-      visibility: visible;
-    }
-    .category {
-      opacity: 1;
-    }
-    .summary {
-      opacity: 0;
-    }
-  }
   }
 `;
 const Category = styled.div`
@@ -256,6 +242,7 @@ const BodyContainer = styled.div`
   transition: opacity 250ms ease-in-out;
   text-align: center;
   visibility: hidden;
+  pointer-events: none;
 `;
 const Logo = styled(Image)`
   position: absolute;
