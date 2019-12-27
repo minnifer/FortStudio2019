@@ -27,6 +27,14 @@ class Footer extends Component {
   }
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);
+    window.onscroll = function(ev) {
+      var stickyfooter = document.querySelector("#stuck");
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        stickyfooter.classList.add("at-bottom");
+      } else {
+        stickyfooter.classList.remove("at-bottom");
+      }
+    };
   }
   render() {
     const options = this.props.state.source.get("acf-options-page");
@@ -36,10 +44,11 @@ class Footer extends Component {
           <TopFooter>
             <Tout className="spy">
               <h4>{options.acf.footer_section.hire_headline}</h4>
-              <p className="p1"
-              dangerouslySetInnerHTML={{
-                    __html: options.acf.footer_section.hire_body
-                  }}
+              <p
+                className="p1"
+                dangerouslySetInnerHTML={{
+                  __html: options.acf.footer_section.hire_body
+                }}
               ></p>
               <Card
                 target="_blank"
@@ -49,11 +58,12 @@ class Footer extends Component {
             </Tout>
             <Tout className="spy">
               <h4>{options.acf.footer_section.request_work_headline}</h4>
-              <p className="p1"
+              <p
+                className="p1"
                 dangerouslySetInnerHTML={{
-                    __html: options.acf.footer_section.request_work_body
-                  }}>
-              </p>
+                  __html: options.acf.footer_section.request_work_body
+                }}
+              ></p>
               <Card
                 linkURL="/contact"
                 linkText={options.acf.footer_section.request_work_cta_text}
@@ -61,10 +71,11 @@ class Footer extends Component {
             </Tout>
             <Tout className="spy">
               <h4>{options.acf.footer_section.careers_headline}</h4>
-              <p className="p1"
-              dangerouslySetInnerHTML={{
-                    __html: options.acf.footer_section.careers_body
-                  }}
+              <p
+                className="p1"
+                dangerouslySetInnerHTML={{
+                  __html: options.acf.footer_section.careers_body
+                }}
               ></p>
               <Card
                 linkURL="/contact"
@@ -127,7 +138,7 @@ class Footer extends Component {
               </ContactContainer>
             </LeftContainer>
             <RightContainer>
-              <RightWrapper className={this.props.activeTout}>
+              <RightWrapper id="stuck" className={this.props.activeTout}>
                 <StyledCard
                   linkURL="/reel"
                   activeTout={this.props.activeTout}
@@ -221,18 +232,17 @@ const TopFooter = styled.div`
   padding-bottom: 125px;
   justify-content: space-between;
   @media (max-width: 1024px) {
-    flex-wrap:wrap;
-    padding-left:60px;
-    padding-right:60px;
-    width:auto;
+    flex-wrap: wrap;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: auto;
   }
   @media (max-width: 480px) {
     flex-direction: column;
-    padding:0;
+    padding: 0;
     padding-top: 60px;
     padding-bottom: 60px;
     width: 100%;
-    
   }
 `;
 const StyledVideoPlayer = styled(FooterVideoPlayer)`
@@ -431,7 +441,7 @@ const RightWrapper = styled.div`
   position: fixed;
   bottom: 36px;
   z-index: 90;
-
+  transition:opacity 250ms ease-in-out;
   .link {
     &.first {
       &:last-of-type {
@@ -442,7 +452,7 @@ const RightWrapper = styled.div`
         margin-right: 180px;
         a {
           background-color: transparent;
-          &:before{
+          &:before {
             background-color: #ffc400;
           }
 
@@ -458,7 +468,7 @@ const RightWrapper = styled.div`
       &:last-of-type {
         a {
           background-color: transparent;
-          &:before{
+          &:before {
             background-color: #ffc400;
           }
         }
@@ -466,7 +476,7 @@ const RightWrapper = styled.div`
     }
   }
   @media (max-width: 1024px) {
-    bottom:75px;
+    bottom: 75px;
     .link {
       margin-right: 0;
       &.first {
@@ -483,7 +493,11 @@ const RightWrapper = styled.div`
         }
       }
     }
+    &.at-bottom{
+      opacity:0;
+    }
   }
+
 `;
 const ContactContainer = styled.div`
   display: flex;
