@@ -177,11 +177,11 @@ const Container = styled.div`
       top: 0;
       transform: translate(0%, 0%);
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1366px) {
       transform: translate(-50%, 0%);
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1366px) {
     top: 75%;
   }
 `;
@@ -258,7 +258,7 @@ const ButtonContainer = styled.div`
     display: flex;
     max-width: 1440px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1366px) {
     width: auto;
   }
 `;
@@ -300,7 +300,7 @@ const PlayButton = styled.button`
     width: 30px;
     border-radius: 100%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1366px) {
     &:before {
       transform: translate(-50%, -50%);
     }
@@ -366,7 +366,7 @@ const PlayButton = styled.button`
     span {
       opacity: 1;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 13661366px) {
       span {
         /* color: #ffc400 !important; */
         background-color: #ffc400;
@@ -403,11 +403,11 @@ const PlayButton = styled.button`
         display: none;
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 1366px) {
       /* top: -25px; */
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1366px) {
     height: auto;
     width: auto;
     height: 58.73px;
@@ -447,7 +447,7 @@ const CloseButton = styled.button`
   max-width: none;
   &:hover {
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1366px) {
     top: 33px;
     right: 8px;
     display: flex;

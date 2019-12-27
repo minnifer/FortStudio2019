@@ -49,7 +49,7 @@ const CloseButton = styled.button`
   &:hover {
     color: #ffc40a;
   } */
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: relative;
     top: auto;
     right: 36px;
@@ -78,7 +78,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       top:36px;
       right:0;
       height:auto;
