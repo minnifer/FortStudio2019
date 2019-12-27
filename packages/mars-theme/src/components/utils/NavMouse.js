@@ -8,7 +8,7 @@ const math = {
   }
 };
 
-const DEFAULT_EASE = 0.975;
+const DEFAULT_EASE = 1;
 const DIST = 100;
 export default function NavMouse() {
   const [ease, setEase] = React.useState(DEFAULT_EASE);
