@@ -13,10 +13,10 @@ class VideoPlayer extends Component {
   }
   componentDidMount = () => {
     var thisProxy = this;
-     var mql = window.matchMedia("(orientation: portrait)");
+    var mql = window.matchMedia("(orientation: portrait)");
     var hoverButton = document.querySelector("#hoverButton");
     if (mql.matches) {
-        document.querySelector(".videoOpen").classList.add("landscape");  
+      document.querySelector(".videoOpen").classList.add("landscape");
     }
     hoverButton.addEventListener(
       "touchstart",
@@ -41,7 +41,6 @@ class VideoPlayer extends Component {
     this.refs.vidRef.play();
     var videoRef = this.refs.vidRef;
     var thisProxy = this;
-    
 
     var mql = window.matchMedia("(orientation: landscape)");
     if (mql.matches) {
@@ -258,17 +257,13 @@ const Video = styled.video`
     top: 50vh;
     transform: translate(0, -50%);
   }
-  /* @media (max-width: 1024px) {
-    &.landscape {
-      transform: rotate(90deg);
-      top:30vh;
-    }
-  } */
-  @supports (-webkit-overflow-scrolling: touch) {
-    &.landscape {
-      transform: rotate(90deg);
-      top: 0;
-      position: relative;
+  @media (max-width: 1024px) {
+    @supports (-webkit-overflow-scrolling: touch) {
+      &.landscape {
+        transform: rotate(90deg);
+        top: 0;
+        position: relative;
+      }
     }
   }
 `;

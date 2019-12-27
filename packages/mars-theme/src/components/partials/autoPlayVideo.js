@@ -176,11 +176,13 @@ const Video = styled.video`
     transform: translate(0, -50%);
   }
   
-  @supports (-webkit-overflow-scrolling: touch) {
-    &.landscape {
-      transform: rotate(90deg);
-      top: 0;
-      position: relative;
+  @media (max-width: 1024px) {
+    @supports (-webkit-overflow-scrolling: touch) {
+      &.landscape {
+        transform: rotate(90deg);
+        top: 0;
+        position: relative;
+      }
     }
   }
   
