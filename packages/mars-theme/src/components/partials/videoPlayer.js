@@ -7,7 +7,8 @@ class VideoPlayer extends Component {
 
     this.state = {
       active: false,
-      rotated: false
+      rotated: false,
+      hover: false,
     };
   }
   componentDidMount = () => {};
@@ -71,6 +72,9 @@ class VideoPlayer extends Component {
       }
     }
   };
+  // touchNow = event => {
+  //   event.preventDefault();
+  // }
 
   render = () => {
     return (
@@ -103,7 +107,9 @@ class VideoPlayer extends Component {
         <div className="link" data-stick-cursor>
           <PlayButton
             className={[this.state.active, this.props.nav].join(" ")}
+            // onTouchStart={this.touchNow}
             onClick={this.playVideo}
+            
           >
             <svg
               id="Collapse_Expand_1"
@@ -237,9 +243,9 @@ const RotateScreenText = styled.h3`
       text-transform: uppercase;
       text-align: center;
       margin: auto;
-      position:absolute;
-      left:0;
-      right:0;
+      position: absolute;
+      left: 0;
+      right: 0;
     }
   }
 `;
@@ -366,7 +372,7 @@ const PlayButton = styled.button`
     span {
       opacity: 1;
     }
-    @media (max-width: 13661366px) {
+    @media (max-width: 1366px) {
       span {
         /* color: #ffc400 !important; */
         background-color: #ffc400;
