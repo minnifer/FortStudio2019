@@ -9,35 +9,34 @@ class AutoVideoPLayer extends Component {
       active: true
     };
   }
-
-  componentWillUnmount = () => {
-    this.stopVideo();
-  };
-
-  playVideo = () => {
-    // this.refs.vidRef.play();
+  componentDidMount = () => {
     var videoRef = this.refs.vidRef;
     var thisProxy = this;
     var mql = window.matchMedia("(orientation: landscape)");
     if (mql.matches) {
       videoRef.play();
+      console.log("landscape");
     } else {
       videoRef.pause();
+      console.log("portrait");
     }
     mql.addListener(function(m) {
       if (m.matches) {
         videoRef.play();
       } else {
         videoRef.pause();
-        thisProxy.setState({ active: false });
         videoRef.currentTime = 0;
-        document.querySelector("#cursor").classList.remove("is-playing");
-        if (document.querySelector("#checkIfOpen")) {
-          document.querySelector("#checkIfOpen").classList.remove("is-open");
-        }
       }
     });
+  };
+  componentWillUnmount = () => {
+    this.stopVideo();
+  };
 
+  playVideo = () => {
+    
+
+    // this.refs.vidRef.play();
     this.setState({ active: true });
     document.querySelector("#cursor").classList.add("is-playing");
     if (document.querySelector("#checkIfOpen")) {
@@ -75,7 +74,7 @@ class AutoVideoPLayer extends Component {
   render = () => {
     return (
       <Container className={[this.state.active, this.props.nav].join(" ")}>
-       <RotateScreenText className={this.state.active ? "active link" : ""}>
+        <RotateScreenText className={this.state.active ? "active link" : ""}>
           Please Rotate Your Screen
         </RotateScreenText>
         <Video
@@ -96,7 +95,6 @@ class AutoVideoPLayer extends Component {
   };
 }
 export default AutoVideoPLayer;
-
 const RotateScreenText = styled.h3`
   display: none;
   @media all and (orientation: portrait) {
@@ -110,9 +108,9 @@ const RotateScreenText = styled.h3`
       text-transform: uppercase;
       text-align: center;
       margin: auto;
-      position:absolute;
-      left:0;
-      right:0;
+      position: absolute;
+      left: 0;
+      right: 0;
     }
   }
 `;
