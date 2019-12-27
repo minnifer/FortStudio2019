@@ -4,7 +4,7 @@ const settings = {
     frontity: {
       url: "https://fortstudio.com/",
       title: "Fort Studio",
-      description: "Fort Studio"
+      description: "FORT is a creative design studio based in Columbus, Ohio. We specialize in brand strategy, identity, graphic design, web design and web development."
     }
   },
   packages: [
