@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Header from "./header";
 import List from "./list";
@@ -11,17 +11,25 @@ import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
 import Title from "./title";
+import ReactGA from "react-ga";
 
 const Theme = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+  useEffect(() => {
+    ReactGA.initialize("UA-155085818-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
-        <meta name="description" content="FORT is a creative design studio based in Columbus, Ohio. We specialize in brand strategy, identity, graphic design, web design and web development." />
+        <meta
+          name="description"
+          content="FORT is a creative design studio based in Columbus, Ohio. We specialize in brand strategy, identity, graphic design, web design and web development."
+        />
         <html lang="en" />
       </Head>
 
@@ -34,7 +42,9 @@ const Theme = ({ state, actions, libraries }) => {
       <Main>
         {(data.isHome && <Home />) ||
           (data.isArchive && <List />) ||
-          (data.isPostType && data.id === 133 && <Form  state={state} libraries={libraries} actions={actions} />) ||
+          (data.isPostType && data.id === 133 && (
+            <Form state={state} libraries={libraries} actions={actions} />
+          )) ||
           (data.isPostType && data.id === 12 && <WhatWeValue />) ||
           (data.isPostType && data.id === 77 && <WhoWeAre />) ||
           (data.isPostType && data.id === 202 && <Reel />) ||
@@ -302,12 +312,12 @@ const globalStyles = css`
   * {
     cursor: none !important;
   }
-::selection {
-  background: #f1f1f1; /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: #f1f1f1; /* Gecko Browsers */
-}
+  ::selection {
+    background: #f1f1f1; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: #f1f1f1; /* Gecko Browsers */
+  }
   body {
     margin: 0;
     font-family: "Calibre";
