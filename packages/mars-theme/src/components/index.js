@@ -11,15 +11,10 @@ import Home from "./home";
 import Page404 from "./page404.js";
 import Loading from "./loading";
 import Title from "./title";
-import ReactGA from "react-ga";
 
 const Theme = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-  useEffect(() => {
-    ReactGA.initialize("UA-155085818-1");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
 
   return (
     <>

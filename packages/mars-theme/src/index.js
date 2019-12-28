@@ -1,5 +1,7 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
+import ReactGA from "react-ga";
+import { observe } from "frontity";
 const acfOptionsHandler = {
   pattern: "acf-options-page",
   func: async ({ route, state, libraries }) => {
@@ -52,7 +54,13 @@ const marsTheme = {
         // page has been fetched and it is available
         // using state.source.get("acf-options-page").
         await actions.source.fetch("acf-options-page");
-      }
+      },
+      afterCSR: ({ state }) => {
+       observe(() => {
+          ReactGA.initialize("UA-155085818-1");
+          ReactGA.pageview(window.location.pathname + window.location.search);
+        })
+     },
     }
   },
   libraries: {
