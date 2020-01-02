@@ -496,6 +496,7 @@ const RightWrapper = styled.div`
   }
   @media (max-width: 1024px) {
     bottom: 75px;
+    right:35px;
     .link {
       margin-right: 0;
       &.first {

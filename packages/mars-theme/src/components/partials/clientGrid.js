@@ -225,7 +225,7 @@ const Summary = styled.div`
   position: relative;
   font-weight: normal;
   font-size: 14px;
-  margin-top: -14px;
+  margin-top: -16px;
   text-transform: uppercase;
   color: #ffc40a;
   letter-spacing: 0.84px;

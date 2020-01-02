@@ -57,7 +57,7 @@ const marsTheme = {
       },
       afterCSR: ({ state }) => {
        observe(() => {
-          ReactGA.initialize("UA-155085818-1");
+          ReactGA.initialize("UA-155273847-1");
           ReactGA.pageview(window.location.pathname + window.location.search);
         })
      },
