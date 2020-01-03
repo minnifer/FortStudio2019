@@ -22,7 +22,7 @@ const Title = ({ state }) => {
     const { name } = state.source.author[data.id];
     // 2. Render the proper title.
     title = `Author: ${name} - ${state.frontity.title}`;
-  } else if (data.isPostType) {
+  } else if (data.isPostType && data.id != 6 && data.id != 202) {
     // Add titles to posts and pages, using the title and ending with the Blog Name.
     // 1. Get the post entity from the state and get its title.
     const postTitle = state.source[data.type][data.id].title.rendered;
@@ -30,6 +30,9 @@ const Title = ({ state }) => {
     const cleanTitle = postTitle.replace(/<\/?[^>]+(>|$)/g, "");
     // 3. Render the proper title.
     title = `${cleanTitle} - ${state.frontity.title}`;
+
+  } else if (data.isPostType && data.id === 6 || data.id === 202) {    
+    title = state.frontity.title;
   } else if (data.is404) {
     // Add titles to 404's.
     title = `404 Not Found - ${state.frontity.title}`;

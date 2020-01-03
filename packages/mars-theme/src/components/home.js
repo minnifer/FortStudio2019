@@ -17,6 +17,7 @@ import {
   browserName,
   CustomView
 } from "react-device-detect";
+import data from './data.json'
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -29,7 +30,7 @@ const Home = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
   }, []);
   // Load the post, but only if the data is ready.
-
+ 
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
