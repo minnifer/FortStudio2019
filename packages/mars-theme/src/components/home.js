@@ -57,19 +57,14 @@ const Home = ({ state, actions, libraries }) => {
               />
             </BrowserView>
             <MobileView>
-              <Video autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>
-                <source
-                  src={post.acf.mobile_background_video_mp4["url"]}
-                  type="video/mp4"
-                />
-                <CustomView condition={isMobileSafari === "true"}>
-                  <source
-                    src={post.acf.mobile_background_video_webm["url"]}
-                    type="video/webm"
-                  />
-                </CustomView>
+              <Video src={post.acf.mobile_background_video_mp4["url"]} autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>            
+                
               </Video>
             </MobileView>
+            <CustomView condition={isMobileSafari === "true"}>
+                 <Video src={post.acf.mobile_background_video_webm["url"]} autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>
+              </Video>
+                </CustomView>
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
