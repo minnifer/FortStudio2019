@@ -359,8 +359,11 @@ const PlayButton = styled.button`
     letter-spacing: 0.84px;
     left: 0;
     top: 37.5%;
-    padding-top:8px;
+    padding-top: 8px;
     color: #1d1d1d;
+    @media (max-width: 768px) {
+      padding-top: 0;
+    }
     /* transition: opacity 500ms ease-in-out; */
   }
   svg {
