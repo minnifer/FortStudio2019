@@ -310,7 +310,7 @@ const Tout = styled.div`
     padding-top: 5px;
   }
   &:before {
-    width: 2px;
+    width: 1px;
     content: "";
     height: 115%;
     left: 0;

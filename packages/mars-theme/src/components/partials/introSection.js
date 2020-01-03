@@ -314,7 +314,6 @@ const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-
   width: 55%;
   top: 235px;
   padding-bottom: 177px;
@@ -325,6 +324,7 @@ const LeftContainer = styled.div`
     top: auto;
     padding-bottom: 109px;
     width: 100%;
+    text-align:center;
   }
   h2 {
     &.spy {

@@ -166,7 +166,7 @@ const GridWrapper = styled.div`
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background: #ffc40a;
     top: 0;
   }

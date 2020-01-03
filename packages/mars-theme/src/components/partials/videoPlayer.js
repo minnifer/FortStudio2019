@@ -359,6 +359,7 @@ const PlayButton = styled.button`
     letter-spacing: 0.84px;
     left: 0;
     top: 37.5%;
+    padding-top:8px;
     color: #1d1d1d;
     /* transition: opacity 500ms ease-in-out; */
   }
