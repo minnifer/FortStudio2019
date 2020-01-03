@@ -17,7 +17,7 @@ import {
   browserName,
   CustomView
 } from "react-device-detect";
-import data from './data.json'
+import data from "./data.json";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -30,7 +30,7 @@ const Home = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
   }, []);
   // Load the post, but only if the data is ready.
- 
+
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
@@ -46,25 +46,24 @@ const Home = ({ state, actions, libraries }) => {
       <Content>
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
-            <BrowserView>
-              <Video
-                autoPlay
-                muted
-                loop
-                playsInline
-                allowsInlineMediaPlayback={true}
-                src={post.acf.background_video["url"]}
-              />
-            </BrowserView>
-            <MobileView>
-              <Video src={post.acf.mobile_background_video_mp4["url"]} autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>            
-                
-              </Video>
-            </MobileView>
-            <CustomView condition={isMobileSafari === "true"}>
-                 <Video src={post.acf.mobile_background_video_webm["url"]} autoPlay muted loop playsInline allowsInlineMediaPlayback={true}>
-              </Video>
-                </CustomView>
+            <Video
+              autoPlay
+              muted
+              loop
+              playsInline
+              allowsInlineMediaPlayback={true}
+              src={post.acf.background_video["url"]}
+              className="desktop"
+            />
+            <Video
+              src={post.acf.mobile_background_video_mp4["url"]}
+              autoPlay
+              muted
+              loop
+              playsInline
+              allowsInlineMediaPlayback={true}
+              className="mobile"
+            ></Video>
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
@@ -185,6 +184,17 @@ const Video = styled.video`
   left: 0;
   z-index: 1;
   opacity: 0.5;
+  &.mobile {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    &.mobile {
+      display: block;
+    }
+    &.desktop {
+      display: none;
+    }
+  }
 `;
 const StyledVideoContainer = styled.div`
   object-fit: cover;
