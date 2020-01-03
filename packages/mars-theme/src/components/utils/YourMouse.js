@@ -205,7 +205,7 @@ export default function YourMouse() {
     const fxDiff = currentX - lastX;
     const fxAcc = fxDiff / window.innerWidth;
     const fxVelo = +fxAcc;
-    const fxScale = 1 - Math.abs(fxVelo * 5);
+    const fxScale = 1 - Math.abs(fxVelo * 25);
 
     const transform = `translate3d(${lastX - window.scrollX}px, ${lastY -
       window.scrollY}px, 0) scale(${fxScale})`;

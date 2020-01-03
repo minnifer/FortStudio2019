@@ -7,17 +7,10 @@ import FeaturedMedia from "./featured-media";
 import striptags from "striptags";
 import Card from "./partials/card";
 import VideoPlayer from "./partials/VideoPlayer";
+import LottieControl from "./partials/LottieControl";
 import YourMouse from "./utils/YourMouse";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-  isMobileSafari,
-  browserName,
-  CustomView
-} from "react-device-detect";
-import data from "./data.json";
+import Lottie from 'react-lottie';
+import * as animationData from "./data.json";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -35,15 +28,13 @@ const Home = ({ state, actions, libraries }) => {
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      {/* Add the header of the site. */}
-
-      {/* <BrowserView> */}
-      <YourMouse />
-      {/* </BrowserView> */}
+      {/* Add the header of the site. */}      
+      <YourMouse />      
       <HeadContainer>
         <Header />
       </HeadContainer>
       <Content>
+      {/* <LottieControl /> */}
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
             <Video

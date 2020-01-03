@@ -30,6 +30,7 @@
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
     "react-intersection-observer": "^8.25.2",
+    "react-lottie": "^1.2.3",
     "react-modal": "^3.11.1",
     "react-modal-video": "^1.2.3",
     "react-rotating-text": "^1.4.1",

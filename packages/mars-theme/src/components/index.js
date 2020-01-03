@@ -21,6 +21,7 @@ const Theme = ({ state, actions, libraries }) => {
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
+      <meta name="google-site-verification" content="LJECqTE9-SWU8BvxN1RJaJECUbLAuGnGV36ExMUocAg" />
         <meta
           name="description"
           content="FORT is a creative design studio based in Columbus, Ohio. We specialize in brand strategy, identity, graphic design, web design and web development."
