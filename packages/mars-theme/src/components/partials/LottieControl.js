@@ -58,7 +58,7 @@ const LottieContainer = styled.div`
     /* height:auto !important;
     width:auto !important; */
     position: absolute;
-    top: 60vh;
+    top: 58.5vh;
     left: 50%;
     transform: translate(-50%, -50%);
   }
