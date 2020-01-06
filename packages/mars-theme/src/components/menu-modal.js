@@ -10,8 +10,7 @@ class MenuModal extends Component {
     super(props);
   }
   mouseEnter() {    
-    document.querySelector("#cursor").style.display = "none";
-    // console.log("cursor");
+    document.querySelector("#cursor").style.display = "none";    
   }
   mouseLeave() {
     document.querySelector("#cursor").style.display = "block";
@@ -21,7 +20,7 @@ class MenuModal extends Component {
     const options = this.props.state.source.get("acf-options-page");
     const navSubheads = options.acf.menu_subheads;
     return (
-      <div onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+      <div onClick = {this.mouseLeave} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
       <NavMouse />
         <StyledVideoPlayer
           nav="nav"
