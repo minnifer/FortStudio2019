@@ -30,6 +30,7 @@ const marsTheme = {
       menu: [],
       isMobileMenuOpen: false,
       isVideoOpen: false,
+      isFirstVisit: true,
       navDark:true,
     }
   },
@@ -38,8 +39,7 @@ const marsTheme = {
    actions: {
     theme: {
       toggleMobileMenu: ({ state }) => {
-        state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
-        
+        state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;        
       },
       toggleVideoModal: ({ state }) => {
         state.theme.isVideoOpen = !state.theme.isVideoOpen;
@@ -49,6 +49,9 @@ const marsTheme = {
       },
       closeVideoModal: ({ state }) => {
         state.theme.isVideoOpen = false;
+      },
+      toggleFirstVisit: ({ state }) => {
+        state.theme.isFirstVisit = false;
       },
       beforeSSR: async ({ state, actions }) => {
         // This will make Frontity wait until the ACF options

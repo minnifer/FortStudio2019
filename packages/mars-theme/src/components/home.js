@@ -9,7 +9,7 @@ import Card from "./partials/card";
 import VideoPlayer from "./partials/VideoPlayer";
 import LottieControl from "./partials/LottieControl";
 import YourMouse from "./utils/YourMouse";
-import Lottie from 'react-lottie';
+import Lottie from "react-lottie";
 import * as animationData from "./data.json";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
@@ -17,24 +17,37 @@ const Home = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
-  // Get the html2react component.
-  // const Html2React = libraries.html2react.Component;
+
+  const { isFirstVisit } = state.theme;
+  let lottie = <LottieControl />;
   useEffect(() => {
     actions.source.fetch("/");
   }, []);
+  if (typeof window !== "undefined") {        
+    if (localStorage.getItem('firstVisit')){      
+      console.log("not first visit");
+      lottie = <div />;
+      document.querySelector("#animation").style.display = "none";
+    }
+    else{
+      console.log("first visit");
+      localStorage.setItem('firstVisit', 'true');
+      lottie = <LottieControl />;
+    }
+  }
+  // console.log(isFirstVisit);
   // Load the post, but only if the data is ready.
-
   return data.isReady ? (
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      {/* Add the header of the site. */}      
-      <YourMouse />      
+      {/* Add the header of the site. */}
+      <YourMouse />
       <HeadContainer>
         <Header />
       </HeadContainer>
       <Content>
-      {/* <LottieControl /> */}
+        {lottie}
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
             <Video

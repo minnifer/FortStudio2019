@@ -1,39 +1,92 @@
-import React from 'react'
-import Lottie from 'react-lottie';
-import * as animationData from './piinjump.json'
- 
+import React from "react";
+import { connect, styled } from "frontity";
+import Lottie from "react-lottie";
+import * as animationData from "./piinjump.json";
+
 export default class LottieControl extends React.Component {
- 
   constructor(props) {
     super(props);
-    this.state = {isStopped: false, isPaused: false};
+    this.state = { isStopped: false, isPaused: false };
   }
- 
+
   render() {
     const buttonStyle = {
-      display: 'block',
-      margin: '10px auto'
+      display: "block",
+      margin: "10px auto"
     };
- 
+
     const defaultOptions = {
-      loop: true,
-      autoplay: true, 
+      loop: false,
+      autoplay: true,
       animationData: animationData.default,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
+        preserveAspectRatio: "xMidYMid slice"
       }
     };
- 
-    return <div>
-      <Lottie options={defaultOptions}
-              height={400}
-              width={400}
-              isStopped={this.state.isStopped}
-              isPaused={this.state.isPaused}/>
-      <button style={buttonStyle} onClick={() => this.setState({isStopped: true})}>stop</button>
-      <button style={buttonStyle} onClick={() => this.setState({isStopped: false})}>play</button>
-      <button style={buttonStyle} onClick={() => this.setState({isPaused: !this.state.isPaused})}>pause</button>
-    </div>
+    const eventListeners = [
+      {
+        eventName: "complete",
+        callback: () =>
+          (document.querySelector("#animation").style.display = "none")
+      }
+    ];
+
+    return (
+      <LottieContainer id="animation">
+        <Lottie
+          className="animationContainer"
+          eventListeners={eventListeners}
+          options={defaultOptions}
+          isStopped={this.state.isStopped}
+          isPaused={this.state.isPaused}
+        />                    
+      </LottieContainer>
+    );
   }
 }
- 
+
+const LottieContainer = styled.div`
+  background-color: #000;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 4000ms ease-in-out;
+  z-index: 90000;
+  -webkit-animation: 5.25s ease 0s normal forwards 1 fadein;
+    animation:5.25s ease 0s normal forwards 1 fadein;
+  > div {
+    /* height:auto !important;
+    width:auto !important; */
+    position: absolute;
+    top: 60vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @media (max-width: 1024px) {
+    display:none;
+  }
+  @keyframes fadein {
+    0% {
+      background-color: rgba(0,0,0,1);
+    }
+    66% {
+      background-color: rgba(0,0,0,1);
+    }
+    100% {
+      background-color: rgba(0,0,0,0);  
+      z-index:-1;    
+    }
+  }
+
+  @-webkit-keyframes fadein {
+    0% {
+      background-color: rgba(0,0,0,1);
+    }
+    66% {
+      background-color: rgba(0,0,0,1);
+    }
+    100% {
+      background-color: rgba(0,0,0,1);
+    }
+  }
+`;
