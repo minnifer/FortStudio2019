@@ -25,12 +25,13 @@ const Home = ({ state, actions, libraries }) => {
   }, []);
   if (typeof window !== "undefined") {        
     if (localStorage.getItem('firstVisit')){      
-      console.log("not first visit");
       lottie = <div />;
-      document.querySelector("#animation").style.display = "none";
+      if(document.querySelector("#animation")) {
+        document.querySelector("#animation").style.display = "none";
+      }
+      
     }
     else{
-      console.log("first visit");
       localStorage.setItem('firstVisit', 'true');
       lottie = <LottieControl />;
     }
