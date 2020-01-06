@@ -10,11 +10,11 @@ class MenuModal extends Component {
     super(props);
   }
   mouseEnter() {    
-    document.querySelector("#cursor").classList.add("is-menu");
+    document.querySelector("#cursor").style.display = "none";
     // console.log("cursor");
   }
   mouseLeave() {
-    document.querySelector("#cursor").classList.remove("is-menu");
+    document.querySelector("#cursor").style.display = "block";
   }
   render() {
     const { menu } = this.props.state.theme;

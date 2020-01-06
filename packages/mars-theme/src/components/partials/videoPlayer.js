@@ -38,6 +38,7 @@ class VideoPlayer extends Component {
     this.stopVideo();
   };
   playVideo = () => {
+    console.log("video is supposed to play")
     this.refs.vidRef.play();
     var videoRef = this.refs.vidRef;
     var thisProxy = this;
@@ -54,6 +55,9 @@ class VideoPlayer extends Component {
         this.setState({ active: true });
         document.querySelector("#video").classList.remove("landscape");
         document.querySelector("#cursor").classList.add("is-playing");
+        if (document.querySelector("#navcursor")) {
+          document.querySelector("#navcursor").classList.add("is-playing");
+        }
         if (document.querySelector("#checkIfOpen")) {
           document.querySelector("#checkIfOpen").classList.add("is-open");
         }
@@ -61,6 +65,9 @@ class VideoPlayer extends Component {
         videoRef.play();
         document.querySelector("#video").classList.add("landscape");
         document.querySelector("#cursor").classList.add("is-playing");
+        if (document.querySelector("#navcursor")) {
+          document.querySelector("#navcursor").classList.add("is-playing");
+        }
         if (document.querySelector("#checkIfOpen")) {
           document.querySelector("#checkIfOpen").classList.add("is-open");
         }
@@ -69,6 +76,9 @@ class VideoPlayer extends Component {
 
     this.setState({ active: true });
     document.querySelector("#cursor").classList.add("is-playing");
+    if (document.querySelector("#navcursor")) {
+      document.querySelector("#navcursor").classList.add("is-playing");
+    }
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.add("is-open");
     }
@@ -79,6 +89,9 @@ class VideoPlayer extends Component {
     this.refs.vidRef.currentTime = 0;
     this.setState({ active: false });
     document.querySelector("#cursor").classList.remove("is-playing");
+    if (document.querySelector("#navcursor")) {
+      document.querySelector("#navcursor").classList.remove("is-playing");
+    }
     if (document.querySelector("#checkIfOpen")) {
       document.querySelector("#checkIfOpen").classList.remove("is-open");
     }
@@ -105,33 +118,56 @@ class VideoPlayer extends Component {
   // }
 
   render = () => {
-    return (
-      <Container className={[this.state.active, this.props.nav].join(" ")}>
-        <ButtonContainer
-          data-stick-cursor
-          className={this.state.active ? "active link" : ""}
-        >
-          <CloseButton onClick={this.stopVideo}>Close</CloseButton>
-        </ButtonContainer>
-        <VideoContainer
-          className={`${this.state.active ? "active" : ""} videoOpen`}
-        >
-          <Video
-            id="video"
-            onKeyDown={this.onKeyPressed}
-            tabIndex="0"
-            preload="none"
-            ref="vidRef"
-            src={this.props.src}
-            type="video/mp4"
-            onClick={this.pauseVideo}
-            onEnded={() => this.stopVideo()}
-            className={this.state.active ? "active" : ""}
-            className={`${
-              this.state.active ? "active" : ""
-            } videoOpen landscape`}
-          />
-        </VideoContainer>
+    var isNav = this.props.nav;
+    let buttonContainer;
+    if (isNav) {
+      buttonContainer = (
+        <div className="link" data-menu-cursor>
+          <PlayButton
+            id="hoverButton"
+            className={[this.state.active, this.props.nav].join(" ")}
+            onClick={this.playVideo}
+          >
+            <svg
+              id="Collapse_Expand_1"
+              data-name="Collapse/Expand 1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="58.739"
+              height="58.739"
+              viewBox="0 0 58.739 58.739"
+            >
+              <g
+                id="Collapse_Expand_1-2"
+                data-name="Collapse/Expand 1"
+                transform="translate(55.36 -716.142) rotate(60)"
+              >
+                <g
+                  id="Ellipse_1"
+                  data-name="Ellipse 1"
+                  transform="translate(611.136 373.764)"
+                  fill="none"
+                  stroke="#ffc40a"
+                  strokeWidth="11"
+                >
+                  <circle cx="21.5" cy="21.5" r="21.5" stroke="none" />
+                  <circle cx="21.5" cy="21.5" r="16" fill="none" />
+                </g>
+                <circle
+                  id="Ellipse_8"
+                  data-name="Ellipse 8"
+                  cx="3"
+                  cy="3"
+                  r="3"
+                  transform="translate(629.265 392.363)"
+                />
+              </g>
+            </svg>
+            <span>Play Our Reel</span>
+          </PlayButton>
+        </div>
+      );
+    } else {
+      buttonContainer = (
         <div className="link" data-stick-cursor>
           <PlayButton
             id="hoverButton"
@@ -175,6 +211,36 @@ class VideoPlayer extends Component {
             <span>Play Our Reel</span>
           </PlayButton>
         </div>
+      );
+    }
+    return (
+      <Container className={[this.state.active, this.props.nav].join(" ")}>
+        <ButtonContainer
+          data-stick-cursor
+          className={this.state.active ? "active link" : ""}
+        >
+          <CloseButton onClick={this.stopVideo}>Close</CloseButton>
+        </ButtonContainer>
+        <VideoContainer
+          className={`${this.state.active ? "active" : ""} videoOpen`}
+        >
+          <Video
+            id="video"
+            onKeyDown={this.onKeyPressed}
+            tabIndex="0"
+            preload="none"
+            ref="vidRef"
+            src={this.props.src}
+            type="video/mp4"
+            onClick={this.pauseVideo}
+            onEnded={() => this.stopVideo()}
+            className={this.state.active ? "active" : ""}
+            className={`${
+              this.state.active ? "active" : ""
+            } videoOpen landscape`}
+          />
+        </VideoContainer>
+        {buttonContainer}
       </Container>
     );
   };

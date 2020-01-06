@@ -321,9 +321,5 @@ const Cursor = styled.div`
         cursor: none;
       }
     }
-  }
-  &.is-menu {
-    div {
-    }
-  }
+  } 
 `;

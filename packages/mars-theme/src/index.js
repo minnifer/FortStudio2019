@@ -39,6 +39,7 @@ const marsTheme = {
     theme: {
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
+        
       },
       toggleVideoModal: ({ state }) => {
         state.theme.isVideoOpen = !state.theme.isVideoOpen;

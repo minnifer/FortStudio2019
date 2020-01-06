@@ -52,7 +52,7 @@ export default function NavMouse() {
     let isNearOne = false;
     let isNearLargeOne = false;
     let isNearSmallOne = false;
-    const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
+    const stickies = [...document.querySelectorAll("[data-menu-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     const smallStickies = [...document.querySelectorAll("[data-small-cursor]")];
     stickies
@@ -153,7 +153,7 @@ export default function NavMouse() {
   });
   return (
     <NavCursor
-      id="cursor"
+      id="navcursor"
       ref={cursorRef}
       className={`cursor ${stuck ? "is-active" : ""} ${
         largeStuck ? "is-large" : ""
@@ -240,6 +240,7 @@ const NavCursor = styled.div`
   }
   &.is-menu {
     div {
+      display:none;
     }
   }
 `;

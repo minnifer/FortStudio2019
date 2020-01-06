@@ -26,15 +26,7 @@ class Footer extends Component {
     window.setTimeout(this.isOnScreen.bind(this), 250);
   }
   componentDidMount() {
-    window.setTimeout(this.isOnScreen.bind(this), 250);
-    // window.onscroll = function(ev) {
-    //   var stickyfooter = document.querySelector("#stuck");
-    //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    //     stickyfooter.classList.add("at-bottom");
-    //   } else {
-    //     stickyfooter.classList.remove("at-bottom");
-    //   }
-    // };
+    window.setTimeout(this.isOnScreen.bind(this), 250);  
     window.onscroll = function() {
       var stickyfooter = document.querySelector("#stuck");
       var pageHeight = document.documentElement.offsetHeight,
