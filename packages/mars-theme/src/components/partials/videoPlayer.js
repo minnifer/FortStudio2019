@@ -215,8 +215,7 @@ class VideoPlayer extends Component {
     }
     return (
       <Container className={[this.state.active, this.props.nav].join(" ")}>
-        <ButtonContainer
-          data-stick-cursor
+        <ButtonContainer          
           className={this.state.active ? "active link" : ""}
         >
           <CloseButton onClick={this.stopVideo}>Close</CloseButton>
