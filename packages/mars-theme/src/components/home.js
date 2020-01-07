@@ -24,7 +24,7 @@ const Home = ({ state, actions, libraries }) => {
     actions.source.fetch("/");
   }, []);
   if (typeof window !== "undefined") {        
-    if (localStorage.getItem('firstVisit')){      
+    if (sessionStorage.getItem('firstVisit')){      
       lottie = <div />;
       if(document.querySelector("#animation")) {
         document.querySelector("#animation").style.display = "none";
@@ -32,7 +32,7 @@ const Home = ({ state, actions, libraries }) => {
       
     }
     else{
-      localStorage.setItem('firstVisit', 'true');
+      sessionStorage.setItem('firstVisit', 'true');
       lottie = <LottieControl />;
     }
   }
