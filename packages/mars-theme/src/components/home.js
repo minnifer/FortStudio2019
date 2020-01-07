@@ -56,7 +56,7 @@ const Home = ({ state, actions, libraries }) => {
         <Header menuTheme="white" />
       </HeadContainer>
       <Content>
-        {isDesktopOrLaptop && <>{lottie}</>}
+        {lottie}
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
             {isDesktopOrLaptop && (
