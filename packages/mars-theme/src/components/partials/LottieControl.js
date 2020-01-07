@@ -52,6 +52,7 @@ const LottieContainer = styled.div`
   height: 100vh;
   transition: opacity 4000ms ease-in-out;
   z-index: 90000;
+  display:none;
   -webkit-animation: 5.25s ease 0s normal forwards 1 fadein;
     animation:5.25s ease 0s normal forwards 1 fadein;
   > div {
@@ -63,8 +64,8 @@ const LottieContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  @media (max-width: 1024px) {
-    display:none;
+  @media (min-width: 1024px) {
+    display:block;
   }
   @keyframes fadein {
     0% {

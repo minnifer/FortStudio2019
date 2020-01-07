@@ -10,6 +10,7 @@ import VideoPlayer from "./partials/VideoPlayer";
 import LottieControl from "./partials/LottieControl";
 import YourMouse from "./utils/YourMouse";
 import Lottie from "react-lottie";
+import { useMediaQuery } from "react-responsive";
 import * as animationData from "./data.json";
 // import './utils/your-mouse.scss'
 const Home = ({ state, actions, libraries }) => {
@@ -17,22 +18,29 @@ const Home = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
-
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 1224px)"
+  });
+  const isBigScreen = useMediaQuery({ query: "(min-device-width: 1824px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const isTabletOrMobileDevice = useMediaQuery({
+    query: "(max-device-width: 1224px)"
+  });
+  const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
+  const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" });
   const { isFirstVisit } = state.theme;
   let lottie = <LottieControl />;
   useEffect(() => {
     actions.source.fetch("/");
   }, []);
-  if (typeof window !== "undefined") {        
-    if (sessionStorage.getItem('firstVisit')){      
+  if (typeof window !== "undefined") {
+    if (sessionStorage.getItem("firstVisit")) {
       lottie = <div />;
-      if(document.querySelector("#animation")) {
+      if (document.querySelector("#animation")) {
         document.querySelector("#animation").style.display = "none";
       }
-      
-    }
-    else{
-      sessionStorage.setItem('firstVisit', 'true');
+    } else {
+      sessionStorage.setItem("firstVisit", "true");
       lottie = <LottieControl />;
     }
   }
@@ -51,24 +59,30 @@ const Home = ({ state, actions, libraries }) => {
         {lottie}
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
-            <Video
-              autoPlay
-              muted
-              loop
-              playsInline
-              allowsInlineMediaPlayback={true}
-              src={post.acf.background_video["url"]}
-              className="desktop"
-            />
-            <Video
-              src={post.acf.mobile_background_video_mp4["url"]}
-              autoPlay
-              muted
-              loop
-              playsInline
-              allowsInlineMediaPlayback={true}
-              className="mobile"
-            ></Video>
+            {isDesktopOrLaptop && (
+              <>
+                <Video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  allowsInlineMediaPlayback={true}
+                  src={post.acf.background_video["url"]}
+                  className="desktop"
+                />
+              </>
+            )}
+            {isTabletOrMobile && (
+              <Video
+                src={post.acf.mobile_background_video_mp4["url"]}
+                autoPlay
+                muted
+                loop
+                playsInline
+                allowsInlineMediaPlayback={true}
+                className="mobile"
+              ></Video>
+            )}
           </StyledVideoContainer>
           <StyledVideoPlayer toggle={state} src={post.acf.video["url"]} />
           <TextContainer>
@@ -189,14 +203,14 @@ const Video = styled.video`
   left: 0;
   z-index: 1;
   opacity: 0.5;
-  &.mobile {
+  &.desktop {
     display: none;
   }
-  @media (max-width: 768px) {
-    &.mobile {
+  @media (min-width: 768px) {
+    &.desktop {
       display: block;
     }
-    &.desktop {
+    &.mobile {
       display: none;
     }
   }
