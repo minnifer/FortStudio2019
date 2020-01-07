@@ -29,7 +29,14 @@ const Home = ({ state, actions, libraries }) => {
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
   const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" });
   const { isFirstVisit } = state.theme;
-  let lottie = <LottieControl />;
+  let lottie;
+  if (isTabletOrMobile){
+    lottie = <div />;
+  }
+  else{
+    
+    lottie = <LottieControl />;
+  }
   useEffect(() => {
     actions.source.fetch("/");
   }, []);
@@ -41,7 +48,13 @@ const Home = ({ state, actions, libraries }) => {
       }
     } else {
       sessionStorage.setItem("firstVisit", "true");
-      lottie = <LottieControl />;
+      if (isDesktopOrLaptop){
+        lottie = <LottieControl />;
+      }
+      else{
+        lottie = <div />;
+      }
+      
     }
   }
   // console.log(isFirstVisit);
@@ -56,7 +69,7 @@ const Home = ({ state, actions, libraries }) => {
         <Header menuTheme="white" />
       </HeadContainer>
       <Content>
-        {/* {lottie} */}
+        {lottie}
         <VideoContainer id="checkIfOpen">
           <StyledVideoContainer>
             {isDesktopOrLaptop && (
