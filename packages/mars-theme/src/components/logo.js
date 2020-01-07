@@ -122,8 +122,8 @@ const StyledSVG = styled.svg`
   &:active,
   &:focus {
     rect {
-      -webkit-animation: 1s ease 0s normal forwards 1 drawLine;
-      animation: 1s ease 0s normal forwards 1 drawLine;
+      -webkit-animation: 500ms ease 0s normal forwards 1 drawLine;
+      animation: 500ms ease 0s normal forwards 1 drawLine;
     }
   }
   @keyframes drawLine {
