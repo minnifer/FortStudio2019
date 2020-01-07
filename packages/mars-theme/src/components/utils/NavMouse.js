@@ -187,6 +187,7 @@ const NavCursor = styled.div`
     opacity: 1;
     cursor: none;
     transform: translate(-42.5%, -42.5%);
+    -webkit-transform: translate(-42.5%, -42.5%);
     -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
       transform 0.25s ease-in-out, opacity 0.35s ease;
     transition: height 0.25s ease-in-out, width 0.25s ease-in-out,

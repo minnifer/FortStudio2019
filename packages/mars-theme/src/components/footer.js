@@ -272,6 +272,7 @@ const Tout = styled.div`
     bottom: -110px;
     left: 0%;
     transform: translateX(-15%);
+    -webkit-transform: translateX(-15%);
     border-radius: 50%;
     @media (max-width: 1024px) {
       a {
@@ -280,6 +281,7 @@ const Tout = styled.div`
       }
       position: relative;
       transform: none;
+      -webkit-transform: none;
       bottom: auto;
       height: 51px;
       width: auto;
@@ -320,6 +322,7 @@ const Tout = styled.div`
     @media (max-width: 1024px) {
       .link {
         transform: none;
+        -webkit-transform: none
       }
     }
   }
@@ -327,6 +330,7 @@ const Tout = styled.div`
     margin-right: 114px;
     .link {
       transform: translateX(-21%);
+      -webkit-transform: translateX(-21%);
     }
   }
   /* &:hover {
@@ -347,6 +351,7 @@ const Tout = styled.div`
       margin-bottom: 0;
       .link {
         transform: none;
+        -webkit-transform:none;
       }
     }
   }
@@ -363,6 +368,7 @@ const Tout = styled.div`
       margin-bottom: 0;
       .link {
         transform: none;
+        -webkit-transform:none;
       }
     }
   }

@@ -136,7 +136,7 @@ export default function YourMouse() {
         if (h < DIST && !smallStuck) {
           isNearSmallOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) /100;
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
@@ -260,6 +260,7 @@ const Cursor = styled.div`
     opacity: 1;
     cursor: none;
     transform: translate(-42.5%, -42.5%);
+    -webkit-ransform: translate(-42.5%, -42.5%);
     -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
       transform 0.25s ease-in-out, opacity 0.35s ease;
     transition: height 0.25s ease-in-out, width 0.25s ease-in-out,
@@ -305,6 +306,7 @@ const Cursor = styled.div`
       opacity: 1;
       cursor: none;
       transform: translate(-45%, -45%);
+      -webkit-transform:translate(-45%, -45%);
     }
   }
   &.is-swapped {

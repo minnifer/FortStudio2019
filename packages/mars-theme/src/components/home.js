@@ -45,7 +45,7 @@ const Home = ({ state, actions, libraries }) => {
       {/* Add the header of the site. */}
       <YourMouse />
       <HeadContainer>
-        <Header />
+        <Header menuTheme="white" />
       </HeadContainer>
       <Content>
         {lottie}

@@ -5,206 +5,72 @@ import YourMouse from "./utils/YourMouse";
 const Logo = ({ state, actions, menuTheme }) => {
   const { isMobileMenuOpen } = state.theme;
   return (
-    <>     
+    <>
       <Container>
         <StyledLink link="/">
           {isMobileMenuOpen ? (
             <>
               <StyledSVG
-                width="104.482"
-                height="40.693"
-                viewBox="0 0 104.482 40.693"
+                version="1.1"
+                id="logo_x5F_group"
+                x="0px"
+                y="0px"
+                viewBox="0 0 563.68 218.69"
                 menuTheme="white"
               >
-                <defs>
-                  <clipPath id="clip-path">
-                    <path
-                      id="Path_707"
-                      data-name="Path 707"
-                      d="M0-37H104.482V3.693H0Z"
-                      transform="translate(0 37)"
-                      fill="#fff"
-                      clipRule="evenodd"
-                    />
-                  </clipPath>
-                  <clipPath id="clip-path-2">
-                    <path
-                      id="Path_706"
-                      data-name="Path 706"
-                      d="M-85,773.654H1498.726V-71H-85Z"
-                      transform="translate(85 71)"
-                      fill="#fff"
-                    />
-                  </clipPath>
-                  <clipPath id="clip-path-3">
-                    <rect
-                      id="Rectangle_196"
-                      data-name="Rectangle 196"
-                      width="105"
-                      height="41"
-                      transform="translate(0 -0.036)"
-                      fill="#fff"
-                    />
-                  </clipPath>
-                  <clipPath id="clip-path-4">
-                    <path
-                      id="Path_705"
-                      data-name="Path 705"
-                      d="M104.482-29.333V-36.41H81.617v7.077h7.467v18.872h7.931V-29.333ZM77.416-10.461l-5.222-9.08a8.994,8.994,0,0,0,4.635-7.875,8.977,8.977,0,0,0-8.959-8.994H54.944v25.95h7.931v-7.667h2.2l4.409,7.667ZM69.338-27.269a2.649,2.649,0,0,1-2.644,2.654H62.876v-5.308h3.819a2.649,2.649,0,0,1,2.644,2.654ZM49.959-23.435A13.538,13.538,0,0,0,36.447-37,13.538,13.538,0,0,0,22.935-23.435,13.538,13.538,0,0,0,36.447-9.871,13.538,13.538,0,0,0,49.959-23.435Zm-7.637,0a5.886,5.886,0,0,1-5.875,5.9,5.886,5.886,0,0,1-5.875-5.9,5.886,5.886,0,0,1,5.875-5.9,5.886,5.886,0,0,1,5.875,5.9Zm-34.391-5.9h10.78V-36.41H0v25.949H7.931v-7.667h9.793v-7.077H7.931ZM0,3.693H103.5V-3.384H0Z"
-                      transform="translate(0 37)"
-                      fill="#fff"
-                      clipRule="evenodd"
-                    />
-                  </clipPath>
-                  <clipPath id="clip-path-5">
-                    <path
-                      id="Path_704"
-                      data-name="Path 704"
-                      d="M0,3.693H104.482V-37H0Z"
-                      transform="translate(0 37)"
-                      fill="#fff"
-                    />
-                  </clipPath>
-                </defs>
-                <g
-                  id="Group_154"
-                  data-name="Group 154"
-                  clipPath="url(#clip-path)"
-                >
-                  <g
-                    id="Group_153"
-                    data-name="Group 153"
-                    transform="translate(-93.484 -37.394)"
-                    clipPath="url(#clip-path-2)"
-                  >
-                    <g
-                      id="Group_152"
-                      data-name="Group 152"
-                      transform="translate(93.484 37.314)"
-                      clipPath="url(#clip-path-3)"
-                    >
-                      <g
-                        id="Group_151"
-                        data-name="Group 151"
-                        transform="translate(0 0.079)"
-                        clipPath="url(#clip-path-4)"
-                      >
-                        <g
-                          id="Group_150"
-                          data-name="Group 150"
-                          clipPath="url(#clip-path-5)"
-                        >
-                          <path
-                            id="Path_703"
-                            data-name="Path 703"
-                            d="M-5,9.691H110.48V-42H-5Z"
-                            transform="translate(-0.499 36.501)"
-                            fill="#fff"
-                          />
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
+                <polygon
+                  id="f"
+                  points="42.79,101.42 95.62,101.42 95.62,63.39 42.79,63.39 42.79,41.2 100.95,41.2 100.95,3.17 0,3.17 0,3.17 
+	0,142.63 42.79,142.63 "
+                />
+                <polygon
+                  id="t"
+                  points="440.32,3.17 440.32,41.2 480.61,41.2 480.61,142.63 523.4,142.63 523.4,41.2 563.68,41.2 563.68,3.17 "
+                />
+                <path
+                  id="r"
+                  d="M339.21,101.42h11.87l23.79,41.2h42.79l-28.17-48.8c14.9-8.23,25-24.09,25-42.32c0-26.69-21.64-48.34-48.33-48.34
+	h-69.73v139.46h42.79V101.42z M339.21,38.03h20.6c7.88,0,14.26,6.39,14.26,14.26c0,7.88-6.39,14.26-14.26,14.26h-20.6V38.03z"
+                />
+                <path
+                  id="o"
+                  d="M196.63,145.8c40.26,0,72.9-32.64,72.9-72.9c0-40.26-32.64-72.9-72.9-72.9s-72.9,32.64-72.9,72.9
+	C123.73,113.16,156.37,145.8,196.63,145.8z M196.63,41.2c17.51,0,31.7,14.19,31.7,31.7c0,17.5-14.19,31.69-31.7,31.69
+	s-31.7-14.19-31.7-31.69C164.94,55.39,179.13,41.2,196.63,41.2z"
+                />
+                <rect id="underline" y="180.66" width="558.36" height="38.03" />
               </StyledSVG>
             </>
           ) : (
             <StyledSVG
-              width="104.482"
-              height="40.693"
-              viewBox="0 0 104.482 40.693"
               menuTheme={menuTheme}
+              version="1.1"
+              id="logo_x5F_group"
+              x="0px"
+              y="0px"
+              viewBox="0 0 563.68 218.69"
             >
-              <defs>
-                <clipPath id="clip-path">
-                  <path
-                    id="Path_707"
-                    data-name="Path 707"
-                    d="M0-37H104.482V3.693H0Z"
-                    transform="translate(0 37)"
-                    fill="#fff"
-                    clipRule="evenodd"
-                  />
-                </clipPath>
-                <clipPath id="clip-path-2">
-                  <path
-                    id="Path_706"
-                    data-name="Path 706"
-                    d="M-85,773.654H1498.726V-71H-85Z"
-                    transform="translate(85 71)"
-                    fill="#fff"
-                  />
-                </clipPath>
-                <clipPath id="clip-path-3">
-                  <rect
-                    id="Rectangle_196"
-                    data-name="Rectangle 196"
-                    width="105"
-                    height="41"
-                    transform="translate(0 -0.036)"
-                    fill="#fff"
-                  />
-                </clipPath>
-                <clipPath id="clip-path-4">
-                  <path
-                    id="Path_705"
-                    data-name="Path 705"
-                    d="M104.482-29.333V-36.41H81.617v7.077h7.467v18.872h7.931V-29.333ZM77.416-10.461l-5.222-9.08a8.994,8.994,0,0,0,4.635-7.875,8.977,8.977,0,0,0-8.959-8.994H54.944v25.95h7.931v-7.667h2.2l4.409,7.667ZM69.338-27.269a2.649,2.649,0,0,1-2.644,2.654H62.876v-5.308h3.819a2.649,2.649,0,0,1,2.644,2.654ZM49.959-23.435A13.538,13.538,0,0,0,36.447-37,13.538,13.538,0,0,0,22.935-23.435,13.538,13.538,0,0,0,36.447-9.871,13.538,13.538,0,0,0,49.959-23.435Zm-7.637,0a5.886,5.886,0,0,1-5.875,5.9,5.886,5.886,0,0,1-5.875-5.9,5.886,5.886,0,0,1,5.875-5.9,5.886,5.886,0,0,1,5.875,5.9Zm-34.391-5.9h10.78V-36.41H0v25.949H7.931v-7.667h9.793v-7.077H7.931ZM0,3.693H103.5V-3.384H0Z"
-                    transform="translate(0 37)"
-                    fill="#fff"
-                    clipRule="evenodd"
-                  />
-                </clipPath>
-                <clipPath id="clip-path-5">
-                  <path
-                    id="Path_704"
-                    data-name="Path 704"
-                    d="M0,3.693H104.482V-37H0Z"
-                    transform="translate(0 37)"
-                    fill="#fff"
-                  />
-                </clipPath>
-              </defs>
-              <g
-                id="Group_154"
-                data-name="Group 154"
-                clipPath="url(#clip-path)"
-              >
-                <g
-                  id="Group_153"
-                  data-name="Group 153"
-                  transform="translate(-93.484 -37.394)"
-                  clipPath="url(#clip-path-2)"
-                >
-                  <g
-                    id="Group_152"
-                    data-name="Group 152"
-                    transform="translate(93.484 37.314)"
-                    clipPath="url(#clip-path-3)"
-                  >
-                    <g
-                      id="Group_151"
-                      data-name="Group 151"
-                      transform="translate(0 0.079)"
-                      clipPath="url(#clip-path-4)"
-                    >
-                      <g
-                        id="Group_150"
-                        data-name="Group 150"
-                        clipPath="url(#clip-path-5)"
-                      >
-                        <path
-                          id="Path_703"
-                          data-name="Path 703"
-                          d="M-5,9.691H110.48V-42H-5Z"
-                          transform="translate(-0.499 36.501)"
-                          fill="#fff"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
+              <polygon
+                id="f"
+                points="42.79,101.42 95.62,101.42 95.62,63.39 42.79,63.39 42.79,41.2 100.95,41.2 100.95,3.17 0,3.17 0,3.17 
+	0,142.63 42.79,142.63 "
+              />
+              <polygon
+                id="t"
+                points="440.32,3.17 440.32,41.2 480.61,41.2 480.61,142.63 523.4,142.63 523.4,41.2 563.68,41.2 563.68,3.17 "
+              />
+              <path
+                id="r"
+                d="M339.21,101.42h11.87l23.79,41.2h42.79l-28.17-48.8c14.9-8.23,25-24.09,25-42.32c0-26.69-21.64-48.34-48.33-48.34
+	h-69.73v139.46h42.79V101.42z M339.21,38.03h20.6c7.88,0,14.26,6.39,14.26,14.26c0,7.88-6.39,14.26-14.26,14.26h-20.6V38.03z"
+              />
+              <path
+                id="o"
+                d="M196.63,145.8c40.26,0,72.9-32.64,72.9-72.9c0-40.26-32.64-72.9-72.9-72.9s-72.9,32.64-72.9,72.9
+	C123.73,113.16,156.37,145.8,196.63,145.8z M196.63,41.2c17.51,0,31.7,14.19,31.7,31.7c0,17.5-14.19,31.69-31.7,31.69
+	s-31.7-14.19-31.7-31.69C164.94,55.39,179.13,41.2,196.63,41.2z"
+              />
+              <rect id="underline" y="180.66" width="558.36" height="38.03" />
             </StyledSVG>
           )}
         </StyledLink>
@@ -229,7 +95,7 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     padding: 0;
     padding: 36px 0;
-    margin-top:0;
+    margin-top: 0;
   }
 `;
 
@@ -245,10 +111,28 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledSVG = styled.svg`
-  g,
-  path {
+  width: 100px;
+  polygon,
+  path,
+  rect {
     fill: ${props => props.menuTheme};
-    transition: fill 250ms ease-in-out;
+    transition: fill 250ms ease-in-out, transform 250ms ease-in-out;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    rect {
+      -webkit-animation: 1s ease 0s normal forwards 1 drawLine;
+      animation: 1s ease 0s normal forwards 1 drawLine;
+    }
+  }
+  @keyframes drawLine {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
   /* &:hover,
   &:focus {

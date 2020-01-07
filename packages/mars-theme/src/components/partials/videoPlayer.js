@@ -423,7 +423,7 @@ const PlayButton = styled.button`
     font-weight: 500;
     letter-spacing: 0.84px;
     left: 0;
-    top: 37.5%;
+    top: 35.5%;
     padding-top: 8px;
     color: #1d1d1d;
     @media (max-width: 768px) {
