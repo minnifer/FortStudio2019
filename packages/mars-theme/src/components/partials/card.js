@@ -22,6 +22,7 @@ const StyledLink = styled(Link)`
   line-height: 51px;
   letter-spacing: 0.84px;
   font-size: 14px;
+  padding-top:5px;    
   text-transform: uppercase;
   -webkit-appearance: none;
   background: transparent;

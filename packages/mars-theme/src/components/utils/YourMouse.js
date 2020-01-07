@@ -82,8 +82,8 @@ export default function YourMouse() {
         if (h < DIST && !stuck) {
           isNearOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
     largeStickies
@@ -109,8 +109,8 @@ export default function YourMouse() {
         if (h < DIST && !largeStuck) {
           isNearLargeOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
     smallStickies
@@ -136,8 +136,8 @@ export default function YourMouse() {
         if (h < DIST && !smallStuck) {
           isNearSmallOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
     growStickies
@@ -163,34 +163,34 @@ export default function YourMouse() {
         if (h < DIST && !grow) {
           isNearGrowOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 10;
-          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 10;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
     if (isNearOne) {
       setStuck(true); // enlarge
-      setEase(0.0); // slow a bit
+      setEase(0.95); // slow a bit
     } else {
       setStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
     if (isNearLargeOne) {
       setLargeStuck(true); // enlarge
-      setEase(0.0); // slow a bit
+      setEase(0.95); // slow a bit
     } else {
       setLargeStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
     if (isNearSmallOne) {
       setSmallStuck(true); // enlarge
-      setEase(0.0); // slow a bit
+      setEase(0.95); // slow a bit
     } else {
       setSmallStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
     if (isNearGrowOne) {
       setGrow(true); // enlarge
-      setEase(0.0); // slow a bit
+      setEase(0.95); // slow a bit
     } else {
       setGrow(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
