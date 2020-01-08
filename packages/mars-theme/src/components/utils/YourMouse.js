@@ -136,7 +136,7 @@ export default function YourMouse() {
         if (h < DIST && !smallStuck) {
           isNearSmallOne = true;
           // pull towards this target
-          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) /100;
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
@@ -240,14 +240,13 @@ const Cursor = styled.div`
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  @media (max-width: 1024px) {
+  @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
     opacity: 0;
   }
-  @media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (-webkit-min-device-pixel-ratio: 2) 
-  and (orientation: landscape){
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    opacity: 0;
+  }
+  @media (max-width: 600px) {
     opacity: 0;
   }
   div {
@@ -306,7 +305,7 @@ const Cursor = styled.div`
       opacity: 1;
       cursor: none;
       transform: translate(-45%, -45%);
-      -webkit-transform:translate(-45%, -45%);
+      -webkit-transform: translate(-45%, -45%);
     }
   }
   &.is-swapped {
@@ -323,5 +322,5 @@ const Cursor = styled.div`
         cursor: none;
       }
     }
-  } 
+  }
 `;
