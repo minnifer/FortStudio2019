@@ -16,10 +16,10 @@ import ReactGA from "react-ga";
 const Theme = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
- useEffect(() => {
-    ReactGA.initialize("UA-155273847-1");
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
+//  useEffect(() => {
+//     ReactGA.initialize("UA-155273847-1");
+//     ReactGA.pageview(window.location.pathname + window.location.search);
+//   }, []);
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
