@@ -127,6 +127,7 @@ class VideoPlayer extends Component {
             id="hoverButton"
             className={[this.state.active, this.props.nav].join(" ")}
             onClick={this.playVideo}
+            name="Play Button"
           >
             <svg
               id="Collapse_Expand_1"

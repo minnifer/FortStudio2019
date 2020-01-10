@@ -7,7 +7,7 @@ const Logo = ({ state, actions, menuTheme }) => {
   return (
     <>
       <Container>
-        <StyledLink link="/">
+        <StyledLink name="home" link="/">
           {isMobileMenuOpen ? (
             <>
               <StyledSVG
