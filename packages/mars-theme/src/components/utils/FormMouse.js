@@ -19,6 +19,7 @@ export default function FormMouse() {
   const [stuck, setStuck] = React.useState(false);
   const [largeStuck, setLargeStuck] = React.useState(false);
   const [smallStuck, setSmallStuck] = React.useState(false);
+  const [grow, setGrow] = React.useState(false);
   const [swap, setSwap] = React.useState(false);
   // These are all just collections of data which don't necessary need a new
   // render from React (i.e. our little div) so we jsut keep them updated and
@@ -39,6 +40,7 @@ export default function FormMouse() {
     // setup targets once
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
+    const growStickies = [...document.querySelectorAll("[data-grow-cursor]")];
     targets.current =
       // mouse follower and cleanup
       window.addEventListener("mousemove", mousePos, { passive: true });
@@ -51,9 +53,11 @@ export default function FormMouse() {
     let isNearOne = false;
     let isNearLargeOne = false;
     let isNearSmallOne = false;
+    let isNearGrowOne = false;
     const stickies = [...document.querySelectorAll("[data-stick-cursor]")];
     const largeStickies = [...document.querySelectorAll("[data-large-cursor]")];
     const smallStickies = [...document.querySelectorAll("[data-small-cursor]")];
+    const growStickies = [...document.querySelectorAll("[data-grow-cursor]")];
     stickies
       .map(ele => {
         const bounds = ele.getBoundingClientRect();
@@ -135,7 +139,33 @@ export default function FormMouse() {
           mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
         }
       });
+    growStickies
+      .map(ele => {
+        const bounds = ele.getBoundingClientRect();
+        const objectWidth = ele.offsetWidth;
+        const height = ele.offsetHeight;
+        return {
+          el: ele,
+          x: window.scrollX + bounds.left + bounds.width / 2,
+          y: window.scrollY + bounds.top + bounds.height / 2
+        };
+      })
+      .forEach(target => {
+        const d = {
+          x: target.x - mouseHitPos.current[0],
+          y: target.y - mouseHitPos.current[1]
+        };
 
+        const a = Math.atan2(d.x, d.y);
+        const h = Math.sqrt(d.x * d.x + d.y * d.y);
+
+        if (h < DIST && !grow) {
+          isNearGrowOne = true;
+          // pull towards this target
+          mouseHitPos.current[0] = target.x - (Math.sin(a) * h) / 100;
+          mouseHitPos.current[1] = target.y - (Math.cos(a) * h) / 100;
+        }
+      });
     if (isNearOne) {
       setStuck(true); // enlarge
       setEase(0.95); // slow a bit
@@ -153,10 +183,18 @@ export default function FormMouse() {
     if (isNearSmallOne) {
       setSmallStuck(true); // enlarge
       setEase(0.95); // slow a bit
-    } else {
+    }
+    else {
       setSmallStuck(false); // shrink
       setEase(DEFAULT_EASE); // back to OG speed
     }
+    if (isNearGrowOne) {
+      setGrow(true); // enlarge
+      setEase(0.95); // slow a bit
+    } else {
+      setGrow(false); // shrink
+      setEase(DEFAULT_EASE); // back to OG speed
+    } 
 
     // Do the maths
     const [currentX, currentY] = mouseHitPos.current;
@@ -184,7 +222,10 @@ export default function FormMouse() {
       className={`cursor ${stuck ? "is-active" : ""} ${
         largeStuck ? "is-large" : ""
       }
-      ${smallStuck ? "is-small" : ""}`}
+      ${smallStuck ? "is-small" : ""}
+      ${grow ? "is-grow" : ""}
+      `}
+      
       data-cursor
       style={{ transform }}
     >
@@ -206,8 +247,8 @@ const FormCursor = styled.div`
   div {
     z-index: 2;
     border-radius: 50%;
-    width: .75rem;
-    height: .75rem;
+    width: 0.75rem;
+    height: 0.75rem;
     border: 1px solid #fff;
     background-color: #fff;
     opacity: 1;
@@ -230,7 +271,7 @@ const FormCursor = styled.div`
       cursor: none;
     }
   }
-   &.is-large {
+  &.is-large {
     z-index: 2;
     div {
       background-color: #fff;
@@ -263,6 +304,18 @@ const FormCursor = styled.div`
         opacity: 1;
         cursor: none;
       }
+    }
+  }
+  &.is-grow {
+    z-index: 2;
+    div {
+      background-color: #fff;
+      width: 180px;
+      height: 180px;
+      opacity: 1;
+      cursor: none;
+      transform: translate(-45%, -45%);
+      -webkit-transform: translate(-45%, -45%);
     }
   }
   &.is-menu {
