@@ -164,6 +164,8 @@ const HeadContainer = styled.div`
 const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  max-width:1200px;
+  margin:auto;
   margin-top: 50px;
   div {
     transform: none;
@@ -192,6 +194,7 @@ const CardContainer = styled.div`
           background-color: #f8f8f8;
         }
         &:hover, &:focus, &:active{
+          background-color: #f8f8f8;
           &:before {
           background-color: #f8f8f8;
         }
