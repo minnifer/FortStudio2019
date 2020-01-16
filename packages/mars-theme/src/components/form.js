@@ -155,10 +155,10 @@ const PageContainer = styled.div`
   }
 `;
 const RightContainer = styled.div`
-  width: 45%;
-  margin-bottom: 85px;
+  width: 45%;  
   @media (max-width: 768px) {
     width: 100%;
+    margin-bottom: 85px;
   }
 `;
 
