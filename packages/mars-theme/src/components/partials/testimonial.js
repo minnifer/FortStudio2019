@@ -54,6 +54,10 @@ const Wrapper = styled.div`
       margin-top: -75px;
     }
   }
+  &.false{
+    position:relative;
+    z-index:3;
+  }
 `;
 const Container = styled.div`
   max-width: 1440px;

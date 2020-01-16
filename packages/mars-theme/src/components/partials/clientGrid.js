@@ -65,7 +65,7 @@ class ClientGrid extends Component {
 
   render() {
     return (
-      <Container>
+      <Container className="gridContainer" >
         <Wrapper>
           {this.props.layout.client_grid.map((grid, index) =>
             this.renderGrid(grid, index)

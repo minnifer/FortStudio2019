@@ -30,11 +30,9 @@ const Home = ({ state, actions, libraries }) => {
   const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" });
   const { isFirstVisit } = state.theme;
   let lottie;
-  if (isTabletOrMobile){
+  if (isTabletOrMobile) {
     lottie = <div />;
-  }
-  else{
-    
+  } else {
     lottie = <LottieControl />;
   }
   useEffect(() => {
@@ -48,13 +46,11 @@ const Home = ({ state, actions, libraries }) => {
       }
     } else {
       sessionStorage.setItem("firstVisit", "true");
-      if (isDesktopOrLaptop){
+      if (isDesktopOrLaptop) {
         lottie = <LottieControl />;
-      }
-      else{
+      } else {
         lottie = <div />;
       }
-      
     }
   }
   // console.log(isFirstVisit);
@@ -110,6 +106,10 @@ const Home = ({ state, actions, libraries }) => {
             </Wrapper>
           </TextContainer>
         </VideoContainer>
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
       </Content>
     </Container>
   ) : null;
@@ -242,7 +242,39 @@ const StyledVideoContainer = styled.div`
 // selectors to style that HTML.
 const Content = styled.div`
   word-break: break-word;
+  #top,
+  #bottom,
+  #left,
+  #right {
+    background: #000;
+    z-index:900;
+    position: fixed;
+  }
+  #left,
+  #right {
+    top: 0;
+    bottom: 0;
+    width: 7px;
+  }
+  #left {
+    left: 0;
+  }
+  #right {
+    right: 0;
+  }
 
+  #top,
+  #bottom {
+    left: 0;
+    right: 0;
+    height: 7px;
+  }
+  #top {
+    top: 0;
+  }
+  #bottom {
+    bottom: 0;
+  }
   * {
     max-width: 100%;
   }

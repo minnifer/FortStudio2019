@@ -46,12 +46,12 @@ const WhoWeAre = ({ state, actions, libraries }) => {
       </HeadContainer>
       <Content>
         <ComponentRouter layouts={post.acf.content_blocks} />
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
       </Content>
       <Footer activeTout="first" />
-      <div id="left"></div>
-      <div id="right"></div>
-      <div id="top"></div>
-      <div id="bottom"></div>
     </Container>
   ) : null;
 };
@@ -61,13 +61,21 @@ export default connect(WhoWeAre);
 const Container = styled.div`
   margin: 0;
   width: 100%;
-  overflow-x:hidden;
+  overflow: hidden;
   /* border:7px solid #000; */
+`;
+
+const StyledLink = styled(Link)`
+  padding: 15px 0;
+`;
+
+// This component is the parent of the `content.rendered` HTML. We can use nested
+// selectors to style that HTML.
+const Content = styled.div`
   #top,
   #bottom,
   #left,
-  #right {
-    z-index:900;
+  #right {    
     background: #000;
     position: fixed;
   }
@@ -96,15 +104,6 @@ const Container = styled.div`
   #bottom {
     bottom: 0;
   }
-`;
-
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-`;
-
-// This component is the parent of the `content.rendered` HTML. We can use nested
-// selectors to style that HTML.
-const Content = styled.div`
   img {
     width: 100%;
     object-fit: cover;
