@@ -55,8 +55,7 @@ const Wrapper = styled.div`
     }
   }
   &.false{
-    position:relative;
-    z-index:3;
+    position:relative;    
   }
 `;
 const Container = styled.div`

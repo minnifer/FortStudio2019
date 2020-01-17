@@ -78,6 +78,7 @@ const Content = styled.div`
   #right {    
     background: #000;
     position: fixed;
+    z-index:900;
   }
   #left,
   #right {

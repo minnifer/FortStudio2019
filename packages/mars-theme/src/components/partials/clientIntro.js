@@ -60,8 +60,7 @@ const Container = styled.div`
   margin-bottom: 120px;
   display: flex;
   flex-direction: column;
-  position:relative;
-  z-index:3;
+  position:relative;  
   @media (max-width: 768px) {
     margin-bottom: 65px;
   }
