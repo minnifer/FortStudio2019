@@ -160,6 +160,7 @@ const HeadContainer = styled.div`
   /* z-index: 1; */
   margin: auto;
   width: 100%;
+  color: #000;
 `;
 const CardContainer = styled.div`
   display: flex;
@@ -211,8 +212,7 @@ const Title = styled.h1`
   font-size: 4em;
 `;
 
-const Description = styled.div`  
-  color: rgba(12, 17, 43, 0.8);
+const Description = styled.div`    
   margin: 24px 0;
   position: absolute;
   top: 50%;
