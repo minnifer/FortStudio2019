@@ -195,10 +195,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   @media (max-width: 1024px) {
     padding: 0 60px;
     flex-direction: row;
+    justify-content: space-between;
   }
   @media (max-width: 480px) {
     padding: 0;
@@ -209,11 +210,13 @@ const Wrapper = styled.div`
 const TeamMember = styled.div`
   width: calc(95% / 3);
   margin-top: 140px;
+  margin-right:2.5%;
   &:nth-of-type(2) {
     margin-top: 90px;
   }
   &:nth-of-type(3) {
     margin-top: 40px;
+    margin-right:0;
   }
   &:nth-of-type(4) {
     margin-top: 50px;
@@ -226,7 +229,8 @@ const TeamMember = styled.div`
   }
   @media (max-width: 1024px) {
     width: calc(86% / 2);
-    margin: auto;
+    /* margin: auto; */
+    margin-right:0;
     margin-bottom: 26px;
     &:nth-of-type(2) {
       margin-top: auto;
