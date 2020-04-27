@@ -228,6 +228,9 @@ const TeamMember = styled.div`
     margin-top: -50px;
     margin-right:0;
   }
+  &:nth-of-type(7){
+    margin-right:0;
+  }
   @media (max-width: 1024px) {
     width: calc(86% / 2);
     /* margin: auto; */
