@@ -24,7 +24,7 @@
     "bootstrap": "^4.4.1",
     "frontity": "^1.4.4",
     "frontity-contact-form-7": "^0.1.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.12.0",
     "react-bodymovin": "^2.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
