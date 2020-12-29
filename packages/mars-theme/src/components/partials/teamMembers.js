@@ -234,19 +234,19 @@ const TeamMember = styled.div`
     margin-right:0;
     margin-bottom: 26px;
     &:nth-of-type(2) {
-      margin-top: auto;
+      margin-top: auto;      
     }
     &:nth-of-type(3) {
-      margin-top: auto;
+      margin-top: auto;      
     }
     &:nth-of-type(4) {
-      margin-top: auto;
+      margin-top: auto;      
     }
     &:nth-of-type(5) {
-      margin-top: auto;
+      margin-top: auto;      
     }
     &:nth-of-type(6) {
-      margin-top: auto;
+      margin-top: auto;      
     }
   }
   @media (max-width: 480px) {
@@ -255,18 +255,23 @@ const TeamMember = styled.div`
     margin-bottom: 26px;
     &:nth-of-type(2) {
       margin-top: auto;
+      margin-right:auto;
     }
     &:nth-of-type(3) {
       margin-top: auto;
+      margin-right:auto;
     }
     &:nth-of-type(4) {
       margin-top: auto;
+      margin-right:auto;
     }
     &:nth-of-type(5) {
       margin-top: auto;
+      margin-right:auto;
     }
     &:nth-of-type(6) {
       margin-top: auto;
+      margin-right:auto;
     }
   }
 
