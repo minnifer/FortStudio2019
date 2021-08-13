@@ -25,6 +25,8 @@ class Footer extends Component {
 
     window.setTimeout(this.isOnScreen.bind(this), 250);
   }
+
+
   componentDidMount() {
     window.setTimeout(this.isOnScreen.bind(this), 250);  
     window.onscroll = function() {
@@ -47,8 +49,12 @@ class Footer extends Component {
       }
     };
   }
+
+  
   render() {
     const options = this.props.state.source.get("acf-options-page");
+    const parsedAddress = options.acf.social_section.address.replace( /(<([^>]+)>)/ig, '');
+    console.log(parsedAddress);
     return (
       <FooterContainer>
         <TopWrapper>
@@ -134,7 +140,7 @@ class Footer extends Component {
               </SocialContainer>
               <ContactContainer>
                 <Address
-                  href="https://goo.gl/maps/k2qMiBH8gafxj47c7"
+                  href={'https://www.google.com/maps/place/' + parsedAddress}
                   target="_blank"
                   dangerouslySetInnerHTML={{
                     __html: options.acf.social_section.address
