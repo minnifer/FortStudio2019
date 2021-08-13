@@ -53,8 +53,7 @@ class Footer extends Component {
   
   render() {
     const options = this.props.state.source.get("acf-options-page");
-    const parsedAddress = options.acf.social_section.address.replace( /(<([^>]+)>)/ig, '');
-    console.log(parsedAddress);
+    const parsedAddress = options.acf.social_section.address.replace( /(<([^>]+)>)/ig, '');    
     return (
       <FooterContainer>
         <TopWrapper>
