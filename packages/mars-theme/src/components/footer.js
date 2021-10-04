@@ -68,7 +68,7 @@ class Footer extends Component {
               ></p>
               <Card
                 target="_blank"
-                linkURL="mailto:projects@fortyeah.com"
+                linkURL="mailto:projects@fortstudio.com"
                 linkText={options.acf.footer_section.hire_cta_text}
               ></Card>
             </Tout>
